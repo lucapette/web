@@ -1,7 +1,7 @@
 ---
 title: "My Engineering Management Values"
 date: 2022-08-02T08:36:10+02:00
-description: "What I think about my leadership style"
+description: "What guides my leadership style"
 draft: true
 tags:
   - "engineering management"
@@ -40,14 +40,14 @@ for readers that do not know me personally (if that's you, hey 👋 nice to meet
 you!). Let's start from "good leader".
 
 What makes a good leader? My answer is "many things but everything derives from
-trust". The people you manage trust you to have their back. They are confident that your focus
-as a leader is their growth and well-being.
+trust". The people you manage trust you to have their back. They are confident
+that your focus as a leader is their growth and well-being.
 
-As I believe trust is what makes a good leader, it's somewhat obvious that
-it is the common denominator of all my values.
+As I believe trust is what makes a good leader, it's somewhat obvious that it is
+the common denominator of all my values.
 
-What's also worth noticing is that I use "leader" instead of "engineering manager". It's
-is a conscious choice that allows me to make a small distinction.
+What's also worth noticing is that I use "leader" instead of "engineering
+manager". It's is a conscious choice that allows me to make a small distinction.
 
 While it's true I have been in positions of leadership most of my career, I have
 never held the title of engineering manager. More specifically, I've never been
@@ -61,14 +61,14 @@ That's the other thing I wanted to underline: I do not know how to gain trust
 from developers without deep technical conversations.
 
 From my exchanges with engineering manager friends, these conversations are
-somewhat rare and just tangential to the job so I believe I'd have a hard time in
-that role.
+somewhat rare and just tangential to the job so I believe I'd have a hard time
+in that role.
 
 I'm not saying that these conversations are the only way to gain developers'
 trust. I'm providing context for what my experience has been so far, so when I
 outline my values, it will be clear how I apply them to the job.
 
-Before I move on to the values themselves, I'd like to explain why I think that 
+Before I move on to the values themselves, I'd like to explain why I think that
 leading teams all my career is also relevant to this article.
 
 In every single job I took I felt a little "tricked" into leading developers. I
@@ -141,42 +141,43 @@ I provide discussion topics only if asked to. That happens more often with
 younger developers. In fact, their most common struggle is that they don't know
 what good or bad looks like yet.
 
-If people want to talk about things that are not work related, I do not drive the
-conversation back to work.
+If people want to talk about things that are not work related, I do not drive
+the conversation back to work.
 
 There is one thing I do plan carefully though: my action points after a one-to-one.
 
-Creating a safe space for people to tell me what bothers them and
-what their aspirations are comes with great expectations. People trusted me so now
-I have to "prove" they did the right thing.
+Creating a safe space for people to tell me what bothers them and what their
+aspirations are comes with great expectations. People trusted me so now I have
+to "prove" they did the right thing.
 
 It took me too long to understand I needed to take great care of the action
 points that a one-on-one generates.
 
-That is the main reason why I think you can hardly have more than 5 or 6
-direct reports _and_ do a good job at the same time. It is too much work and too
-much information.
+That is the main reason why I think you can hardly have more than 5 or 6 direct
+reports _and_ do a good job at the same time. It is too much work and too much
+information.
 
 One-on-ones make sense only as a recurring meeting, so their frequency is
 relevant to the conversation. I don't choose or have a standard frequency.
 
 Different people have different needs, I let them choose how often they want to
-meet. My only requirement is an upper bound: not less frequently than once per month.
+meet. My only requirement is an upper bound: not less frequently than once per
+month.
 
 It can be once per month, once per week, every day, or whatever. In my
 experience, the frequency tends to stabilise between every two weeks and once
 per month.
 
-I keep the meeting informal and, if people are fine with it, we do it outside of the
-typical office setup. This helps you reinforce the message 
-"this meeting has a special meaning because it is only about you".
+I keep the meeting informal and, if people are fine with it, we do it outside of
+the typical office setup. This helps you reinforce the message "this meeting has
+a special meaning because it is only about you".
 
 The meetings will be more formal with some people and "exactly like going for a
 coffee" with other people. Both are fine.
 
 In 2015, I wrote some [notes about one-on-ones]({{< ref
-"/writing/some-notes-about-one-on-ones" >}} "some notes about one on ones").
-If you're looking for more details, I revised the article in 2022.
+"/writing/some-notes-about-one-on-ones" >}} "some notes about one on ones"). If
+you're looking for more details, I revised the article in 2022.
 
 ## Written communication
 
@@ -258,7 +259,7 @@ If I'm demanding people to take time out of their day, it means the topics are
 important. My effort should reflect that.
 
 I enforce a "no agenda no meeting" policy when it makes sense. While I
-personally like it very much, I found that meeting culture is too 
+personally like it very much, I found that meeting culture is too
 company-specific for such a strict rule to always work.
 
 ### Developer book
@@ -306,8 +307,8 @@ Good examples of topics you may want to cover in the document are:
 
 ### Internal blogging
 
-I call this communication channel "internal blogging" for the lack of a better term.
-What I mean is that I always have a place where I can share long pieces of
+I call this communication channel "internal blogging" for the lack of a better
+term. What I mean is that I always have a place where I can share long pieces of
 writing.
 
 I want to be able to refer to specific content over time. I found that
@@ -325,8 +326,8 @@ time to collect feedback and minimise the situations in which a change occurs an
 people don't know about it.
 
 As teams scale, sharing knowledge becomes more and more important to make sure
-that different teams don't solve the same problem multiple times. An internal blog is
-a simple way to share these learnings.
+that different teams don't solve the same problem multiple times. An internal
+blog is a simple way to share these learnings.
 
 That's the other main reason why I write these blog posts. It paves the way for
 other people to write.
@@ -337,8 +338,9 @@ Fostering a culture of writing helps teams in many ways:
 - People can proudly share their achievements and simultaneously help other team
   members to learn something new.
 
-The first question that comes to mind is: What is the right topic for blog posts?
-A good answer is whatever people feel like sharing as long as it's work related.
+The first question that comes to mind is: What is the right topic for blog
+posts? A good answer is whatever people feel like sharing as long as it's work
+related.
 
 It only works if people use it as an actual technical blog, because that is the
 only way to ensure that the usage spreads among team members.
@@ -366,14 +368,14 @@ tendency to emulate the behaviour of those they trust.
 If people trust me as a leader, I can shape the culture of my team _just_ by
 doing what I think is right.
 
-This applies to everything we do at work every day, so I often felt
-overwhelmed by the idea that "people are observing my behaviour".
+This applies to everything we do at work every day, so I often felt overwhelmed
+by the idea that "people are observing my behaviour".
 
 The way I overcame this problem is by making sure I make a conscious effort to
 draw the boundaries of my values.
 
-The idea is that I clarify, with daily examples, what the things I really
-care about are. Let me provide some real-world examples from my teams:
+The idea is that I clarify, with daily examples, what the things I really care
+about are. Let me provide some real-world examples from my teams:
 
 - I call out people when they use non-inclusive language.
 - I leave at 6pm every day unless the system is on fire.
@@ -382,8 +384,8 @@ care about are. Let me provide some real-world examples from my teams:
 - I don't work outside of working hours.
 - You can't really reach me when I'm off.
 
-These are just examples, the point is: I learned that you can't tell people to do
-"the right thing" and expect them to follow you. You have to be the person
+These are just examples, the point is: I learned that you can't tell people to
+do "the right thing" and expect them to follow you. You have to be the person
 that does "the right thing".
 
 It's obviously harder to lead by example when the teams grow. Most of the people
@@ -416,8 +418,8 @@ I try to stay ahead of my own needs and hire just a little before I actually
 need more people.
 
 This also helps me to make sure I can actually hire slowly. While I'm
-interviewing people, I'm not trying to solve a now problem, so I can take my time
-with it.
+interviewing people, I'm not trying to solve a now problem, so I can take my
+time with it.
 
 Hiring slow is how I minimise false positives. If I hire the wrong people, the
 best I can do is to fire them.
@@ -431,7 +433,6 @@ possible.
 I think of firing as the worst possible outcome of the on-boarding process which
 I organise in the following checkpoints:
 
-- First day
 - First week
 - First month
 - First quarter
@@ -439,11 +440,9 @@ I organise in the following checkpoints:
 There is more to on-boarding than just looking for hiring failure, but let me
 focus on that aspect here.
 
-In the first few days, I only look for big red alerts. The kind of inappropriate
+In the first week, I only look for big red alerts. The kind of inappropriate
 behaviour that must result in immediate firing; sexist or racist behaviour comes
 to mind.
-
-[IN THE FIRST WEEK?]
 
 The one-month checkpoint is the first chance for both parties to ask themselves
 if they did the right thing. It is generally enough time to assess if you enjoy
