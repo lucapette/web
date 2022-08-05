@@ -1,8 +1,7 @@
 ---
 title: "My Engineering Management Values"
-date: 2022-08-02T08:36:10+02:00
+date: 2022-08-03T08:30:10+02:00
 description: "What guides my leadership style"
-draft: true
 tags:
   - "engineering management"
 keywords:
