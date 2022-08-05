@@ -5,7 +5,7 @@ date: "2017-06-06T00:00:00Z"
 description: A short introduction to terraform
 keywords: terraform, operations, github
 title: terraform and GitHub labels
-redirect_from:
+aliases:
   - /terraform-and-github-labels
 ---
 
@@ -19,20 +19,25 @@ The basic idea behind `terraform` is brilliant and simple: you describe your
 infrastructure using a little language called
 [hcl](https://github.com/hashicorp/hcl) and then use `terraform` to `apply`
 your changes. The thing that strikes me the most is how productive you can be
-using `terraform`. To get started, you only need to learn about how
-configuration is done via
+using `terraform`.
+
+To get started, you only need to learn about how configuration is done via
 [resources](https://www.terraform.io/docs/configuration/resources.html). A
-resource represents one component in your infrastructure, `terraform` provides
-a great number of
-[providers](https://www.terraform.io/docs/providers/index.html) to interact
-with different APIs (things like AWS, DNSimple, CloudFlare and so on). You
-describe your infrastructure by describing your resources.
+resource represents one component in your infrastructure, `terraform` provides a
+great number of [providers](https://www.terraform.io/docs/providers/index.html)
+to interact with different APIs (things like AWS, DNSimple, CloudFlare and so
+on). You describe your infrastructure by describing your resources.
 
 In the past few weeks, something silly started bugging me: I have multiple
-GitHub projects that share the same labels. As I created those labels manually
-over time, different projects have the same labels with different colors. It's a
-small thing, but it hurts my visual memory and I don't want to manually sync
-them. Fortunately, `terraform` has a
+GitHub projects that share the same labels.
+
+As I created those labels manually over time, different projects have the same
+labels with different colors.
+
+It's a small thing, but it hurts my visual memory and I don't want to manually
+sync them.
+
+Fortunately, `terraform` has a
 [GitHub](https://www.terraform.io/docs/providers/github/index.html) provider
 that exposes a
 [github_issue_label](https://www.terraform.io/docs/providers/github/r/issue_label.html)

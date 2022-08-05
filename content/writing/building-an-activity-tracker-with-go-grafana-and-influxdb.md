@@ -6,7 +6,7 @@ tags:
 date: "2017-02-23T00:00:00Z"
 keywords: golang, grafana, influxdb, open source, productivity
 title: Building an activity tracker with Go, Grafana, and InfluxDB
-redirect_from:
+aliases:
   - /building-an-activity-tracker-with-go-grafana-and-influxdb
 ---
 

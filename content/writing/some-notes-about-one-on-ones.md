@@ -7,7 +7,7 @@ description:
   this article wraps it up.
 keywords: one-on-ones
 title: Some notes about one-on-ones
-redirect_from:
+aliases:
   - /some-notes-about-one-to-ones
   - /writing/some-notes-about-one-to-ones
 ---

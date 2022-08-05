@@ -7,6 +7,8 @@ description: I hate the way our industry does the hiring. It's time to talk
   about it.
 keywords: hiring, development, juniors
 title: A few words about hiring
+aliases:
+  - /a-few-words-about-hiring
 ---
 
 I find myself in conversations about hiring all the time. The reason is pretty

@@ -4,7 +4,7 @@ tags:
 date: "2017-02-14T00:00:00Z"
 description: First steps with webpack, babel, and yarn
 keywords: react, yarn, babel, webpack, flowtype
-redirect_from:
+aliases:
   - /my-journey-with-react-and-its-ecosystem-first-steps-with-webpack-babel-and-yarn
 title: First steps with webpack, babel, and yarn
 ---
