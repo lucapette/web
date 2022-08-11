@@ -34,6 +34,7 @@
         "sass",
         "standups",
         "Testcontainers",
+        "virtus",
         "youd"
     ]
 }
