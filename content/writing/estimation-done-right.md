@@ -8,6 +8,8 @@ keywords:
   - "engineering management"
   - estimation
   - process
+aliases:
+  - /writing/estimations-done-right
 ---
 
 Product development teams often have problems with estimation. The reasons are
@@ -23,17 +25,17 @@ good strategy is to remove the process completely.
 
 If no one trusts estimates, what's the point, right?
 
-Whoever is asking for an estimate – be that product managers,
-the marketing department, the actual customers (that's the best option!) – they
-do so because having a proper timeline is relevant to their work.
+Whoever is asking for an estimate – be that product managers, the marketing
+department, the actual customers (that's the best option!) – they do so because
+having a proper timeline is relevant to their work.
 
 So how does one find a balance between stakeholders' needs and the hard truth
 that estimation is an unpleasant, nonsense, unproductive process?
 
-At a Latin class, the teacher would tell me _virtus in media stat_. It translates
-to "virtue stands in the middle". It's the guiding principle that made me
-accurately estimate many projects over the course of my career. Bear with me,
-it'll become clear in a minute.
+At a Latin class, the teacher would tell me _virtus in media stat_. It
+translates to "virtue stands in the middle". It's the guiding principle that
+made me accurately estimate many projects over the course of my career. Bear
+with me, it'll become clear in a minute.
 
 You _can_ design a process that removes estimation from your daily operations
 and still gives a good estimate to whoever needs it.
@@ -117,12 +119,12 @@ communication. It is a gym for empathy.
 It may be hard to break down a big feature for one reason or another: the
 product angle, the design one, the technical feasibility, and so on.
 
-These situations help team members put themselves in others people's shoes and brings
-everyone closer. They can finally see problems from a different perspective. With
-some practice, they'll start anticipating the problems.
+These situations help team members put themselves in others people's shoes and
+brings everyone closer. They can finally see problems from a different
+perspective. With some practice, they'll start anticipating the problems.
 
-Team members get closer and collaborate better if they have to break down features all the
-time.
+Team members get closer and collaborate better if they have to break down
+features all the time.
 
-If that gets you a predictable flow, why wouldn't you do it? I personally
-see no downsides.
+If that gets you a predictable flow, why wouldn't you do it? I personally see no
+downsides.
