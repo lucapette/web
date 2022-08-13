@@ -1,16 +1,16 @@
 ---
-title: "Estimations Done Right"
+title: "Estimation Done Right"
 date: 2022-08-09T23:39:03+02:00
 description: "How to make useful estimates and stabilise your flow."
 tags:
   - "engineering management"
 keywords:
   - "engineering management"
-  - estimations
+  - estimation
   - process
 ---
 
-Product development teams often have problems with estimations. The reasons are
+Product development teams often have problems with estimation. The reasons are
 well known: software is hard, there are too many details to take into account,
 and no one can consistently consider every aspect at estimation time.
 
@@ -18,27 +18,27 @@ Because of these well-know problems, both individual contributors and their
 leaders tend to overestimate _everything_. It is only human to do so and, over
 time, teams just stop trusting the accuracy of their own estimates.
 
-The lack of trust in estimations is tragi-comically common in our industry and a
-good strategy is remove the process completely.
+The lack of trust in estimates is tragicomically common in our industry and a
+good strategy is to remove the process completely.
 
 If no one trusts estimates, what's the point, right?
 
-The problem is that whoever is asking for an estimate, be that product managers,
-the marketing department, the actual customers (that's the best option!), they
-ask because having a proper timeline is relevant to their work.
+Whoever is asking for an estimate – be that product managers,
+the marketing department, the actual customers (that's the best option!) – they
+do so because having a proper timeline is relevant to their work.
 
-So how does one find a balance between stakeholders needs and the hard truth
-that estimations are an unpleasant, non-sense, unproductive process?
+So how does one find a balance between stakeholders' needs and the hard truth
+that estimation is an unpleasant, nonsense, unproductive process?
 
-At latin class, the teacher would tell me _virtus in media stat_. It translates
+At a Latin class, the teacher would tell me _virtus in media stat_. It translates
 to "virtue stands in the middle". It's the guiding principle that made me
 accurately estimate many projects over the course of my career. Bear with me,
-it'll be clear in a minute.
+it'll become clear in a minute.
 
-You _can_ design a process that removes estimations from your daily operations
+You _can_ design a process that removes estimation from your daily operations
 and still gives a good estimate to whoever needs it.
 
-The key is to focus on what makes estimates hard: product development is often
+The key is to focus on what makes estimation hard: product development is often
 unpredictable therefore our estimation capabilities are bad.
 
 I invite you to take a minute or two to think about the situations in which you
@@ -58,7 +58,7 @@ predicable features show the following characteristics:
   smooth, the system just kept working. After all, the diff was so small the
   system _almost did not change_.
 
-Unfortunately, most features do not check these marks.
+Unfortunately, most features do not check off these boxes.
 
 They _should_ though.
 
@@ -69,9 +69,9 @@ The sceptical here would say: it is called perfect scenario because it never
 happens. I do not disagree with that, but I prefer to apply the following
 principle instead:
 
-> Strive for perfection, but accept that done is better than perfect
+> Strive for perfection, but accept that done is better than perfect.
 
-The balance between ideal and real world scenario is important and it should
+The balance between an ideal and real world scenario is important and it should
 always be taken into account. _Virtus in media stat_.
 
 In the ideal world, all features would require "a small diff", have a perfectly
@@ -92,37 +92,37 @@ Here is a trivial example:
 
 - You have to develop a large feature. Large enough you can picture how many
   days or weeks it will take.
-- After discussing with the team how to split it, you break it out in X "small
+- After discussing with the team how to split it, you break it down into X "small
   standard features".
 - You know your "small standard feature" takes half a day.
 - You're looking at X/2 days of work.
 
-Splitting process doesn't guarantees absolute predictability. But the argument
+Splitting process doesn't guarantee absolute predictability. But the argument
 "if every single feature we build takes half a day, we know exactly how long
 anything takes" is strong because you'd need way too many things to go wrong for
 this formula not to work.
 
 The challenge moves away from guesswork and it becomes getting better at
-breaking up work in small, coherent, deployable chunks of work.
+breaking down work into small, coherent, deployable chunks of work.
 
 That is the process I use now to mitigate the unpredictable nature of product
 development.
 
 Focusing on splitting features has interesting side-effects on the communication
-infrastructure of a team too.
+infrastructure of a team, too.
 
-Continuously breaking up big features is such small parts requires a lot of
+Continuously breaking down big features into smaller parts requires a lot of
 communication. It is a gym for empathy.
 
-It may be hard to break a big feature down for a specific reason: be that the
+It may be hard to break down a big feature for one reason or another: the
 product angle, the design one, the technical feasibility, and so on.
 
-These situations help team members to put others people shoes on and brings
-everyone closer. They can finally see problems from a different perspective.With
-some practice, they'll start anticipating them.
+These situations help team members put themselves in others people's shoes and brings
+everyone closer. They can finally see problems from a different perspective. With
+some practice, they'll start anticipating the problems.
 
-Team get closer and collaborate better if they have to split up features all the
+Team members get closer and collaborate better if they have to break down features all the
 time.
 
-If that will get you a predictable flow, why wouldn't you do it? I personally
+If that gets you a predictable flow, why wouldn't you do it? I personally
 see no downsides.
