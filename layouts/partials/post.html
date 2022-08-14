@@ -18,7 +18,8 @@
         <div class="level-item">
           <div class="tags">
             {{ range .Params.tags }}
-              <a class="tag is-link" href="/tags/{{ . }}">{{ . }}</a>
+              {{ $url := . | urlize }}
+              <a class="tag is-link" href="/tags/{{ $url }}">{{ $url }}</a>
             {{ end }}
           </div>
         </div>

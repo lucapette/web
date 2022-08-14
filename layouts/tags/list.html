@@ -8,6 +8,9 @@
     <div class="columns">
       <div class="column is-two-thirds">
         <div class="content">
+          {{ if .Content }}
+            <p>{{ .Content }}</p>
+          {{ end }}
           <ul>
             {{ range .Pages }}
               <li>
