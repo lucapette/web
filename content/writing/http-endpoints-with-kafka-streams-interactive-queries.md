@@ -392,13 +392,19 @@ considerations that can help you orient yourself better:
 
 The one use case where I think interactive queries endpoints are actually a bit
 of a stretch is those situations in which your endpoint _always_ needs all of
-the state to compute the response. For example, imagine we'd change our
-`/search` endpoint so that it also needs to return things like "top X words by
-count" or "least recurrent words of the month". In such cases, you'd always need
-to query all the instances which may turn a little slow (or just make the
-response time of your endpoint unpredictable). Having said that, I would
-consider building a separate interactive query for such a use case if you know
-your system can afford to run the endpoint on a single instance.
+the state to compute the response.
+
+For example, imagine we'd change our `/search` endpoint so that it also needs to
+return things like "top X words by count" or "least recurrent words of the
+month".
+
+In such cases, you'd always need to query all the instances which may turn a
+little slow (or just make the response time of your endpoint unpredictable).
+
+
+Having said that, I would consider building a separate interactive query for
+such a use case if you know your system can afford to run the endpoint on a
+single instance.
 
 As I mentioned, the code and the settings I wrote for this article are not
 recommended for production usage. So, as promised, here's a production checklist
