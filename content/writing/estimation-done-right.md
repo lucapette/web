@@ -18,7 +18,7 @@ and no one can consistently consider every aspect at estimation time.
 
 Because of these well-know problems, both individual contributors and their
 leaders tend to overestimate _everything_. It is only human to do so and, over
-time, teams just stop trusting the accuracy of their own estimates.
+time, teams just stop trusting the accuracy of their estimates.
 
 The lack of trust in estimates is tragicomically common in our industry and a
 good strategy is to remove the process completely.
@@ -99,19 +99,22 @@ Here is a trivial example:
 - You know your "small standard feature" takes half a day.
 - You're looking at X/2 days of work.
 
-Splitting process doesn't guarantee absolute predictability. But the argument
-"if every single feature we build takes half a day, we know exactly how long
-anything takes" is strong because you'd need way too many things to go wrong for
-this formula not to work.
+Splitting process doesn't guarantee absolute predictability.
+
+The argument "if every single feature we build takes half a day, we know exactly
+how long anything takes" is strong though. You'd need way too many things to go
+wrong for this formula to fail.
 
 The challenge moves away from guesswork and it becomes getting better at
 breaking down work into small, coherent, deployable chunks of work.
 
-That is the process I use now to mitigate the unpredictable nature of product
-development.
+"Estimation done right" means your estimation process is a means to an end.
 
-Focusing on splitting features has interesting side-effects on the communication
-infrastructure of a team, too.
+The goal is to mitigate the unpredictable nature of product development by
+splitting features.
+
+This process has interesting side-effects on the communication infrastructure
+of a team, too.
 
 Continuously breaking down big features into smaller parts requires a lot of
 communication. It is a gym for empathy.
@@ -119,9 +122,10 @@ communication. It is a gym for empathy.
 It may be hard to break down a big feature for one reason or another: the
 product angle, the design one, the technical feasibility, and so on.
 
-These situations help team members put themselves in others people's shoes and
-brings everyone closer. They can finally see problems from a different
-perspective. With some practice, they'll start anticipating the problems.
+These conflicts help team members put themselves in others people's shoes and
+bring everyone closer. They can finally see problems from a different
+perspective. With some practice, they'll start anticipating others people's
+needs.
 
 Team members get closer and collaborate better if they have to break down
 features all the time.
