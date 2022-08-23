@@ -1,35 +1,31 @@
 {{ define "main" }}
   <section class="section">
     <div class="columns">
-      <div class="column is-two-thirds">
-        <div class="container is-fluid">
-          <h1 class="title is-1">{{ .Title }}</h1>
-          <p class="is-italic">
-            Published
-            {{ with .Params.tags }}
-              in
-              {{ $sort := sort . }}
-              {{ $links := apply $sort "partial" "tag" "." }}
-              {{ $clean := apply $links "chomp" "." }}
-              {{ delimit $clean ", " }}
-            {{ end }}
-            on
-            {{ .Date | time.Format ":date_long" }}
-            {{ if ne .Date .Lastmod }}
-              last edited on
-              {{ .Lastmod | time.Format ":date_long" }}
-            {{ end }}
-          </p>
-        </div>
+      <div class="column is-two-thirds-desktop">
+        <h1 class="title is-1">{{ .Title }}</h1>
+        <p class="is-italic">
+          Published
+          {{ with .Params.tags }}
+            in
+            {{ $sort := sort . }}
+            {{ $links := apply $sort "partial" "tag" "." }}
+            {{ $clean := apply $links "chomp" "." }}
+            {{ delimit $clean ", " }}
+          {{ end }}
+          on
+          {{ .Date | time.Format ":date_long" }}
+          {{ if ne .Date .Lastmod }}
+            last edited on
+            {{ .Lastmod | time.Format ":date_long" }}
+          {{ end }}
+        </p>
       </div>
     </div>
 
     <div class="columns">
-      <div class="column is-three-fifths">
-        <div class="container is-fluid">
-          <div class="content">
-            {{ .Content }}
-          </div>
+      <div class="column is-three-fifths-desktop">
+        <div class="content">
+          {{ .Content }}
         </div>
       </div>
     </div>
