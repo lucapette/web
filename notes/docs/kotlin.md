@@ -63,9 +63,27 @@ and spring (java).
 
 I wrote a configuration library (source is not open yet). Here’s how the API looks like:
 
-Writing it has been pretty interesting but I had to figure out too much on my
-own. Docs aren't great for meta-programming.
+```kotlin
+@KonfigSource(prefix = "server")
+data class ServerConfig(val host: String, val port: Int)
 
+@Test
+fun `can load a simple config`() {
+  class App(konfig: Konfig) {
+    val serverConfig by konfig.inject<ServerConfig>()
+  }
+
+  val konfig  = Konfig("src/test/resources/application.properties")
+  val app = App(konfig)
+
+  assertThat(app.serverConfig.host, `is`("localhost"))
+  assertThat(app.serverConfig.port, `is`(4242))
+}
+```
+
+The library can also do "fancy" nested configs. Writing it has been pretty
+interesting but I had to figure out too much on my own. Docs aren't great for
+meta-programming.
 
 I played around with method extensions: [klogger.kt ·
 GitHub](https://gist.github.com/lucapette/3dd7eca10c47de69864bac844b8d0d04).
