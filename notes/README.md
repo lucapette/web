@@ -1,3 +1,3 @@
 # Notes
 
-WIP
+A public collection of notes

@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer/themes/duotoneLight");
+const darkCodeTheme = require("prism-react-renderer/themes/duotoneDark");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -25,9 +25,7 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/lucapette/notes/tree/main",
+          editUrl: "https://github.com/lucapette/web/tree/main/notes",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
@@ -59,7 +57,7 @@ const config = {
         links: [
           {
             label: "GitHub",
-            href: "https://github.com/lucapette/notes",
+            href: "https://github.com/lucapette/web/tree/main/notes",
           },
           {
             label: "Twitter",
@@ -70,6 +68,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["kotlin"],
       },
     }),
 };

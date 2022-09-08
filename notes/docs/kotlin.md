@@ -40,9 +40,21 @@ I don't know if I have _invented_ this name but here's what I mean:
 
 ```kotlin
 fun thing() = blockMethod {
+  doSomething()
 }
 ```
-It makes function definitions (especially with coroutines) very readable
+
+It makes function definitions (especially with coroutines) very readable.
+
+A good example of this:
+
+```kotlin
+
+override fun toString() = buildString {
+  appendLine("one line $stuff")
+  appendLine("another line with $more")
+}
+```
 
 ## gRPC
 
@@ -85,7 +97,7 @@ The library can also do "fancy" nested configs. Writing it has been pretty
 interesting but I had to figure out too much on my own. Docs aren't great for
 meta-programming.
 
-I played around with method extensions: [klogger.kt ·
+I also played around with method extensions: [klogger.kt ·
 GitHub](https://gist.github.com/lucapette/3dd7eca10c47de69864bac844b8d0d04).
 
 ## Coroutines
