@@ -55,10 +55,20 @@ to put all your code into one repository, right?
 
 In reality, there is a variety of reasons why it's not exactly easy.
 
-The first consideration is that your experience may vary a lot depending on how
-many programming languages and which ones your organisation uses.
+The experience will vary a lot depending on which programming languages the
+projects in the monorepo use.
 
-The reason is that the tooling support for monorepo is wildly different
+The easiest scenario is everything is written in the same language. If that's
+the case, then the support for monorepo may be pretty good out of the box. For
+example, TypeScript and Java for example have excellent tooling.
+
+It gets more complicated the more languages are involved. There are two different scenarios:
+
+- You have a small number of languages, say Go and TypeScript, and can get away
+  glueing together the respective build tools with some bash scripting. It
+  works, it's practical and you get most of the monorepo benefits.
+- You have too many languages and need a build tool that is monorepo friendly. I
+  will discuss this scenario in its own [section](#a-rant-about-build-tools).
 
 ### Setup costs
 
