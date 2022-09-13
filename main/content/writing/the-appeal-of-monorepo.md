@@ -53,24 +53,38 @@ specific topic:
 Conceptually, going monorepo seems pretty straightforward. All you need to do is
 to put all your code into one repository, right?
 
-In reality, there is a variety of reasons why it's not exactly easy.
+In reality, there is a variety of reasons why it's not exactly easy. There are a lot of things to take into account.
 
-The experience will vary a lot depending on which programming languages the
-projects in the monorepo use.
+If you have an old codebase with lots of project, the migration to a monorepo
+will not be trivial.
 
-The easiest scenario is everything is written in the same language. If that's
-the case, then the support for monorepo may be pretty good out of the box. For
-example, TypeScript and Java for example have excellent tooling.
+There's obviously also an educational cost because, to be fair, monorepo is not
+so common in early-stage startups.
 
-It gets more complicated the more languages are involved. There are two different scenarios:
+To me personally, this is the most interesting aspect of the conversation
+because I think these companies would benefit quite a bit from the simplicity of
+having all the code into one place.
 
-- You have a small number of languages, say Go and TypeScript, and can get away
-  glueing together the respective build tools with some bash scripting. It
-  works, it's practical and you get most of the monorepo benefits.
-- You have too many languages and need a build tool that is monorepo friendly. I
-  will discuss this scenario in its own [section](#a-rant-about-build-tools).
+The most difficult part of going monorepo is the tooling. I structured this
+article so that the discussion about tooling is toward the end.
+
+Since that's a little complicated, it's easier to discuss tooling once I
+mentioned some benefits of this approach.
 
 ### Setup costs
+
+There's a lot going on when creating a new project. A typical setup involves:
+
+- build scripts
+- deployment scripts
+- collaborators
+
+It's not much but it adds up very quickly as an organisation grows and it's
+mostly done by copy and paste of existing setup.
+
+The problems with a poly-repo (stealing the naming from
+[monorepo.tools](https://monrepo.tools)) approach become.
+
 
 ### CD & CI can get really smart
 
@@ -87,6 +101,21 @@ It gets more complicated the more languages are involved. There are two differen
 #### Small is easy, big is possible
 
 ## A rant about build tools
+
+The experience of building multiple projects in a monorepo will vary a lot
+depending on which programming languages the projects in the monorepo use.
+
+The easiest scenario is everything is written in the same language. If that's
+the case, then the support for monorepo may be pretty good out of the box. For
+example, TypeScript and Java for example have excellent tooling.
+
+It gets more complicated the more languages are involved. I consider two
+different scenarios:
+
+- You have only two languages and both have excellent build tooling. You can get
+  away glueing together the respective build tools with some bash scripting. It
+  works, it's practical and you get most of the monorepo benefits.
+- You have too many languages and need a build tool that is monorepo friendly.
 
 ### Bazel is the worst build tool
 
