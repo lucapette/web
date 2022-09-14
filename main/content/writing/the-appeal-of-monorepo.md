@@ -36,7 +36,7 @@ specific topic:
 
 - [Simple ain't easy](#simple-aint-easy)
   - [Setup costs](#setup-costs)
-  - [CD & CI can get really smart](#cd--ci-can-get-really-smart)
+  - [CI & CD can get really smart](#ci--cd-can-get-really-smart)
 - [Workflow](#workflow)
   - [Trunk based development](#trunk-based-development)
   - [Changes, changes, changes](#changes-changes-changes)
@@ -53,7 +53,8 @@ specific topic:
 Conceptually, going monorepo seems pretty straightforward. All you need to do is
 to put all your code into one repository, right?
 
-In reality, there is a variety of reasons why it's not exactly easy. There are a lot of things to take into account.
+In reality, there is a variety of reasons why it's not exactly easy. There are a
+lot of things to take into account.
 
 If you have an old codebase with lots of project, the migration to a monorepo
 will not be trivial.
@@ -83,10 +84,32 @@ It's not much but it adds up very quickly as an organisation grows and it's
 mostly done by copy and paste of existing setup.
 
 The problems with a poly-repo (stealing the naming from
-[monorepo.tools](https://monrepo.tools)) approach become.
+[monorepo.tools](https://monrepo.tools)) is that the setup cost is always the
+same and update to build and deployment processes may require a non-trivial
+number of changes.
+
+The monorepo approach is very different. First off, there's no setup costs for
+collaboration. The new projects will end up in the same place the organisation
+is already using so it's known to work.
+
+Build and deployment scripts costs are high only if a new programming language
+is introduced.
+
+This is a side-effect I love about monorepo: specific languages and frameworks
+are officially supported by the monorepo. It makes organisational design of
+growing teams easier.
+
+It's harder to run into surprises like "that new project is build in X" where X
+is a 3 weeks old language.
+
+Monorepo actively discourages the introduction of new languages because people
+want to move fast and no one wants to spend weeks _before_ they can write a
+single line of code.
 
 
-### CD & CI can get really smart
+### CI & CD can get really smart
+
+Setting up CI
 
 ## Workflow
 
