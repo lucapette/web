@@ -84,13 +84,14 @@ It's not much but it adds up very quickly as an organisation grows and it's
 mostly done by copy and paste of existing setup.
 
 The problems with a poly-repo (stealing the naming from
-[monorepo.tools](https://monrepo.tools)) is that the setup cost is always the
-same and update to build and deployment processes may require a non-trivial
+[monorepo.tools](https://monrepo.tools)) is that the setup cost is constant.
+
+Furthermore, updates to build and deployment processes may require a non-trivial
 number of changes.
 
 The monorepo approach is very different. First off, there's no setup costs for
 collaboration. The new projects will end up in the same place the organisation
-is already using so it's known to work.
+is already using.
 
 Build and deployment scripts costs are high only if a new programming language
 is introduced.
@@ -100,16 +101,19 @@ are officially supported by the monorepo. It makes organisational design of
 growing teams easier.
 
 It's harder to run into surprises like "that new project is build in X" where X
-is a 3 weeks old language.
+is a 3 weeks old language or framework.
 
-Monorepo actively discourages the introduction of new languages because people
-want to move fast and no one wants to spend weeks _before_ they can write a
-single line of code.
-
+Monorepo actively discourages the introduction of new languages because everyone
+wants to move fast and no one wants to spend days (sometimes weeks) _before_
+they can write a single line of code.
 
 ### CI & CD can get really smart
 
-Setting up CI
+- dependencies versions
+- language versions
+- automatically deploy all that changed
+- generate docs of all kind
+
 
 ## Workflow
 
