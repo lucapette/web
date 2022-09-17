@@ -25,21 +25,24 @@ It's a thoughtful definition as it underlines both co-location of different
 projects and the fact there's a meaningful relationship between them.
 
 I'm happy with this definition as long as `project=code+docs`. I never want to
-forget about the documentation. Making documentation visible and easier to
-change is my favourite side-effect of adopting a monorepo approach.
+forget about the documentation.
+
+Making documentation visible and easier to change is my favourite side-effect of
+adopting a monorepo approach.
 
 Here's a table of content of this article, in case you want to jump to a
 specific topic:
 
 - [Simple ain't easy](#simple-aint-easy)
-  - [Setup costs](#setup-costs)
-  - [CI & CD can get really smart](#ci--cd-can-get-really-smart)
-- [Workflow](#workflow)
-  - [Trunk based development](#trunk-based-development)
-  - [Changes, changes, changes](#changes-changes-changes)
-    - [Increased visibility](#increased-visibility)
-    - [Atomicity](#atomicity)
-    - [Small is easy, big is possible](#small-is-easy-big-is-possible)
+- [Setup costs](#setup-costs)
+- [One version to rule them all](#one-version-to-rule-them-all)
+- [Continuos integration](#continuos-integration)
+- [Changes, changes, changes](#changes-changes-changes)
+  - [Continuos deployment](#continuos-deployment)
+  - [Auto-generation](#auto-generation)
+  - [Increased visibility](#increased-visibility)
+  - [Atomicity](#atomicity)
+  - [Small is easy, big is possible](#small-is-easy-big-is-possible)
 - [A rant about build tools](#a-rant-about-build-tools)
   - [Bazel is the worst build tool](#bazel-is-the-worst-build-tool)
   - [Except all others](#except-all-others)
@@ -50,26 +53,25 @@ specific topic:
 Conceptually, going monorepo seems pretty straightforward. All you need to do is
 to put all your code into one repository, right?
 
-In reality, there is a variety of reasons why it's not exactly easy. There are a
-lot of things to take into account.
+In reality, there are many things to take into account so it's not exactly easy.
 
 If you have an old codebase with lots of project, the migration to a monorepo
 will not be trivial.
 
-There's obviously also an educational cost because, to be fair, monorepo is not
-so common in early-stage startups.
+There's also an educational cost because monorepo is not so common in
+early-stage startups.
 
-To me personally, this is the most interesting aspect of the conversation
-because I think these companies would benefit quite a bit from the simplicity of
-having all the code into one place.
+To me personally, this is a very interesting aspect of the conversation. I think
+early-stage startups would benefit quite a bit from the simplicity of having all
+the code into one place.
 
-The most difficult part of going monorepo is the tooling. I structured this
+Since the most difficult part of going monorepo is the tooling, I structured the
 article so that the discussion about tooling is toward the end.
 
-Since that's a little complicated, it's easier to discuss tooling once I
-mentioned some benefits of this approach.
+It's easier to discuss tooling once I mentioned some benefits of this approach.
+Let's start from where a new project would start: setting it up.
 
-### Setup costs
+## Setup costs
 
 There's a lot going on when creating a new project. A typical setup involves:
 
@@ -77,18 +79,20 @@ There's a lot going on when creating a new project. A typical setup involves:
 - deployment scripts
 - collaborators
 
-It's not much but it adds up very quickly as an organisation grows and it's
-mostly done by copy and paste of existing setup.
+It doesn't seem much but it adds up very quickly as an organisation grows and
+it's mostly done by copy and paste of existing setup.
 
-The problems with a poly-repo (stealing the naming from
-[monorepo.tools](https://monrepo.tools)) is that the setup cost is constant.
+The problems with a polyrepo (stealing the naming from
+[https://monorepo.tools](https://monorepo.tools)) is that the setup cost is
+constant.
 
 Furthermore, updates to build and deployment processes may require a non-trivial
 number of changes.
 
-The monorepo approach is very different. First off, there's no setup costs for
-collaboration. The new projects will end up in the same place the organisation
-is already using.
+The monorepo approach is very different.
+
+First off, there's no setup costs for collaboration. The new projects will end
+up in the same place the organisation is already using.
 
 Build and deployment scripts costs are high only if a new programming language
 is introduced.
@@ -104,25 +108,46 @@ Monorepo actively discourages the introduction of new languages because everyone
 wants to move fast and no one wants to spend days (sometimes weeks) _before_
 they can write a single line of code.
 
-### CI & CD can get really smart
+## One version to rule them all
 
 - dependencies versions
 - language versions
-- automatically deploy all that changed
-- generate docs of all kind
 
+## Continuos integration
 
-## Workflow
+I think it's possible, in theory, to continuously integrate your code base in a
+polyrepo setup. I just haven't seen that work in practice.
 
-### Trunk based development
+Every solution I have seen that aimed to CI a polyrepo was a variation of an
+orchestration tool for integration tests.
 
-### Changes, changes, changes
+These "test all the things from all the repos" tools are fun to write and I
+learned a lot building a couple of them. But they don't work very well due the
+very nature of the problem they're trying to solve.
 
-#### Increased visibility
+In a monorepo setup, continuos integration is significantly simpler. First of
+all, if the languages involved are statically typed, feedback loops tend to be
+really fast.
 
-#### Atomicity
+Writing "test all the things" tools becomes much easier because it's possible to
+rely on a variety of constraints provided by the monorepo approach. Things like
+"all Java code builds this way" or "all the language X libraries are in `lib/x`
+help a lot.
 
-#### Small is easy, big is possible
+In my experience, the simplest approach to continuos integration is [trunk based
+development](https://trunkbaseddevelopment.com/) in a monorepo.
+
+## Changes, changes, changes
+
+### Continuos deployment
+
+### Auto-generation
+
+### Increased visibility
+
+### Atomicity
+
+### Small is easy, big is possible
 
 ## A rant about build tools
 
