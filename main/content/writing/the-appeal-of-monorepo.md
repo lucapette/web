@@ -15,14 +15,11 @@ times. In fact, I chose to setup my teams with a monorepo every time I got the
 chance.
 
 Before I move on to the discussion of what appeals me to choose a monorepo
-approach, let's define it:
+approach, let's define it. Here's the definition from
+[https://monorepo.tools](https://monorepo.tools/#what-is-a-monorepo)
 
 > A monorepo is a single repository containing multiple distinct projects, with
 > well-defined relationships.
-
-The definition comes from [what's a
-monorepo](https://monorepo.tools/#what-is-a-monorepo), a whole website dedicated
-to monorepo.
 
 It's a thoughtful definition as it underlines both co-location of different
 projects and the fact there's a meaningful relationship between them.

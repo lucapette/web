@@ -62,7 +62,7 @@
                 My favourite writing
               </h2>
               <ul class="has-text-centered-mobile">
-                {{ range (where .Site.Pages.ByLastmod.Reverse "Params.favourite" true ) }}
+                {{ range (where .Site.Pages.ByLastmod "Params.favourite" true ) }}
                   <li>
                     <a class="is-size-4" href="{{ .Permalink }}"
                       >{{ .Title }}</a

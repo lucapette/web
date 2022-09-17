@@ -17,10 +17,12 @@ Mallarmé answered:
 
 This is the best definition of writing I've ever come across.
 
-It's all about the words. The way you connect them, the way you get rid of them.
-It's about each sentence you choose, how you craft the rhythm of your sentences.
-Varying between short sentenced and longer ones gives a personal touch to your
-writing. It helps _my_ writing a great deal. I just did that.
+It's all about the words.
+
+The way you connect them, the way you get rid of them. It's about each sentence
+you choose, how you craft the rhythm of your sentences. Varying between short
+sentenced and longer ones gives a personal touch to your writing. It helps _my_
+writing a great deal. I just did that.
 
 I have always dedicated time to writing but my personal life got in the way of
 my fluency. Moving to Germany had a big impact because speaking a different
@@ -212,11 +214,11 @@ We have the tendency to overestimate our forecasting capabilities. It's called
 feel the effect of this bias every time I publish something.
 
 2017 is a perfect example: the only article I thought wasn't worth sharing got
-more attention than the rest put together. I couldn't believe it.
+more attention than the rest of my articles put together. I couldn't believe it.
 
-So I decided that the best strategy against this bias is to ignore it
-completely. I won't ask myself if an article is worth sharing or not. I'll share
-whatever I write because I love writing.
+I decided that the best strategy against this bias is to ignore it completely. I
+won't ask myself if an article is worth sharing or not. I'll share whatever I
+write because I love writing.
 
 Besides, from time to time someone tells me they found my writing helpful. It's
 a beautiful thought: I do something just because I like it and that helps

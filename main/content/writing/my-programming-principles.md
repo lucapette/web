@@ -7,6 +7,7 @@ tags:
 keywords:
   - programming
   - principles
+favourite: true
 ---
 
 {{< message class="is-info">}} This is a _long_ read. You will find a table of
