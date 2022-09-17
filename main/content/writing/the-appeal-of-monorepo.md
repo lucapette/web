@@ -16,18 +16,16 @@ chance.
 
 Before I move on to the discussion of what appeals me to choose a monorepo
 approach, let's define it. Here's the definition from
-[https://monorepo.tools](https://monorepo.tools/#what-is-a-monorepo)
+[https://monorepo.tools](https://monorepo.tools/#what-is-a-monorepo):
 
 > A monorepo is a single repository containing multiple distinct projects, with
 > well-defined relationships.
 
 It's a thoughtful definition as it underlines both co-location of different
-projects and the fact there's a meaningful relationship between them.
+projects and a meaningful relationship among them.
 
-I'm happy with this definition as long as `project=code+docs`. I never want to
-forget about the documentation.
-
-Making documentation visible and easier to change is my favourite side-effect of
+I'm happy with this definition as long as `project=code+docs`. Making
+documentation visible and easier to change is my favourite side-effect of
 adopting a monorepo approach.
 
 Here's a table of content of this article, in case you want to jump to a
@@ -115,27 +113,32 @@ they can write a single line of code.
 
 ## Continuos integration
 
-I think it's possible, in theory, to continuously integrate your code base in a
-polyrepo setup. I just haven't seen that work in practice.
+In theory, I think it's possible to continuously integrate a large code base in
+a polyrepo setup. I just haven't seen that work in practice.
 
-Every solution I have seen that aimed to CI a polyrepo was a variation of an
-orchestration tool for integration tests.
+Every CI solution I have seen in a polyrepo was a variation of an orchestration
+tool for integration tests.
 
-These "test all the things from all the repos" tools are fun to write and I
-learned a lot building a couple of them. But they don't work very well due the
-very nature of the problem they're trying to solve.
+These "test all the things from all the repos" tools are fun to write. I learned
+a lot building a couple of them. But they don't work very well due the very
+nature of the problem they're trying to solve.
 
-In a monorepo setup, continuos integration is significantly simpler. First of
-all, if the languages involved are statically typed, feedback loops tend to be
-really fast.
+In a monorepo setup, continuos integration is significantly simpler.
 
-Writing "test all the things" tools becomes much easier because it's possible to
-rely on a variety of constraints provided by the monorepo approach. Things like
-"all Java code builds this way" or "all the language X libraries are in `lib/x`
-help a lot.
+First of all, if the languages involved are statically typed, feedback loops
+tend to be really fast.
+
+Writing "test all the things" tools also becomes much easier because it's
+possible to rely on a variety of constraints provided by the monorepo.
+
+Things like "all Java code builds this way" or "all the language X libraries are
+in `lib/x` help a lot.
 
 In my experience, the simplest approach to continuos integration is [trunk based
 development](https://trunkbaseddevelopment.com/) in a monorepo.
+
+In other words, I think you can't actually do continuos integration in a
+polyrepo setup.
 
 ## Changes, changes, changes
 
