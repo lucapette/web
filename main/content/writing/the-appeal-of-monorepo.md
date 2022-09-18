@@ -36,15 +36,15 @@ specific topic:
 - [One version to rule them all](#one-version-to-rule-them-all)
 - [Continuos integration](#continuos-integration)
 - [Changes, changes, changes](#changes-changes-changes)
+  - [Atomicity](#atomicity)
   - [Continuos deployment](#continuos-deployment)
+  - [Small is easy, big is possible](#small-is-easy-big-is-possible)
   - [Auto-generation](#auto-generation)
   - [Increased visibility](#increased-visibility)
-  - [Atomicity](#atomicity)
-  - [Small is easy, big is possible](#small-is-easy-big-is-possible)
 - [A rant about build tools](#a-rant-about-build-tools)
   - [Bazel is the worst build tool](#bazel-is-the-worst-build-tool)
   - [Except all others](#except-all-others)
-- [How to structure a monorepo](#how-to-structure-a-monorepo)
+- [To mono or not to mono?](#to-mono-or-not-to-mono)
 
 ## Simple ain't easy
 
@@ -108,8 +108,52 @@ they can write a single line of code.
 
 ## One version to rule them all
 
-- dependencies versions
-- language versions
+As soon as a codebase is made of more than one project, questions about versions arise:
+
+- Should project B use the same version of library X used in project A?
+- Should we allow a new version of language Y in project B?
+
+I say "questions arise" but, in my personal experience, they're not really asked
+in a polyrepo setup. After all in a polyrepo each project is its own things.
+
+The larger is the organisation (therefore the codebase) the more freedom people
+will take when starting new projects. It's cool to use new shiny features of
+languages and framework and it's pretty hard to ensure people make reasonable
+choices at scale.
+
+Depending on how a monorepo is organised, you may run into the same problem. But
+the beauty of a monorepo approach is that you can put simple constraints in
+place to ensure version management doesn't get out of hand.
+
+You can have your build tools only support one version of library X and language
+Y. So these questions do not rise in this context either but the end result is
+very different.
+
+If your build tools only support, say, Java 17 then all the projects will have
+to support Java 17. Yes it's that simple.
+
+This idea is often met with some resistance by developers because they find the
+constraint too strong. In practice though, I haven't met any strong arguments in
+favour of multiple versions of the same dependency or language.
+
+It gets even more interesting with internal dependencies. In a polyrepo setup,
+internal libraries must be treated like they were a public library. They need a
+release cycle.
+
+In a monorepo setup, you can have keep the whole company on the latest (and
+only) version of a given library.
+
+This constraint is pretty strong and that's the point. It makes people wanting
+to change the API of an internal library responsible for changing all caller
+sites as well. People have to feel strongly about some API for paying that cost.
+
+One version of everything in the codebase will slow down adoption of new shiny
+things. Which, of course, will make everything a little more stable.
+
+On the other hand, some version upgrades have to happen really fast. The most
+obvious example is security upgrades to external dependencies. In a polyrepo,
+you'd have to do the same things in every single project relying on a
+dependency. In a monorepo, you're doing that once.
 
 ## Continuos integration
 
@@ -137,20 +181,20 @@ in `lib/x` help a lot.
 In my experience, the simplest approach to continuos integration is [trunk based
 development](https://trunkbaseddevelopment.com/) in a monorepo.
 
-In other words, I think you can't actually do continuos integration in a
+In other words, I don't think you can actually do continuos integration in a
 polyrepo setup.
 
 ## Changes, changes, changes
 
+### Atomicity
+
 ### Continuos deployment
+
+### Small is easy, big is possible
 
 ### Auto-generation
 
 ### Increased visibility
-
-### Atomicity
-
-### Small is easy, big is possible
 
 ## A rant about build tools
 
@@ -173,4 +217,4 @@ different scenarios:
 
 ### Except all others
 
-## How to structure a monorepo
+## To mono or not to mono?
