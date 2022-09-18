@@ -35,12 +35,12 @@ specific topic:
 - [Setup costs](#setup-costs)
 - [One version to rule them all](#one-version-to-rule-them-all)
 - [Continuos integration](#continuos-integration)
-- [Changes, changes, changes](#changes-changes-changes)
+- [Ch-ch-ch-ch-changes](#ch-ch-ch-ch-changes)
   - [Atomicity](#atomicity)
-  - [Continuos deployment](#continuos-deployment)
   - [Small is easy, big is possible](#small-is-easy-big-is-possible)
   - [Auto-generation](#auto-generation)
   - [Increased visibility](#increased-visibility)
+  - [Continuos deployment](#continuos-deployment)
 - [A rant about build tools](#a-rant-about-build-tools)
   - [Bazel is the worst build tool](#bazel-is-the-worst-build-tool)
   - [Except all others](#except-all-others)
@@ -148,7 +148,7 @@ to change the API of an internal library responsible for changing all caller
 sites as well. People have to feel strongly about some API for paying that cost.
 
 One version of everything in the codebase will slow down adoption of new shiny
-things. Which, of course, will make everything a little more stable.
+things. Which, of course, will make everything more stable.
 
 On the other hand, some version upgrades have to happen really fast. The most
 obvious example is security upgrades to external dependencies. In a polyrepo,
@@ -157,8 +157,8 @@ dependency. In a monorepo, you're doing that once.
 
 ## Continuos integration
 
-In theory, I think it's possible to continuously integrate a large code base in
-a polyrepo setup. I just haven't seen that work in practice.
+In theory, it may be possible to continuously integrate a large code base in a
+polyrepo setup. I just haven't seen that work in practice.
 
 Every CI solution I have seen in a polyrepo was a variation of an orchestration
 tool for integration tests.
@@ -181,20 +181,73 @@ in `lib/x` help a lot.
 In my experience, the simplest approach to continuos integration is [trunk based
 development](https://trunkbaseddevelopment.com/) in a monorepo.
 
-In other words, I don't think you can actually do continuos integration in a
+In other words, I don't think you can practically do continuos integration in a
 polyrepo setup.
 
-## Changes, changes, changes
+## Ch-ch-ch-ch-changes
+
+I don't really need an excuse to squeeze the genius of [David
+Bowie](https://www.youtube.com/watch?v=4BgF7Y3q-as) in a conversation about
+monorepo but I was genuinely thinking about him when I first drafted this
+paragraph. So here we are.
+
+Changing code is the most common operation any organisation makes on a daily
+basis in any code base.
+
+And it's where monorepo really shines in my opinion. Let's proceed with order.
 
 ### Atomicity
 
-### Continuos deployment
+If all the code is in the same repo then atomically executing a change becomes a
+trivial operation compared to the same change in a polyrepo.
+
+As already mentioned, versions are a perfect example of this difference. You can
+upgrade a library to a newer version with one commit for the whole code base.
+Which allows you to execute the change much faster than you would in a polyrepo
+setup.
+
+It's easy to underestimate the value of atomic changes but they simplify many
+operations.
+
+An example I like is code style conventions. Historically, I have been always
+reluctant to discuss styling because these conversations felt goalless in a
+polyrepo. It's often so expensive to change all the codebase to a different
+convention, you're just not going to do it.
+
+In a monorepo, these conversations feels different. If the team agrees on a new
+convention, you're one commit away from changing the _whole_ codebase to it.
+
+The point here is not that monorepo will allow you to change code conventions
+quickly, the point is atomic changes give you options you just don't have in a
+polyrepo.
 
 ### Small is easy, big is possible
+
+The fact you can make large atomic changes within a monorepo is makes impossible
+large changes even possible.
+
+My favourite example of this is how Stripe [migrated millions of lines of code
+to TypeScript](https://stripe.com/blog/migrating-to-typescript). Can you imagine
+adding on top of the complexity of this migration hundreds of repositories and
+pull-requests? I can't really picture it.
+
+Anyway the point is more general than the example I provided. A monorepo is a
+number of known constraints about a codebase. Things like "libraries are here",
+"all our JavaScript projects use yarn", "docs are always valid markdown and in a
+`docs` directory" allow you to design big changes to your code base you wouldn't
+even begin to imagine in a polyrepo setup.
+
+Even small changes benefit from a monorepo approach. Because all projects use
+the same building scripts, a developer can go in a project, make a small change,
+run its tests, and submit a change request without having to learn anything
+specific about the project apart from the actual code.
 
 ### Auto-generation
 
 ### Increased visibility
+
+### Continuos deployment
+
 
 ## A rant about build tools
 
