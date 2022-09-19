@@ -221,33 +221,90 @@ The point here is not that monorepo will allow you to change code conventions
 quickly, the point is atomic changes give you options you just don't have in a
 polyrepo.
 
+Another situation in which I've seen a staggering difference between monorepo
+and polyrepo is ops-driven changes. Let me provide a concrete example to
+illustrate the difference.
+
+Say you're deploying your applications on some Kubernetes clusters and co-locate
+your deployment descriptor (fancy name for "ugly, big yml file") with the code
+of each project.
+
+One day your operations team comes up with some custom resource definitions that
+greatly improve the operations of your apps (think health checks, logs,
+metrics). The challenge is that you need to change all your deployment
+descriptors.
+
+In a polyrepo, you'd start thinking about some migration strategy. Deprecate the
+current descriptors, make a list of descriptors to change, change them one by
+one. It's not impossible but also not comfortable.
+
+In a monorepo, your strategy would be very different. You'd prepare a commit
+with all the new descriptors and ship it. No migration strategy needed.
+
 ### Small is easy, big is possible
 
-The fact you can make large atomic changes within a monorepo is makes impossible
-large changes even possible.
+The fact you can make large atomic changes within a monorepo makes impossibly
+large changes possible.
 
 My favourite example of this is how Stripe [migrated millions of lines of code
-to TypeScript](https://stripe.com/blog/migrating-to-typescript). Can you imagine
-adding on top of the complexity of this migration hundreds of repositories and
-pull-requests? I can't really picture it.
+to TypeScript](https://stripe.com/blog/migrating-to-typescript).
 
-Anyway the point is more general than the example I provided. A monorepo is a
-number of known constraints about a codebase. Things like "libraries are here",
-"all our JavaScript projects use yarn", "docs are always valid markdown and in a
-`docs` directory" allow you to design big changes to your code base you wouldn't
-even begin to imagine in a polyrepo setup.
+Can you imagine adding on top of the complexity of this migration having to do
+it in hundreds of repositories with as many pull-requests? I can't really
+picture it.
 
-Even small changes benefit from a monorepo approach. Because all projects use
-the same building scripts, a developer can go in a project, make a small change,
-run its tests, and submit a change request without having to learn anything
-specific about the project apart from the actual code.
+The point is more general than the example I provided though.
+
+A monorepo is a number of known constraints about a codebase. Things like
+"libraries are here", "all our JavaScript projects use yarn", "docs are always
+valid markdown and in a `docs` directory at root of each project" allow you to
+design big changes to your code base you wouldn't even begin to imagine in a
+polyrepo setup.
+
+There's more. Small changes also benefit from a monorepo approach.
+
+Because all projects use the same building scripts, a developer can go in a
+project, make a small change, run its tests, lints its code, and submit a change
+request without having to learn anything specific about the project apart from
+the actual code.
 
 ### Auto-generation
+
+The most important constraint of a monorepo is that the code is all in the same
+place. It sounds so obvious you must be wondering why I'm bringing it up again.
+Well, it's because the fact is obvious but its long term consequences not so
+much. Especially if you never worked in a monorepo before.
+
+Auto-generated artifacts are my favourite example of this. The point being that
+you wouldn't even think to solve some problem with auto-generated code if you
+weren't using a monorepo.
+
+Once again, let me provide a concrete example to illustrate this point. When I
+was working at [airy.co](https://airy.co/), we often run into a trivial but
+annoying operations problem.
+
+Our applications were heavily based on Kafka so often enough we introduced
+applications producing or consuming data using topics that didn't exist yet in
+our production clusters. The application would crash on start, we would create
+the topics manually, restart the app, and move on.
+
+The way we solved this problem is by introducing a small application that found
+all our topics used in the code base and generate topics creation scripts for
+us. You can check out its code
+[here](https://github.com/airyhq/airy/blob/1b9874cf123c7531cf5cddbb3e52b3801557d5cf/infrastructure/tools/topics/src/main/java/co/airy/tools/topics/TopicsFinder.java)
+(yay open source!).
+
+Now this isn't rocket science but the point stands. We could solve the problem
+with a trivial approach (it's literally one Java class) only because of the
+existing constraints the monorepo gave us.
+
+You can apply this approach to a wide variety of different problems. My
+favourite area is documentation. Generally, it's a little hard to generated
+meaningful documentation from a code base.
 
 ### Increased visibility
 
 ### Continuos deployment
-
 
 ## A rant about build tools
 
