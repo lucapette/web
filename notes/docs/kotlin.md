@@ -46,7 +46,7 @@ fun thing() = blockMethod {
 
 It makes function definitions (especially with coroutines) very readable.
 
-A good example of this:
+Functions that return strings are a practical example of this:
 
 ```kotlin
 
@@ -54,6 +54,20 @@ override fun toString() = buildString {
   appendLine("one line $stuff")
   appendLine("another line with $more")
 }
+```
+
+### Default block
+
+Again not sure if I have _invented_ the name but here's what I mean:
+
+```kotlin
+
+// instead of doing this
+val thing = if (maybeBlankThing.isBlank()) args.first() else maybeBlankThing
+
+//do this
+
+val thing = maybeBlankThing.ifBlank { args.first() }
 ```
 
 ## gRPC
