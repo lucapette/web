@@ -13,24 +13,24 @@ draft: true
 {{< message class="is-info">}} This is a _long_ read. You will find a table of
  contents right after the introduction. {{</ message >}}
 
-Before I dive into what appeals me and what doesn't about a monorepo approach,
+Before I dive into what appeals to me and what doesn't about a monorepo approach,
 let me share a definition from
 [https://monorepo.tools](https://monorepo.tools/#what-is-a-monorepo):
 
 > A monorepo is a single repository containing multiple distinct projects, with
 > well-defined relationships.
 
-It's a thoughtful sentence as it underlines both co-location of different
+It's a thoughtful sentence; it underlines both the co-location of different
 projects and the meaningful relationship among them.
 
 I'm happy with this definition as long as `project=code+docs`. I never forget
 about the docs.
 
-Fundamentally, what I find most compelling about a monorepo approach is a
+Fundamentally, what I find most compelling about the monorepo approach is a
 combination of two ideas:
 
 - Less is more.
-- Co-locating all the project in the same repo eases our ability to impose
+- Co-locating all the projects in the same repo eases our ability to impose
   constraints on the whole codebase.
 
 These two ideas are powerful in their simplicity but, as mentioned in the wonderful
@@ -38,10 +38,10 @@ book [How to take smart
 notes](https://www.goodreads.com/book/show/34507927-how-to-take-smart-notes),
 "Taking simple ideas seriously" is a not as easy as it sounds.
 
-Often enough when someone says simple, we hear easy and this is the perfect
+Often enough when someone says _simple_, we hear _easy_ and this is a perfect
 starting point for this discussion.
 
-Here's the table of content if you prefer to jump to a specific section:
+Here's the table of contents if you prefer to jump to a specific section:
 - [Simple ain't easy](#simple-aint-easy)
 - [Setup costs](#setup-costs)
 - [One version to rule them all](#one-version-to-rule-them-all)
@@ -61,24 +61,22 @@ all your code into one repository, right?
 In reality, there are many things to take into account if you want to reap all
 the benefits of putting all your projects in the same repo.
 
-If you have an old codebase with lots of project, the migration to a monorepo is
-not trivial because each repository has its own little world of configuration,
+If you have an old codebase with lots of projects, the migration to a monorepo is
+not trivial. Each repository has its own little world of configuration,
 version control history, and so on.
 
-In most cases, there's also an educational cost because monorepo is not as
-common as it could be so many developers, especially those that only worked in
-early stage startups, may have never worked with a monorepo before.
+In most cases, there's also an educational cost. Monorepo is not as
+common as it could be, so many developers, especially those that only worked in
+early-stage startups, may have never worked with a monorepo before.
 
-The irony of this being that early-stage startups would benefit quite a bit from
-the simplicity of a monorepo.
-
-Even if they would not use any particular technique or tool. Literally just
-having all the code in one place would help. More on this later.
+The irony of this is that early-stage startups would benefit quite a lot from
+the simplicity of a monorepo – even if they would not use any particular technique or tool. 
+Literally just having all the code in one place would help. More on this later.
 
 The most difficult part of going monorepo is the tooling which is why I
-structured the article so that the discussion about tooling is toward the end.
+structured the article so that the discussion about tooling is towards the end.
 
-It's easier to discuss what you would need from tooling once you're familiar
+It's easier to talk about tooling needs once you're familiar
 with some benefits of this approach.
 
 Let's start where a new project would start: setting it up.
@@ -93,8 +91,8 @@ implementing what I call "project infrastructure":
 - Deployment scripts
 - Permissions for version control
 
-It doesn't seem much but it adds up very quickly in a growing organisation. On
-top of that, it's mostly done by copy and paste of existing setup.
+It doesn't seem much, but it adds up very quickly in a growing organisation. On
+top of that, it's mostly done by copy and paste of an existing setup.
 
 The problems with a polyrepo (as in the opposite of a monorepo. I stole the
 naming from [https://monorepo.tools](https://monorepo.tools)) is that the setup
@@ -106,25 +104,25 @@ replicated to any relevant project.
 
 The monorepo approach is quite different.
 
-First off, there's no setup costs for version control. The new projects ends up
+First off, there are no setup costs for version control. The new projects end up
 in the same repository you're already using. It seems too obvious but I'd be
-surprised to hear you have never seen wasted time thanks to faulty permissions
+surprised to hear that you've never seen wasted time because of faulty permissions
 setup.
 
-Project infrastructure costs are high if the project introduced new languages or
+Project infrastructure costs are high if the project introduces new languages or
 frameworks (often less of a problem that a language) to the repo.
 
 While this scenario feels like its polyrepo counterpart, the way it plays out is
 generally different.
 
 Only some languages and frameworks receive "official" support in the monorepo
-which teams tend to be more conservative regarding new technology.
+which is why teams tend to be more conservative regarding new technology.
 
 Everyone wants to move fast but no one wants to spend days (sometimes weeks)
 _before_ they can achieve the same developer experience they're used to with
 "approved" languages and framework a single line of code using shiny new tech.
 
-I'm using quotes for official and approved because I have seen this happening
+I'm using quotes for _official_ and _approved_ because I have seen this happening
 mostly implicitly.
 
 ## One version to rule them all
@@ -149,25 +147,25 @@ with a relatively low effort.
 In this case, you can "lift up" dependencies from projects and share them across
 the whole code base. One version of a given dependency for all the projects.
 Some [tools](https://github.com/bazelbuild/rules_jvm_external) work like this by
-default. I would argue they're "right" this is a better default for
+default. I would argue that they're "right" – this is a better default for
 dependencies.
 
-With this constraint in place, dependencies versions literally can't diverge.
+With this constraint in place, dependency versions literally can't diverge.
 
-It's also true of languages versions. For example, say your build tools only
+It's also true of language versions. For example, say your build tools only
 support Java 17, then all the Java projects will support Java 17. Yes, it's that
 simple.
 
 This idea is often met with some resistance by developers because they find the
-constraint too strong. In practice, I haven't met any strong arguments in favour
+constraint too strong. In practice, I haven't met any strong argument in favour
 of multiple versions of the same language. There may be some exceptions for
 dependencies.
 
-This one version approach even more interesting with internal dependencies. In a
-polyrepo setup, internal libraries must be treated like they were a public
+This one-version approach is even more interesting with internal dependencies. In a
+polyrepo setup, internal libraries must be treated as if they were a public
 library. They need a release cycle.
 
-In a monorepo setup, you can have keep the whole company on the latest and only
+In a monorepo setup, you can have the whole company on the latest and only
 version of a given internal library.
 
 This constraint ensures that whoever changes the API of an internal library is
@@ -176,10 +174,10 @@ also responsible for changing all caller sites.
 One version of everything in the codebase will slow down adoption of new shiny
 things. Which, of course, is a good thing.
 
-Sometimes though some upgrades have to happen really fast. The obvious example
+Sometimes, however, certain upgrades have to happen really fast. The obvious example
 is security upgrades of external dependencies.
 
-In a polyrepo, you'd have to do the same things in every single project relying
+In a polyrepo, you'd have to do the same thing in every single project relying
 on a dependency.
 
 In a monorepo, you bump the version and you're good to go.
@@ -198,10 +196,10 @@ In my opinion, this is where a monorepo really shines.
 
 ### Atomicity
 
-If all the code is in the same repo then atomically executing a change becomes a
+If all the code is in the same repo, then executing a change atomically becomes a
 trivial operation compared to the same change in a polyrepo.
 
-It's easy to underestimate the value of atomic changes but they really simplify
+It's easy to underestimate the value of atomic changes, but they really simplify
 many operations.
 
 An example I like is code style conventions. Historically, I have been always
@@ -212,17 +210,15 @@ convention, you know you're not going to do it.
 In a monorepo, these conversations feel different. If the team agrees on a new
 convention, you're one commit away from changing the _whole_ code base to it.
 
-The point here is not that monorepo will allow you to change code conventions
-quickly, the point is atomic changes give you options you don't really have in a
-polyrepo.
+The point here is not that a monorepo allows you to change code conventions
+quickly; the point is that atomic changes give you options you don't really have 
+in a polyrepo.
 
 Another situation in which I've seen a staggering difference is ops-driven
-changes.
-
-Let me provide an example to illustrate this difference.
+changes. Let me provide an example to illustrate this difference.
 
 Say you're deploying your applications on some Kubernetes clusters and co-locate
-your deployment descriptors (fancy name for "ugly, big yaml file") with the code
+your deployment descriptors (a fancy name for an "ugly, big yaml file") with the code
 of each project.
 
 One day your operations team comes up with some custom resource definitions that
@@ -230,7 +226,7 @@ greatly improve the operations of your apps (think health checks, logs,
 metrics). The challenge is that you need to change all your deployment
 descriptors to benefit from these improvements.
 
-In a polyrepo, you'd start thinking about some migration strategy. Deprecate the
+In a polyrepo, you'd start thinking about some migration strategy: deprecate the
 current descriptors, make a list of descriptors to change, change them one by
 one. It's possible but it's also not comfortable.
 
@@ -243,13 +239,13 @@ that easy.
 
 ### Small is easy, big is possible
 
-The fact you can make however large, atomic changes in a monorepo makes
+The fact that you can make however large, atomic changes in a monorepo makes
 impossibly large changes possible.
 
 My favourite example of this is how Stripe [migrated millions of lines of code
 to TypeScript](https://stripe.com/blog/migrating-to-typescript).
 
-Can you imagine adding on top of the intrinsic complexity of this migration
+Can you imagine carrying out this intrinsically complex migration while
 having to do it in hundreds of repositories with as many pull-requests?
 
 I can't really picture it.
@@ -258,7 +254,7 @@ The point is more general than this example though.
 
 A monorepo is a number of known constraints about a codebase. Things like
 "libraries are here", "all our JavaScript projects use yarn", "docs are always
-valid markdown and in a docs directory at root of each project" allow you to
+valid markdown and in a docs directory at the root of each project" allow you to
 design big changes to the code base you wouldn't even begin to imagine in a
 polyrepo setup.
 
@@ -269,7 +265,7 @@ Small changes also benefit from a monorepo approach.
 
 Because all projects use the same "project infrastructure" (build, test,
 deployment scripts, and so on), a developer can get on in a project, make a
-small change, run its tests, lints its code, and finally submit a change request
+small change, run its tests, lint its code, and finally submit a change request
 without having to learn anything specific about the project apart from its code.
 
 ### Auto-generation
