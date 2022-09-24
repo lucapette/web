@@ -3,6 +3,7 @@ title: "The Appeal of Monorepo"
 description: "or how I learned to stop worrying and love monorepo."
 tags:
   - programming
+  - monorepo
 keywords:
   - programming
   - monorepo

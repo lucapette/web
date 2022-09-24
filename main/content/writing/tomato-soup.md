@@ -1,15 +1,13 @@
 ---
 tags:
-  - recipes
+  - recipe
 date: "2017-01-09T00:00:00Z"
 description: A good soup for the winter. Easy to prepare and really delicious
-keywords: recipes, tomato, soup, creme
+keywords: recipe, tomato, soup, creme
 title: Tomato soup
 aliases:
   - /tomato-soup
 ---
-
-![tomato soup](/img/tomato-soup.jpg)
 
 I invented this recipe after playing around with a few blog posts I found on
 tomato soups. I like that it's neither too spicy nor too sweet, but both
