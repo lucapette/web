@@ -4,6 +4,7 @@ description: "A discussion on how to approach organising a monorepo"
 tags:
   - programming
   - monorepo
+  - "engineering management"
 keywords:
   - programming
   - monorepo
@@ -11,60 +12,55 @@ date: 2022-09-24T09:09:51+02:00
 draft: true
 ---
 
-While writing [the appeal of monorepo]({{< ref "/writing/the-appeal-of-monorepo" >}} "the appeal of monorepo"), I also wanted to discuss how to structure a monorepo.
+If you're looking for reasons why you should be adopting a monorepo, I wrote
+[the appeal of monorepo]({{< ref "/writing/the-appeal-of-monorepo" >}} "the
+appeal of monorepo") for that purpose.
 
-I left that out of it because of a few reasons:
+This article assumes you're _already_ convinced monorepo is how you want to
+organise your codebase. While I will be mentioning some benefits of a monorepo
+approach, they'll be a subset of a larger set of benefits I discussed in "the
+appeal of monorepo".
 
-- The article was already long.
-- Structuring a monorepo is its own self-contained challenge and deserves its
-  own article.
-- Writing about this topic is a challenge in itself because this discussion is,
-  in my view, mostly a naming discussion.
+With this article, I initially intended to provide some sort of "starting
+template" for a monorepo. The deeper I got into the topic, the more obvious it
+felt to me that wasn't a valuable approach.
 
-So here I am with a whole article about structuring monorepos.
+A coherent, useful monorepo structure needs too much contextual information.
+Instead of providing a template that may or may not make sense to you, I will
+share how I think about this problem.
 
-When I sat down to write this article, my intention was to provide some sort of
-"starting template" for a monorepo. The deeper I got into the topic, the more
-obvious it felt to me that was a meaningless goal.
-
-I need too much contextual information in order to come up with a good, useful
-structure for a monorepo so instead of providing a template that may not make
-sense to you, I will explain how I think about this problem. Hoping it will be a
-good starting point for monorepo adoption.
-
-Over the years, I started to appreciate monorepos also as an engineering
-leadership communication tool. In a monorepo:
+While I have always appreciated the technical benefits of a monorepo, over the
+years I also came to appreciate monorepos as an engineering leadership
+communication tool:
 
 - Everyone sees all the commits.
-- Everyone can find any project on their own. After all, they're all somewhere
-  in the monorepo, right?
+- Everyone can find any existing project on their own. After all, everything is
+  in the same place right?
 
-Both points are interesting but, in the context of this conversation, the second
-one is relevant.
+Both points are interesting but the second one is relevant in the context of
+this conversation.
 
-The discoverability of your monorepo is only as good as your naming.
+The point is that the discoverability of your monorepo is only as good as your
+naming.
 
-And while I don't think discoverability is not the most important technical
-benefit of adopting a monorepo, focusing on it can be an intriguing leadership
-tool.
+And while I don't think discoverability is the most important technical benefit
+of adopting a monorepo, focusing on it can be an intriguing leadership tool.
 
-The idea is simple: you can draw some parallels between the structure of your
-monorepo and the structure of your organisation and use these analogies to
-achieve both a better structure for your monorepo and a simpler organisational
-one.
+The idea is somewhat trivial: you can draw some parallels between the structure
+of your monorepo and the structure of your organisation. Then you can use these
+analogies to achieve both a better structure for your monorepo and a simpler
+organisational one.
 
-Organisations are living organisms that change all the time. A monorepo can
-follow a similar lifecycle.
+Organisations are living organisms that change all the time. So is a monorepo.
 
-To illustrate this relationship between the monorepo and the organisation, let
-me provide an example.
+To illustrate this relationship, let me provide an evolutionary example.
 
 Say your startup just launched. It's the tiniest team: you're the only
-developer. Your product is a web application. Your product is a subscription
-service for some physical good. Customers come on your website, subscribe to
-your service, and you start sending them things once per month.
+developer. Your product is a subscription service for some physical good.
+Customers come to your website, subscribe to your service, and you send them
+things once per month.
 
-Your monorepo right now looks like this:
+Right now your monorepo looks like this:
 
 ```sh
 ├── api
@@ -73,19 +69,22 @@ Your monorepo right now looks like this:
 └── web
 ```
 
-It's just three projects and the docs. You've got your web application, your
-infrastructure-as-code project, and an API project.
+It's just three projects and the docs.
+
+You've got your web application, your infrastructure-as-code project, and an API
+project.
 
 You already see some benefits of the monorepo. No need to jump over multiple
-repositories, you can already do atomic changes, soon you'll need to share some
+repositories, you can already do atomic changes. Soon you'll need to share some
 assets and you'll just add one more directory.
 
 The structure of the monorepo right now is as flat as it gets, after all you're
-working alone on this.
+working alone on this. Your organisation is also completely flat.
 
-Fast-forward a few months. Your team grew a little. You're now a small team. You
-project is successful, you now have an iOS app (android coming soon!) and your
-monorepo looks like this:
+Fast-forward a year. You now have a small team. You project is successful, you
+have an iOS app (android coming soon!).
+
+Your monorepo looks like this:
 
 ```sh
 ├── android
@@ -101,19 +100,21 @@ monorepo looks like this:
 └── web
 ```
 
-It looks different now. There's a young platform team that is responsible both
-for your api endpoints and for your subscriptions jobs. You're not super happy
-with the naming of the teams (therefore the folders in your monorepo) but you
-know things will change soon (they always do) and you'll get a chance to improve
-the naming a little.
+It looks different!
 
-The structure is still somewhat flat but you're starting to see it: there's some
-overlap between the way you organise your teams and how the monorepo looks like.
+There's a young platform team that is responsible both for your API endpoints
+and for your subscriptions jobs. You're not super happy with the naming of the
+teams (therefore the folders in your monorepo) but you know things will change
+soon (they always do) and you'll get a chance to improve the naming a little.
 
-Fast-forward again.
+The structure is still flat but you're starting to see the first clusters:
+there's still overlap between the way you organise your teams and how the
+monorepo looks like.
 
-Two years have passed. You're now very successful! Your monorepo looks very
-different:
+Fast-forward again, two years passed. You're a victim of your own success! You
+can barely keep up with people joining, you have a number of teams.
+
+Your monorepo looks very different now:
 
 ```sh
 ├── assets
@@ -148,54 +149,64 @@ different:
         └── tablet
 ```
 
+The monorepo has much more structure now. It's not so flat anymore and there's a
+clear separation of responsibility between the parts of the system that have a
+UI and the under the hoods part.
+
 There's still an overlap between the way you organised your teams and the way
-your monorepo looks like. But it is much more structured because the monorepo
-needed to scale and so did your teams.
+your monorepo looks like. The monorepo needed to scale and so did your teams.
 
-One thing that stands out is that the structure of the monorepo is now a mix of
-platform, programming language, and domain terms.
+One thing that stands out is that the structure of the monorepo borrows ideas
+from everywhere: the programming languages you use, your domain terms, and your
+runtime platforms.
 
-It's a difficult balance to achieve but, again, you know difficult problems
-often become good opportunities.
+It's also clear what kind of UIs your organisation is working on. The strange
+mix of tech and domain terms actually helps!
 
-In this structure, it's clear what kind of UIs your organisation is working on.
-The mix of tech and domain terms actually helps!
-
-The monorepo also reflects the way some of your teams are split: subscription,
-marketing, shipping. Different classes of problems with their own solutions.
-Since "backend problems" are more specialised than UI ones, it feels natural the
-overlap between code and team structure is more evident.
+Part of the monorepo reflect the way some of your teams are split: subscription,
+marketing, shipping. Different classes of problems require their own solutions
+so we naturally tend to create teams around those. These "backend problems" are
+more specialised than UI ones, so it feels natural the overlap between code and
+team structure is more evident in that part of the code base.
 
 Last but not least, there is a `lib` directory now. Your company is big enough
 you have your own internal libraries. They are clustered by programming
-languages to increase discoverability. To be honest, there was no better place
-too.
+languages to increase discoverability.
 
-This example I provided isn't meant to be exhaustive. Of course this is not the
-only way you can organise a monorepo but it helps me illustrate some abstract
-arguments in a more concrete way.
+The example I provided isn't meant to be exhaustive not general.
+
+Of course this is not the only way you can organise a monorepo but I can use it
+to express some arguments that would otherwise feel too abstract.
 
 My main argument is that you should organise a monorepo so that it loosely
-reflects the way teams are split. You don't want a one to one relation but you
-also don't want total disconnection.
+reflects the way teams are split.
 
-In the example I provided, you can't really say how the "frontend" teams are
-organised. I did that intentionally so I could make this point: the structure I
-suggest works if you use different languages for each of your platform as well
-as if you're using something like React Native. In the react native scenario,
-you'd probably have the common code in `lib/ts`.
+You don't want a one to one relation but you also don't want total
+disconnection. The way the monorepo structure evolved in this example is
+designed to stress the keyword: _loosely_.
 
-But the subtitle of this argument is also interesting: don't make technical
-choices too present in your structure. It's just the other side of the coin.
+To further stress this point, take the latest evolution of the monorepo. You
+can't really say how the "frontend" teams are organised.
+
+The structure I suggest works if you use different languages for each of your
+platform as well as if you're using something like React Native. In the react
+native scenario, you'd probably have the common code in `lib/ts`. The structure
+is _loosely_ based on how your teams are organised.
+
+The subtitle of this argument is also interesting: don't make technical choices
+too present in your structure. That's the other side of the coin.
 
 For example, I like the `lib/lang` approach a lot but I wouldn't advise to do
-that for the top-level folders. Meaning that grouping projects by the language
-they're written in is a bad idea. It would be a structured monorepo but its
-structure would have no actual meaning.
+that for the top-level folders.
+
+Grouping projects by the language they're written in is a bad idea. You would
+have a structured monorepo but its structure would provide no actual meaning.
 
 This is the key insight in my opinion: structuring a monorepo _is_ both a
-technical _and_ an organisational challenge. To me, it's where the conversation
-between engineering leadership and engineering management should happen.
+technical _and_ an organisational challenge.
+
+To me, it's where the conversation between engineering leadership and
+engineering management should happen.
 
 You want a structure that works technically _and_ that has organisational
 meaning.
