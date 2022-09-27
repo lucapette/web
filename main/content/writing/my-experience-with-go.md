@@ -41,7 +41,7 @@ conversation about the experience.
 ## Documentation
 
 Good documentation is invaluable. Since everyone has their own definition of
-"good", here is my defintion of "Good docs":
+"good", here is my definition of "Good docs":
 
 - They don't make me search on the web
 - They have working examples I can start with
@@ -191,7 +191,6 @@ project means writing some code so I can understand the problem I'm
 trying to solve better. There's a lot of cognitive load, because it's an uncharted
 territory: I have to think hard about naming and about dependencies between
 parts.
-
 
 The workflow experience with Go makes bootstrapping easier on average. But
 there's more: the compiler is super annoying (in a good way), and I have to
