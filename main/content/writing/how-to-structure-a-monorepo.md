@@ -8,18 +8,17 @@ tags:
 keywords:
   - programming
   - monorepo
-date: 2022-09-24T09:09:51+02:00
-draft: true
+date: 2022-09-28T07:09:51+02:00
 ---
 
 If you're looking for reasons to adopt a monorepo, check out
 [The appeal of monorepo]({{< ref "/writing/the-appeal-of-monorepo" >}} "the
 appeal of monorepo") that I wrote for that purpose.
 
-This article assumes you're _already_ convinced that the monorepo is how you want to
-organise your codebase. While I will be mentioning some benefits of the monorepo
-approach, they'll be a subset of a larger set of benefits I discussed in "The
-appeal of monorepo".
+This article assumes you're _already_ convinced that the monorepo is how you
+want to organise your codebase. While I will be mentioning some benefits of the
+monorepo approach, they'll be a subset of a larger set of benefits I discussed
+in "The appeal of monorepo".
 
 With this article, I initially intended to provide some sort of "starting
 template" for a monorepo. The deeper I got into the topic, the more obvious it
@@ -81,8 +80,8 @@ assets and you'll just add one more directory.
 The structure of the monorepo right now is as flat as it gets, after all you're
 working alone on this. Your organisation is also completely flat.
 
-Fast-forward one year. You now have a small team. Your project is successful, you
-have an iOS app (Android coming soon!).
+Fast-forward one year. You now have a small team. Your project is successful,
+you have an iOS app (Android coming soon!).
 
 Your monorepo looks like this:
 
@@ -103,9 +102,9 @@ Your monorepo looks like this:
 It looks different!
 
 There's a young platform team that is responsible for both your API endpoints
-and your subscription jobs. You're not super happy with the naming of the
-teams (therefore the folders in your monorepo), but you know things will change
-soon (they always do) and you'll get a chance to improve the naming a little.
+and your subscription jobs. You're not super happy with the naming of the teams
+(therefore the folders in your monorepo), but you know things will change soon
+(they always do) and you'll get a chance to improve the naming a little.
 
 The structure is still flat but you're starting to see the first clusters:
 there's still overlap between the way you organise your teams and how the
@@ -163,11 +162,12 @@ runtime platforms.
 It's also clear what kind of UIs your organisation is working on. The strange
 mix of tech and domain terms actually helps!
 
-Parts of the monorepo reflect the way some of your teams are split: subscription,
-marketing, shipping. Different classes of problems require their own solutions,
-so we naturally tend to create teams around those. These "backend problems" are
-more specialised than the UI ones, so it feels natural that the overlap between the code and
-the team structure is more evident in that part of the codebase.
+Parts of the monorepo reflect the way some of your teams are split:
+subscription, marketing, shipping. Different classes of problems require their
+own solutions, so we naturally tend to create teams around those. These "backend
+problems" are more specialised than the UI ones, so it feels natural that the
+overlap between the code and the team structure is more evident in that part of
+the codebase.
 
 Last but not least, there is a `lib` directory now. Your company is big enough
 you have your own internal libraries. They are clustered by programming
@@ -181,8 +181,9 @@ to express some arguments that would otherwise feel too abstract.
 My main argument is that you should organise a monorepo so that it loosely
 reflects the way teams are split.
 
-You don't want a one-to-one mapping but you also don't want total
-disconnection. The way the monorepo structure evolved in this example is to stress the keyword: _loosely_.
+You don't want a one-to-one mapping but you also don't want total disconnection.
+The way the monorepo structure evolved in this example is to stress the keyword:
+_loosely_.
 
 To further stress this point, take the latest evolution of the monorepo. You
 can't really say how the "frontend" teams are organised.
