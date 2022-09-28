@@ -83,15 +83,29 @@ What Kafka Streams does is to take these familiar concepts and apply them to
 stream processing. It just works! And this means you can express non-trivial
 computations with a few lines of code.
 
-If you're like me, you're probably asking your self "how does this work??".
-Don't worry about it, I wrote a [whole section](#how-does-it-work) about it.
+If you're like me, you're probably asking your self "how does this work?". Don't
+worry about it, I wrote a [whole section](#how-does-it-work) about it.
 
-Now that we know what Kafka Streams is, it's time to find out what can it do.
+Now that we know what Kafka Streams is, it's time to find out what it can do.
 
 ## What can you do with it?
 
-Simple you can do with consumers, "problems" start with state so kafka streams
-comes in.
+You could argue that describing what Kafka Streams is should give enough context
+about what you can do with it. Most resources provide a variation of the
+"famous" words count example (I also will, in a moment) and be done with it.
+
+But before showing any piece of code about it, I'd like to dig a little into the
+why this library exists in the first place. I think that context will make any
+code sample much more valuable.
+
+The challenge with streaming applications lies in how we deal with state. If all
+you needed to do were some _per record_ stateless computation, you wouldn't
+really want a library. The official clients libraries would suffice. After all,
+the consumer group API is very powerful and it allows you to write
+production-grade applications.
+
+For the sake of the conversation, let's imagine we have a `messages` topic where
+records have the following structure (we'll ignore the key):
 
 ## How does it work?
 
