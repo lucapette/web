@@ -1,7 +1,7 @@
 ---
 title: "Getting Started With Kafka Streams"
 description: "A primer to help you write your first Kafka Streams application"
-date: "2022-09-27T00:00:00Z"
+date: "2022-09-29T00:00:00Z"
 tags:
   - kafka
   - kafka streams
@@ -90,21 +90,37 @@ Now that we know what Kafka Streams is, it's time to find out what it can do.
 
 ## What can you do with it?
 
-You could argue that describing what Kafka Streams is should give enough context
-about what you can do with it. Most resources provide a variation of the
-"famous" words count example (I also will, in a moment) and be done with it.
+Before showing any sample code, I'd like to dig a little into the why Kafka
+Streams exists in the first place. It's hard to make its core ideas "click"
+without a bit of context.
 
-But before showing any piece of code about it, I'd like to dig a little into the
-why this library exists in the first place. I think that context will make any
-code sample much more valuable.
+The main goal of Kafka Streams is to simplify the development and the operation
+of streaming applications so the question is what's the deal with streaming
+applications?
 
-The challenge with streaming applications lies in how we deal with state. If all
-you needed to do were some _per record_ stateless computation, you wouldn't
-really want a library.
+The most prominent concepts are:
 
-The official clients libraries would do it. After all, the consumer group API is
-powerful and it allows you to write production-grade applications. While
-discussing the code samples, I'll elaborate further.
+- `Time` - You're dealing with "data in movement". As in the opposite of "data
+  at rest" which is what you deal with when working with data in a traditional
+  relational database.
+- `State` - Since data is always moving, some common computation you want to do
+  with it needs to deal with state. For example: if you want to count how many
+  events have some specific property, you need to store (therefore maintain some
+  state) data about past events.
+
+Of course things get really interesting when you need to compute data on more than one topic at the same time (meaning you're combining both time and state).
+
+Kafka Streams provides elegant APIs to help you write performant and reliable
+streaming applications that deal with most real-world scenarios.
+
+Often enough though, the computation we need to do on some stream is simple
+enough you don't need to deal with time nor state. For example, if you need to
+filter out some events you do not need to look at any past event. It's _per
+record_ computation.
+
+In these situations, the official client libraries would do it. After all, the
+consumer group API is powerful and it allows you to write production-grade
+applications.
 
 Now, for the sake of the conversation, let's imagine we have a `tweets` topic
 where each record is (surprise!) a tweet. Our job is to extract useful
@@ -112,19 +128,72 @@ information from tweets and send that information downstream via some other
 topics.
 
 A fair warning before we dig into some code samples: I wouldn't read too much
-into the design of this streaming pipeline. The examples are deliberately
-trivial and purposely designed to discuss Kafka Streams concepts.
+into the design of this streaming apps. The examples are deliberately trivial
+and purposely designed to discuss Kafka Streams concepts.
 
 Having said that, the code in this article is available here
 [here](https://github.com/lucapette/getting-started-with-kafka-streams/).
 
-Each snippet I will present is a self-contained example so it should be easy
+Each snippet I will share is a self-contained example so it should be easy
 enough to play around with it (the header comment should help).
 
 The README contains some instructions to load the testing data I've been using
-for this article into a local Kafka installation.
+for this article into a local Kafka installation if you want to follow along.
 
-Let's start a
+Let's start with a trivial example that makes all the incoming tweet shout:
+
+```kotlin {linenos=table}
+# Ex1.kt
+val streamsBuilder = StreamsBuilder()
+
+streamsBuilder
+  .stream<String, String>("tweets")
+  .mapValues { tweet -> tweet.uppercase() }
+  .to("tweets.shouting")
+
+val kafkaStreams = KafkaStreams(streamsBuilder.build(), streamsConfig("ex1"))
+
+kafkaStreams.start()
+```
+
+Since it's the first example, let me point out a few things.
+
+First of all, it's worth noticing how little code it is compared to the consumer
+group API. Kafka Streams is obviously abstracting away a lot of details and, by
+doing that, taking some decisions for you.
+
+Because of this, I often found myself defaulting to Kafka Streams even when it
+isn't strictly necessary. My strategy has become "Always use Kafka Streams
+unless there are very stringent requirements" because of how much more
+productive it is than the "vanilla" consumer group API. More about this in the
+[production](#how-do-i-ship-it-to-production) section.
+
+Since the API is so familiar and concise, it's easy to reason about what's
+happening here. There's no polling, no offset management, no loops.
+
+It reads like "we're reading from a tweets stream, we're uppercasing each tweet,
+and finally send the result to a shouting tweets topic". Almost plain English.
+
+This is the core idea of Kafka Streams: it abstracts away from you enough that
+you can focus on your streaming computations. The more complicated examples, the
+more evident how much more productive using Kafka Streams can be.
+
+Now say that, for reasons, you need to filter out all the tweets with mentions
+before shouting them. How would that look like?
+
+We'll use the official Java
+[twitter-text](https://github.com/twitter/twitter-text) library to parse tweets.
+Here's how the code looks like:
+
+```kotlin
+# Ex2.kt
+
+streamsBuilder
+  .stream<String, String>("tweets")
+  .filter { _, v -> extractor.extractMentionedScreennames(v).isEmpty() }
+  .mapValues { tweet -> tweet.uppercase() }
+  .to("tweets.shouting")
+```
 
 ## How does it work?
 
