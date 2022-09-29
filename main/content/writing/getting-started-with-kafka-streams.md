@@ -100,12 +100,31 @@ code sample much more valuable.
 
 The challenge with streaming applications lies in how we deal with state. If all
 you needed to do were some _per record_ stateless computation, you wouldn't
-really want a library. The official clients libraries would suffice. After all,
-the consumer group API is very powerful and it allows you to write
-production-grade applications.
+really want a library.
 
-For the sake of the conversation, let's imagine we have a `messages` topic where
-records have the following structure (we'll ignore the key):
+The official clients libraries would do it. After all, the consumer group API is
+powerful and it allows you to write production-grade applications. While
+discussing the code samples, I'll elaborate further.
+
+Now, for the sake of the conversation, let's imagine we have a `tweets` topic
+where each record is (surprise!) a tweet. Our job is to extract useful
+information from tweets and send that information downstream via some other
+topics.
+
+A fair warning before we dig into some code samples: I wouldn't read too much
+into the design of this streaming pipeline. The examples are deliberately
+trivial and purposely designed to discuss Kafka Streams concepts.
+
+Having said that, the code in this article is available here
+[here](https://github.com/lucapette/getting-started-with-kafka-streams/).
+
+Each snippet I will present is a self-contained example so it should be easy
+enough to play around with it (the header comment should help).
+
+The README contains some instructions to load the testing data I've been using
+for this article into a local Kafka installation.
+
+Let's start a
 
 ## How does it work?
 
