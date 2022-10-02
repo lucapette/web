@@ -108,7 +108,9 @@ The most prominent concepts are:
   events have some specific property, you need to store (therefore maintain some
   state) data about past events.
 
-Of course things get really interesting when you need to compute data on more than one topic at the same time (meaning you're combining both time and state).
+Things get really interesting when you need to compute data on more than one
+topic at the same time (meaning you're combining both time and state). We will
+also look at that.
 
 Kafka Streams provides elegant APIs to help you write performant and reliable
 streaming applications that deal with most real-world scenarios.
@@ -122,14 +124,13 @@ In these situations, the official client libraries would do it. After all, the
 consumer group API is powerful and it allows you to write production-grade
 applications.
 
-Now, for the sake of the conversation, let's imagine we have a `tweets` topic
-where each record is (surprise!) a tweet. Our job is to extract useful
-information from tweets and send that information downstream via some other
-topics.
-
 A fair warning before we dig into some code samples: I wouldn't read too much
-into the design of this streaming apps. The examples are deliberately trivial
+into the design of these streaming apps. The examples are deliberately trivial
 and purposely designed to discuss Kafka Streams concepts.
+
+In the section [how do I ship it to
+production?](#how-do-i-ship-it-to-production), I'll be sharing a list of
+pointers to make your applications production-ready.
 
 Having said that, the code in this article is available here
 [here](https://github.com/lucapette/getting-started-with-kafka-streams/).
@@ -139,6 +140,11 @@ enough to play around with it (the header comment should help).
 
 The README contains some instructions to load the testing data I've been using
 for this article into a local Kafka installation if you want to follow along.
+
+Now, for the sake of the conversation, let's imagine we have a `tweets` topic
+where each record is (surprise!) a tweet. Our job is to extract useful
+information from tweets and send that information downstream via some other
+topics.
 
 Let's start with a trivial example that makes all the incoming tweet shout:
 
@@ -183,17 +189,105 @@ before shouting them. How would that look like?
 
 We'll use the official Java
 [twitter-text](https://github.com/twitter/twitter-text) library to parse tweets.
-Here's how the code looks like:
+Here's the code:
 
-```kotlin
+```kotlin {linenos=table}
 # Ex2.kt
+
+val extractor = Extractor()
 
 streamsBuilder
   .stream<String, String>("tweets")
   .filter { _, v -> extractor.extractMentionedScreennames(v).isEmpty() }
   .mapValues { tweet -> tweet.uppercase() }
-  .to("tweets.shouting")
+  .to("tweets.no-mentions.shouting")
 ```
+
+It only took one (two if you count the val declaration) line of code to
+implement this requirement. The code still reads like plain English. This
+library feels nice.
+
+If you're new to Kafka Streams, you may be thinking "OK this is all nice but is
+it really worth the trouble? I can do this with the official clients and it
+would only look a little more verbose" though.
+
+You'd be right. If we'd stop here, Kafka Streams would feel like a nice-to-have.
+So let's introduce some use cases where we can't get away with simple
+"per-record" computations.
+
+Say we need to keep track of which topics are more discussed by people because
+we want to display a "The most discussed topics" list.
+
+For the sake of our conversation, we'll only consider tweets with hashtags and
+also assume each hashtag is a different topic.
+
+Before we discuss how a Kafka Streams application that solves this problem,
+let's take a moment to think about how would we approach this requirement if we
+were to solve it without Kafka Streams.
+
+We can meet the requirement with a group and count operation:
+
+1. Only consider tweets with hashtags
+2. Extract a list hashtags from a tweet
+3. For each hashtag increase a counter
+4. Output the updated value for each tuple hashtag, counter
+
+`1.` and `2.` seem pretty straightforward. We can the official twitter to
+extract hashtags. Maintaining a counter for each hashtag also seems pretty easy.
+For example, we can do something like this:
+
+```kotlin {linenos=table}
+val tweets = listOf(
+        "incoming tweet #example #kafka",
+        "another tweet with an #example hashtag",
+        "#kafka is amazing",
+    )
+    val extractor = Extractor()
+
+    val countByHashtag = mutableMapOf<String, Long>()
+
+    tweets.flatMap { tweet ->
+        extractor.extractHashtags(tweet)
+    }.forEach { hashtag -> countByHashtag[hashtag] = countByHashtag.getOrDefault(hashtag, 0) + 1 }
+
+    println(countByHashtag)
+```
+
+The core idea is that we maintain a map of the counts of the hashtags we have seen so far
+(the variable `countByHashtag`). Every time we see an hashtag, we increment its counter.
+
+Very easy, right?
+
+Well, not if we're doing this in the context of a streaming application. The
+problem is that we're maintaining state in memory and that isn't a viable
+solution for all kind of reasons.
+
+The most obvious problem is restarts. If our application goes down for whatever
+reason, we lose track of all the tweets we have seen so far.
+
+I can think of three ways of solving this problem:
+
+1. You ignore the problem.
+
+This may work in some situations depending on the nature of the data and the
+exact requirements you need to meet.
+
+2. You start over every time.
+
+You re-process all the tweets you have already seen so your `countByHashtag` is
+up-to-date.
+
+This only works with very small dataset with is not so common in streaming.
+
+It's not a "future-proof" solution given restart times will grow linearly with
+the size of the tweets topics.
+
+3. You use a persistent database.
+
+You back your `countByHashtag` variable with a database so it can resume work on restarts.
+
+This is the most desirable solution and, life being life, it's also the most
+challenging of the three.
 
 ## How does it work?
 
