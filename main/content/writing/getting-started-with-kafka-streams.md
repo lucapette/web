@@ -148,7 +148,7 @@ topics.
 
 Let's start with a trivial example that makes all the incoming tweet shout:
 
-```kotlin {linenos=table}
+```kotlin
 # Ex1.kt
 val streamsBuilder = StreamsBuilder()
 
@@ -191,7 +191,7 @@ We'll use the official Java
 [twitter-text](https://github.com/twitter/twitter-text) library to parse tweets.
 Here's the code:
 
-```kotlin {linenos=table}
+```kotlin
 # Ex2.kt
 
 val extractor = Extractor()
@@ -236,7 +236,7 @@ We can meet the requirement with a group and count operation:
 extract hashtags. Maintaining a counter for each hashtag also seems pretty easy.
 For example, we can do something like this:
 
-```kotlin {linenos=table}
+```kotlin
 val tweets = listOf(
         "incoming tweet #example #kafka",
         "another tweet with an #example hashtag",
@@ -284,10 +284,52 @@ the size of the tweets topics.
 
 3. You use a persistent database.
 
-You back your `countByHashtag` variable with a database so it can resume work on restarts.
+You back your `countByHashtag` variable with a persistent database so it can
+resume work on restarts.
 
 This is the most desirable solution and, life being life, it's also the most
 challenging of the three.
+
+There are some pretty challenging questions you need an answer for:
+
+- Which database is a good fit for this problem?
+- What's a good strategy to store which offsets of which partitions have been
+  already consumed? (otherwise we can't resume on restart)
+- When the application restarts, how does the restoration process look like? How
+  fast is it?
+- What are we supposed to do when the database is unavailable?
+
+I've seen lots of "solutions" for this problem, especially before Kafka Streams
+went public. I think you can guess why I used quotes :)
+
+It's interesting to see how a relatively simple problem became tricky as soon as
+we needed to deal with state.
+
+To be fair, this is pretty pervasive problem in our industry which somewhat
+justifies the "X-less" trend of the past decade. That's a story for another
+article thought.
+
+If you spend a minute pondering these questions, one interesting but
+odd-sounding thought may cross your mind.
+
+The challenge here is that we want to maintain state into a different database.
+But Kafka is also a database, isn't it? It does things its way but it can
+_definitely_ store things. So what happens if we use Kafka to keep track of
+things?
+
+Kafka Streams _is_ the answer to this question. That's the selling point: if you
+use Kafka Streams, you won't have to deal with any of these questions. Kafka
+Streams will elegantly and transparently take care of all of it for you.
+
+But wait, there's more. And it's the best part too. The code looks like this:
+
+```kotlin
+streamsBuilder.stream<String, String>("tweets")
+        .flatMapValues { tweet -> extractor.extractHashtags(tweet) }
+        .groupBy { _, hashtag -> hashtag }
+        .count().toStream()
+        .to("tweets.trends.by-topic")
+```
 
 ## How does it work?
 
