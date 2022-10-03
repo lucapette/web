@@ -313,23 +313,46 @@ If you spend a minute pondering these questions, one interesting but
 odd-sounding thought may cross your mind.
 
 The challenge here is that we want to maintain state into a different database.
-But Kafka is also a database, isn't it? It does things its way but it can
-_definitely_ store things. So what happens if we use Kafka to keep track of
-things?
+But Kafka is also a database... isn't it?
+
+It does things its way but it can _definitely_ store things. So what happens if
+we use Kafka to keep track of things?
 
 Kafka Streams _is_ the answer to this question. That's the selling point: if you
 use Kafka Streams, you won't have to deal with any of these questions. Kafka
 Streams will elegantly and transparently take care of all of it for you.
 
-But wait, there's more. And it's the best part too. The code looks like this:
+But wait, there's more. It's the best part too. The code looks like this:
 
 ```kotlin
 streamsBuilder.stream<String, String>("tweets")
-        .flatMapValues { tweet -> extractor.extractHashtags(tweet) }
-        .groupBy { _, hashtag -> hashtag }
-        .count().toStream()
-        .to("tweets.trends.by-topic")
+  .flatMapValues { tweet -> extractor.extractHashtags(tweet) }
+  .groupBy { _, hashtag -> hashtag }
+  .count().toStream()
+  .to("tweets.trends.by-topic")
 ```
+
+All these questions we asked ourselves have been answered in the most elegant
+way. They're all transparently handled by Kafka Streams.
+
+This application correctly and automatically resumes on restarts. It can scale
+horizontally by adding more instances of the same app (you'll find an "appId" in
+the code samples).
+
+The API still feels pretty familiar and still has that English-like feel to it.
+It's a pretty remarkable library.
+
+You can focus on designing your computations and let Kafka Streams deal with the
+details.
+
+There's is one more basic (in the true sense of the word) streaming thing that
+Kafka Streams can do we didn't discuss yet.
+
+I purposely omitted scenarios that involve more than one topic because I wanted
+to keep the focus on stateless vs stateful computation.
+
+Before we move on to discuss how Kafka Streams actually does all of these
+beautiful things, we have to expand a little on the concept of time.
 
 ## How does it work?
 
