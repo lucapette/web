@@ -105,8 +105,7 @@ The most prominent concepts are:
   relational database.
 - `State` - Since data is always moving, some common computation you want to do
   with it needs to deal with state. For example: if you want to count how many
-  events have some specific property, you need to store (therefore maintain some
-  state) data about past events.
+  events have some specific property, you need to store data about past events.
 
 Things get really interesting when you need to compute data on more than one
 topic at the same time (meaning you're combining both time and state). We will
@@ -146,33 +145,36 @@ where each record is (surprise!) a tweet. Our job is to extract useful
 information from tweets and send that information downstream via some other
 topics.
 
-Let's start with a trivial example that makes all the incoming tweet shout:
+Let's start with a trivial example that takes all the incoming tweets and shouts
+them:
 
 ```kotlin
 # Ex1.kt
-val streamsBuilder = StreamsBuilder()
 
 streamsBuilder
   .stream<String, String>("tweets")
   .mapValues { tweet -> tweet.uppercase() }
   .to("tweets.shouting")
-
-val kafkaStreams = KafkaStreams(streamsBuilder.build(), streamsConfig("ex1"))
-
-kafkaStreams.start()
 ```
 
-Since it's the first example, let me point out a few things.
+For now, we'll ignored what's a streamsBuilder and focus on `stream`. This
+method creates an instance of a `KStream` which is a core abstraction of Kafka
+Streams.
+
+A `KStream` is what Kafka Streams calls a "record stream". It's the natural way
+we think about streams of data. Each incoming record is appended to the stream
+therefore "flows" through the computation.
+
+Since it's the first example, let me point out a few more general things.
 
 First of all, it's worth noticing how little code it is compared to the consumer
-group API. Kafka Streams is obviously abstracting away a lot of details and, by
-doing that, taking some decisions for you.
+group API. Kafka Streams is obviously abstracting away a lot of details.
 
-Because of this, I often found myself defaulting to Kafka Streams even when it
-isn't strictly necessary. My strategy has become "Always use Kafka Streams
-unless there are very stringent requirements" because of how much more
-productive it is than the "vanilla" consumer group API. More about this in the
-[production](#how-do-i-ship-it-to-production) section.
+Because the abstraction is so comfortable, I often find myself defaulting to
+Kafka Streams even when it isn't strictly necessary. My strategy has become
+"Always use Kafka Streams unless there are very stringent requirements" because
+of how much more productive it is than the "vanilla" consumer group API. More
+about this in the [production](#how-do-i-ship-it-to-production) section.
 
 Since the API is so familiar and concise, it's easy to reason about what's
 happening here. There's no polling, no offset management, no loops.
@@ -351,10 +353,109 @@ Kafka Streams can do we didn't discuss yet.
 I purposely omitted scenarios that involve more than one topic because I wanted
 to keep the focus on stateless vs stateful computation.
 
-Before we move on to discuss how Kafka Streams actually does all of these
-beautiful things, we have to expand a little on the concept of time.
+While time is somewhat always present when discussing streaming applications
+(due the nature of the paradigm itself), things get much more interesting when
+our computations involve multiple streams.
+
+Joining two datasets is a common operation in relational databases but that
+familiarity may not be so helpful when we try to translate the concept to
+streaming.
+
+A one-to-one translation is not possible because, in streaming, we mostly deal
+with unbound datasets (data is "in motion" after all).
+
+That means a join operation needs to deal with the concept of window. The idea
+being you join datasets on a condition (like the on clause of a SQL join) over a
+specific time-frame (since the data in unbounded).
+
+Windowed joins are complex enough though I won't discuss them here as a good
+introduction to them would take as much as the rest of the article making the
+"getting started" idea behind this article a lot less meaningful.
+
+But we'll look at a simpler un-windowed join because it gives us the opportunity
+to get a feel for how joining looks like and to point out a few other important
+details.
+
+For the sake of this discussion, say we need to show, somewhere in our UI, a
+"current standing" of "hot topics" that looks like this:
+
+| Hashtag   | Description                  | Tweet count |
+| --------- | ---------------------------- | ----------- |
+| Kafka     | The best database out there! | 2           |
+| Book      | Reading improves your life   | 2           |
+| Severance | Sci-fi at its best           | 1           |
+
+We have the "hashtag" and the "tweet count" data. We'll introduce a new topic
+called `hashtags` for the descriptions so that we can join the data.
+
+Here's how the code looks like:
+
+```kotlin
+val descriptions = streamsBuilder.table<String, String>("hashtags")
+
+val hashtagsCount = streamsBuilder.stream<String, String>("tweets")
+  .flatMapValues { tweet -> extractor.extractHashtags(tweet) }
+  .groupBy { _, hashtag -> hashtag }
+  .count()
+
+hashtagsCount.join(descriptions) { count, description ->
+  "$description - $count"
+}.toStream().to("tweets.trends.by-topic-description")
+```
+
+As in the previous examples, the Kafka Streams API almost feels like plain
+English. But, as I said, there are a couple of details worth discussing.
+
+First of all, there's a `table` method which creates an instance of `KTable`.
+
+A `KTable` is a powerful abstraction Kafka Streams calls a changelog stream.
+While record streams (what `KStream` abstract) always append new record to their
+dataset, changelog streams only do so if the record isn't present in the dataset
+(it uses the record key to check presence).
+
+When a record already exists, its value is updated with the most recent version.
+
+This abstraction is really powerful and useful and you'll be using `KTable` all
+the times once you start writing your own Kafka Streams application.
+
+`KTable` is perfect for our use case because we want to join each hashtag with
+their up-to-date description.
+
+The rest of the code is mostly familiar to us because we're reusing the
+computation from the previous example. The only difference is that, before
+streaming out results, we're now joining our group and count (which is also a
+`KTable`!) with our description `KTable`.
+
+It's also worth noticing that mapping the join results to a String for the sake
+of simplicity. It's a way to defer discussing serialization to the last section
+of this article and keep ourselves focused.
+
+Last but not least, Kafka Streams, once again, takes care of managing state and
+time for us.
+
+Think for a minute about how many things you'd need to take care of if you
+didn't have a join API. It's a cool mental exercise that helps understand how
+valuable Kafka Streams really is.
+
+These few I presented in this section merely scratch the surface of what Kafka
+Streams can actually do. I tried my best to keep it short (and obviously failed
+at that) so I'll provide some pointers on [where to go from
+here](#where-do-i-go-from-here).
 
 ## How does it work?
+
+Now that we have a sense of what you can do with Kafka Streams, I think it's
+good to get a sense of how Kafka Streams does things.
+
+This discussion will give me the chance to introduce a bit of vocabulary which
+is everywhere in the official docs and other online sources.
+
+I put a conscious effort into avoiding some terms because, while they're
+technically accurate, I don't think they are very beginner-friendly (which is
+the goal of this article).
+
+In order to understand how Kafka Streams does things, we introduce our first
+term. "topology"
 
 ## How do I ship it to production?
 
