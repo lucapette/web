@@ -11,7 +11,7 @@ favourite: true
 ---
 
 {{< message class="is-info">}} This is a _long_ read. You will find a table of
- contents right after the introduction. {{</ message >}}
+contents right after the introduction.{{</ message >}}
 
 One day, during a post-game interview, elite chess Grandmaster Alexander
 Grischuk was asked the routine question: "How long have you been preparing for
@@ -41,7 +41,6 @@ their solutions were incorrectly sized.
 Before I move on to the principles themselves, I want to mention that I find the
 title of the article a little pretentious. I went with it anyway because it fits
 the topics covered better than anything else I could think of.
-
 
 - [How I approach an existing codebase](#how-i-approach-an-existing-codebase)
   - [Read features end to end](#read-features-end-to-end)
@@ -95,7 +94,7 @@ like:
 
 - Oh, we have our own css framework. Why?
 - What's up with all these data attributes? I haven't seen any of that when I
-was checking the website from home. We stripping them down?
+  was checking the website from home. We stripping them down?
 - Why are we stuck on such an old version of X?
 
 Using my brain as storage is a waste. The saying goes ["the shortest pencil is
@@ -121,7 +120,6 @@ making any changes.
 
 What I like the most about this principle is how trivial it sounds when I
 describe it, and how helpful it is when I use it.
-
 
 ### Small changes, fast feedback loops
 
@@ -268,16 +266,16 @@ The type of document, its length or the number of details in it are all
 project-dependent parameters, so it's hard to provide concrete examples. There
 are some things I have in any document, though:
 
-- __Scope__
+- **Scope**
   : When it's done, what will the system do? Even more interesting, what will it
   not do? Answering these questions gives me some boundaries so I can stay on
   track and focus on the essentials.
-- __Organisation__
+- **Organisation**
   : Can I picture the different parts of the system? How do they interact with
   each other? A few diagrams go a long way. I sketch a few to get a sense of how
   to split responsibilities among the different parts. It also helps me
   understand what the highest level building blocks of the system should be.
-- __Prioritisation__
+- **Prioritisation**
   : Where do I start from? What needs to be already in place to start working on
   a specific part of the system? I write down the order in which it makes most
   sense to start building things. Depending on how the system is organised, I
@@ -341,7 +339,7 @@ Often I can't change a few lines even if I wanted to: I need to write a whole
 lot of code across multiple files to even see my little prototype do some basic
 things. It's the nature of writing code from scratch. So here's the idea:
 
-- __Make it work__
+- **Make it work**
   : I REPL my way through code to figure out if what I put together in my head
   works in practice. I don't overthink it. It doesn't matter that the naming isn't
   good yet. It's OK, I know the code isn't production ready: I can get away
@@ -349,7 +347,7 @@ things. It's the nature of writing code from scratch. So here's the idea:
   I note things down, leave to-dos for tomorrow's Luca. It's a
   deliberate choice: my goal is to get the code together. I don't have to make
   it good yet. I don't have to ship it to production in a minute.
-- __Make it good__
+- **Make it good**
   : I go through my notes and the to-dos I left for myself. One by one I tick
   items off the list. With every two or three items I get off the list, I step back
   a little to evaluate the design. Now I'm making it good so I want to get down
@@ -357,7 +355,7 @@ things. It's the nature of writing code from scratch. So here's the idea:
   everything: I only leave out speed. I am not trying to write slow code by
   design (that wouldn't help and it's probably harder to do than it sounds?) but
   I'm also not trying to squeeze milliseconds off of every function.
-- __Make it fast__
+- **Make it fast**
   : It's time to measure things. To be fair, this isn't always
   a required step. Often enough, code that works in production is quite good
   already for whoever is paying for it. On the other side of the spectrum
@@ -373,7 +371,7 @@ things. It's the nature of writing code from scratch. So here's the idea:
 Over the years, I realised that this principle has an interesting side effect on how
 I choose programming languages. Let me offer a concrete example.
 
- Nowadays, I work exclusively with statically typed languages (I have probably
+Nowadays, I work exclusively with statically typed languages (I have probably
 enough reasons to write an article about it... interested? Please, let me
 know!). The ergonomics of statically typed languages allow for a much more
 relaxed approach to the make-it-work phase. I really don't need to care too much
@@ -482,7 +480,6 @@ Moreover, I often found the results of my benchmarks so counter-intuitive that I
 could only conclude that the best approach is to measure everything. Now I don't
 even ask myself what makes a piece of code slow. I measure everything, I want
 the facts.
-
 
 ### Name things what they do
 

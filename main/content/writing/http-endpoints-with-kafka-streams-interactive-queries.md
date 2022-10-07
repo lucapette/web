@@ -17,24 +17,34 @@ knows the basics of Kafka Streams.
 
 [Interactive
 queries](https://kafka.apache.org/documentation/streams/developer-guide/interactive-queries.html)
-enable Kafka Streams application to query their persistent local stores. The
-Kafka Streams API also provides a mechanics to query the state of remote
-application instances. The feature enables us to build HTTP endpoints with
+enable Kafka Streams application to query their persistent local stores.
+
+The Kafka Streams API also provides a mechanics to query the state of remote
+application instances.
+
+The feature enables us to build HTTP endpoints with
 interesting properties. But as any architecture has its trade-offs, we'll
 discuss them again once we've build a simple interactive query endpoint. It's
 easier to go over pros and cons of this approach with a concrete example in
-mind. So what are we building here? For the sake of the discussion, we'll
-imagine a _purposely_ trivial application: we collects words from a Kafka topic
-and then expose a `/search` endpoint that takes a word and returns its count.
+mind.
+
+So what are we building here?
+
+For the sake of the discussion, we'll imagine a _purposely_ trivial application:
+we collects words from a Kafka topic and then expose a `/search` endpoint that
+takes a word and returns its count.
+
 This requirement gives us enough to discuss the underlining architecture of this
 approach.
 
 To build this application, we'll use [Kotlin](https://kotlinlang.org/) and
-[Spring Boot](https://spring.io/projects/spring-boot). I'm not trying to make
-some point about these tools by using them here. There's nothing special about
-them in the context of Kafka Streams applications. It's worth mentioning though
-that HTTP endpoints with interactive queries only make sense on JVM as they're a
-feature of the official Kafka Streams library.
+[Spring Boot](https://spring.io/projects/spring-boot).
+
+I'm not trying to make some point about these tools by using them here. There's
+nothing special about them in the context of Kafka Streams applications.
+
+It's worth mentioning though that HTTP endpoints with interactive queries only
+make sense on JVM as they're a feature of the official Kafka Streams library.
 
 Here's the code of our topology:
 
@@ -400,7 +410,6 @@ month".
 
 In such cases, you'd always need to query all the instances which may turn a
 little slow (or just make the response time of your endpoint unpredictable).
-
 
 Having said that, I would consider building a separate interactive query for
 such a use case if you know your system can afford to run the endpoint on a

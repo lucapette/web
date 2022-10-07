@@ -12,7 +12,9 @@ draft: true
 
 {{< message class="is-info">}} This article assumes the reader has a good grasp
 of Kafka basic concepts: topics, consumers, consumer groups, offset management.
-{{</ message >}}
+
+It's also a long read. You will find a table of contents right after the
+introduction.{{</ message >}}
 
 Ever since I started working with Kafka Streams I have been noticing an
 interesting, somewhat polarising phenomenon around it. The developers I talk to
@@ -39,8 +41,10 @@ applications together, shall we?
 
 - [What is it?](#what-is-it)
 - [What can you do with it?](#what-can-you-do-with-it)
+  - [The need for state](#the-need-for-state)
 - [How does it work?](#how-does-it-work)
-- [How do I ship it to production?](#how-do-i-ship-it-to-production)
+  - [Topologies and nodes](#topologies-and-nodes)
+  - [Tasks and Threads](#tasks-and-threads)
 - [Where do I go from here?](#where-do-i-go-from-here)
 
 ## What is it?
@@ -216,6 +220,8 @@ would only look a little more verbose" though.
 You'd be right. If we'd stop here, Kafka Streams would feel like a nice-to-have.
 So let's introduce some use cases where we can't get away with simple
 "per-record" computations.
+
+### The need for state
 
 Say we need to keep track of which topics are more discussed by people because
 we want to display a "The most discussed topics" list.
@@ -404,14 +410,15 @@ hashtagsCount.join(descriptions) { count, description ->
 ```
 
 As in the previous examples, the Kafka Streams API almost feels like plain
-English. But, as I said, there are a couple of details worth discussing.
+English. But there are a couple of details worth discussing.
 
 First of all, there's a `table` method which creates an instance of `KTable`.
 
 A `KTable` is a powerful abstraction Kafka Streams calls a changelog stream.
-While record streams (what `KStream` abstract) always append new record to their
-dataset, changelog streams only do so if the record isn't present in the dataset
-(it uses the record key to check presence).
+
+While record streams (what `KStream` abstract) always append new records to
+their dataset, changelog streams only do so if the record isn't present in the
+dataset (it uses the record key to check presence).
 
 When a record already exists, its value is updated with the most recent version.
 
@@ -421,10 +428,10 @@ the times once you start writing your own Kafka Streams application.
 `KTable` is perfect for our use case because we want to join each hashtag with
 their up-to-date description.
 
-The rest of the code is mostly familiar to us because we're reusing the
-computation from the previous example. The only difference is that, before
-streaming out results, we're now joining our group and count (which is also a
-`KTable`!) with our description `KTable`.
+The rest of the code is familiar to us because we're reusing the computation
+from the previous example. The only difference is that, before streaming out
+results, we're now joining our group and count (which is also a `KTable`!) with
+our description `KTable`.
 
 It's also worth noticing that mapping the join results to a String for the sake
 of simplicity. It's a way to defer discussing serialization to the last section
@@ -444,19 +451,189 @@ here](#where-do-i-go-from-here).
 
 ## How does it work?
 
-Now that we have a sense of what you can do with Kafka Streams, I think it's
-good to get a sense of how Kafka Streams does things.
+So far I put a conscious effort into avoiding some "official" and "formal" terms
+that are everywhere in the official docs and other online resources.
 
-This discussion will give me the chance to introduce a bit of vocabulary which
-is everywhere in the official docs and other online sources.
+These terms are important but, in my opinion, they're too specific for a first
+introduction to what you can do with Kafka Streams.
 
-I put a conscious effort into avoiding some terms because, while they're
-technically accurate, I don't think they are very beginner-friendly (which is
-the goal of this article).
+Now that we've gone over that, we're ready to dig a little deeper into Kafka
+Streams vocabulary.
 
-In order to understand how Kafka Streams does things, we introduce our first
-term. "topology"
+### Topologies and nodes
 
-## How do I ship it to production?
+What's a better excuse than looking under the hood and see how Kafka Streams
+does things?
+
+When you write a Kafka Streams application, there are a few required steps to
+put it together. The skeleton of the code looks like this:
+
+```kotlin
+val streamsBuilder = StreamsBuilder()
+
+// your stream processing goes here
+
+val topology = streamsBuilder.build()
+
+val kafkaStreams = KafkaStreams(topology, streamsConfig)
+
+kafkaStreams.start()
+```
+
+Let's go over these steps in detail:
+
+- You create an instance of `StreamsBuilder`
+- You create and connect stream processing **nodes** by calling a fluent API.
+  Not shown here to keep the example light.
+- You build a **topology** by calling `streamsBuilder.build()`
+- You create a `KafkaStreams`
+- You call `streams.start()` to run your application.
+
+Unsurprisingly the examples we've already seen follow these steps but now we've
+just introduced two new terms: topology and node.
+
+Instead of coming up with my own definition, let me share the official
+definition from the official [Java
+Docs](https://kafka.apache.org/33/javadoc/org/apache/kafka/streams/Topology.html):
+
+> A topology is an acyclic graph of sources, processors, and sinks. A source is
+> a node in the graph that consumes one or more Kafka topics and forwards them
+> to its successor nodes. A processor is a node in the graph that receives input
+> records from upstream nodes, processes the records, and optionally forwarding
+> new records to one or all of its downstream nodes. Finally, a sink is a node
+> in the graph that receives records from upstream nodes and writes them to a
+> Kafka topic.
+
+What the official docs are telling us is that when we create a Kafka Streams
+application we're building a topology.
+
+A bunch of streaming nodes we connect together (via fluent API calls) _is_ our
+streaming computation.
+
+With these definitions in mind, we're ready to zoom in a little more.
+
+### Tasks and Threads
+
+When you start a Kafka Streams application, the library does a lot of
+"administrative" work for you.
+
+Things like checking all input topics are there, checking they're correctly
+co-partitioned.
+
+It creates internal topics if needed, and starts a bunch of "admin" threads to
+handle state stores (more on this later), stand-by replicas, and so on.
+
+Once the "admin" stuff is done, Kafka Streams starts processing incoming
+records.
+
+In order to achieve high-performance, the library breaks down the topology in
+tasks (`StreamTask`) using the number of input topics partitions (remember
+topics don't really exist, it's all about partitions).
+
+The number of tasks is fixed and the assignment of partitions to tasks never
+changes. That simplifies the programming model since no coordination is needed
+to work on these tasks.
+
+The actual work is done by `StreamThread`. Each thread is responsible for a
+number of tasks. The number of threads can be configured and the upper limit
+(not enforced by the library) is the number of tasks.
+
+This makes sense because you can't be doing more parallelism than the number of
+input partitions you have.
+
+When started each StreamThread goes into a two-phase loop:
+
+- First it does a familiar "poll phase". It consumes a number of records from input
+  partitions and queues them for processing.
+- Then it does the actual processing.
+
+This last step is where the abstraction ties everything together. If you look at
+the source of Kafka Streams, you'll see that each node implements a `process`
+method.
+
+That means Kafka Streams uses the definition of the topology to correct route
+"new records to process" to the right node and call the right processing method.
 
 ## Where do I go from here?
+
+Kafka Streams is very well designed but because it solves a pretty complex
+problem the amount of new concepts you run into when you first approach the
+official docs can feel pretty overwhelming.
+
+So I wrote this article with the precise goal of extracting the most basic
+concepts out of Kafka Streams so that newcomers could get a sense of how much
+the library can do for them.
+
+I can't say if I succeeded or not (but you can and your feedback would be highly
+appreciated) but I know I left very relevant things out of the conversation.
+
+All the examples I provided are "real" Kafka Streams application, meaning that
+you can download the source code, run a local Kafka cluster, and run them.
+
+But there's of course quite a gap between these applications and a "real world"
+production-grade application.
+
+The first thing that comes to mind is that we only worked with strings. In
+reality, you're more likely to run into more complex data structures and need to
+learn about
+[Serdes](https://kafka.apache.org/33/documentation/streams/developer-guide/datatypes.html).
+
+In our last example I showcased a very specific type of join called `KTable` to
+`KTable` join. There's much more to joining streams and the [official
+docs](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-api.html#joining)
+have a detailed explanation of join semantics.
+
+I also only briefly mentioned
+[windowing](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-api.html#windowing).
+It's a complex and fascinating topic which, as I already said, would need its
+own "getting started" article (nudge me about this, please!).
+
+When we talked about state, we didn't discuss where Kafka Streams stores this
+information. The place is called [local
+store](https://kafka.apache.org/33/documentation/streams/architecture.html#streams_architecture_state).
+
+Kafka Streams exposes an API to access these local stores. You can expose this local store via [interactive queries](https://kafka.apache.org/33/documentation/streams/developer-guide/interactive-queries.html).
+
+I wrote about how to write [HTTP endpoints with Kafka Streams Interactive
+Queries]({{< ref
+"/writing/http-endpoints-with-kafka-streams-interactive-queries" >}}. It's an
+exciting feature that unlocks interesting use-cases.
+
+All the examples I shared in this article are "real", meaning you can download the [source code](https://github.com/lucapette/getting-started-with-kafka-streams/), start a Kafka cluster, and play around with the example.
+
+It's working code but it's far from being production grade.
+
+While "production-grade Kafka Streams application" is its own article, I think I
+can at least provide a bit of information here that may take a while for you to
+come across otherwise.
+
+The easiest way to improve our examples would be to
+[name](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-topology-naming.html)
+all the nodes of your topology.
+
+If you don't name them, Kafka Streams will generate the names itself and while
+they're somewhat helpful, the names are not exactly human readable.
+
+This is very important as your topologies grow, especially during debugging
+sessions.
+
+Kafka Streams application can scale horizontally pretty nicely. We got a glimpse
+of that when we discussed [tasks and threads](#tasks-and-threads).
+
+You can start more threads on your Kafka Streams application but you can also
+start [more
+instances](https://kafka.apache.org/33/documentation/streams/developer-guide/running-app.html).
+
+When I saw down the first time to write this article, my goal was to make it as
+short as possible. Over the few writing sessions I needed to write what you just
+read, it became increasingly clear the article wouldn't be so short.
+
+After all, the topic is so vast there are whole books about Kafka Streams (my
+personal recommendation is [Kafka Streams in
+action](https://www.manning.com/books/kafka-streams-in-action)).
+
+In fact, there's much more about it that what I covered. I would probably start
+from reading the whole [developer
+guide](https://kafka.apache.org/33/documentation/streams/developer-guide/).
+Hopefully things will be easier to understand because of the article you just
+read!
