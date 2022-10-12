@@ -9,11 +9,9 @@ tags:
 keywords: kafka, kafka streams, kotlin
 ---
 
-{{< message class="is-info">}}
-Interactive queries are a somewhat advanced topic
+{{< message class="is-info">}} Interactive queries are a somewhat advanced topic
 in the context of Kafka Streams application, so this article assumes the reader
-knows the basics of Kafka Streams.
-{{</ message >}}
+knows the basics of Kafka Streams. {{</ message >}}
 
 [Interactive
 queries](https://kafka.apache.org/documentation/streams/developer-guide/interactive-queries.html)
@@ -22,11 +20,10 @@ enable Kafka Streams application to query their persistent local stores.
 The Kafka Streams API also provides a mechanics to query the state of remote
 application instances.
 
-The feature enables us to build HTTP endpoints with
-interesting properties. But as any architecture has its trade-offs, we'll
-discuss them again once we've build a simple interactive query endpoint. It's
-easier to go over pros and cons of this approach with a concrete example in
-mind.
+The feature enables us to build HTTP endpoints with interesting properties.
+Since any architecture has its trade-offs, we'll discuss them once we've build a
+simple interactive query endpoint. It's easier to go over pros and cons of this
+approach with a concrete example in mind.
 
 So what are we building here?
 
@@ -116,7 +113,8 @@ Created topic words.
 ```
 
 {{< message class="is-warning">}}
-<b>Warning:</b> neither the code nor the
+
+**Warning:** neither the code nor the
 settings presented in this article are recommended for production use.
 Production readiness code and configuration would add too much detail and reduce
 clarity. At the end of the article, I will provide a list of recommendations for
@@ -135,7 +133,7 @@ Connection: keep-alive
 Content-Length: 0
 Date: Sat, 02 Apr 2022 07:16:16 GMT
 Keep-Alive: timeout=60
-# more of this...
+# imagine more of this...
 ```
 
 After playing around with the endpoint a little, the topic looked like this:
@@ -190,12 +188,17 @@ Transfer-Encoding: chunked
 }
 ```
 
-It works, right?!? Well... not quite 😒
+It works... right?
+
+Well... not quite 😒
 
 For this test, I run one application instance therefore the local store
-contained _all_ of the state. Let's see what happens if we add one more
-instance. To keep it simple, I run both instances on the same machine so the
-INSTANCE_ID determines the name of the state directory:
+contained _all_ of the state.
+
+Let's see what happens if we add one more instance.
+
+To keep it simple, I run both instances on the same machine. The INSTANCE_ID
+determines the name of the state directory:
 
 ```sh
 SERVER_PORT=8081 INSTANCE_ID=1 java -jar build/libs/interactive-queries-0.0.1-SNAPSHOT.jar
@@ -231,20 +234,24 @@ If we'd put a load balancer in front of our two instances right now, we'd get a
 Why?
 
 In order to achieve data parallelism, Kafka Streams relies on the same ideas
-(and implementation) of consumer groups. If we run a Kafka Streams application
-with multiple instances, the local state of each instance will contain only a a
-slice of the state (based on the partitions it has assigned). This is what we
-need to care when building an HTTP endpoint with interactive queries. To make
-this work, we need to rewrite out search endpoint using the [RPC
+(and implementation) of consumer groups.
+
+If we run a Kafka Streams application with multiple instances, the local state
+of each instance will contain only a a slice of the state (based on the
+partitions it has assigned).
+
+This is what we need to care when building an HTTP endpoint with interactive
+queries. To make this work, we need to rewrite our search endpoint using the
+[RPC
 mechanism](https://kafka.apache.org/documentation/streams/developer-guide/interactive-queries.html#adding-an-rpc-layer-to-your-application)
 Kafka Streams provides us.
 
 It's a two-step process:
 
-- we configure the RPC endpoint via `StreamsConfig.APPLICATION_SERVER_CONFIG` so
+- We configure the RPC endpoint via `StreamsConfig.APPLICATION_SERVER_CONFIG` so
   that each instance tells the coordinator how other instances can reach them.
 
-- we change the search endpoint to fetch the word count via the RPC endpoint
+- We change the search endpoint to fetch the word count via the RPC endpoint
   when we detect the word requested is not available in the local store.
 
 Here's the new search endpoint:
@@ -314,7 +321,7 @@ We get a count no matter which instance we hit. So now we could put a load
 balancer in front of them and clients could start querying for words.
 
 Now that we know how an interactive query endpoint looks like, we're ready to go
-over trade-offs again.
+over trade-offs.
 
 An endpoint that uses interactive queries is _first of all_ a Kafka Streams
 application so most considerations that apply for a Kafka Stream application
@@ -327,27 +334,34 @@ partitions. So what are the options?
 
 If your endpoint can afford a little downtime, you can just take it down and
 start the updated application. Generally, restoration is really fast (thanks to
-those persistent stores we use for interactive queries). Often though even a
-little downtime might be problematic. In such cases, the easiest way out is to
-deploy a new version of the application all together (meaning with a new app
-id). While I don't really advocate for "immutable deployment" in general, that's
+those persistent stores we use for interactive queries).
+
+Often though even a little downtime might be problematic. In such cases, the
+easiest way out is to deploy a new version of the application all together
+(meaning with a new app id).
+
+While I don't really advocate for "immutable deployment" in general, that's
 probably the simplest strategy here. Also, it's worth noticing you must deploy
-an new application _anyway_ in case you change the topology of your app. Since
-you know upfront you will need to recompute the whole state sometimes, how long
-this process takes is very relevant to the way you operate the endpoint.
+an new application _anyway_ in case you change the topology of your app.
+
+Since you know upfront you will need to recompute the whole state sometimes, how
+long this process takes is very relevant to the way you operate the endpoint.
 Fortunately, it can be estimated with great confidence. You need to know your
-end to end throughput (how long it takes a record to travel the whole topology
+end-to-end throughput (how long it takes a record to travel the whole topology
 from input nodes till the terminal) and how many records you have in your input
 topics. That's the whole formula.
 
 While such an "immutable" strategy may feel too complicated (well it indeed is),
-it enables interesting testing strategies. For example, I often found myself
-writing scripts to compare the JSON response of two different versions of an
-endpoint. That gave me very high confidence that the new version did was working
-as expected. Another interesting consequence of this strategy is that it often
-enables "wild" experimentation with new versions. Because the increased
-confidence often leads to leap changes in a topology, after all you can verify
-new versions with great accuracy without impacting the production endpoint.
+it enables interesting testing strategies.
+
+For example, I often found myself writing scripts to compare the JSON response
+of two different versions of an endpoint. That gave me very high confidence that
+the new version did was working as expected.
+
+Another interesting consequence of this strategy is that it often enables "wild"
+experimentation with new versions. Because the increased confidence often leads
+to leap changes in a topology, after all you can verify new versions with great
+accuracy without impacting the production endpoint.
 
 Operating interactive queries endpoint is almost the same operating a regular
 Kafka Streams application:
@@ -365,8 +379,9 @@ Kafka Streams application:
 
 If you made it this far in the article, I would not be surprised if you're not
 sure there are good use cases for interactive queries HTTP endpoints. After all
-these applications seem pretty tricky to operate and deploy. So here's a list of
-considerations that can help you orient yourself better:
+these applications seem pretty tricky to operate and deploy.
+
+So here's a list of considerations that can help you orient yourself better:
 
 - Despite the funny deployment strategy, a Kafka Streams application is still
   _just_ a bunch of Kafka consumers/producers. Meaning you can compute and serve
