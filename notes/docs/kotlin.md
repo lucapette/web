@@ -6,7 +6,6 @@ Starting in March 2022, I've been learning [kotlin](https://kotlinlang.org).
 
 There are too many testing libraries. I guess you could say it's a young language.
 
-
 The Inheritance syntax felt a little strange at first:
 
 ```kotlin
@@ -75,9 +74,7 @@ val thing = maybeBlankThing.ifBlank { args.first() }
 I knew this was going to be a little painful. But in the end I got the thing up
 and running in a couple of hours.
 
-I also run into this: [Netty 4.1.75.Final HTTP/2 connection closures · Issue
-#8981 · grpc/grpc-java · GitHub](https://github.com/grpc/grpc-java/issues/8981)
-yay
+I also run into this [issue](https://github.com/grpc/grpc-java/issues/8981) yay.
 
 ## Ktor
 
@@ -120,4 +117,6 @@ Coming from go didn't help. Maybe it even actively made it worse for me.
 
 Goroutines felt much easier to start with (the pitch "add go to a function call"
 is strong) but coroutines seem well thought through once you start to grasp what
-structured concurrency is about
+structured concurrency is about.
+
+I should have watched [this](https://www.youtube.com/watch?v=a3agLJQ6vt8) first.
