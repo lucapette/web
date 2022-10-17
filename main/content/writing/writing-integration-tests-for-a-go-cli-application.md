@@ -3,6 +3,7 @@ favourite: true
 tags:
   - golang
   - testing
+  - fakedata
 date: "2017-05-18T00:00:00Z"
 description: how I do end-to-end testing of Go CLI applications
 keywords: golang, testing, integration tests, end to end tests

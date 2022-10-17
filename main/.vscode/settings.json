@@ -9,7 +9,9 @@
   ],
   "cSpell.words": [
     "Bazel",
+    "bufio",
     "bulma",
+    "datasette",
     "Dealbreakers",
     "Dostoevskij",
     "dropcap",
@@ -31,6 +33,7 @@
     "Napoli",
     "Pette",
     "polyrepo",
+    "pprof",
     "println",
     "sass",
     "standups",
