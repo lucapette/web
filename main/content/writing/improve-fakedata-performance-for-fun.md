@@ -19,7 +19,7 @@ feature that requires uuids, emails, and country codes. The way you do that with
 fakedata is this:
 
 ```sh
-$  fakedata uuidv4 email country.code
+$ fakedata uuidv4 email country.code
 b4469d8c-3097-4434-be74-270ce5fc6763 bassamology@test.pid JP
 d7a09d09-af98-416f-ab62-ef85a5d172bf megdraws@example.edeka SZ
 91420c81-da0b-4eb2-abaa-2d8a7cd6d543 operatino@test.booking NI
@@ -117,12 +117,13 @@ yes | pv -b -l -a -t -n >/dev/null
 80 million rows per second. That's much much faster than fakedata.
 
 Sure fakedata generates random output and the yes command just says yes the
-whole time. But there's almost two order of magnitudes between the two programs
-so it's very unlikely the random generation can explain all of this.
+whole time. But there are almost two orders of magnitude between the two
+programs so it's very unlikely the random generation can explain all of this.
 
-But, then again, facts > assumptions.
+But, again, facts > assumptions.
 
-I don't trust myself guessing even in such a trivial case like this one. So I wrote this program:
+I don't trust myself guessing even in such a trivial case like this one. So I
+wrote this program:
 
 ```go
 package main
@@ -152,15 +153,17 @@ and run it with pv:
 No need for more elaborated diagnostic strategies.
 
 It's indeed quite obvious the data generation part doesn't contributed much to
-the performance of the program, it's writing to standard output that is slow.
+the performance of the program it's writing to standard output that is slow.
 
 ## Diagnose it
 
 Because I was doing this for fun, I did run more elaborated diagnostics anyway.
 
-Just to refresh my memory on Go tooling and check if there was anything new. I'm
-glad I did because I run into very interesting resources. More about this in a
-second.
+Just an excuse to refresh my memory on Go tooling and check if there was
+anything new.
+
+I'm glad I did because I run into very interesting resources. More about this in
+a second.
 
 Right after writing the yes program, I decided to benchmark fakedata Generators.
 
@@ -173,8 +176,7 @@ The benchmark confirmed generation time is a negligible part of the process.
 After that, I decided to profile the program. Again, I didn't really need to.
 The diagnosis was quite clear.
 
-If you're not familiar with
-diagnostics in Go, you may want to start from
+If you're not familiar with diagnostics in Go, you may want to start from
 [here](https://go.dev/doc/diagnostics) for some basic decisions about profiling
 and tracing.
 
@@ -378,16 +380,28 @@ that uses the amazing [Vega](https://vega.github.io/) library to plot data.
 
 The graphs look like this:
 
-TODO
+![fakedata improved perf graph](/img/fakedata-improved-perf.svg)
 
-The underlining query looks like this:
+and it's backed by the following query:
 
 ```sql
-
+SELECT
+  tick,
+  rows_done - lag(rows_done, 1, 0) OVER (
+    ORDER BY
+      tick
+  ) rows_done_so_far
+FROM
+  generator
+ORDER BY
+  tick
 ```
+
+It a relatively simple query if you're familiar with the [lag
+function](https://www.sqlite.org/windowfunctions.html).
 
 I had never worked with datasette and its ecosystem before looking into fakedata
 performance.
 
-I'm very glad I did because Datasette is among the most productive tools I have
-ever came across in my career.
+I'm very glad I did because Datasette turned out to be among the most productive
+tools I have ever came across in my career.

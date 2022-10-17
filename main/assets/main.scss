@@ -34,6 +34,25 @@ body {
   fill: none;
 }
 
+.copy-code {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: $radius;
+  user-select: none;
+}
+
+.highlight,
+pre {
+  position: relative;
+}
+
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
+  display: block;
+}
+
 .hello {
   display: grid;
   grid-template-columns: 20% 30% 30% 20%;
