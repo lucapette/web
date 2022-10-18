@@ -4,7 +4,7 @@ date: 2022-10-17T08:53:37+02:00
 tags:
   - go
   - fakedata
-description: A good excuse to play around with some interesting tooling
+description: A good excuse to play around with some interesting tools
 keywords: golang, fakedata, performance, strace, pprof, datasette
 draft: true
 ---
@@ -14,9 +14,10 @@ over to the [next section](#why-am-i-doing-this).
 
 Fakedata is a small CLI (command-line application) that helps you generate data.
 
-It's designed to be as simple as possible. Say you need some data to test a
-feature that requires uuids, emails, and country codes. The way you do that with
-fakedata is this:
+Say you need some data to test a feature that requires uuids, emails, and
+country codes.
+
+The way you do that with fakedata is this:
 
 ```sh
 $ fakedata uuidv4 email country.code
@@ -32,8 +33,8 @@ bd98fa15-c260-4b7c-93fb-837e53f2b3db unterdreht@example.channel NF
 2200fb5a-e3c0-4976-ba16-5ed01c501002 unterdreht@test.abudhabi LV
 ```
 
-The idea is that you have a CLI application that has a number of "generators"
-(see the whole list with `fakedata -G`) that help you quickly generate data.
+The app provides you with a number of "generators" (see the whole list with
+`fakedata -G`) you can use to quickly generate data.
 
 Fakedata supports a few formatters (including a SQL insert format) so it's also
 quite flexible.
@@ -41,43 +42,42 @@ quite flexible.
 It has other features which you can read about in the official README. If you
 can't find what you're looking for, open an issue and we take it from there.
 
-Now that we know what fakedata does, we can move on.
+Now that we know what fakedata does, we can talk about improving its
+performance.
 
 ## Why am I doing this?
 
 A few days ago, I found myself thinking "so how fast is fakedata, really?".
 
-The question caught my attention because it immediately generated (pun _not_
+The question caught my attention immediately because it generated (pun _not_
 intended) two intriguing follow-up questions:
 
 - [How do I get a sense of fakedata performance?](#measure-it)
 - [How do I speed this up?](#improve-it)
 
-The program always felt fast enough so I didn't know if fakedata could generate
-hundreds, thousands, or millions of rows per second.
+The program had always felt fast enough so I didn't know if fakedata could
+generate hundreds, thousands, or millions of rows per second.
 
-After all, fakedata is a glorified for loop that prints strings to the standard
-output.
+Also, fakedata is a glorified for loop that prints strings to the standard
+output so I wondered what improving its performance meant in practice.
 
 I had some guesses but, as one of my favourite programming principles goes,
 [facts > assumptions]({{< ref
 "/writing/my-programming-principles#facts--assumptions" >}} "my programming
-principles - facts > assumptions").
-
-I'd want to fact-check my assumptions before changing the code.
+principles - facts > assumptions"). Better to fact-check my assumptions before
+changing any code.
 
 What I'm trying to say here is that I had no practical reason to look into
-fakedata performance, it just sounded _fun_ to do.
+fakedata performance, it just sounded _fun_.
 
-That's why I wrote this article. "For fun".
+That's also why I wrote this article. _For fun_.
 
-That and the opportunity this would gave me to finally play around with
-[datasette](https://datasette.io/) which had been on my list of things to try
-for too long.
+That and the opportunity this experience would gave me to finally play around
+with [datasette](https://datasette.io/).
 
 ## Measure it
 
-The first thing I did was to measure its performance.
+The first thing I did was to measure fakedata current performance.
 
 To keep things simple, I used [pv](http://www.ivarch.com/programs/pv.shtml):
 
@@ -92,17 +92,19 @@ $ fakedata noun -l 10000000 | pv -b -l -a -t -n >/dev/null
 6.3562 10000000
 ```
 
-What we're seeing here is a tuple "second, total_rows_count".
+What we're looking at here is a tuple "second, total_rows_count".
 
-Yes, I agree. I misused pv a little. But it's a surprisingly simple way to get a
-sense of how fast fakedata was.
+Yes, I agree. I misused pv. But this turned out to be a surprisingly simple way
+to get a sense of how fast fakedata was.
 
-In fact, pv is telling us is already quite useful. Fakedata can output roughly
-around 1.6 million rows per second.
+In fact, what pv outputs here is already quite useful information: fakedata can
+output roughly around 1.6 million rows per second.
 
 Not bad for a totally un-optimised piece of code. Thanks Go!
 
-It sounds really fast, right? So let's compare fakedata to the yes command:
+It sounds really fast, right? Well, it depends 🙃
+
+Let's compare fakedata to the yes command:
 
 ```sh
 yes | pv -b -l -a -t -n >/dev/null
@@ -114,16 +116,17 @@ yes | pv -b -l -a -t -n >/dev/null
 6.0003 485579776
 ```
 
-80 million rows per second. That's much much faster than fakedata.
+80 million rows per second! That's much much faster than fakedata.
 
-Sure fakedata generates random output and the yes command just says yes the
-whole time. But there are almost two orders of magnitude between the two
-programs so it's very unlikely the random generation can explain all of this.
+Sure fakedata generates random output and the yes command just output yes. But
+there are almost two orders of magnitude between the two programs: it's very
+unlikely the random generation can explain all of this.
 
 But, again, facts > assumptions.
 
-I don't trust myself guessing even in such a trivial case like this one. So I
-wrote this program:
+I don't trust myself guessing. Even in such a trivial case like this one.
+
+So I wrote this program:
 
 ```go
 package main
@@ -150,10 +153,13 @@ and run it with pv:
 6.3433 10000000
 ```
 
-No need for more elaborated diagnostic strategies.
+12 million rows per second. Not quite as fast as yes but enough to tell us where
+the problem is. No need for more elaborated diagnostic strategies.
 
-It's indeed quite obvious the data generation part doesn't contributed much to
-the performance of the program it's writing to standard output that is slow.
+It's quite obvious the data generation part doesn't contributed much to the
+performance of the program.
+
+It's writing to standard output that is "slow".
 
 ## Diagnose it
 
@@ -208,7 +214,7 @@ Showing top 5 nodes out of 23
          0     0% 98.47%      5.76s 97.79%  internal/poll.(*FD).Write
 ```
 
-So there's other things going on but fakedata spends almost 98% of its time
+There are other things going on but fakedata spends almost 98% of its time
 writing to standard output.
 
 If you're looking to go deeper into profiling, [The Busy Developer's Guide to Go
@@ -216,7 +222,7 @@ Profiling, Tracing and
 Observability](https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md)
 is an amazing resource. The writing is very engaging. Highly recommended.
 
-OK, now that I knew this is an I/O problem, how do I improve fakedata
+OK, now that we know this is an I/O problem, how do we improve fakedata
 performance?
 
 ## Improve it
@@ -225,24 +231,26 @@ There are many ways to improve the performance of a program and a strategy that
 stands out, especially while dealing with completely naive implementations, is
 to do less of whatever you're doing.
 
-This strategy applies well to fakedata. Since I had never even thought about
-performance while writing fakedata (it's never been and still isn't a strict
-requirement), the implementation was as naive as possible:
+This strategy fits perfectly in this context.
+
+Since I had never even thought about performance while writing fakedata (it's
+never been and still isn't a strict requirement), the implementation was as
+naive as possible:
 
 - Parse input to figure what we need to generate.
 - For each loop step, print a "row" of generated data.
 
-The problem of this strategy is that the overhead of asking the host OS "hey can
-I write this to stdout?" adds up pretty quickly.
+The problem with this approach is that the overhead of asking the host OS "hey
+can I write this to stdout?" adds up pretty quickly.
 
 When it comes to I/O, doing less often means buffering. The idea is that we hold
-some of the data we want to write in a buffer so we can ask the host OS less
-often "hey can I write this to stdout?".
+some of the data we want to write in a buffer so that we can ask the host OS
+less often "hey can I write this to stdout?".
 
 It's such a common strategy, most languages have buffered I/O standard
 libraries. Go, being go, has one called [bufio](https://pkg.go.dev/bufio).
 
-That's what I did. It was a tiny change:
+That's what I needed to do, a tiny change:
 
 ```diff
 --- a/main.go
@@ -295,12 +303,12 @@ A pretty remarkable improvement for the effort. 12 million rows per second:
 Fakedata is now almost 10 times faster than it was before.
 
 It's enough of a change that it made we wonder how many less systems calls is
-fakedata doing now compared to the naive implementation.
+fakedata doing now compared to the previous naive implementation.
 
 I used [strace](https://strace.io/) to count writes to stdout since the Go
 profiler doesn't provide call counts (due its sampling nature).
 
-Here's how writes count before the change:
+Here's the writes count before the change:
 
 ```sh
 $ strace -e write -c ./fakedata -l 100000 noun > /dev/null
@@ -322,7 +330,7 @@ $ strace -e write -c ./fakedata -l 100000 noun > /dev/null
 100.00    0.000000           0       227           total
 ```
 
-The fact difference between calls checks out!
+The difference between calls checks out!
 
 ## Visualise it
 
@@ -330,10 +338,9 @@ Using pv felt nice because it give me a good sense of fakedata throughput
 without having to write a single line of code.
 
 The output though was not very readable. I can't blame pv for this, it's
-actually quite remarkable I could gather the data I needed in a few minutes
-with.
+actually quite nice I could gather the data I needed in a few minutes with it.
 
-Let's look at this output one more time:
+Let's look at the output one more time:
 
 ```sh
 fakedata noun -l 100000000 | pv -b -l -a -t -n >/dev/null
@@ -353,11 +360,13 @@ You don't really get a sense of how the throughput is evolving over time: is it
 always the same? Are there big drops? Maybe spikes now and then?
 
 It's hard to answer these questions at glance. But if I could plot this, it
-would be much simpler to answer these questions.
+would be much simpler.
 
 Enter [datasette](https://datasette.io/).
 
-Honestly it's not easy to describe what datasette does (I think even its own author has trouble with that) but, in my words, it's an amazing tool that helps with:
+Honestly it's not easy to describe what datasette does (I think even its own
+author has trouble with that) but, in my words, it's an amazing tool that helps
+with:
 
 - Explore datasets you know nothing about
 - Clean-up and visualise small datasets
@@ -366,8 +375,8 @@ It's pretty much perfect for this use-case so what I wrote a
 [perf.sh](https://github.com/lucapette/fakedata/blob/4fdd1043234374121ddea555d34c3f229e625e33/scripts/perf.sh)
 that does the following:
 
-- It runs fakedata for a while (in different modes)
-  with the pv command I used in this article.
+- It runs fakedata for a while (in different modes) with the pv command I used
+  in this article.
 - It loads pv output into a sqlite database using
   [sqlite-utils](https://sqlite-utils.datasette.io/en/stable/), an amazing
   little datasette companion tool which makes working with CSV data very easy.
