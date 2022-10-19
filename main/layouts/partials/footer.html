@@ -60,7 +60,6 @@
       }
 
       copyButton.addEventListener("click", (cb) => {
-        console.log("whatever");
         if ("clipboard" in navigator) {
           navigator.clipboard.writeText(codeBlock.textContent);
           copyingDone();
