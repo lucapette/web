@@ -1,6 +1,6 @@
 ---
 title: "How to structure a monorepo"
-description: "A discussion on how to approach organising a monorepo"
+description: "A discussion on how to approach organising a monorepo."
 tags:
   - programming
   - monorepo

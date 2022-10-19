@@ -1,5 +1,5 @@
 ---
-title: "Improve Fakedata Performance for Fun"
+title: "Improving Fakedata Performance for Fun"
 date: 2022-10-17T08:53:37+02:00
 tags:
   - go

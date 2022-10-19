@@ -202,7 +202,7 @@ loosely into:
 > Simplify your product with _every_ new feature. Give more to your customers by
 > having _only_ the features they need and use.
 
-# Conclusion
+## Conclusion
 
 Running a product team was great experience. I learned a lot and had fun
 building features for such an exciting product. Product management is tricky:
@@ -226,5 +226,3 @@ development was an exciting new challenge for me.
 I'm glad I accepted the job back then and I'm happy I will be dedicating my time
 to other things now. I have a lot of writing ahead of me and I have never been
 so excited about it in my life.
-
-Thank you for reading and stay tuned!

@@ -1,6 +1,6 @@
 ---
 title: "My Programming Principles"
-description: "What guides me after 20 years of writing code for a living"
+description: "What guides me after 20 years of writing code for a living."
 date: 2022-05-12T10:12:13+02:00
 tags:
   - programming

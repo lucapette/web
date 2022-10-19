@@ -1,7 +1,7 @@
 ---
 title: "My Engineering Management Values"
 date: 2022-08-03T08:30:10+02:00
-description: "What guides my leadership style"
+description: "What guides my leadership style."
 tags:
   - "engineering management"
 keywords:
@@ -11,7 +11,7 @@ keywords:
 ---
 
 {{< message class="is-info">}} This is a _long_ read. You will find a table of
- contents right after the introduction. {{</ message >}}
+contents right after the introduction. {{</ message >}}
 
 In my career, I've worked in very different industries, covering all kinds of
 product development roles. Two patterns emerged early on and stayed with me ever
@@ -92,7 +92,7 @@ I've always thought that my "leadership style" is nothing special:
 - Convince them to do something instead of telling them what to do
 - Let them make mistakes
 - Make sure they understand your no-go (I'll provide examples of this in [lead
-by example](#lead-by-example)).
+  by example](#lead-by-example)).
 
 The average manager out there must be very bad if doing what I've just listed is
 enough to be a good one. Often "the best I had".

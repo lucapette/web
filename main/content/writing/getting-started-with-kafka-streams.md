@@ -1,6 +1,6 @@
 ---
 title: "Getting Started With Kafka Streams"
-description: "A primer to help you write your first Kafka Streams application"
+description: "A primer to help you write your first Kafka Streams application."
 date: "2022-09-29T00:00:00Z"
 tags:
   - kafka
