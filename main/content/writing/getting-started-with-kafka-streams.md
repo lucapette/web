@@ -16,52 +16,52 @@ of Kafka basic concepts: topics, consumers, consumer groups, offset management.
 It's also a long read. You will find a table of contents right after the
 introduction.{{</ message >}}
 
-Ever since I started working with Kafka Streams I have been noticing an
+Ever since I started working with Kafka Streams, I have been noticing an
 interesting, somewhat polarising phenomenon about the relationship developers
 have with this library.
 
-More often than not they fall in one of two opposite-side categories:
+More often than not, they fall into one of the two opposite-side categories:
 
 - They're experts. They know how this technology works, they appreciate its
   beautiful design, and its powerful ideas.
-- They're intrigued by the praises but they never managed get into it. Their
+- They're intrigued by the praises, but they never manage to get into it. Their
   understanding of Kafka Streams is not sufficient. The library never "clicked"
   for them.
 
-The goal of this article is to provide a starting point for people in the second
-group before they approach the official documentation.
+The goal of this article is to provide a starting point for the people in the second
+category before they approach the official documentation.
 
-Before we dive into world of Kafka Streams, let me make a couple of premises.
+Before we dive into the world of Kafka Streams, let me make a few premises.
 
-Firstly, the code samples are written in [Kotlin](https://kotlinlang.org/).
+First, the code samples are written in [Kotlin](https://kotlinlang.org/).
 
 While I personally enjoy working with Kotlin, I'm not trying to make some point
 about it by using it here. There's nothing special about it in the context of
 Kafka Streams applications.
 
-I chose Kotlin because its syntax is much terser than Java so the few snippets
-of code I'll share almost look like pseudo-code; It'll keep the conversation
+I chose Kotlin because its syntax is much terser than Java, so the few snippets
+of code I'll share almost look like pseudo-code; it'll keep the conversation
 focused on the concepts.
 
 Then a note about the official documentation: I'm **not** trying to undermine
 the official documentation. I think it's awesome.
 
-This article reflects my experience of teaching the basics of Kafka Streams to
-number of very talented developers.
+This article reflects on my experience of teaching the basics of Kafka Streams to
+a number of very talented developers.
 
-Over the years, I have been asked a few recurring questions from developers
-after they had done a first pass at reading the official docs.
+Over the years, I have been asked a few recurrent questions by developers
+who had done a first pass at reading the official docs.
 
-I always found this interesting because the official docs provide all the
-answers. Somehow some concepts did not stick with people; hence the questions I
+I've always found this interesting because the official docs provide all the
+answers. Somehow a few concepts did not stick with people; hence the questions I
 kept getting.
 
-My (very) personal explanation is that Kafka Streams, due the nature of the
+My (very) personal explanation is that Kafka Streams, due to the nature of the
 problem it solves, comes with a lot of new concepts that overwhelm you a little
-and make you miss details.
+and make you miss the details.
 
-This article introduces only a few concepts, hand-picked with the recurring
-questions I got over the years in mind.
+This article introduces only a few concepts, hand-picked from the recurring
+questions I received over the years.
 
 Having said that, let's dive into it together, shall we?
 
@@ -76,20 +76,20 @@ Having said that, let's dive into it together, shall we?
   - [Joining datasets](#joining-datasets)
 - [How does Kafka Streams work?](#how-does-kafka-streams-work)
   - [Topologies and nodes](#topologies-and-nodes)
-  - [Tasks and Threads](#tasks-and-threads)
+  - [Tasks and threads](#tasks-and-threads)
 - [Next steps](#next-steps)
 
 ## What is Kafka Streams, exactly?
 
-Kafka Streams is a Java library (Scala is also officially supported) for writing
-streaming applications.
+Kafka Streams is a Java library for writing streaming applications. 
+Scala is also officially supported. 
 
 Yes, it's that simple. Kafka Streams is _just_ a library.
 
 Beware I'm not trying to undermine the effort that went into building it. It's a
-remarkable piece of technology and I'm its biggest fan for the longest time.
+remarkable piece of technology and I've been its biggest fan for a long time.
 
-I mean that _just_ as very high praise.
+What I mean with _just_ is a very high praise.
 
 I value simplicity and Kafka Streams uses a simple programming model: you write
 your app and then you run it. Just like any other app.
@@ -101,8 +101,8 @@ Generally, you have to write an app and "give it" to a system and then this
 system runs it. The development workflow is a little unfriendly, especially when
 you compare it with adding a library to your existing app.
 
-When I first defined Kafka Streams I was deliberately vague about the second
-part of the sentence. Meaning that "for streaming applications".
+When I defined Kafka Streams earlier, I was deliberately vague about the second
+part of the sentence that included "for streaming applications".
 
 The Kafka Streams API is wonderfully familiar. The basic idea of its core API is
 that it provides you with the same methods you're already using to operate on
@@ -114,23 +114,23 @@ collections, `filter` them, `groupBy` them, and so on.
 Kafka Streams takes these familiar APIs and applies them to stream processing.
 It just works!
 
-It means you can express non-trivial streaming computations with a few lines of
-code which doesn't feel like it's solving some "special" streaming problem.
+It means that you can express non-trivial streaming computations with a few lines of
+code, which doesn't feel like it's solving some "special" streaming problem.
 
 Because the API looks so familiar, it's easier to reason about code and
 introduce newcomers to a Kafka Streams application.
 
-If you're like me, you're probably asking your self "how does this work?". Don't
+If you're like me, you're probably asking yourself "How does this work?". Don't
 worry, I wrote a [whole section](#how-does-kafka-streams-work) about it.
 
-Now that we know what Kafka Streams is, it's time to check out how its APIs.
+Now that we know what Kafka Streams is, it's time to check out how its API works.
 
 ## How does the Kafka Streams API look like?
 
 Before showing any sample code, let's dig a little into the why Kafka Streams
 exists in the first place.
 
-I feel like it's easier to make its core ideas "click" with a bit of high-level
+I feel like it's easier to make its core ideas "click" with a bit of a high-level
 context.
 
 ### Why do we need a streaming library?
@@ -158,10 +158,10 @@ The most prominent concepts are:
 Things get really interesting when you need to compute data on more than one
 dataset at the same time (meaning you're combining both time and state).
 
-How does Kafka Streams help deal with these concepts?
+How does Kafka Streams help you deal with these concepts?
 
 Kafka Streams provides elegant abstractions that make working with these
-concepts much easier. Which, in turns, helps you write performant and reliable
+concepts much easier. Which, in turn, helps you write performant and reliable
 streaming applications.
 
 It's time we look at some code.
@@ -174,12 +174,12 @@ In the [next steps](#next-steps) section, I'll be sharing a list of pointers to
 help you make Kafka Streams applications production-ready.
 
 The code of the examples is available
-[here](https://github.com/lucapette/getting-started-with-kafka-streams/).
+[on github](https://github.com/lucapette/getting-started-with-kafka-streams/).
 
-Each snippet I will share is a self-contained example so it should be easy
+Each snippet I share is a self-contained example, so it should be easy
 enough to play around with the code (the header comment should help).
 
-The README contains some instructions to load the testing data I've been using
+The README contains instructions on how to load the testing data I've been using
 for this article into a local Kafka installation if you want to follow along.
 
 ### Stateless computations
@@ -201,7 +201,7 @@ streamsBuilder
   .to("tweets.shouting")
 ```
 
-An instance `StreamsBuilder` is the starting point of the internal DSL Kafka
+The instance `StreamsBuilder` is the starting point of the internal DSL Kafka
 Streams provides. We are calling `stream` on it which creates an instance of a
 `KStream`.
 
@@ -212,7 +212,7 @@ and therefore "flows" through the computation.
 On the `KStream` instance, we
 [fluently](https://www.martinfowler.com/bliki/FluentInterface.html) call
 `mapValues` which does what it's called (there's also a `map` method. More on
-this later) and then `to` which is Kafka Streams way to produce data into a
+this later) and then `to`, which is Kafka Streams' way to produce data into a
 topic.
 
 Since it's the first example, let me point out a few more general things.
@@ -224,7 +224,7 @@ Because the abstraction is so comfortable, I often find myself defaulting to
 Kafka Streams even when it isn't strictly necessary.
 
 Over the years, my strategy has become "always use Kafka Streams unless there
-are very stringent requirements". The Kafka Streams API makes me much more
+are very strict requirements". The Kafka Streams API makes me much more
 productive.
 
 Since the API is so familiar and concise, it's easy to reason about what's
@@ -234,13 +234,13 @@ concept of "Kafka record" isn't mentioned.
 It reads like "we're reading from a tweets stream, we're uppercasing each tweet,
 and finally send the result to a shouting tweets topic". Almost plain English.
 
-This is the core value Kafka Streams provides to developers: it abstracts away
-from you enough that you can focus on your streaming computations.
+This is the core value that Kafka Streams provides to developers: it abstracts away
+so that you can focus on your streaming computations.
 
-Now say that, for reasons, you need to filter out all the tweets with mentions
-before shouting them. How would that look like?
+Now let's assume that for some reason you need to filter out all the tweets with mentions
+before shouting them. What would that look like?
 
-We need a way to parse tweets for mentions, we could do it manually but there's
+We need a way to parse tweets for mentions. We could do it manually but there's
 an official Java library called
 [twitter-text](https://github.com/twitter/twitter-text).
 
@@ -266,15 +266,15 @@ If you're new to Kafka Streams, you may be thinking "OK this is all nice but is
 it really worth the trouble? I can do this with the official clients and it
 would only look a little more verbose".
 
-I'm personally a little resistant to adopting libraries with a large API so I
-sympathetic to this argument.
+I'm personally a little resistant when it comes to adopting libraries with a large API, so I'm
+sympathetic towards this argument.
 
 Also, you'd be right.
 
-If we would stop here, Kafka Streams would only feel like a nice-to-have. Most
+If we stopped here, Kafka Streams would only feel like a nice-to-have. Most
 likely, we'd keep using the official clients and be done with it.
 
-So let's introduce some use cases where the difference will be more evident.
+So let's introduce some use cases where the difference is more evident.
 
 ### Dealing with state
 
@@ -590,7 +590,7 @@ streaming computation.
 
 With these definitions in mind, we're ready to zoom in a little more.
 
-### Tasks and Threads
+### Tasks and threads
 
 When you start a Kafka Streams application, the library does a lot of
 "administrative" work for you.
