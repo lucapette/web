@@ -70,9 +70,9 @@ Having said that, let's dive into it together, shall we?
   - [Why do we need a streaming library?](#why-do-we-need-a-streaming-library)
   - [Stateless computations](#stateless-computations)
   - [Dealing with state](#dealing-with-state)
-    - [By ignoring it](#by-ignoring-it)
-    - [By starting over every time](#by-starting-over-every-time)
-    - [By using a persistent database](#by-using-a-persistent-database)
+    - [Ignore it](#by-ignoring-it)
+    - [Start over every time](#by-starting-over-every-time)
+    - [Use a persistent database](#by-using-a-persistent-database)
   - [Joining datasets](#joining-datasets)
 - [How does Kafka Streams work?](#how-does-kafka-streams-work)
   - [Topologies and nodes](#topologies-and-nodes)
@@ -278,22 +278,22 @@ So let's introduce some use cases where the difference is more evident.
 
 ### Dealing with state
 
-Say we need to keep track of which hashtags are used more frequently because we
+Say we need to keep track of the most frequently used hashtags because we
 want to display some "Trendy hashtags" somewhere.
 
-Before we discuss how a Kafka Streams application that solves this problem,
-let's take a moment to think how would we approach this requirement if we were
+Before we discuss how a Kafka Streams application solves this problem,
+let's take a moment to think how we would approach this requirement if we were
 to solve it without Kafka Streams.
 
 We can meet the requirement this way:
 
 1. Only consider tweets with hashtags.
-2. Extract a list hashtags from a tweet.
+2. Extract a list of hashtags from a tweet.
 3. For each hashtag `E`:
-   1. increase a counter `C` of for the the tuple `<E, C>`.
+   1. Increase a counter `C` of the tuple `<E, C>`.
    2. Output the updated tuple `<E, C>`.
 
-`1.` and `2.` seem pretty straightforward. We use the official twitter to
+`1.` and `2.` seem pretty straightforward. We use the official twitter client to
 extract hashtags.
 
 Maintaining a counter for each hashtag also seems pretty easy. We can use a Map.
@@ -320,7 +320,7 @@ val tweets = listOf(
 ```
 
 The core idea is that we maintain a map of the counts of the hashtags we have
-seen so far (the variable `countByHashtag`). Every time we see an hashtag, we
+seen so far (the variable `countByHashtag`). Every time we see a hashtag, we
 increment its counter.
 
 Fairly easy, right?
@@ -330,20 +330,20 @@ Well, not if we'd be doing this in the context of a streaming application.
 The problem with this approach is that we would be maintaining state in memory
 and that isn't a viable solution for many reasons.
 
-The most obvious problem is restarts. If (when) our application goes, we lose
+The most obvious problem is restarts. If (when) our application goes down, we lose
 track of all the tweets we have seen so far.
 
-I can think of three ways of solving this problem:
+I can think of three ways to deal with state:
 
-#### By ignoring it
+#### Ignore it
 
 This may work in some situations depending on the nature of the data and the
 exact requirements you need to meet.
 
-It's a pretty narrow space of use-cases but I'm sharing it because it has been a
-blind spot at times for me to not consider this option.
+It's a pretty narrow space of use cases, but I'm sharing anyway this option 
+has been in my blind spot at times.
 
-#### By starting over every time
+#### Start over every time
 
 You re-process all the tweets you have already seen so your `countByHashtag` is
 up-to-date and then you "keep going".
@@ -351,33 +351,33 @@ up-to-date and then you "keep going".
 This only works with very small datasets. That is not so common in streaming
 applications.
 
-It's also not a "future-proof" solution given restart times will grow linearly
+It's also not a future-proof solution given that restart times will grow linearly
 with the size of the tweets topics.
 
-#### By using a persistent database
+#### Use a persistent database
 
-You back your `countByHashtag` variable with a persistent database so it can
+You back up your `countByHashtag` variable with a persistent database so it can
 resume work on restarts.
 
 This is the most desirable solution and, life being life, it's also the hardest
 to implement.
 
-There are some pretty challenging questions you need an answer for:
+There are some challenging questions you need to answer:
 
 - Which database is a good fit for this problem?
-- What's a good strategy to store which offsets of which partitions have been
-  already consumed? (otherwise we can't resume on restart)
-- When the application restarts, how does the restoration process look like? How
+- What's a good strategy to store which offsets of which partitions have already been
+  consumed? (otherwise we can't resume on restart)
+- When the application restarts, what does the restoration process look like? How
   fast is it?
 - What are we supposed to do when the database is unavailable?
 
-I've seen lots of "solutions" for this problem, especially before Kafka Streams
+I've seen lots of "solutions" for dealing with state, especially before Kafka Streams
 was released. I think you can guess why I used quotes 😁
 
 It's interesting to see how a relatively simple problem became tricky as soon as
-we needed to deal with state. This is a pretty pervasive problem in our industry
+we needed to deal with state. This is a pervasive problem in our industry
 which somewhat justifies the "X-less" trend of the past decade. That's a story
-for another article thought.
+for another article.
 
 If you spend a minute pondering these questions, one interesting but
 odd-sounding thought may cross your mind.
@@ -391,12 +391,12 @@ we use Kafka to keep track of things?
 Kafka Streams _is_ the answer to this question.
 
 That's another core selling point: if you use Kafka Streams, you won't have to
-deal with any of these questions. Kafka Streams will elegantly and transparently
-take care of all of it for you.
+deal with any of these questions. Kafka Streams takes care of it all for you
+in an elegant and transparent way.
 
 But wait, there's more. It's the best part too.
 
-If we use Kafka Streams to solve this problem, the code looks like this:
+If we use Kafka Streams to deal with state, the code looks like this:
 
 ```kotlin
 streamsBuilder.stream<String, String>("tweets")
@@ -414,36 +414,36 @@ horizontally by adding more instances of the same app (you'll find an "appId" in
 the code samples, more on this later).
 
 With the exception of `toStream` (more on this in the next paragraph), the API
-still looks familiar and still has that English-like feel to it.
+still looks familiar and still has that plain-English feel to it.
 
 Kafka Streams is a remarkable library: you can focus on designing your
 computations and let it deal with the details.
 
 ### Joining datasets
 
-So far I omitted scenarios that involve more than one input topic because I
-wanted to keep the focus on the conversation on stateless vs stateful
+So far I omitted scenarios that involve more than one input topic. I
+wanted to keep the focus of the conversation on stateless vs stateful
 computation.
 
 While time is somewhat always present when discussing streaming applications
-(due the nature of the paradigm itself), things get more interesting (read as
+(due to the nature of the paradigm itself), things get more interesting (read as
 "even trickier") when our computations involve multiple topics. Particularly
 when we need to join them.
 
-Joining two datasets is a common operation in relational databases but that
-familiarity does not translate well to streaming because, in streaming, we
+Joining two datasets is a common operation in relational databases. This
+familiarity does not translate well to streaming because in streaming we
 mostly deal with unbound datasets (data is "in motion" after all).
 
-If _both_ datasets we want to join are _unbounded_ then we need to deal with
-_windowing_. The idea being you join datasets on a condition (like the on clause
-of a SQL join) over a specific time-frame (since the data in unbounded, you pick
-windows of time in which you join the datasets).
+If _both_ datasets we want to join are _unbounded_, then we need to deal with
+_windowing_. The idea being you join datasets on a condition (like the `on` clause
+of a SQL join) over a specific time-frame. Since the data is unbounded, you pick
+windows of time in which you join the datasets.
 
-Windowed joins are complex enough though I won't discuss them here as a good
-introduction to them would take as much as the rest of the article making the
+Windowed joins are complex. I won't discuss them here – a good
+introduction to them would take as much as the rest of this article, which would make the
 "getting started" idea of this article a lot less meaningful.
 
-But we'll look at a scenario where one dataset is unbounded and the other is
+But let's look at a scenario where one dataset is unbounded and the other is
 not, aka un-windowed joins.
 
 That gives us the opportunity to get a feel for how joining looks like and to
@@ -489,7 +489,7 @@ dataset (it uses the record key to check presence).
 
 When a record already exists, its value is updated with the most recent version.
 
-This abstraction is really powerful and useful and you'll be using `KTable` a
+This abstraction is really powerful and useful. You'll be using `KTable` a
 lot once you start writing your own Kafka Streams application.
 
 `KTable` is perfect for our use case because we want to join each hashtag with
@@ -501,7 +501,7 @@ it won't join). Of course Kafka Streams provides a `leftJoin` method (and other
 types of join as well).
 
 The rest of the code is familiar to us because we're reusing the computation
-from the previous example. The only difference is that, before streaming out
+from the previous example. The only difference is that before streaming out
 results, we're now joining our group and count (also a `KTable`! Which is why we
 need that `toStream` before we can `to` the records) with our description
 `KTable`.
@@ -513,18 +513,17 @@ ourselves focused.
 Last but not least, the most important consideration: Kafka Streams takes care
 of managing _state and time_ for us.
 
-I invite you to spend some time thinking about how many things you'd need to
-take care of if you didn't have a join API and you had to join this data
-manually.
+Just think about it: how many things you'd need to take care of if you 
+didn't have a join API and you had to join this data manually?
 
-It's a cool mental exercise that helps understand how valuable Kafka Streams
+It's a cool mental exercise that helps you understand how valuable Kafka Streams
 really is.
 
-These few examples I presented in this section merely scratch the surface of
+The few examples I presented in this section merely scratch the surface of
 what Kafka Streams can actually do.
 
 I tried my best to keep it short (and obviously failed at that) so there are
-lots of omissions. I'll provide some [next steps](#next-steps) to cover some of
+lots of omissions. I'll provide a few [next steps](#next-steps) to cover some of
 these omissions.
 
 ## How does Kafka Streams work?
@@ -538,7 +537,7 @@ introduction to Kafka Streams.
 Now that we've gone over some basic concepts, we're ready to dig a little deeper
 into Kafka Streams vocabulary.
 
-What's a better excuse than looking under the hood and see how Kafka Streams
+What's a better excuse than looking under the hood and seeing how Kafka Streams
 does things?
 
 ### Topologies and nodes
@@ -560,7 +559,7 @@ kafkaStreams.start()
 
 Let's go over these steps in detail:
 
-- You create an instance of `StreamsBuilder`
+- You create an instance of `StreamsBuilder`.
 - You create and connect stream processing **nodes** by calling a fluent API
   (most often called the Kafka Streams DSL).
 - You build a **topology** by calling `streamsBuilder.build()`.
@@ -583,7 +582,7 @@ Docs](https://kafka.apache.org/33/javadoc/org/apache/kafka/streams/Topology.html
 > Kafka topic.
 
 What the official docs are telling us is that when we create a Kafka Streams
-application we're building a topology (a graph).
+application, we're building a topology (a graph).
 
 A bunch of streaming nodes we connect together (via fluent API calls) _is_ our
 streaming computation.
@@ -595,7 +594,7 @@ With these definitions in mind, we're ready to zoom in a little more.
 When you start a Kafka Streams application, the library does a lot of
 "administrative" work for you.
 
-Things like checking that all input topics are there, checking joins are
+Things like checking that all input topics are there, checking that joins are
 correctly co-partitioned (more on this later).
 
 Kafka Streams creates internal topics if needed, and starts a bunch of "admin"
@@ -606,10 +605,10 @@ Once the "admin" stuff is done, Kafka Streams starts processing incoming
 records.
 
 In order to achieve high-performance, the library breaks down the topology in
-tasks (instances of `StreamTask`) using the number of input topics partitions.
+tasks (instances of `StreamTask`) using a number of input topics partitions.
 
 The number of tasks is fixed and the assignment of partitions to tasks never
-changes. That simplifies the job of the library since no coordination is needed
+changes. That simplifies the job of the library – no coordination is needed
 to work on these tasks.
 
 The actual work is done by threads (instances of `StreamThread`). Each thread is
@@ -629,7 +628,7 @@ This last step is where the abstraction ties everything together. If you look at
 the source code of Kafka Streams, you'll see that each node class implements a
 `process` method.
 
-Kafka Streams uses the definition of the topology to correct route "new records
+Kafka Streams uses the definition of the topology to correctly route "new records
 to process" to the right node and call its corresponding `process` method.
 
 ## Next steps
@@ -638,7 +637,7 @@ I wrote this article with the goal of extracting enough concepts out of Kafka
 Streams so that newcomers could get a sense of how much the library can do for
 them.
 
-I can't say if I succeeded or not (you can and your feedback would be highly
+I can't say if I succeeded (you can, and your feedback would be highly
 appreciated) but I know I left very relevant things out of the conversation.
 
 All the examples I shared in this article are "real", meaning you can download
@@ -657,7 +656,7 @@ The first thing that comes to mind is that we only worked with primitive types
 data types and need to learn about
 [Serdes](https://kafka.apache.org/33/documentation/streams/developer-guide/datatypes.html).
 
-In our last example I showcased a very specific type of join called `KTable` to
+In our last example, I showcased a very specific type of join called `KTable` to
 `KTable` join. There's much more to joining streams and the [official
 docs](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-api.html#joining)
 have a detailed explanation of join semantics.
@@ -668,8 +667,8 @@ It's a complex and fascinating topic which, as I already said, would need its
 own "getting started" article (nudge me about this, please!).
 
 Another topic I also very briefly mentioned is
-[co-partitioning](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-joins-co-partitioning),
-it's really important you understand co-partitioning requirements before you
+[co-partitioning](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-joins-co-partitioning).
+It's really important that you understand co-partitioning requirements before you
 ship your first application to production. You may get very "funny" surprises
 otherwise.
 
@@ -686,29 +685,28 @@ queries](https://kafka.apache.org/33/documentation/streams/developer-guide/inter
 I wrote about how to write [HTTP endpoints with Kafka Streams Interactive
 Queries]({{< ref
 "/writing/http-endpoints-with-kafka-streams-interactive-queries" >}}). It's an
-exciting (and advanced) feature that unlocks interesting use-cases.
+exciting (and advanced) feature that unlocks interesting use cases.
 
 The easiest way to improve our examples would be to
 [name](https://kafka.apache.org/33/documentation/streams/developer-guide/dsl-topology-naming.html)
-all the nodes of our topologies. If we don't name them, Kafka Streams will
-generate the names itself and while they're somewhat helpful, the names are not
-exactly human readable.
+all the nodes of our topologies. If we don't name them, Kafka Streams
+generates the names itself and while they're somewhat helpful, the names are not
+exactly human-readable.
 
-Kafka Streams application can scale horizontally pretty nicely. We got a glimpse
+Kafka Streams application scales horizontally in a nice way. We got a glimpse
 of that when we discussed [tasks and threads](#tasks-and-threads).
 
 You can start more threads on your Kafka Streams application but you can also
 start [more
 instances](https://kafka.apache.org/33/documentation/streams/developer-guide/running-app.html).
 
-When I saw down the first time to write this article, my goal was to make it as
-short as possible. Over the few writing sessions I needed to write what you just
-read, it became increasingly clear the article wouldn't be short.
+When I sat down the first time to write this article, my goal was to make it as
+short as possible. Over the few writing sessions, it became increasingly clear that the article wouldn't be short.
 
-After all, the topic is so vast there are whole books about Kafka Streams (my
+After all, the topic is so vast that there are entire books about Kafka Streams (my
 personal recommendation is [Kafka Streams in
 action](https://www.manning.com/books/kafka-streams-in-action)).
 
-In fact, there's much more about it that what I covered. From here, I would
-probably start from reading the whole [developer
-guide](https://kafka.apache.org/33/documentation/streams/developer-guide/).
+In fact, there's much more to it than I covered. From here, I would
+probably start from reading the [developer
+guide for Kafka Streams](https://kafka.apache.org/33/documentation/streams/developer-guide/).
