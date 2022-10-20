@@ -293,7 +293,7 @@ We can meet the requirement this way:
    1. Increase a counter `C` of the tuple `<E, C>`.
    2. Output the updated tuple `<E, C>`.
 
-`1.` and `2.` seem pretty straightforward. We use the official twitter API to
+`1.` and `2.` seem pretty straightforward. We use the official twitter client to
 extract hashtags.
 
 Maintaining a counter for each hashtag also seems pretty easy. We can use a Map.
