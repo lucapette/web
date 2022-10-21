@@ -7,7 +7,6 @@ tags:
   - kafka streams
   - kotlin
 keywords: kafka, kafka streams, kotlin
-draft: true
 ---
 
 {{< message class="is-info">}} This article assumes the reader has a good grasp
