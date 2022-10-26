@@ -45,7 +45,8 @@
   </nav>
 </footer>
 
-{{- if false }}
+{{ if eq .Kind "page" }}
+  <div class="copy-code" style="display: hidden"></div>
   <script>
     document.querySelectorAll("pre > code").forEach((codeBlock) => {
       const copyButton = document.createElement("button");
