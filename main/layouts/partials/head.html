@@ -9,17 +9,22 @@
 
   {{ partial "fonts" . }}
 
+  {{ $highlight := resources.Get "highlight.css" }}
   {{ $css := resources.Get "main.scss" | resources.ToCSS }}
   {{ $js := resources.Get "main.js" | js.Build }}
   {{ if hugo.IsProduction }}
     {{ $css = $css | resources.PostCSS }}
     {{ $css = $css | minify | fingerprint | resources.PostProcess }}
 
+    {{ $highlight = $highlight | minify | fingerprint }}
+
     {{ $js = $js | minify | fingerprint }}
   {{ end }}
 
+
   <script src="{{ $js.RelPermalink }}" defer></script>
   <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+  <link href="{{ $highlight.RelPermalink }}" rel="stylesheet" />
 
   {{ with .OutputFormats.Get "rss" -}}
     {{ printf `
