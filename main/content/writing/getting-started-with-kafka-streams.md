@@ -174,8 +174,8 @@ purposely designed to discuss Kafka Streams concepts.
 In the [next steps](#next-steps) section, I'll be sharing a list of pointers to
 help you make Kafka Streams applications production-ready.
 
-The code of the examples is available [on
-github](https://github.com/lucapette/getting-started-with-kafka-streams/).
+The code of the examples is available on
+[github](https://github.com/lucapette/getting-started-with-kafka-streams/).
 
 Each snippet I share is a self-contained example, so it should be easy enough to
 play around with the code (the header comment should help).
@@ -194,7 +194,7 @@ resulting tweets into a new topic.
 Here's the code:
 
 ```kotlin
-# Ex1.kt
+// Ex1.kt
 
 streamsBuilder
   .stream<String, String>("tweets")
@@ -248,7 +248,7 @@ an official Java library called
 Here's the code:
 
 ```kotlin
-# Ex2.kt
+// Ex2.kt
 
 val extractor = Extractor()
 
@@ -302,7 +302,7 @@ Maintaining a counter for each hashtag also seems pretty easy. We can use a Map.
 For example, we could do something like this:
 
 ```kotlin
-# Ex4.kt
+// Ex3.kt
 
 val tweets = listOf(
         "incoming tweet #example #kafka",
@@ -400,6 +400,8 @@ But wait, there's more. It's the best part too.
 If we use Kafka Streams to deal with state, the code looks like this:
 
 ```kotlin
+// Ex4.kt
+
 streamsBuilder.stream<String, String>("tweets")
   .flatMapValues { tweet -> extractor.extractHashtags(tweet) }
   .groupBy { _, hashtag -> hashtag }

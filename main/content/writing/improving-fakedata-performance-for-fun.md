@@ -189,8 +189,9 @@ process.
 After that, I decided to profile the program to confirm the hypothesis from a
 different angle.
 
-If you're not familiar with diagnostics in Go, you may want to start from
-[here](https://go.dev/doc/diagnostics) for some basic definitions.
+If you're not familiar with diagnostics in Go, you may want to start from the
+the official [Diagnostics](https://go.dev/doc/diagnostics) doc for some basic
+definitions.
 
 Go offers a variety of profiler (CPU, memory, and so on). They produce
 [profiling data](https://pkg.go.dev/runtime/pprof) you can then inspect with a

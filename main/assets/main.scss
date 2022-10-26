@@ -1,3 +1,5 @@
+@import "./highlight";
+
 @import "../node_modules/include-media/dist/include-media.scss";
 @import "_theme";
 
@@ -41,6 +43,10 @@ body {
   right: 4px;
   border-radius: $radius;
   user-select: none;
+}
+
+.highlight pre {
+  border-radius: $radius;
 }
 
 .highlight,
@@ -95,7 +101,7 @@ pre:hover .copy-code {
   }
 }
 
-$accent-color: darken($nord15, 10%);
+$accent-color: $orange;
 
 em {
   color: $accent-color;
@@ -158,6 +164,9 @@ a {
   }
 
   .content {
+    table thead th {
+      color: $nord6;
+    }
     h1,
     h2,
     h3,
@@ -174,7 +183,7 @@ a {
 
   html,
   body {
-    background-color: $nord0;
+    background-color: $nord1;
     color: $nord6;
   }
 

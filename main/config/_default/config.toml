@@ -23,7 +23,7 @@ paginate = 5
 
 [markup]
   [markup.highlight]
-    style = 'nord'
+    noClasses = false
 [menu]
   [[menu.main]]
     indentifier = "home"
