@@ -51,8 +51,8 @@ Here's the table of contents if you prefer to jump to a specific section:
   - [Small is easy, big is possible](#small-is-easy-big-is-possible)
   - [Auto-generation](#auto-generation)
   - [Increased visibility](#increased-visibility)
-  - [CI & CD](#ci--cd)
-- [To mono or not to mono? Which build tool is the question.](#to-mono-or-not-to-mono-which-build-tool-is-the-question)
+  - [CI \& CD](#ci--cd)
+- [To mono or not to mono? Which build tool is the question](#to-mono-or-not-to-mono-which-build-tool-is-the-question)
 
 ## Simple ain't easy
 
@@ -62,8 +62,8 @@ all your code into one repository, right?
 In reality, there are many things to take into account if you want to reap all
 its benefits.
 
-If you have an old codebase with lots of projects, the migration to a monorepo is
-not trivial. Each repository has its own little world of configuration,
+If you have an old codebase with lots of projects, the migration to a monorepo
+is not trivial. Each repository has its own little world of configuration,
 version control history, and so on.
 
 In most cases, there's also an educational cost. Monorepo is not as common as it
@@ -445,15 +445,18 @@ in a polyrepo setup.
 My brain immediately dismisses whatever idea I come up with as too expensive,
 too complicated. It's just not worth it.
 
-## To mono or not to mono? Which build tool is the question.
+## To mono or not to mono? Which build tool is the question
 
 Over the course of my career, I chose to set up my teams with a monorepo
 _almost_ every time I got the chance.
 
 I say _almost_ because twice, even though I had already been pretty much
 convinced a monorepo yields better long-term results than a polyrepo, I decided
-against adopting a monorepo. It goes without saying: I came to regret the
-decision both times.
+against adopting a monorepo.
+
+In both cases, what drove my decision what the lack of monorepo tooling for the
+specific stack at hand. I came to regret the decision both times. I missed the
+core benefits of going monorepo too much.
 
 To understand a decision though, you have to look at its context and here it
 means looking at how many languages and which languages specifically are
