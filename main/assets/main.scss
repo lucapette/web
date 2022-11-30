@@ -99,17 +99,15 @@ pre:hover .copy-code {
   }
 }
 
-$accent-color: $orange;
-
 em {
-  color: $accent-color;
+  color: $orange;
   font-weight: 700;
 }
 
 .accent,
 .dropcap {
   font-family: $family-heading;
-  color: $accent-color;
+  color: $orange;
   text-shadow: $nord4 0.05em 0.05em;
 }
 
@@ -215,13 +213,22 @@ a {
     color: $nord6;
   }
 
+  em {
+    color: $nord12;
+  }
+
   .navbar,
   .footer,
   .box {
     background-color: $nord3;
   }
 
+  a:hover {
+    color: $nord12;
+  }
+  .accent,
   .dropcap {
+    color: $nord12;
     text-shadow: $nord4 0.05em 0.05em;
   }
 }
