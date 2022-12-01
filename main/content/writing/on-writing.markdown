@@ -158,18 +158,42 @@ enough?" worried me.
 
 It's a fair question, it comes up often when I talk about writing to people.
 
-I can't say if there's an answer that works for everyone. In general, I don't
-believe answers have such a feature.
+I can't say if there's an answer that works for everyone. I don't believe
+answers to this kind of question work this way.
 
-I can share what I do now: I have an upper limit of three sessions. I gave
-myself a hard non-negotiable limit because I'm sure there's always room for
-improvement.
+I can share my current process though.
 
-The limit helps me to move on to other things and constrains the amount of time
-I spend on a single piece of writing.
+I have a two-step process:
 
-The time constraint gets the best out of me. I focus deeply on what I'm writing
-and those sessions make me feel satisfied and productive.
+1. I do one or two sessions in my editor depending on how long the piece of
+   writing is.
+2. Then I switch to reading the piece as it was published on my website. It
+   helps me to polish my tone. I took mental note of how the piece flows.
+3. I go back to the editor and quickly apply my notes to the writing.
+
+Most times I quickly go back between step 2 and 3 a few times until reading
+feels right to me.
+
+Sometimes the second step sends me all the way back to "writing mode". I realise
+that something about the piece isn't working. The reason isn't important.
+
+What I think matters the most in my process is that I try hard to use a
+different perspective in each step.
+
+I'm a writer in in the first step so I use my editor.
+
+I'm a reader in the second one so I do not use my editor. I just read and take
+notes.
+
+It fascinates me that I didn't come up with this process, especially the bit
+about reading as a writer (meaning through the editor) in the "rewriting mode"
+and as a reader (as everyone else would read it) in the "reader mode".
+
+It happened to me over time.
+
+In fact, I rewrote this last part of the paragraph in December 2022, a few weeks
+after I realised my process had refined itself. More than 5 years after I wrote
+this piece.
 
 ### Note by note
 
