@@ -6,7 +6,7 @@ tags:
   - fakedata
 date: "2017-05-18T00:00:00Z"
 description: how I do end-to-end testing of Go CLI applications
-keywords: golang, testing, integration tests, end to end tests
+keywords: golang, testing, integration tests, end-to-end tests
 title: Writing integration tests for a Go CLI application
 aliases:
   - /writing-integration-tests-for-a-go-cli-application
@@ -16,8 +16,8 @@ I've recently open sourced a small Go CLI application for random data
 generation.
 
 I'm working on an application for which I continuously need testing data and
-couldn't find exactly what I was looking for. So I did what every developer
-would do in this situation, I decided to write myself.
+couldn't find exactly what I was looking for. So I did what any developer would
+do in this situation: I wrote it myself.
 
 CLI applications are my favourite use case for Go so I knew I'd enjoy writing
 it.
@@ -39,12 +39,13 @@ wanted to do something like the following:
 - Run the binary with some specific argument.
 - Assert correct behaviour.
 
-I managed to get it done [here](https://github.com/lucapette/fakedata/pull/14)
-and decided to share the key ingredients of this simple and effective way of
-writing integration tests for a Go CLI application.
+I managed to get it done [in this
+pull-request](https://github.com/lucapette/fakedata/pull/14) and decided to share
+the key ingredients of this simple and effective way of writing integration
+tests for a Go CLI application.
 
 I created an example application for the sake of the discussion, it's available
-[here](https://github.com/lucapette/go-cli-integration-tests).
+[on GitHub](https://github.com/lucapette/go-cli-integration-tests).
 
 I use `make` to build my Go applications, it suits the task well and it gives me
 a very short command to build an entire project (as `build` is the de-facto
@@ -154,8 +155,8 @@ golden files. The basic idea is to:
 - Then use a simple comparison of the actual output and the content of
   corresponding golden file.
 
-It's a good practice to use a command line flag to automatically update the
-golden file when the specified behaviour changes:
+It's good practice to use a command line flag to automatically update the golden
+file when the specified behaviour changes:
 
 ```sh
 go test integration/cli_test.go -update
@@ -197,7 +198,7 @@ I **really** like it takes so little to test a relatively complex behaviour.
 The tests make only two assumptions: how to build the binary (running `make` in
 a specific directory) and the name of the binary.
 
-If you would change the internals of the program completely, the tests would
+If you would completely change the internals of the program, the tests would
 still be untouched:
 
 > The tests need to change only if the behaviour of the program changes
