@@ -145,9 +145,27 @@ a {
   width: 1px;
 }
 
-@media (prefers-color-scheme: dark) {
+.sun {
+  visibility: hidden;
+  display: none;
+}
+
+html.dark {
+  background-color: $nord1;
+  color: $nord6;
+
+  .moon {
+    visibility: hidden;
+    display: none;
+  }
+
+  .sun {
+    visibility: visible;
+    display: block;
+  }
+
   img {
-    filter: brightness(0.8) contrast(1.2);
+    filter: brightness(0.8);
   }
 
   figure.me img {
@@ -177,7 +195,6 @@ a {
     }
   }
 
-  html,
   body,
   .navbar-menu {
     background-color: $nord1;
@@ -186,7 +203,6 @@ a {
 
   a,
   .has-text-black,
-  .navbar-item,
   .navbar-burger,
   .has-text-grey-darker,
   .pagination-link,
@@ -228,6 +244,7 @@ a {
   a:hover {
     color: $nord12;
   }
+
   .accent,
   .dropcap {
     color: $nord12;
