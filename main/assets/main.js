@@ -19,15 +19,16 @@ createIcons({
   },
 });
 
-function toggleTheme() {
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("click", (e) => {
+  e.preventDefault();
   document.documentElement.classList.toggle("dark");
   localStorage.setItem(
     "theme",
     localStorage.getItem("theme") == "light" ? "dark" : "light"
   );
-}
-
-window.toggleTheme = toggleTheme;
+});
 
 console.info(
   "Hi 👋👋👋. Grab the code here: https://github.com/lucapette/website"

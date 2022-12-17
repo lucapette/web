@@ -150,6 +150,10 @@ a {
   display: none;
 }
 
+#toggle {
+  background-color: transparent !important;
+}
+
 html.dark {
   background-color: $nord1;
   color: $nord6;
