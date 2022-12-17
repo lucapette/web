@@ -24,7 +24,7 @@
 
   <script src="{{ $js.RelPermalink }}" defer></script>
   <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
-  <link href="{{ $highlight.RelPermalink }}" rel="stylesheet" />
+  <link async href="{{ $highlight.RelPermalink }}" rel="stylesheet" />
 
   {{ partial "favicon" . }}
   {{ template "_internal/opengraph.html" . }}
