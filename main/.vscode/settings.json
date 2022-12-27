@@ -12,6 +12,7 @@
     "bufio",
     "bulma",
     "CEST",
+    "Chelimsky",
     "cond",
     "datasette",
     "Dealbreakers",
@@ -46,6 +47,7 @@
     "usecs",
     "uuidv",
     "virtus",
+    "Webrat",
     "youd"
   ]
 }

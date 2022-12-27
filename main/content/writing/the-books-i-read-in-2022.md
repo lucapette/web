@@ -7,3 +7,15 @@ tags:
   - books
 keywords: lucapette, books
 ---
+
+I love reading _and_ I love writing so this kind of end of the year article
+should be natural for me. And yet it is the first time I write something like
+this. I'm not even sure why. Hopefully, I'll be able to do this every year from
+now on.
+
+Since it's the first time I do this, the article is broken down in two parts.
+First I go over each book and share a few words. It's a _long_ list because this
+was a good year for my reading habits. I closed the year at exactly a book per
+week so it's going to be 52 short paragraphs. The second part is a quick
+description of how I extracted the data from goodreads and played around with it
+to create this article.
