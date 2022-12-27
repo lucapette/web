@@ -269,3 +269,18 @@ html.dark {
   opacity: 1;
   transition: opacity 0.2s ease-in;
 }
+
+.book {
+  display: flex;
+  gap: 1em;
+}
+
+.book-cover {
+  width: 30%;
+}
+
+@include media("<tablet") {
+  .book {
+    flex-direction: column;
+  }
+}

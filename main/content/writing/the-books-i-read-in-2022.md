@@ -19,3 +19,15 @@ was a good year for my reading habits. I closed the year at exactly a book per
 week so it's going to be 52 short paragraphs. The second part is a quick
 description of how I extracted the data from goodreads and played around with it
 to create this article.
+
+## The books
+
+I thought of grouping the books for faster access. But any grouping I could
+think of had flaws so I'm presenting the books in the order I read them.
+
+{{< book id="45152372" title="How to stop time" name="books/2022/how-to-stop-time.jpg" width="200" >}}
+
+Good title, **great** plot idea. Somewhat poor execution. It felt like there was
+nothing going on in the book, despite hundred of years passing by.
+
+{{</book>}}
