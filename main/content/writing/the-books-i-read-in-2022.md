@@ -22,7 +22,12 @@ data from goodreads and played around with it to create this article.
 ## The books
 
 I thought of grouping the books for faster access. But any grouping I could
-think of had flaws so I'm presenting the books in the order I read them.
+think of had flaws so I'm presenting the books in the order I read them. Another
+thing I thought of doing and then decided against is to share a rating for each
+book. I tend to rate my books quite high: my average rating on goodreads is 4.1
+(out of 547 read books). This is a consequence of spending a lot of time
+researching what to read next. I enjoy the process very much; bookshops are my
+happy place.
 
 {{< book id="45152372" title="How to Stop Time" name="books/2022/how-to-stop-time.jpg" width="200" >}}
 
