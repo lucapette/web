@@ -32,7 +32,10 @@ happy place.
 {{< book id="45152372" title="How to Stop Time" name="books/2022/how-to-stop-time.jpg" width="200" >}}
 
 I had high expectations for this book. I loved [the midnight
-library](https://www.goodreads.com/book/show/52578297-the-midnight-library) and the plot intrigued me very much. I has strong [Highlander](<https://en.wikipedia.org/wiki/Highlander_(film)>) vibes and I loved this movie as a kid.
+library](https://www.goodreads.com/book/show/52578297-the-midnight-library) and
+the plot intrigued me very much. It has strong
+[Highlander](<https://en.wikipedia.org/wiki/Highlander_(film)>) vibes, a movie I
+loved as a kid.
 
 And yet, I couldn't connect with the book. The story is fascinating, the writing
 is very good but there's genuinely nothing going on. Time moves forward, the
@@ -43,8 +46,8 @@ story seems stuck. I hoped for a great ending but that also didn't happen.
 {{< book id="56646328" title="Send Help!" name="books/2022/send-help.jpg" width="200" >}}
 
 My wife reads lots of comic strips so I read some for proximity. This wasn't
-particularly fun to me but they're such a short time investment it's no big
-deal.
+particularly fun to me but these books are a short time investment it's no big
+deal. I just pick one up from time to time.
 
 {{</ book >}}
 
@@ -199,6 +202,18 @@ will miss on it because of the title though.
 
 {{< book id="33080122" title="The Calculating Stars" name="books/2022/the-calculating-stars.jpg" width="200" >}}
 
+I've always found alternate history an intriguing sub-genre of sci-fi but in
+practise I read very little of it. Not sure why. The "Lady astronaut Universe"
+series (three books so far, a fourth on the way) is set into an alternate
+history where, in 1952, a huge meteorite destroys much of the east coast of the
+United States. The event speeds up the race to space.
+
+I **loved** the whole series. I binge-read all of them in the span of two weeks.
+I grew very fond of Elma York (main character in the first two books) and Nicole
+Wargin (main character in the third one).
+
+I genuinely can't wait for the next book in the series.
+
 {{</ book >}}
 
 {{< book id="33081262" title="The Fated Sky" name="books/2022/the-fated-sky.jpg" width="200" >}}
@@ -215,49 +230,121 @@ See previous review.
 
 {{< book id="7767021" title="Who Fears Death" name="books/2022/who-fears-death.jpg" width="200" >}}
 
+Nnedi Okorafor is such a spectacular writer that this book doesn't read like a
+novel to me. It's poetry. I mean the words don't just bring the story forward.
+There's a beauty to her writing that is hard to explain.
+
+I often find myself thinking about Onyesonwu, the main character, months after I
+read it. Incredible read.
+
 {{</ book >}}
 
 {{< book id="50734847" title="Of Ants and Dinosaurs" name="books/2022/of-ants-and-dinosaurs.jpg" width="200" >}}
+
+Cixin Liu is my favourite sci-fi writer. His imagination is immense, he always
+surprises me. The remembrance of earth's past is _by a significant margin_ the
+most profound sci-fi saga I have ever read.
+
+This book is no exception. It's hard to explain how intriguing this book is.
 
 {{</ book >}}
 
 {{< book id="50214741" title="The Girl with the Louding Voice" name="books/2022/the-girl-with-the-louding-voice.jpg" width="200" >}}
 
+I loved this book. The journey Adunni goes through is as hard as it's
+unforgettable.
+
 {{</ book >}}
 
-{{< book id="45252" title="Pandora's Star " name="books/2022/pandoras-star.jpg" width="200" >}}
+{{< book id="45252" title="Pandora's Star" name="books/2022/pandoras-star.jpg" width="200" >}}
+
+First book in the "Commonwealth saga".
+
+British author Peter Hamilton has the most incredible writing style I have ever
+come across:
+
+- The amount of detail in each "scene" he narrates is astonishing.
+- The author drives the plot forward with many concurrent storylines involving
+  some 50 people or so.
+
+I say _scene_ because the best way I can describe his writing style is: "you're
+literally reading a movie". That's how detailed the story is.
+
+If it'd be only technique though, I think I'd lose interest (the book is very
+long and I'm sure it lost some readers along the way). But the story itself is
+also very intriguing. Space opera at its best.
 
 {{</ book >}}
 
 {{< book id="39996759" title="A Philosophy of Software Design" name="books/2022/a-philosophy-of-software-design.jpg" width="200" >}}
 
+Difficult subject so I appreciate the effort of trying to write about "how to
+design software". I think the book is interesting and worth reading if you're a
+programmer.
+
 {{</ book >}}
 
 {{< book id="45244" title="Judas Unchained" name="books/2022/judas-unchained.jpg" width="200" >}}
+
+Second, and last, book of the "Commonwealth saga". It's as good as the first
+one. Incredible journey. Be aware the series seems short because it's just two
+books but they're more than 1k pages each so it's more a 7 book series.
 
 {{</ book >}}
 
 {{< book id="21611" title="The Forever War" name="books/2022/the-forever-war.jpg" width="200" >}}
 
+It's a classic for a reason: the plot is great, the character development is
+deep, the ending is perfect. A must-read for any sci-fi aficionado.
+
 {{</ book >}}
 
 {{< book id="21620" title="Forever Free" name="books/2022/forever-free.jpg" width="200" >}}
 
+The sequel to "the forever war" took quite a turn from the themes of the first
+book. I found its ideas intriguing and liked the book. But I understand why some
+hated it.
+
 {{</ book >}}
 
-{{< book id="21618" title="Forever Peace " name="books/2022/forever-peace.jpg" width="200" >}}
+{{< book id="21618" title="Forever Peace" name="books/2022/forever-peace.jpg"
+width="200" >}}
+
+I'm not entirely sure how much this book should be considered part of "the
+forever war saga". To be honest I don't care. I loved the story. It would be a
+perfect "action sci-fi" movie. But I'd have to do the casting :)
 
 {{</ book >}}
 
 {{< book id="18652140" title="Distributed Systems For Fun and Profit" name="books/2022/distributed-systems-for-fun-and-profit.jpg" width="200" >}}
 
+Available for free at
+[http://book.mixu.net/distsys/](http://book.mixu.net/distsys/). A good
+introduction to the basic (in the true sense of the word) concepts in the
+distributed systems space. A bit dated maybe. But hey it's free, don't complain
+too much about it.
+
 {{</ book >}}
 
 {{< book id="13573419" title="Great North Road" name="books/2022/great-north-road.jpg" width="200" >}}
 
+Another 1k pages book by Peter Hamilton. Same incredible writing technique as
+the "commonwealth" saga and a few themes in common. I think some people may
+consider this a downside but I can't agree to that because both the writing and
+the themes developed in Hamilton's books are _very_ good.
+
+This has the added benefit (for me) that the plot is a murder mystery.
+
 {{</ book >}}
 
 {{< book id="60280135" title="Upgrade" name="books/2022/upgrade.jpg" width="200" >}}
+
+[Blake Crouch](https://blakecrouch.com/) doesn't know how to write bad books. As
+his previous books (recursion and dark matter), this is an absolute page-turner.
+In the best sense possible. I just couldn't put it down.
+
+The ending of this book is _really_ profound. I find myself thinking about it
+often ever since I finished it.
 
 {{</ book >}}
 
@@ -275,37 +362,97 @@ Worth it if you're a freelancer.
 
 {{< book id="49113465" title="The City in the Middle of the Night" name="books/2022/the-city-in-the-middle-of-the-night.jpg" width="200" >}}
 
+They say "don't judge a book by a cover" but I'm pretty sure I bought this one
+because I liked the cover design (and the blue cloth covering!). Well that and
+the fact I wanted to read some "sci-fi/fantasy" book. I found the story a little
+slow at times but overall I'm very happy I picked this up. Sophie is a fantastic
+main character. [The author](https://www.charliejaneanders.com/) has an
+incredible imagination. It's hard not to be fascinated by the world she created.
+
 {{</ book >}}
 
 {{< book id="57693406" title="The Kaiju Preservation Society" name="books/2022/the-kaiju-preservation-society.jpg" width="200" >}}
+
+This book embarrassed me.
+
+And with that I mean people gave me strange looks in the bus while I was reading
+it. I could not stop laughing. The story is so hilarious I can't wait to forget
+more of it so that I can read it again.
+
+Scalzi never misses.
 
 {{</ book >}}
 
 {{< book id="48829708" title="To Sleep in a Sea of Stars" name="books/2022/to-sleep-in-a-sea-of-stars.jpg" width="200" >}}
 
+This book is engaging but also feels long. It became an amazing book because of
+its conclusion.
+
+I definitely have not seen it coming and made the title of the book so much
+better. What a journey.
+
 {{</ book >}}
 
 {{< book id="34507927" title="How to Take Smart Notes" name="books/2022/how-to-take-smart-notes.jpg" width="200" >}}
+
+I had tried to read this book once already a couple of years ago but didn't
+work. I decided to give it another try and I'm happy I read it.
+
+I have not integrated the technique described into my reading yet but, to be
+fair, I'm reading mostly fiction at the moment and the whole "how to take notes"
+idea is more apt for research.
+
+I plan to buy a physical copy in a few months and use it as a playground for
+"how to take smart notes". Yeah, it's too meta, I agree.
 
 {{</ book >}}
 
 {{< book id="50542114" title="Terraform in Action" name="books/2022/terraform-in-action.jpg" width="200" >}}
 
+I was looking to refresh my memory on terraform. The book served the purpose but
+I remember finding most of the examples a little out of place (meaning I
+wouldn't solve the sample problem with terraform).
+
 {{</ book >}}
 
 {{< book id="48930266" title="Seven and a Half Lessons About the Brain" name="books/2022/seven-and-a-half-lessons-about-the-brain.jpg" width="200" >}}
+
+Well written. An engaging writing style (which is not a given for science
+related books). It's quite short so it's packed with interesting information. I
+want to re-read soon-ish so I can take "smart notes" about it.
 
 {{</ book >}}
 
 {{< book id="29780253" title="Born a Crime" name="books/2022/born-a-crime.jpg" width="200" >}}
 
+A few people recommended me this book over the past few years so it was only a
+matter of time before I found the right moment (for me, that is) to read it.
+
+Quite glad I did so. It's a great book _despite_ the writing isn't always as
+good. Trevor Noah's life experiences are too interesting, his perspective often
+surprised me.
+
 {{</ book >}}
 
 {{< book id="53291342" title="Distributed Services with Go" name="books/2022/distributed-services-with-go.jpg" width="200" >}}
 
+Not a big fun of books where you have to build something along with the author.
+Nothing wrong with them intrinsically, just a personal preference.
+
+Having said that, I liked the book. The topics covered are intriguing, the order
+in which they are presented is very thoughtful.
+
 {{</ book >}}
 
 {{< book id="24611819" title="The Peripheral" name="books/2022/the-peripheral.jpg" width="200" >}}
+
+Most painful read of 2022. I read it in anticipation of the TV series that came
+out in October. I enjoyed the TV series very much, I really really hated the
+book.
+
+The ideas are quite profound but the writing style ruined everything for me.
+Most chapters go one for pages before the author reveals the name of the person
+doing things. I really don't get it.
 
 {{</ book >}}
 
