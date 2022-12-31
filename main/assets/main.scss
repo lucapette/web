@@ -272,14 +272,18 @@ html.dark {
 
 .book {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .book-cover {
-  width: 30%;
+  width: 20%;
 }
 
-@include media("<tablet") {
+.book-review {
+  width: 80%;
+}
+
+@include media("<=tablet") {
   .book {
     flex-direction: column;
   }
