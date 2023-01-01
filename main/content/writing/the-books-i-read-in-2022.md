@@ -8,26 +8,28 @@ tags:
 keywords: lucapette, books
 ---
 
-I love reading _and_ I love writing so this kind of end of the year article
-should be natural for me. And yet it is the first time I write something like
-this. I'm not even sure why. Hopefully, I'll be able to do this every year from
-now on.
+I love reading _and_ I love writing so this kind of between years article should
+be natural for me. And yet it is the first time I write something like this. I'm
+not even sure why. Hopefully, I'll be able to do this every year from now on.
 
 Since it's the first time I do this, the article is broken down in two parts.
 First I go over each book and share a few words. It's a _long_ list because this
-was a good year for my reading habits. The [second
-part](#how-i-extracted-the-data) is a quick description of how I extracted the
-data from goodreads and played around with it to create this article.
+was a good reading year.
+
+The [second part](#how-i-extracted-the-data) is a quick description of how I
+extracted the data from goodreads and played around with it to create this
+article.
 
 ## The books
 
-I thought of grouping the books for faster access. But any grouping I could
-think of had flaws so I'm presenting the books in the order I read them. Another
-thing I thought of doing and then decided against is to share a rating for each
-book. I tend to rate my books quite high: my average rating on goodreads is 4.1
-(out of 547 read books). This is a consequence of spending a lot of time
-researching what to read next. I enjoy the process very much; bookshops are my
-happy place.
+At first, I thought I'd cluster the books for ease of access. But any grouping I
+could think of had flaws so I'm presenting the books in the order I read them.
+
+I also decided against sharing a rating for each book because there would be too
+many 5-star rating. I tend to rate my books quite high: my average rating on
+goodreads is 4.1 (out of 547 read books). This is a consequence of spending a
+lot of time researching what to read next. I enjoy the process very much;
+bookshops are my happy place.
 
 {{< book id="45152372" title="How to Stop Time" name="books/2022/how-to-stop-time.jpg" width="200" >}}
 
@@ -341,10 +343,10 @@ This has the added benefit (for me) that the plot is a murder mystery.
 
 [Blake Crouch](https://blakecrouch.com/) doesn't know how to write bad books. As
 his previous books (recursion and dark matter), this is an absolute page-turner.
-In the best sense possible. I just couldn't put it down.
+In the best sense possible: I just couldn't put it down.
 
 The ending of this book is _really_ profound. I find myself thinking about it
-often ever since I finished it.
+often since I finished it.
 
 {{</ book >}}
 
@@ -364,10 +366,12 @@ Worth it if you're a freelancer.
 
 They say "don't judge a book by a cover" but I'm pretty sure I bought this one
 because I liked the cover design (and the blue cloth covering!). Well that and
-the fact I wanted to read some "sci-fi/fantasy" book. I found the story a little
-slow at times but overall I'm very happy I picked this up. Sophie is a fantastic
-main character. [The author](https://www.charliejaneanders.com/) has an
-incredible imagination. It's hard not to be fascinated by the world she created.
+the fact I wanted to read a "sci-fi/fantasy" book.
+
+I found the story a little slow at times but overall I'm very happy I picked it
+up. Sophie is a fantastic main character. [The
+author](https://www.charliejaneanders.com/) has an incredible imagination. It's
+hard not to be fascinated by the world she created.
 
 {{</ book >}}
 
@@ -376,8 +380,10 @@ incredible imagination. It's hard not to be fascinated by the world she created.
 This book embarrassed me.
 
 And with that I mean people gave me strange looks in the bus while I was reading
-it. I could not stop laughing. The story is so hilarious I can't wait to forget
-more of it so that I can read it again.
+it. I could not stop laughing out loud.
+
+The story is so hilarious I can't wait to forget more of it so that I can read
+it again.
 
 Scalzi never misses.
 
@@ -385,18 +391,19 @@ Scalzi never misses.
 
 {{< book id="48829708" title="To Sleep in a Sea of Stars" name="books/2022/to-sleep-in-a-sea-of-stars.jpg" width="200" >}}
 
-This book is engaging but also feels long. It became an amazing book because of
-its conclusion.
+Engaging book but also felt a little long. I still consider it an amazing book
+because of its conclusion. It took me by surprise and made me smile. Lovely.
 
-I definitely have not seen it coming and made the title of the book so much
-better. What a journey.
+Also, it gave so much meaning to its title.
+
+What a journey.
 
 {{</ book >}}
 
 {{< book id="34507927" title="How to Take Smart Notes" name="books/2022/how-to-take-smart-notes.jpg" width="200" >}}
 
 I had tried to read this book once already a couple of years ago but didn't
-work. I decided to give it another try and I'm happy I read it.
+finish it then. I decided to give it another try and I'm happy I read it.
 
 I have not integrated the technique described into my reading yet but, to be
 fair, I'm reading mostly fiction at the moment and the whole "how to take notes"
@@ -410,86 +417,210 @@ I plan to buy a physical copy in a few months and use it as a playground for
 {{< book id="50542114" title="Terraform in Action" name="books/2022/terraform-in-action.jpg" width="200" >}}
 
 I was looking to refresh my memory on terraform. The book served the purpose but
-I remember finding most of the examples a little out of place (meaning I
-wouldn't solve the sample problem with terraform).
+I found some examples a little out of place.
 
 {{</ book >}}
 
 {{< book id="48930266" title="Seven and a Half Lessons About the Brain" name="books/2022/seven-and-a-half-lessons-about-the-brain.jpg" width="200" >}}
 
-Well written. An engaging writing style (which is not a given for science
-related books). It's quite short so it's packed with interesting information. I
-want to re-read soon-ish so I can take "smart notes" about it.
+Well written. An engaging writing style which is not a given for science related
+books.
+
+It's quite short so it's packed with interesting information. I want to re-read
+soon-ish so I can take "smart notes" about it.
 
 {{</ book >}}
 
 {{< book id="29780253" title="Born a Crime" name="books/2022/born-a-crime.jpg" width="200" >}}
 
 A few people recommended me this book over the past few years so it was only a
-matter of time before I found the right moment (for me, that is) to read it.
+matter of time before I found the right moment to read it.
 
-Quite glad I did so. It's a great book _despite_ the writing isn't always as
-good. Trevor Noah's life experiences are too interesting, his perspective often
+Quite glad I did so. It's a great book despite the writing isn't always as good.
+Trevor Noah's life experiences are too interesting and his perspective often
 surprised me.
 
 {{</ book >}}
 
 {{< book id="53291342" title="Distributed Services with Go" name="books/2022/distributed-services-with-go.jpg" width="200" >}}
 
-Not a big fun of books where you have to build something along with the author.
-Nothing wrong with them intrinsically, just a personal preference.
+I'm not a big fun of books where you have to build something along with the
+author. Nothing wrong with them intrinsically, just a personal preference.
 
-Having said that, I liked the book. The topics covered are intriguing, the order
-in which they are presented is very thoughtful.
+Having said that, I liked the book despite it was heavy on this idea of building
+something together with the reader.
+
+The topics covered are intriguing, the order in which they are presented is very
+thoughtful.
 
 {{</ book >}}
 
 {{< book id="24611819" title="The Peripheral" name="books/2022/the-peripheral.jpg" width="200" >}}
 
 Most painful read of 2022. I read it in anticipation of the TV series that came
-out in October. I enjoyed the TV series very much, I really really hated the
-book.
+out in October.
+
+I enjoyed the TV series very much, I really, and I can't stress really enough,
+hated the book.
 
 The ideas are quite profound but the writing style ruined everything for me.
-Most chapters go one for pages before the author reveals the name of the person
-doing things. I really don't get it.
+Most chapters go on for pages before the author reveals the name of the person
+doing things. I really don't get this approach.
 
 {{</ book >}}
 
 {{< book id="37794149" title="A Memory Called Empire" name="books/2022/a-memory-called-empire.jpg" width="200" >}}
 
+First book of the "Teixcalaan duology".
+
+I loved everything about this book. The ideas, the characters, the writing, the
+plot. Arkady Martine is an incredible writer and I can't wait to read what she
+writes next.
+
 {{</ book >}}
 
 {{< book id="58661468" title="Crafting Interpreters" name="books/2022/crafting-interpreters.jpg" width="200" >}}
+
+If you're a programmer, chances are you toyed with the idea of building your own
+language. Even just to understand how they work. It turns out they're "just"
+computer programs. Some bits are easier than you think, others no so much.
+
+[Bob Nystrom](http://stuffwithstuff.com/) did an incredible job at guiding your
+through building a programming language from scratch. He did it twice in the
+same book: first with Java and then with C so you can really grok the difference
+between an interpreted language and a bytecode, compiled one.
+
+Together with "designing data intensive applications" and "programming pearls",
+the best technical book I have ever read.
 
 {{</ book >}}
 
 {{< book id="45154547" title="A Desolation Called Peace" name="books/2022/a-desolation-called-peace.jpg" width="200" >}}
 
+Second book in the "Teixcalaan duology".
+
+I didn't think I would like it as much as the first one. I was like "nah, the
+first one is a masterpiece. No chance this one is as good".
+
+I was wrong. Arkady Martine is way too good.
+
 {{</ book >}}
 
 {{< book id="6436659" title="Transition" name="books/2022/transition.jpg" width="200" >}}
+
+My first Iain M. Banks book.
+
+It took me a bit to get used to the writing style but then I got completely lost
+into this universe of parallel worlds. Profoundly interesting story.
+
+It would make an amazing 10-episode "TV mini series". But, hey, can I do the
+casting?
 
 {{</ book >}}
 
 {{< book id="10569" title="On Writing" name="books/2022/on-writing.jpg" width="200" >}}
 
+A few weeks ago, I updated one of my favourite writings also called [On
+writing]({{< ref "/writing/on-writing" >}} "On writing").
+
+When I shared the updated version, [plaindocs](https://twitter.com/plaindocs)
+recommended this. I took that as a sign I should read my first Stephen King
+book.
+
+Very glad I did so. The best book on writing I have ever read by far.
+
 {{</ book >}}
 
 {{< book id="52678845" title="Effective Kotlin" name="books/2022/effective-kotlin.jpg" width="200" >}}
+
+I was looking to deepen my understanding of Kotlin. I picked this one up because
+it's written in the spirit of "Effective Java". Not even remotely in the same
+league but worth a read.
 
 {{</ book >}}
 
 {{< book id="59796908" title="Effective Software Testing" name="books/2022/effective-software-testing.jpg" width="200" >}}
 
+I'm just now realising I read two books in a row starting with the same word and
+I wonder if that ever happened before 🤔
+
+Anyway, this wasn't a planned read but I went from checking it out to reading
+all of it without really realising. A good sign.
+
+I liked the book especially because it gave names to concepts I run over the
+course of my career. Definitely worth a read if you're a programmer.
+
 {{</ book >}}
 
 {{< book id="58502800" title="Engineering Management for the Rest of Us" name="books/2022/engineering-management-for-the-rest-of-us.jpg" width="200" >}}
+
+A magnificent book on engineering management.
 
 {{</ book >}}
 
 {{< book id="61943603" title="The Spare Man" name="books/2022/the-spare-man.jpg" width="200" >}}
 
+I really want to say I loved this book but can't. I had very high expectations
+and that may have played a role. But c'mon, a sci-fi murder mystery written
+by Mary Robinette Kowal? Also, there's a dog? I couldn't be more excited.
+
+Not trying to say it's a bad book. It's not. But I missed the suspense, the
+pace, the intricacies I expect from a murder mystery.
+
 {{</ book >}}
 
 ## How I extracted the data
+
+I store all the books I read on goodreads. I'm not particularly happy about it.
+It feels like the website is barely alive. After going through the experience
+I'm about to share, I decided I'll move somewhere in 2023.
+
+My plan for this blog post was this:
+
+- Get the title, the date read, the cover image of each book I read in 2022.
+- Convert the data into prefilled paragraphs (one for each book) so I could
+  focus on the writing.
+
+A trivial problem which I had to hack through because goodreads doesn't provide
+an API (🙄).
+
+Naturally, I wrote a "script" to extract the data from the HTML from my [year in
+book](https://www.goodreads.com/user/year_in_books/2022/41861912) goodreads
+page. I quoted script because here's what I mean:
+
+```js
+copy(
+  [...document.querySelector("div.bookCovers").querySelectorAll("a")]
+    .map((e) => {
+      const img = e.querySelector("img");
+      return `${e.href.match(/\d+/)[0]},${img.src}`;
+    })
+    .join("\n")
+);
+```
+
+I run this "developer console CSV export" and pasted the clipboard into an
+`images.csv`. Yikes. But hey, don't blame me. They don't provide an API 🤷‍♂️.
+
+Since this page doesn't have the date read (🙄), I requested an export of all my
+books and downloaded a CSV.
+
+Then I imported the two CSV into sqlite with the _wonderful_ sqlite-utils:
+
+```sh
+sqlite-utils insert books.db images images.csv --csv
+sqlite-utils insert books.db books goodreads_library_export.csv --csv
+```
+
+Wonderful tool (yes I know I just said that. But it's that good you know?).
+
+I had a quick look at the data with datasette to make sure I had the data right.
+You can [see it in action](https://hachyderm.io/@lucapette/109489674426663946).
+
+Finally, I exported only the subset of data I needed to stub this blog post and
+wrote a quick Ruby script to create the markdown file and download the cover
+images.
+
+I really don't want to do this part of the article again :) so I'll be looking
+for an alternative way of storing the books I read (unless goodreads magically
+ships an API before end of 2023).
