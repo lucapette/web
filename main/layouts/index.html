@@ -42,11 +42,11 @@
         </div>
       </section>
       <section class="section">
-        <div class="tile is-ancestor">
-          <div class="tile is-4">
+        <div class="tile is-ancestor content">
+          <div class="tile is-4 mb-4">
             <div>
-              <h2 class="is-size-4 has-text-centered-mobile">Latest writing</h2>
-              <ul class="has-text-centered-mobile">
+              <h2>Latest writing</h2>
+              <ul>
                 {{ range first 5 (where site.RegularPages "Type" "in" "writing") }}
                   <li>
                     <a class="is-size-4" href="{{ .Permalink }}"
@@ -59,10 +59,8 @@
           </div>
           <div class="tile is-4">
             <div>
-              <h2 class="is-size-4 has-text-centered-mobile">
-                My favourite writing
-              </h2>
-              <ul class="has-text-centered-mobile">
+              <h2>My favourite writing</h2>
+              <ul>
                 {{ range (where .Site.Pages.ByLastmod "Params.favourite" true ) }}
                   <li>
                     <a class="is-size-4" href="{{ .Permalink }}"
