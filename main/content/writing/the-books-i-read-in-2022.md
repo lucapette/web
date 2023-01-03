@@ -2,16 +2,16 @@
 title: "The Books I Read in 2022"
 description: "A good excuse to reflect on the books I read in 2022"
 date: 2022-12-27T08:41:06+01:00
-draft: true
 tags:
   - books
 keywords: lucapette, books
+images:
+  - books/2022/cover.jpg
 ---
 
-I love reading _and_ I love writing so this kind of between years article should
-be natural for me. And yet it is the first time I ever write something like
-this. I'm not even sure why. Hopefully, I'll be able to do this every year from
-now on.
+I love reading _and_ I love writing so this kind of article should come natural
+to me. Somehow, it is the first time I ever write something like this. I'm not
+even sure why. Hopefully, I'll be able to do this every year from now on.
 
 Since it is the first time I do this, the article is broken down in two parts.
 First I go over each book and share a few words. It is a _long_ list of books
@@ -19,7 +19,7 @@ because this was a good reading year.
 
 The [second part](#how-i-extracted-the-data) is a quick description of how I
 extracted the data from goodreads and played around with it to create this
-article.
+skeleton of the article.
 
 ## The books
 
