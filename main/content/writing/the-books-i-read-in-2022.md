@@ -636,8 +636,13 @@ Wonderful tool (yes I know I just said that. But it's that good you know?).
 I had a quick look at the data with datasette to make sure I had the data right.
 You can [see it in action](https://hachyderm.io/@lucapette/109489674426663946).
 
-Finally, I exported the subset of data I needed to stub this blog post and wrote
-a quick Ruby script to create the markdown file and download the cover images.
+Then I exported the subset of data I needed to stub this blog post and wrote a
+quick Ruby script to create the markdown file and download the cover images.
+Finally, I used imagemagick to create an image with all the covers:
+
+```sh
+montage *.jpg -tile 8x -geometry '300x+1-1' cover.jpg
+```
 
 I really don't want to do this next year :) so I'll be looking for an
 alternative way of storing my reading (unless goodreads magically ships an API
