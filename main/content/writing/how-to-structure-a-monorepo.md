@@ -11,20 +11,22 @@ keywords:
 date: 2022-09-28T07:09:51+02:00
 ---
 
-If you're looking for reasons to adopt a monorepo, check out
-[The appeal of monorepo]({{< ref "/writing/the-appeal-of-monorepo" >}} "the
-appeal of monorepo") that I wrote for that purpose.
+{{< message class="is-info">}}
 
 This article assumes you're _already_ convinced that the monorepo is how you
-want to organise your codebase. While I will be mentioning some benefits of the
-monorepo approach, they'll be a subset of a larger set of benefits I discussed
-in "The appeal of monorepo".
+want to organise your codebase.
+
+While I mention some benefits of the monorepo approach, they are part of a
+larger set of benefits I discussed in [The appeal of monorepo]({{< ref
+"/writing/the-appeal-of-monorepo" >}} "the appeal of monorepo").
+
+{{</ message >}}
 
 With this article, I initially intended to provide some sort of "starting
 template" for a monorepo. The deeper I got into the topic, the more obvious it
 felt to me that this wasn't a valuable approach.
 
-A coherent, useful monorepo structure needs too much contextual information.
+A coherent, useful monorepo structure requires too much contextual information.
 Instead of providing a template that may or may not make sense to you, I will
 share my thoughts on this problem.
 
