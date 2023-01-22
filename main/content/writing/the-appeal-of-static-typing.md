@@ -39,7 +39,7 @@ professional career. The language and its ecosystem felt powerful but
 unproductive.
 
 In 2009, I finally was in a position to start looking for something different.
-That's how I found Ruby and Ruby on Rails.  As an exercise, I tried to build a
+That's how I found Ruby and Ruby on Rails. As an exercise, I tried to build a
 prototype version of a new product my team had been working on for a couple of
 weeks. I got to feature parity in less than a day!
 
@@ -155,7 +155,7 @@ They're both really fast. I ask the question "How on earth is IntelliJ so fast
 at doing X?" weekly. Before going back to Java in 2017, I had used IDEs in the
 early 2000s and they were horrendously slow back then.
 
-I think the nature of the language does contribute to a better experience.  It's
+I think the nature of the language does contribute to a better experience. It's
 a bit of a chicken-and-egg situation: Statically typed languages have better
 tools because they are easier to write compared to dynamically typed languages.
 The tools are easier to write because statically compiled languages are easier
@@ -191,7 +191,7 @@ println(favouriteThings.joinToString(" & ") { it.lowercase() })
 ```
 
 That's how I learned that `joinToString` takes an optional `transform =  ((Byte)
--> CharSequence)` last parameter (Kotlin has a nice syntactic sugar for so
+-> CharSequence)` last parameter (Kotlin has a nice syntactic sugar for the so
 called trailing lambdas).
 
 The key is that this happens multiple times a day so I end up learning a lot
@@ -226,8 +226,8 @@ me spell out the obvious: they're together with the rest of code.
 Too obvious, right? Well that's the point. The co-location makes types the best
 possible kind of documentation:
 
-- They're never out of date
-- They're as close as possible to production code
+- They're _never_ out of date.
+- They're as _close_ as possible to production code.
 
 They also help answer questions that come out all the time:
 
@@ -239,9 +239,9 @@ What does all of this have to do with shipping code to production? Two things:
 
 - I have to keep fewer things in my head. Types store a lot of metadata
   information for me _in the code_. If I'm not sure about something, I can just
-  read the type. This obviously applies to libraries. Yes, I know it's obvious,
-  but I mention it anyway because the difference between integrating a Java
-  library and a Ruby one has been staggering for me.
+  read the type. This applies to libraries too. Yes, I know it's obvious, but I
+  mention it anyway because the difference between integrating a Java library
+  and a Ruby one has been staggering for me.
 - I don't have to care about typos or other silly mistakes like that. I can't
   pass a double to a method expecting a string. Again, all too obvious and I
   wish I could say I never shipped typos to production with Ruby or multiplied a
