@@ -85,7 +85,7 @@ two steps.
 
 No actual work needs to be done at this point, right?
 
-You did a great job jat step 1, which made the code you wrote at step 2
+You did a great job at step 1, which made the code you wrote at step 2
 bug-free and perfectly compliant with the requirements.
 
 So... how many times have you seen this happen? How often code gets merged and
