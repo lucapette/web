@@ -25,7 +25,7 @@ was done with it. So here I am.
 - [Writing the book](#writing-the-book)
 - [Reviewing the book](#reviewing-the-book)
 - [Publishing the book](#publishing-the-book)
-  - [Why Pandoc](#why-pandoc)
+  - [Pandoc](#pandoc)
     - [Filters](#filters)
   - [Basic customisation](#basic-customisation)
   - [Why mdbook](#why-mdbook)
@@ -82,23 +82,90 @@ Two reasons:
   book](#publishing-the-book), including why I went down the road of
   self-publishing.
 
-
 ## Reviewing the book
 
-Reviewing the whole book thought me something about in which order to review
-things. I always did chapters in order and was always really tired by the time I
-had to do the last two. Which made me very unsatisfied about it. So I started
-reviewing things out of order.
+As a writer, the review process was by far the most valuable experience. I write
+a lot and also love writing about writing (yes, I know but TODO: ref on writing
+is a good article🙃) so I went into this phase confident I knew how to do this.
+
+Compared to my usual article review process, there were two complications:
+
+First of all, five years had passed since I first wrote the book. Do I still
+agree with 2017 Luca? Legit question, half a decade is a significant amount of
+time. I overestimated this problem a little. The time distance made it very easy
+for me to update the content. I had no memory of writing most of it so there was
+no emotional attachment.
+
+This experience gave a whole new perspective to what Stephen King does when he
+writes a book. He always takes a break of a few weeks between the first draft of
+a new book and the review process. I _understand_ this now.
+
+The other, way too obvious, complication is that my book is much longer than my
+average article. My usual workflow didn't work at this scale.
+
+In retrospect, this looks funny. Let me explain.
+
+The first two times I went over the whole book, I did one or two chapters a day
+in the order they're published. By the time I got to the last two chapters, I
+was tired. I had depleted my willpower to rethink sentences, trim words out,
+simplify, or delete. Both sessions took a few days and by the end of it I was
+totally unsatisfied with the result.
+
+So I tried to review chapters out of order. Or better put, I prioritized
+chapters I was the most unhappy with. I did two more passed this way and the
+results were much more satisfying. I was doing the hard work first so by the end
+of these days long sessions I was literally checking commas and formatting.
+
+What's funny to me here is that I was reviewing a whole book from start to
+finish like it was an article. No process works as well at two different order
+of magnitudes. I should have known better, I've said this myself to other people
+hundreds of times.
 
 ## Publishing the book
 
-Requirements:
+Before I dive into which tools I chose and why, I should mention with I decided
+to self-publish. The answer is trivial: no one wanted it. I sent the book to four different publishing companies:
 
-- html, ePUB, PDF versions
-- No latex
-- one markdown file per chapter
+- I got one "real" rejection: someone actually explained me why the book didn't work for them.
+- Two automated rejections.
+- One publishing company didn't answer (of course, my favourite of the four did
+  this!).
 
-### Why Pandoc
+This was the most obvious outcome and I knew that before sending them a pitch. I
+did so anyway because "you miss 100% of the shots you don't take". Also, I'll
+expand in [marketing the book](#marketing-the-book), I knew the exercise
+wouldn't be lost.
+
+Once all the rejections came in, I started looking into self-publishing. Here
+are my requirements:
+
+- I wanted HTML, ePUB, and PDF versions. I assumed ePUB and PDF the required
+  formats because it's what most publishing companies sell (at least in tech). I
+  added the HTML version because I wanted this book to be freely available.
+- I did not want to deal with latex. My uni thesis scarred me for life.
+- One folder with a markdown file per each chapter. This seems to be the less
+  stringent requirement of the three but, in fact, it came with a bunch of
+  problems.
+
+With this in mind, I started to search for possible solutions and quickly
+discovered that it's a bazaar out there when it comes to self-publishing,
+there's way too much marketing material and way too little concrete information
+(one of the main reasons why I'm writing this article). In my research I came
+across:
+
+- Way too many "lead generation" articles. Infuriatingly useless.
+- [Leanpub](https://leanpub.com/). A platform I'm very fond of as I was a very
+  early tester. I think it's a great choice but I couldn't convince myself a
+  subscription model would work for me.
+- Ulysses.app. A beautiful macOS application. It has a polished UI and the
+  default PDF/ePUB output is nice. I was tempted by I didn't want to put my
+  customization efforts into a proprietary solution.
+
+I wasn't comfortable enough with any of the existing solutions and "lucky"
+available solutions are developer "friendly". This is how I ended up with a
+custom pandoc toolchain.
+
+### Pandoc
 
 Seems too good to be true. In 15 minutes I got a working book.
 I can add css in no time. That’s pretty amazing
