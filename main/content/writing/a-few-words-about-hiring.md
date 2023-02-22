@@ -27,10 +27,10 @@ get this feeling I become more analytical. Analytical thoughts calm me down
 again. So let's break the hiring process in parts and take it from
 there:
 
-- You need ads on job boards
-- You have to screen people
-- You have to interview them
-- You have to either hire them or reject them
+- You need ads on job boards.
+- You have to screen people.
+- You have to interview them.
+- You have to either hire them or reject them.
 
 I may be simplifying this, but at the end of the day every breakdown is a bit of
 a simplification of an actual process - and I can live with that.
@@ -185,17 +185,16 @@ or not, there are companies asking such ridiculous questions. Are you really
 asking questions like those too? Why? A honest question. Please let me know.
 Because it's beyond my understanding.
 
-I ask what I call vertical questions about technologies. I'm not a native speaker
-so maybe "vertical questions" makes no sense for you. This is what I mean:
-vertical questions are the kind of questions that are vertical to your
-experience level. Your answer will change over the years because your
-perception of the topic, your understanding of it will change over the years.
-I encourage you to think it over. You will find a lot of technical questions
-you can ask that won't sound like the above-mentioned bullshit. And they are
-going to be more inclusive questions too: they're not aggressive. They do not
-focus on the small details but rather on the actual understanding people have
-of this or that technology. Here is a quick list of things I may ask depending
-on the context:
+I ask what I call vertical questions about technologies. I'm not a native
+speaker so maybe "vertical questions" makes no sense for you. This is what I
+mean: vertical questions are the kind of questions that are vertical to your
+experience level. Your answer will change over the years because your perception
+of the topic, your understanding of it will change over the years. I encourage
+you to think it over. You will find a lot of technical questions you can ask
+that won't sound like the above-mentioned bullshit. And they are going to be
+more inclusive questions too: they're not aggressive. They do not focus on the
+small details but rather on the actual understanding people have of this or that
+technology. Here is a quick list of things I may ask depending on the context:
 
 - What's your opinion on automated tests?
 - Do you care more about a specific way of testing things? (Like unit vs
@@ -204,23 +203,22 @@ on the context:
 - When do you think it's a good idea to rewrite a piece of software?
 - What do you like/dislike about technology X?
 
-You see, those questions look easy but I encourage you to reflect. Don't
-the answers to them represent the person you have in front of you more than
-a piece of code?
+You see, those questions look easy but I encourage you to reflect. Don't the
+answers to them represent the person you have in front of you more than a piece
+of code?
 
 ## Hiring or rejecting people
 
-Please be fast. This is one of the things I have learned. I have been slow,
-sometimes I did not even notify people and that is something I am ashamed of.
-It is wrong. We need to respect the people that we interview as much as we
-can.
-Moreover, I try to be as thorough as possible in the actual feedback I share
-with people: I hate canned answers. So I do tell them things along the lines
-of "Sorry I just liked someone else more than you. You were fine". And I get
-quite some good feedback about that. And I know why. People hate when you lie
-to them in their face without shame. Please note that I do use canned answers
-in some cases. And this cost me a lot of thinking to accept I do need canned
-answers from time to time. So I split my answers in two categories:
+Be fast. This is one of the things I have learned. I have been slow, sometimes I
+did not even notify people and that is something I am ashamed of. It is wrong.
+We need to respect the people that we interview as much as we can. Moreover, I
+try to be as thorough as possible in the actual feedback I share with people: I
+hate canned answers. So I do tell them things along the lines of "Sorry I just
+liked someone else more than you. You were fine". And I get quite some good
+feedback about that. And I know why. People hate when you lie to them in their
+face without shame. Please note that I do use canned answers in some cases. And
+this cost me a lot of thinking to accept I do need canned answers from time to
+time. So I split my answers in two categories:
 
 - If both parts invested time in interviews and meeting (no code challenges
   here!) then I do write personal emails.
@@ -243,7 +241,9 @@ Now just a few words about hiring people:
 I find these very difficult, but I still try as hard as I can to achieve them:
 
 - Diversity is the key for success. Make it obvious in your hiring process.
-- Do not fall into the "cultural fit" trap. People do not have to fit "into
-  your teams". They have to fit "within your team".
+- Do not fall into the "cultural fit" trap. People do not have to fit "into your
+  teams". They have to fit "within your team".
 
 Probably those points deserve their own article.
+
+{{< leading-developers >}}

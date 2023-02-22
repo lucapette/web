@@ -139,3 +139,5 @@ with other people.
 
 Let your direct reports go wherever they want to go with them. You'll love the
 results.
+
+{{< leading-developers >}}

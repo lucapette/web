@@ -212,3 +212,5 @@ engineering management should happen.
 
 You want a structure that works technically _and_ that has organisational
 meaning.
+
+{{< leading-developers >}}
