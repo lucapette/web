@@ -26,14 +26,12 @@ was done with it. So here I am.
 - [Reviewing the book](#reviewing-the-book)
 - [Publishing the book](#publishing-the-book)
   - [Pandoc](#pandoc)
-    - [Filters](#filters)
-  - [Basic customisation](#basic-customisation)
-  - [Why mdbook](#why-mdbook)
+  - [Why mdBook](#why-mdbook)
 - [Marketing the book](#marketing-the-book)
 
 ## Writing the book
 
-First of all a confession, I published the book in February 2023 but I wrote it
+First of all a confession: I published the book in February 2023 but I wrote it
 on a speed run in the spring of 2017. I'm not sure how long it took as I have
 almost no memories left of the actual "writing experience".
 
@@ -161,65 +159,161 @@ across:
   default PDF/ePUB output is nice. I was tempted by I didn't want to put my
   customization efforts into a proprietary solution.
 
-I wasn't comfortable enough with any of the existing solutions and "lucky"
+I wasn't comfortable enough with any of the existing solutions and "luckily"
 available solutions are developer "friendly". This is how I ended up with a
 custom pandoc toolchain.
 
 ### Pandoc
 
-Seems too good to be true. In 15 minutes I got a working book.
-I can add css in no time. That’s pretty amazing
-Pdf also seems one command away (just need to find the right pdf converter)
+At first sight, pandoc seems to good to be true. I got decent ePUB and PDF
+formats in no more than 15 minutes. Unfortunately, going from decent to good
+took much longer than that.
 
-Unfortunately going from decent to good is very hard.
-Here’s the requirements:
+In case you have never heard of pandoc, here's what their official docs say:
 
-- html,epub,pdf formats
-- internal links work everywhere
-- toc as well
-- page numbers in pdf
+> If you need to convert files from one markup format into another, pandoc is
+> your swiss-army knife.
 
-Doesn’t seem much but it’s surprisingly hard to get right
+In practice, pandoc is a command line application that allows you to do things like this:
 
-#### Filters
+```sh
+pandoc -o book.epub *-*.md
+```
 
-Two kind. JSON and lua. Lua filters seem nice but of course you need to know the
-language a bit. The idea of filters is based on how pandoc works in general.
-It’s basically a data pipeline with a reader on one side, an ast in the middle,
-and a writer on the other side Filters act on the middle ast. You can look at
-the AST with this command pandoc -s -t native assets/example.md
+and just like that you get a decent ePUB document. You can do the same with another format:
 
-### Basic customisation
+```sh
+pandoc -o book.pdf *-*.md
+```
 
-Better to do with css. It goes a lot way. Especially if you have constraints
-(one h1 per chapter to do page breaks) The pipeline doesn’t get css variables so
-I stitched together make postcss and pandoc. Nice pipeline. Seems to me the
-whole thing could have better defaults. For example, I can’t get page numbers to
-show Turns out default latex with the intermediate html5 (to option) step is the
-nicest tradeoff for me.
+and, again, just like that you get a decent PDF document. I think you could also
+do HTML documents this way but I didn't dive into this because
+[mdbook](#why-mdbook)'s default output was great so I decided to use that for
+HTML. More about this later.
 
-Had to tweak wkhtmltopdf a lot for the table of contents. None of this is user
-friendly. And it also doesn’t work very well. The page numbers look bad and I
-have to fight with too many things to make this work
+As you can see, pandoc has impressive out of the box experience but,
+understandably, the defaults didn't work for me. Here's what I wanted to
+achieve:
 
-So I went for weasyprint. Because it supports modern css features and the output
-is very nice. Only have a problem with links. internal links refer to the file
-on disk which is useless. But anchor links I can transform so I wrote a Lua
-filter for that (which also fixes links in the ePub version)
+- HTML, ePUB, PDF formats.
+- Internal links work in all formats.
+- The documents have a working table of contents.
+- I have page numbers in the PDF format.
+- I want to style font, line height, page size, and son.
 
-The customisation was really easy because weasyprint supports very fancy css so
-I could style pages with very little code
+It doesn't seem like much, and to be frank it isn't, but I had to learn how
+pandoc works to achieve these goals.
 
-### Why mdbook
+So let's start by saying how pandoc works. In short, pandoc is a data pipeline
+that looks like this:
 
-I decided to go for mdbook because I love its default output. It’s a little
-inflexible in terms of structure (but I understand the trade-off so I’m good with
-it) which made me write a ruby script to convert my “one file one chapter”
-structure into folders. I like it this way as well. I’m considering moving the
-pandoc stuff to that (it shouldn’t be that hard?)
+![pandoc data pipeline](/img/pandoc.svg)
+
+A simple idea!
+
+For the sake of this conversation, let's consider the markdown to ePUB example again:
+
+```sh
+pandoc -o book.epub *-*.md
+```
+
+When you run this command, pandoc uses its markdown reader to read and convert
+the input documents into a "pandoc AST (abstract syntax tree)". Then it passes
+the AST to the ePUB writer which converts it into an ePUB document. It's an
+elegant solution to the "convert between all formats" problem.
+
+I wanted to make two kinds of customizations: styles (font, sizes) and content
+(links). I used CSS for style which felt very good, and "pandoc filters" for
+links which also felt good but I had to learn one more thing before I could do
+this.
+
+Let's talk about CSS first. The reason why I ended up with CSS is two-fold:
+
+- ePUB customization works out of the box with CSS.
+- PDF customization in pandoc is possible with latex and CSS. I don't do latex.
+
+After some research, here's what I ended up with:
+
+- A [postcss](https://postcss.org/) pre-processor step for both PDF and ePUB
+  format. I wanted to use variables. Nothing fancy.
+- [WeasyPrint](https://weasyprint.org/) as a PDF engine. It supports modern CSS
+  features so I could get things like "alternating-sides page numbers" with 2
+  lines of code.
+
+Once this build pipeline was in place, I only needed to make internal links work
+everywhere. By default, internal links don't work in PDF or ePUB documents
+because they point to the physical name of the input document:
+
+- What I have: `[when to split teams](5-teams.md#when-to-split-teams)`
+- What I need: `[when to split teams](teams#when-to-split-teams)`
+
+That's where [filters](https://pandoc.org/filters.html) come in. In the words of
+the official docs:
+
+> Pandoc provides an interface for users to write programs (known as filters)
+> which act on pandoc’s AST.
+
+A simple idea again: you can write little programs (in
+[Lua](http://www.lua.org/)) that hook you into the AST stage and let you
+manipulate its nodes before the writing stage. To make links work, here's what I wrote:
+
+```lua
+function Link(el)
+  if string.match(el.target, "^%d") then
+    print(el.target)
+    title = string.find(el.target, "#.*")
+    if (title ~= nil) then
+      el.target = string.sub(el.target, title)
+    else
+      el.target = "#" .. string.sub(el.target, 3, -4)
+    end
+  end
+  return el
+end
+```
+
+Since the function is called like the AST node it acts upon, this will work with
+no additional code (the beauty and the curse of "convention over
+configuration"). Then I passed the filter to pandoc:
+
+```sh
+pandoc --lua-filter links.lua *_*.md -o book.pdf
+```
+
+which fixed links in both formats.
+
+### Why mdBook
+
+In the words of the official docs, [mdBook](https://rust-lang.github.io/mdBook/) is:
+
+> a command line tool to create books with Markdown.
+
+As I said, I decided to go for it because I love its default output. It's very
+readable and has a nice default navigation. I think I was also a little tired of
+all the work I had to do to get ePUB and PDF formats to an acceptable quality
+level.
+
+The only customization I had to do here is about the file structure. My one
+chapter per markdown file approach didn't produce a navigable structure (I'm not
+complaining, I understand mdBook approach here). So I write a small Ruby script
+that converts the structure of the input files for me. You can check out the
+free online version at [https://book.leadthe.dev](https://book.leadthe.dev).
 
 ## Marketing the book
 
-It’s really really hard for me to market myself. There’s also the thing I wrote
-this book 5 years ago and parked it. Back then books weren’t good, now there’s a
-bunch.
+This was the hardest part for me. Writing a little copy on
+[https://leadthe.dev](https://leadthe.dev) to convince readers to buy something
+I wrote has proved to be quite the psychological challenge for me.
+
+I think there's more than one reason at play here but the core problem is that I
+wrote a book about a job I don't really look forward to having again.
+
+So what I did is I read all the engineering management books I could get my
+hands on. I'm sure I was just looking for excuses _not_ to ship the book.
+Something along the lines of "the books out there cover everything, they're so
+good. No need for one more".
+
+But I couldn't prove that. In fact, reading all these books ultimately convinced
+me to ship mine because I think I covered a gap in the market. More importantly,
+I shipped it, learned a ton on the way, and now have a good understanding of
+what it takes to ship a book. I wish I had it done it sooner :)
