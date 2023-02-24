@@ -51,7 +51,7 @@ performance.
 
 ## Why am I doing this?
 
-A few days ago, I found myself thinking "so how fast is fakedata, really?".
+A few days ago, I found myself thinking "so how fast is fakedata, really?"
 
 The question caught my attention because it immediately generated (pun _not_
 intended) two intriguing follow-up questions:
@@ -106,7 +106,7 @@ In fact, pv's outputs is already quite useful: fakedata outputs roughly around
 
 Not bad for a totally un-optimised piece of code. Thanks Go!
 
-It sounds really fast, right? Well, it depends 🙃
+It sounds really fast, right? Well... it depends 🙃
 
 Let's compare fakedata to the yes command:
 

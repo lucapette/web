@@ -1,6 +1,10 @@
 @import "../node_modules/include-media/dist/include-media.scss";
 @import "_theme";
 
+:root {
+  --wrap-width: 1160px;
+}
+
 html,
 body {
   height: 100%;
@@ -11,13 +15,21 @@ body {
   flex-direction: column;
 }
 
+@mixin container {
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--wrap-width);
+}
+
 .wrap {
   flex: 1 0 auto;
+  @include container;
 }
 
 .footer {
   flex-shrink: 0;
   padding: 1rem;
+  @include container;
 }
 
 .highlight {
@@ -66,13 +78,13 @@ pre:hover .copy-code {
   }
 
   .image {
-    grid-column-start: 3;
-    justify-self: center;
+    grid-column-start: 4;
+    justify-self: right;
   }
 
   .subtitle {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
     grid-row-start: 2;
   }
 }
@@ -87,6 +99,10 @@ pre:hover .copy-code {
       grid-column-end: 4;
     }
   }
+
+  :root {
+    --wrap-width: 740px;
+  }
 }
 
 @include media("<tablet") {
@@ -96,6 +112,10 @@ pre:hover .copy-code {
     .subtitle {
       grid-column-end: 4;
     }
+  }
+
+  :root {
+    --wrap-width: 350px;
   }
 }
 
@@ -200,7 +220,8 @@ html.dark {
   }
 
   body,
-  .navbar-menu {
+  .navbar-menu,
+  .navbar-brand {
     background-color: $nord1;
     color: $nord6;
   }
@@ -239,8 +260,6 @@ html.dark {
     color: $nord12;
   }
 
-  .navbar,
-  .footer,
   .box {
     background-color: $nord3;
   }
@@ -253,6 +272,10 @@ html.dark {
   .dropcap {
     color: $nord12;
     text-shadow: $nord4 0.05em 0.05em;
+  }
+
+  footer.footer {
+    background-color: $nord1;
   }
 }
 

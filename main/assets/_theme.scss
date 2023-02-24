@@ -31,6 +31,10 @@ $link-hover: $orange;
 $weight-normal: 500;
 $body-font-size: 1.2em;
 
+$section-padding: 2rem 1rem !important;
+
+$footer-background-color: $white;
+
 $family-primary: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
   "Lucida Sans", Geneva, Arial, sans-serif;
 $family-monospace: "Monaco", "Lucida Grande", "Lucida Sans Unicode",
@@ -38,7 +42,7 @@ $family-monospace: "Monaco", "Lucida Grande", "Lucida Sans Unicode",
 
 $box-shadow: 0 0 1px $grey-light;
 
-$navbar-background-color: $white-bis !default;
+$navbar-background-color: $white !default;
 $navbar-item-active-background-color: $white-ter !default;
 $navbar-item-hover-background-color: $white-ter !default;
 $navbar-item-hover-color: $orange !default;
