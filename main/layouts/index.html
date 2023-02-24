@@ -40,9 +40,9 @@
         </div>
       </section>
       <section class="section">
-        <div class="tile is-ancestor content">
-          <div class="tile is-4 mb-4">
-            <div>
+        <div class="columns">
+          <div class="column is-half">
+            <div class="content">
               <h2>Latest writing</h2>
               <ul>
                 {{ range first 5 (where site.RegularPages "Type" "in" "writing") }}
@@ -55,8 +55,8 @@
               </ul>
             </div>
           </div>
-          <div class="tile is-4">
-            <div>
+          <div class="column is-half">
+            <div class="content">
               <h2>My favourite writing</h2>
               <ul>
                 {{ range (where .Site.Pages.ByLastmod "Params.favourite" true ) }}
