@@ -19,8 +19,8 @@ into the article you're reading.
 My goal is to suggest a path for starting out with Vim without the anxiety and
 the frustration this process usually brings about - the editor is _not_ famous
 for being easy to start with. As I will focus on the path, I won't be getting
-into the details of the topics I will cover. There are awesome resources on
-this matter and I will link them at the end of each section.
+into the details of the topics I will cover. There are awesome resources on this
+matter and I will link them at the end of each section.
 
 ## vimtutor
 
@@ -98,10 +98,10 @@ Vim being a small language and text objects:
 Links:
 
 - [Vim Text Objects: the definitive
-  guide](http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/)
-- [:h text-objects]([http://vimdoc.sourceforge.net/htmldoc/motion.html#object-select)
+  guide](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/)
+- [:h text-objects](https://vimdoc.sourceforge.net/htmldoc/motion.html#object-select)
 - [Your problem with Vim is that you don't grok
-  vi.](http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118)
+  vi.](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118)
 
 ## Vim plugins
 
@@ -112,7 +112,7 @@ difficult to pick one. I wrote about how to
 and I still agree with the approach of doing things on your own so you can learn
 about Vim. However, if I'd be writing the same article today, I would focus more
 on plugin management; things became easier in that regard. Now I use
-[Vundle.vim]([https://github.com/VundleVim/Vundle.vim) and I couldn't be happier
+[Vundle.vim](https://github.com/VundleVim/Vundle.vim) and I couldn't be happier
 about it. I suggest you go ahead and use Vundle too. It comes with a few
 commands that make installing, updating and removing plugins so simple that you
 do not need to remember anything. Simplicity is the key: you will play around
@@ -170,10 +170,10 @@ I watched them all and I suggest you do the same.
 
 Here are the steps I suggest you take:
 
-- Complete the tutor
-- Think about text the vim way
-- Get to learn the plugin ecosystem
-- Read the best book out there and watch all the author's screencasts
+- Complete the tutor.
+- Think about text the vim way.
+- Learn about the plugin ecosystem.
+- Read the best book out there and watch all the author's screencasts.
 - Happy editing!
 
 Thank you for reading and stay tuned!
