@@ -8,9 +8,9 @@ keywords: developers, speed, career
 title: What I think about when programmers talk about speed
 ---
 
-As an engineering manager, I often have my direct reports ask me to assess their
-speed. They either feel too slow and want to improve their performance or, a bit
-less often, they're looking for confirmation that they are fast.
+My direct reports often ask me to assess their speed. They either feel too slow
+and want to improve their performance or, a bit less often, they're looking for
+confirmation that they are fast enough.
 
 Over the years a pattern emerged in these conversations, especially with less
 experienced developers: there's often a clear disconnect between the way they
