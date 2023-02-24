@@ -1,4 +1,5 @@
 ---
+favourite: true
 title: "My Engineering Management Values"
 date: 2022-08-03T08:30:10+02:00
 description: "What guides my leadership style."

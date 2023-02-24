@@ -1,5 +1,4 @@
 ---
-favourite: true
 tags:
   - vim
 date: "2017-02-19T00:00:00Z"
