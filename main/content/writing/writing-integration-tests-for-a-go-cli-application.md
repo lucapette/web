@@ -12,49 +12,33 @@ aliases:
   - /writing-integration-tests-for-a-go-cli-application
 ---
 
-I've recently open sourced a small Go CLI application for random data
-generation.
+[Fakedata]({{< ref "/tags/fakedata" >}} "Fakedata") is a small Go CLI
+application I wrote to help myself generate test data.
 
-I'm working on an application for which I continuously need testing data and
-couldn't find exactly what I was looking for. So I did what any developer would
-do in this situation: I wrote it myself.
+A few weeks after I released, a user reported
+[bug](https://github.com/lucapette/fakedata/issues/12). The issue was a direct
+consequence of a feature introduced a few hours before the report came it.
 
-CLI applications are my favourite use case for Go so I knew I'd enjoy writing
-it.
-
-A few weeks after I released [fakedata](https://github.com/lucapette/fakedata),
-[Kevin Gimbel](https://twitter.com/_kevinatari) found a
-[bug](https://github.com/lucapette/fakedata/issues/12).
-
-The issue was a direct consequence of a feature we had introduced together a
-few hours before.
-
-It was an obvious regression: fakedata clearly had no tests covering the feature
+The regression was obvious but fakedata had no test covering the feature
 end-to-end.
 
-This situation made me think about how to test a CLI application end-to-end. I
-wanted to do something like the following:
+This situation got me thinking about how an end-to-end test could look like in
+Go CLI applications. After working on it for a bit, I found a simple and
+effective way of writing integration tests for Go CLI applications.
 
-- Create a binary of the app.
-- Run the binary with some specific argument.
-- Assert correct behaviour.
+The recipe looks like this:
 
-I managed to get it done [in this
-pull-request](https://github.com/lucapette/fakedata/pull/14) and decided to share
-the key ingredients of this simple and effective way of writing integration
-tests for a Go CLI application.
+- A `make test` target builds the test binary and then runs the test.
+- Each test uses a `runBinary` helper function (which relies on a specific
+  `TestMain` setup) to run the CLI application under specific conditions.
+- Finally, the test asserts correct behaviour using golden files.
 
-I created an example application for the sake of the discussion, it's available
-[on GitHub](https://github.com/lucapette/go-cli-integration-tests).
+Let's go over each step in more detail.
 
-I use `make` to build my Go applications, it suits the task well and it gives me
-a very short command to build an entire project (as `build` is the de-facto
-default target, building a project is as easy as typing `make` and hitting
-enter).
+For the sake of the discussion, I created an example CLI application. You can check
+it out [on GitHub](https://github.com/lucapette/go-cli-integration-tests).
 
-In this case, the
-[Makefile](https://github.com/lucapette/go-cli-integration-tests/blob/main/Makefile)
-builds a tiny program called `echo-args`. The program works like this:
+The example CLI app is a tiny program called `echo-args`. It works like this:
 
 ```sh
 $ echo-args # no arguments, no output
@@ -64,26 +48,55 @@ $ ciao
 $ echo-args ciao hello
 ciao
 hello
-$ echo -shout ciao # it shouts at you if you ask it to
+$ echo-args -shout ciao # it shouts at you if you ask it to
 CIAO
+$ echo-args -whisper CIAO # it whispers if you ask it to
+ciao
 ```
 
-Four different test cases should cover everything. But first we need to build
-the binary. Here is the code I used for that:
+Four different test cases should cover almost everything. I left one test out on
+purpose to showcase how coverage works in integration tests. More about this
+later.
+
+The first thing we need to do is to build a test binary and run the tests.
+Here's how the Makefile looks like:
+
+```make
+test: build-with-coverage
+    @rm -fr .coverdata
+    @mkdir -p .coverdata
+    @go test ./...
+    @go tool covdata percent -i=.coverdata
+
+build-with-coverage:
+    @go build -cover -o echo-args-coverage
+```
+
+The `test` target depends on `build-with-coverage` so it builds a test binary
+and then runs the test. At the end of the article, I go over the coverage stuff
+so we can ignore it for now.
+
+Now that we have a test binary, we can write a couple of helper functions to run
+the tests. First up, a custom `TestMain`:
 
 ```go
+var binaryName = "echo-args-coverage"
+
+var binaryPath = ""
+
 func TestMain(m *testing.M) {
 	err := os.Chdir("..")
 	if err != nil {
 		fmt.Printf("could not change dir: %v", err)
 		os.Exit(1)
 	}
-	make := exec.Command("make")
-	err = make.Run()
+
+	dir, err := os.Getwd()
 	if err != nil {
-		fmt.Printf("could not make binary for %s: %v", binaryName, err)
-		os.Exit(1)
+		fmt.Printf("could not get current dir: %v", err)
 	}
+
+	binaryPath = filepath.Join(dir, binaryName)
 
 	os.Exit(m.Run())
 }
@@ -93,12 +106,26 @@ Two things are worth mentioning:
 
 - [TestMain](https://golang.org/pkg/testing/#hdr-Main) is the recommended way to
   do setup and teardown of tests.
-- `os.Chdir("..")` is _ugly but practical_ (a bit like Go you may want to say).
-  It works but it's neither a general nor a robust solution.
+- `os.Chdir("..")` is _ugly but practical_. A bit like Go 🧌. It allows us to
+  set `binaryPath` with the absolute path of the test binary.
 
-Since this code runs before any of the tests, I can assume there's going to be a
-binary of the CLI application I can use to run the program and assert the
-correctness of its output. Here is the test I wrote to cover the four cases:
+Now we can write a `runBinary` helper. It looks like this:
+
+```go
+func runBinary(args []string) ([]byte, error) {
+	cmd := exec.Command(binaryPath, args...)
+	cmd.Env = append(os.Environ(), "GOCOVERDIR=.coverdata")
+	return cmd.CombinedOutput()
+}
+```
+
+A trivial function that does two things for us:
+
+- It runs the binary with the correct `binaryPath`. Since `TestMain` functions
+  run before each test, we can assume this is correctly setup.
+- It adds coverage setup to the environment. More about this soon enough.
+
+Now everything is in place for the actual tests. Here's how they look like:
 
 ```go
 func TestCliArgs(t *testing.T) {
@@ -115,13 +142,8 @@ func TestCliArgs(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			dir, err := os.Getwd()
-			if err != nil {
-				t.Fatal(err)
-			}
+			output, err := runBinary(tt.args)
 
-			cmd := exec.Command(path.Join(dir, binaryName), tt.args...)
-			output, err := cmd.CombinedOutput()
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -147,13 +169,13 @@ The tests use two of my favourite Go testing practices:
 - Golden files.
 - [TableDrivenTests](https://github.com/golang/go/wiki/TableDrivenTests).
 
-While Table Driven tests officially documented, I couldn't find anything about
-golden files. The basic idea is to:
+While Table Driven tests are officially documented, I couldn't find too much
+about golden files. The basic idea is this:
 
-- Store on disk (in so-called golden files) the expected (and possibly complex)
-  output of the code under test.
-- Then use a simple comparison of the actual output and the content of
-  corresponding golden file.
+- You store on disk (in so-called golden files) the expected (and possibly
+  complex) output of the code under test.
+- Then you use a simple comparison of the actual output and the content of
+  corresponding golden file in the test itself.
 
 It's good practice to use a command line flag to automatically update the golden
 file when the specified behaviour changes:
@@ -166,15 +188,15 @@ and then check the golden file before running the tests again. Here is the
 output on my machine:
 
 ```sh
-go-cli-integration-tests main ➜ make test
-go test ./...
-?       github.com/lucapette/go-cli-integration-tests/cmd       [no test files]
-ok      github.com/lucapette/go-cli-integration-tests/integration       0.267s
+make test
+?   github.com/lucapette/go-cli-integration-tests               [no test files]
+ok  github.com/lucapette/go-cli-integration-tests/integration   0.498s
+    github.com/lucapette/go-cli-integration-tests coverage:     90.9% of statements
 ```
 
-While this is a trivial example, I think it's still pretty amazing that building
-the binary, running it four times, loading four files, and asserting the
-correctness of the problem takes as little time as `0.267s`.
+While this is a trivial example, it's still pretty amazing that building the
+binary, running it four times, loading four files, and asserting its behaviour
+takes as little time as `0.498s`.
 
 The integration tests run nicely on [GitHub
 Actions](https://github.com/lucapette/go-cli-integration-tests/actions) as well.
@@ -199,13 +221,27 @@ The tests make only two assumptions: how to build the binary (running `make` in
 a specific directory) and the name of the binary.
 
 If you would completely change the internals of the program, the tests would
-still be untouched:
+stay untouched:
 
-> The tests need to change only if the behaviour of the program changes
+> The tests need to change only if the behaviour of the program changes.
 
-Which is the **only** kind of testing I'm comfortable with.
+That is the **only** [kind of testing]({{< ref
+"/writing/my-programming-principles#write-actual-tests" >}} "kind of testing")
+I'm comfortable with.
 
 To stress the point of this benefit even more: the binary doesn't even have to
-be a Go program :)
+be a Go program!
+
+Now, as promised, a short note about coverage. Go
+[1.20](https://tip.golang.org/doc/go1.20#cover) added a `-cover` flag to its
+build command. You can now instruments binaries to emit coverage profile
+information. Before this release, the technique I use in this article wouldn't
+provide any coverage information.
+
+To help you play around with coverage information and table driven testing, I
+purposefully left out the `-whisper` flag. You can check out how the coverage
+looks like with `make check-coverage`. It reports a `90%` coverage because the
+`-whisper` isn't tested. If you add one more test case, you'll see `100%`
+coverage :)
 
 I enjoy using this technique, hopefully you will too. Happy testing with Go!
