@@ -15,30 +15,29 @@ aliases:
 [Fakedata]({{< ref "/tags/fakedata" >}} "Fakedata") is a small Go CLI
 application I wrote to help myself generate test data.
 
-A few weeks after I released, a user reported
-[bug](https://github.com/lucapette/fakedata/issues/12). The issue was a direct
-consequence of a feature introduced a few hours before the report came it.
+A few weeks after I released, a user reported had been introduced just a few
+hours before the report came it. The regression was obvious but, at the time,
+fakedata had no test covering the feature end-to-end so I didn't catch it.
 
-The regression was obvious but fakedata had no test covering the feature
-end-to-end.
-
-This situation got me thinking about how an end-to-end test could look like in
-Go CLI applications. After working on it for a bit, I found a simple and
-effective way of writing integration tests for Go CLI applications.
+This got me thinking about how an end-to-end test could look like in Go CLI
+applications. After working on it for a bit, I found a simple and effective way
+of writing integration tests for Go CLI applications.
 
 The recipe looks like this:
 
-- A `make test` target builds the test binary and then runs the test.
-- Each test uses a `runBinary` helper function (which relies on a specific
-  `TestMain` setup) to run the CLI application under specific conditions.
-- Finally, the test asserts correct behaviour using golden files.
+- A `make test` target builds a test binary and then runs the integration tests.
+- Each integration test uses a `runBinary` helper function (which relies on a
+  specific `TestMain` setup) to run the CLI application.
+- Finally, each integration test asserts correct behaviour using golden files.
 
-Let's go over each step in more detail.
+The point of this approach is that integrations tests are running fakedata like
+a user would and only assert the output of command run; these tests know nothing
+about the code under test. Let's go over each step in more detail.
 
-For the sake of the discussion, I created an example CLI application. You can check
-it out [on GitHub](https://github.com/lucapette/go-cli-integration-tests).
+For the sake of the discussion, I created an example CLI application, available
+on [GitHub](https://github.com/lucapette/go-cli-integration-tests).
 
-The example CLI app is a tiny program called `echo-args`. It works like this:
+The example app is a tiny CLI program called `echo-args`. It works like this:
 
 ```sh
 $ echo-args # no arguments, no output
