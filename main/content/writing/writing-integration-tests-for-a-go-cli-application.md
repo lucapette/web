@@ -12,14 +12,14 @@ aliases:
   - /writing-integration-tests-for-a-go-cli-application
 ---
 
-[Fakedata]({{< ref "/tags/fakedata" >}} "Fakedata") is a small Go CLI
-application I wrote to help myself generate test data.
+[Fakedata]({{< ref "/tags/fakedata" >}} "Fakedata") is a small Go program that I
+wrote to generate test data on the command line.
 
-A few weeks after I released, a user reported had been introduced just a few
-hours before the report came it. The regression was obvious but, at the time,
-fakedata had no test covering the feature end-to-end so I didn't catch it.
+A few weeks after I released, a user reported an issue that had been introduced
+just a few hours before. The regression was obvious but, at the time, fakedata
+had no test covering the feature end-to-end so we didn't catch it.
 
-This got me thinking about how an end-to-end test could look like in Go CLI
+This bug report got me thinking about how I could end-to-end test Go CLI
 applications. After working on it for a bit, I found a simple and effective way
 of writing integration tests for Go CLI applications.
 
@@ -32,7 +32,7 @@ The recipe looks like this:
 
 The point of this approach is that integrations tests are running fakedata like
 a user would and only assert the output of command run; these tests know nothing
-about the code under test. Let's go over each step in more detail.
+about the code under test.
 
 For the sake of the discussion, I created an example CLI application, available
 on [GitHub](https://github.com/lucapette/go-cli-integration-tests).
@@ -53,12 +53,8 @@ $ echo-args -whisper CIAO # it whispers if you ask it to
 ciao
 ```
 
-Four different test cases should cover almost everything. I left one test out on
-purpose to showcase how coverage works in integration tests. More about this
-later.
-
-The first thing we need to do is to build a test binary and run the tests.
-Here's how the Makefile looks like:
+Now that we know what we're end-to-end testing, we can move on to the build
+file. Here's how the Makefile looks like:
 
 ```make
 test: build-with-coverage
@@ -71,12 +67,12 @@ build-with-coverage:
     @go build -cover -o echo-args-coverage
 ```
 
-The `test` target depends on `build-with-coverage` so it builds a test binary
-and then runs the test. At the end of the article, I go over the coverage stuff
-so we can ignore it for now.
+The `test` target depends on `build-with-coverage` so that we always build a
+test binary before we runs the test. At the end of the article, I go over the
+coverage stuff so we can ignore it for now.
 
-Now that we have a test binary, we can write a couple of helper functions to run
-the tests. First up, a custom `TestMain`:
+Now that we have a test binary, we're ready to write a couple of helper
+functions to run the tests. First up, a custom `TestMain`:
 
 ```go
 var binaryName = "echo-args-coverage"
@@ -105,7 +101,7 @@ Two things are worth mentioning:
 
 - [TestMain](https://golang.org/pkg/testing/#hdr-Main) is the recommended way to
   do setup and teardown of tests.
-- `os.Chdir("..")` is _ugly but practical_. A bit like Go 🧌. It allows us to
+- `os.Chdir("..")` is _ugly but practical_... a bit like Go 🧌. It allows us to
   set `binaryPath` with the absolute path of the test binary.
 
 Now we can write a `runBinary` helper. It looks like this:
@@ -120,9 +116,10 @@ func runBinary(args []string) ([]byte, error) {
 
 A trivial function that does two things for us:
 
-- It runs the binary with the correct `binaryPath`. Since `TestMain` functions
-  run before each test, we can assume this is correctly setup.
-- It adds coverage setup to the environment. More about this soon enough.
+- It runs the binary with the correct `binaryPath`. Since our `TestMain`
+  function runs before any test, we can assume this is correctly setup.
+- It adds coverage setup to the environment. More about at the end of the
+  article.
 
 Now everything is in place for the actual tests. Here's how they look like:
 
@@ -183,8 +180,11 @@ file when the specified behaviour changes:
 go test integration/cli_test.go -update
 ```
 
-and then check the golden file before running the tests again. Here is the
-output on my machine:
+and then check the golden file before running the tests again. I wrote a few
+helpers for golden files and I've been copying them around in my Go projects.
+Feel free to do the name.
+
+We can finally run the tests:
 
 ```sh
 make test
@@ -227,9 +227,6 @@ stay untouched:
 That is the **only** [kind of testing]({{< ref
 "/writing/my-programming-principles#write-actual-tests" >}} "kind of testing")
 I'm comfortable with.
-
-To stress the point of this benefit even more: the binary doesn't even have to
-be a Go program!
 
 Now, as promised, a short note about coverage. Go
 [1.20](https://tip.golang.org/doc/go1.20#cover) added a `-cover` flag to its
