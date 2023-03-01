@@ -162,7 +162,7 @@ I ended up with a custom [pandoc](https://pandoc.org/) toolchain.
 
 ### Pandoc
 
-At first sight, pandoc seemed to good to be true. I got decent ePUB and PDF
+At first sight, pandoc seemed too good to be true. I got decent ePUB and PDF
 formats in no more than 15 minutes. Going from decent to good took much longer
 than that. Let's have a look at this journey.
 
