@@ -1,13 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/duotoneLight");
-const darkCodeTheme = require("prism-react-renderer/themes/duotoneDark");
+const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
+const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Notes",
-  tagline: "A public collection of notes by Luca Pette",
+  tagline: "A public collection of notes by Luca",
   url: "https://notes.lucapette.me",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -53,7 +53,7 @@ const config = {
       },
       footer: {
         copyright:
-          "Made with 💙 and <a href='https://docusaurus.io'>docusaurus</a> by <a href='https://lucapette.me'>lucapette</a></a>",
+          "Made with 🧡 and <a href='https://docusaurus.io'>docusaurus</a> by <a href='https://lucapette.me'>lucapette</a></a>",
         links: [
           {
             label: "GitHub",
