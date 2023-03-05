@@ -60,6 +60,9 @@ const config = {
             href: "https://github.com/lucapette/web/tree/main/notes",
           },
           {
+            html: "<a class='footer__link-item' rel='me' href='https://hachyderm.io/@lucapette'>Mastodon</a>",
+          },
+          {
             label: "Twitter",
             href: "https://twitter.com/lucapette",
           },
