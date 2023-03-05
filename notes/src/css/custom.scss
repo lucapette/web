@@ -1,7 +1,7 @@
 @use "sass:meta";
 @import "../../node_modules/nord/src/sass/nord.scss";
 
-$orange: $nord12;
+$orange: darken($nord12, 10%);
 $yellow: $nord13;
 $green: $nord14;
 $turquoise: $nord8;

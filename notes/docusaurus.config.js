@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/duotoneDark");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Notes",
-  tagline: "A public collection of notes by lucapette",
+  tagline: "A public collection of notes by Luca Pette",
   url: "https://notes.lucapette.me",
   baseUrl: "/",
   onBrokenLinks: "throw",

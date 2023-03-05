@@ -120,3 +120,36 @@ is strong) but coroutines seem well thought through once you start to grasp what
 structured concurrency is about.
 
 I should have watched [this](https://www.youtube.com/watch?v=a3agLJQ6vt8) first.
+
+## Extension-oriented design
+
+The name comes from
+[this](https://elizarov.medium.com/extension-oriented-design-13f4f27deaee)
+article by Roman Elizarov.
+
+At first I was a little sceptical about this because I come from Ruby and we
+definitely used to abuse the feature there. I probably feel more comfortable
+with it in Kotlin because it's a statically typed language.
+
+Here's an example of how I'm using it:
+
+```kotlin
+private fun GenericRecord.toNamedValue(field: Schema.Field): NamedValue {
+    return when (field.schema().type) {
+        Schema.Type.STRING -> NamedValue(field.name(), StringValue(get(field.name()).toString()))
+        Schema.Type.INT -> NamedValue(field.name(), IntValue(get(field.name()).toString().toInt()))
+        else -> throw IllegalArgumentException("Unsupported type: ${field.schema().type}")
+    }
+}
+```
+
+I own `NamedValue` and its subclasses`but I don't own`GenericRecord` since it
+comes from the Avro official library. This extension method allows me to write very nice code like:
+
+```kotlin
+  val values = mutableListOf<NamedValue>()
+
+    genericRecord.schema.fields.forEach { avroField ->
+        values.add(genericRecord.toNamedValue(avroField))
+    }
+```
