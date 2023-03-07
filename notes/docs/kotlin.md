@@ -1,6 +1,6 @@
 # Kotlin
 
-Starting in March 2022, I've been learning [kotlin](https://kotlinlang.org).
+Starting in March 2022, I've been learning [Kotlin](https://kotlinlang.org).
 
 ## General observations
 
@@ -143,8 +143,9 @@ private fun GenericRecord.toNamedValue(field: Schema.Field): NamedValue {
 }
 ```
 
-I own `NamedValue` and its subclasses`but I don't own`GenericRecord` since it
-comes from the Avro official library. This extension method allows me to write very nice code like:
+I own `NamedValue` and its subclasses but I don't own `GenericRecord` since it
+comes from the Avro official library. This extension method allows me to write
+very nice code like:
 
 ```kotlin
   val values = mutableListOf<NamedValue>()
