@@ -74,6 +74,14 @@ const config = {
         additionalLanguages: ["kotlin"],
       },
     }),
+  scripts: [
+    {
+      src: "/js/script.js",
+      async: true,
+      defer: true,
+      "data-domain": "notes.lucapette.me",
+    },
+  ],
 };
 
 module.exports = config;
