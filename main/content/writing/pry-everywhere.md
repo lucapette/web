@@ -98,7 +98,6 @@ gems from rvm global gemset in a rails console without declaring them in the
 Gemfile. Then, in the .pryrc I have:
 
 ```ruby
-
 # vim FTW
 
 Pry.config.editor = "gvim --nofork"
@@ -131,15 +130,16 @@ end
 # loading rails configuration if it is running as a rails console
 
 load File.dirname(**FILE**) + '/.railsrc' if defined?(Rails) && Rails.env
-
 ```
 
 If you compare this file with my previous
 [.irbrc](https://github.com/lucapette/dotfiles/blob/80eade149f8d6b93b5446efd03606690b4e74ca6/irbrc)
-you'll notice that this one is shorter. It means that Pry is indeed doing part
-of what I want by default, like colors and [history
-commands](https://github.com/pry/pry/wiki/History). My .railsrc is very similar
-to the previous one minus one difference that is relevant to hirb users:
+you'll notice that this one is shorter. Pry is indeed doing part of what I need
+by default. Things like colors and [history
+commands](https://github.com/pry/pry/wiki/History).
+
+My .railsrc is very similar to the previous one minus one difference that is
+relevant to hirb users:
 
 ```ruby
 # https://github.com/cldwalker/hirb/issues/46#issuecomment-1870823

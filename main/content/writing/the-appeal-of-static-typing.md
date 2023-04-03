@@ -49,7 +49,7 @@ engaging.
 
 While I loved the language and its ecosystem, I was always uncomfortable to put
 Ruby applications to production. I often trivialised the experience saying "No
-matter how many tests we add, we still ship typos to production".
+matter how many tests we write, we still ship typos to production".
 
 Around 2013, I started looking around for something more solid, possibly
 faster. I found Go. The language wasn't pretty but I loved how robust programs
@@ -62,7 +62,7 @@ summarised [my experience with Go]({{< ref "/writing/my-experience-with-go" >}}
 "my experience with go") in a longish article.
 
 Around that time, my interest for Apache Kafka and streaming systems started to
-peak. I had already written Kafka applications in C, Ruby, JavaScript, and Go so
+grow. I had already written Kafka applications in C, Ruby, JavaScript, and Go so
 I knew that I had to write for the JVM to really exploit Kafka's potential. The
 official libraries offered so much more than the community ones and Kafka
 Streams - a wonderful streaming library I was very keen on using - was only
