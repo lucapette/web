@@ -266,7 +266,7 @@ effort than when doing so with a dynamically typed language. It adds up pretty
 fast. That energy surplus makes me more confident of shipping statically typed
 code to production.
 
-### When it compiles, it probably works
+### If it compiles, it probably works
 
 This also comes up a lot and I remember being very sceptical of hearing this when I
 was working only with dynamically typed languages. I was... wrong.
@@ -279,6 +279,18 @@ production. No matter how careful I am, this situation just happens from time to
 time. The last thing I want is to second-guess the fix I'm about to ship. The
 compiler telling me that my code "works" reduces cognitive load which I
 appreciate even more under pressure.
+
+What surprises me the most about working with compiler feedback is how much it
+changed my workflow over time. It's such a radical change compared to dynamic
+languages. There are at least two things I do now I couldn't before and I would
+never give up on them: to-do lists and exploratory design. It's two sides of the
+same coin, let's dive each of them.
+
+First of all, I use compiler errors like a todo list. It's super practical and
+super effective when I’m doing a large change
+
+
+Exploratory design. I’m not sure of the effect of a change? No problem: I break the types involved and try to compile.
 
 ## Experience is everything
 
