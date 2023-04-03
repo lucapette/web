@@ -1,18 +1,9 @@
----
-tags:
-  - recipe
-date: "2017-01-09T00:00:00Z"
-description: A good soup for the winter. Easy to prepare and really delicious
-keywords: recipe, tomato, soup, creme
-title: Tomato soup
-aliases:
-  - /tomato-soup
----
+# Tomato Soup
 
 I invented this recipe after playing around with a few blog posts I found on
 tomato soups. I like that it's neither too spicy nor too sweet, but both
 characteristics are very present in the taste. It's easy and fast to prepare - a
-perfect soup for a winter evening. If you like wine, then a strong red is the
+perfect soup for a winter evening. If you drink wine, then a strong red is the
 perfect companion.
 
 ## Ingredients
