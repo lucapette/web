@@ -79,12 +79,13 @@ I also run into this [issue](https://github.com/grpc/grpc-java/issues/8981) yay.
 ## Ktor
 
 This framework looks very interesting. Some ideas are fresh especially for the
-java world. It feels like kotlin itself: in a sweet spot between rails (ruby)
-and spring (java).
+Java world. It feels like kotlin itself: in a sweet spot between Rails (Ruby)
+and Spring (Java).
 
 ## Meta-programming
 
-I wrote a configuration library (source is not open yet). Here’s how the API looks like:
+I wrote a configuration library (source is not open yet). Here's how the API
+looks like:
 
 ```kotlin
 @KonfigSource(prefix = "server")
