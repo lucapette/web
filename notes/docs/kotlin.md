@@ -113,7 +113,7 @@ GitHub](https://gist.github.com/lucapette/3dd7eca10c47de69864bac844b8d0d04).
 
 ## Coroutines
 
-Coming from go didn't help. Maybe it even actively made it worse for me.
+Coming from go didn't help. Maybe it even made it worse for me.
 
 Goroutines felt much easier to start with (the pitch "add go to a function call"
 is strong) but coroutines seem well thought through once you start to grasp what
