@@ -28,6 +28,15 @@ These premises should clarify that I mean everything that follows as _my_
 personal opinion. I'm sharing my experience hoping that it may be useful to
 other people.
 
+- [How I got here](#how-i-got-here)
+- [Focus on "actual" tests](#focus-on-actual-tests)
+- [The editing experience](#the-editing-experience)
+- [Shipping code to production](#shipping-code-to-production)
+  - [Types are docs](#types-are-docs)
+  - [The reading experience](#the-reading-experience)
+  - [If it compiles, it probably works](#if-it-compiles-it-probably-works)
+- [Experience is everything](#experience-is-everything)
+
 ## How I got here
 
 I started my programming journey at the end of the year 2000. I was a computer
@@ -144,8 +153,8 @@ for a variety of reasons:
 To me, the appeal of static typing is evident when it comes to editing. Here's
 what I use right now:
 
-- IntelliJ for Java and Kotlin
-- VS code for TypeScript and Go
+- IntelliJ for Java and Kotlin.
+- VS code for TypeScript and Go.
 
 Both IntelliJ and VS code are _spectacular_ tools. They excel at every aspect of
 every-day programming. Be that editing, renaming, refactoring, debugging,
@@ -280,17 +289,33 @@ time. The last thing I want is to second-guess the fix I'm about to ship. The
 compiler telling me that my code "works" reduces cognitive load which I
 appreciate even more under pressure.
 
-What surprises me the most about working with compiler feedback is how much it
+What surprises me the most about the compiler feedback loop is how much it
 changed my workflow over time. It's such a radical change compared to dynamic
-languages. There are at least two things I do now I couldn't before and I would
-never give up on them: to-do lists and exploratory design. It's two sides of the
-same coin, let's dive each of them.
+languages!
 
-First of all, I use compiler errors like a todo list. It's super practical and
-super effective when I’m doing a large change
+The basic idea is that I now use the compiler feedback as a todo list.
 
+Let's imagine this scenario: I just realised that I need to change a method
+signature. I also know that method is used all over the place in my code base,
+therefore this is going to be a large change.
 
-Exploratory design. I’m not sure of the effect of a change? No problem: I break the types involved and try to compile.
+If I were tackling this problem in a dynamically typed language, I would have to
+plan the change carefully by researching the code base. I would have to figure
+out where the method is used and change every call site. Hopefully, the test
+suite I have in place covers all call sites already (but we all know it never
+does).
+
+With a statically typed language, I can just change the method signature and
+wait for the compiler to produce a list of errors I need to tackle. I'm also
+confident that, once the compiler is happy, the code works too. No need to worry
+about tests covering exactly every call site.
+
+Now, this may not seem like a big difference in the daily workflow. But it
+really, really is. The "using the compiler as a todo list" workflow shows up
+multiple times a day. In fact, it happens so often it also affected the way I do
+exploratory design. I’m not sure of the effect of a change? No problem: I break
+some crucial type involved and ask the compiler to tell me how deep the problem
+is. Well, how long the todo list is :)
 
 ## Experience is everything
 

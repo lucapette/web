@@ -26,10 +26,10 @@ toggle.addEventListener("click", (e) => {
   document.documentElement.classList.toggle("dark");
   localStorage.setItem(
     "theme",
-    localStorage.getItem("theme") == "light" ? "dark" : "light"
+    localStorage.getItem("theme") == "light" ? "dark" : "light",
   );
 });
 
 console.info(
-  "Hi 👋👋👋. Grab the code here: https://github.com/lucapette/website"
+  "Hi 👋👋👋. Grab the code here: https://github.com/lucapette/website",
 );

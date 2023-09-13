@@ -17,9 +17,9 @@
     "nord": "^0.2.1"
   },
   "devDependencies": {
-    "postcss": "8.4.16",
-    "postcss-cli": "10.0.0",
-    "prettier": "^2.5.1",
-    "prettier-plugin-go-template": "^0.0.13"
+    "postcss": "8.4.29",
+    "postcss-cli": "10.1.0",
+    "prettier": "3.0.3",
+    "prettier-plugin-go-template": "^0.0.15"
   }
 }

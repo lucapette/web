@@ -1,9 +1,9 @@
 {{ define "main" }}
   <section class="section">
     <h1 class="title is-1">{{ title .Title }}</h1>
-    {{if ne .Description ""}}
-    <p class="subtitle">{{ .Description }}</p>
-    {{end}}
+    {{ if ne .Description "" }}
+      <p class="subtitle">{{ .Description }}</p>
+    {{ end }}
     <div class="columns">
       <div class="column is-two-thirds">
         <div class="content">
