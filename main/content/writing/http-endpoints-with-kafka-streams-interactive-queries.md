@@ -467,3 +467,6 @@ I'm using the [demo app](https://github.com/lucapette/interactive-queries) we
 built for this article as a Kotlin playground so I will probably work on some of
 this points myself. If you're interested, check the issues as I generally use
 them as a TODO list and maybe give it a star :)
+
+
+{{< typestream >}}

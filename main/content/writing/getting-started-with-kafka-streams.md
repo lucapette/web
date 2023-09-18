@@ -714,3 +714,5 @@ action](https://www.manning.com/books/kafka-streams-in-action)).
 In fact, there's much more to it than I covered. From here, I would probably
 start from reading the [developer guide for Kafka
 Streams](https://kafka.apache.org/33/documentation/streams/developer-guide/).
+
+{{< typestream >}}
