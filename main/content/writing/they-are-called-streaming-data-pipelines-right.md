@@ -6,85 +6,95 @@ draft: true
 ---
 
 The (long but what's new) article you're reading is the background story of
-TypeStream, an open-source streaming platform (debatable naming, more on this at
-the end of the article) that allows you to write and run typed data pipelines in
-a familiar, UNIX-like syntax. It's tale of how an intuition I had almost a
+[TypeStream](https://github.com/typestreamio/typestream), an open-source
+streaming platform that allows you to write and run typed data pipelines with a
+minimal, familiar syntax. It's the tale of how an intuition I had almost a
 decade ago developed into the three foundational ideas that make TypeStream.
 
-In general I prefer articles with independent sections so I tried my best to
-separated them here as well but it makes the most sense to read the article in
-the presented order (as the ideas presented are connected that way) the first
-time you're around:
+I tried my best to make sections independent but I recommend reading them in
+order as they're connected to each other the way they're presented:
 
 - [The first intuition](#the-first-intuition)
 - [Data pipelines are UNIX pipelines](#data-pipelines-are-unix-pipelines)
-- [A virtual filesystem](#a-virtual-filesystem)
+- [Everything is a stream](#everything-is-a-stream)
 - [It is called TypeStream for a reason](#it-is-called-typestream-for-a-reason)
 - [The power of abstraction](#the-power-of-abstraction)
   - [Abstractions outlive implementations](#abstractions-outlive-implementations)
   - [I don't want to bash SQL but](#i-dont-want-to-bash-sql-but)
+  - [Naming is hard](#naming-is-hard)
 
-As you can see, lots of talk about so let me dive straight into it.
+{{< message class="is-info">}}
+
+TypeStream is a young project so it changes all the time. Some features are
+already implemented and others are being worked on. The official TypeStream
+[discord server](https://discord.gg/JHYsa3xd) is the best way to ask roadmap
+questions.
+
+{{</ message >}}
 
 ## The first intuition
 
-Almost a decade ago, I was the CTO at a small and very cool startup called
-Marley Spoon, the best meal kit delivery kit service out there.
+Almost a decade ago, I was the CTO at Marley spoon, a small and cool startup
+making the best meal kit delivery service.
 
-One day, this must have been late spring of 2016, I was in a meeting with the
+One day, this must have been spring of 2016, I was in a meeting with the
 engineering and product leadership. We were discussing how to leverage Kafka so
-that our teams, with their very different needs and pace, could work more
-independently.
+that our teams could work more independently.
 
 We had a web store and some batch jobs "producing" orders and a variety of
-services "consuming" them and implement a variety of use-cases. Kafka acted as a
+services "consuming" them to implement a variety of use-cases. Kafka acted as a
 transport layer and a "api" between the two worlds via a change data capture
 pipeline. I'm sure this architecture is familiar to many of you, especially now
 that change data capture is widely known. Back then, it was a bit more novel so
 my team was a little hesitant.
 
-The consuming side of this architecture intrigued me. I remember trying to
-explain how I would go about it and failing pretty spectacularly. The core
-intuition I had that day struck me: there were too many abstraction levels
-between our conversation and our tooling, it felt clumsy and inefficient to me.
+The consuming side of this architecture intrigued me: there were too many
+abstraction levels between our conversation and our tooling, it felt clumsy and
+inefficient to me.
 
-Now before I explain what this means in the context of the meeting I was
-attending, I have to stop here and define what abstraction levels mean to me. No
-pun intended but it's such an abstraction conversation, I'd rather be sure you
-know what I'm talking about than losing you before moving forward. I care about
-abstractions through the lenses of developer experience. We didn't create
-programming languages because they were better than assembly for the machine. We
-did it so our developer experience would improve. They're called "high level
+Now before I explain what I mean with "abstraction levels" in the context of
+that meeting, let me clarify that I'm specifically talking about abstractions in
+the context of developer experience. The obvious point being that we didn't
+create programming languages because they were better than assembly for the
+machine. We did it to improve developer experience. They're called "high level
 programming languages" exactly because they're several levels of abstraction
-higher than the machine needs. Of course an abstraction level mismatch between
-humans discussing some data operation and what the machines understand is
-expected. But I think it's not controversial to say that the closer the gap
-between the two, the more productive humans can be.
+away from the machine needs.
 
-After this abstraction detour, I think I can go back to the meeting where I
-realized this abstraction mismatch. Our web store and our batch jobs produced
-orders which we streamed "raw" to Kafka with a rudimental (by todays standards)
-change data capture pipeline. Almost no consumer needed "raw orders", most
-needed either a subset of orders (things like "orders to ship", "orders to pack
-in NL") or parts of each "raw order" (things like "customer's emails of orders
-to ship", "list of ingredients of orders to pack in NL").
+Of course a mismatch between the abstraction level at which humans discuss some
+data operations and the one the machines need is to be expected. The point is
+that the closer the gap between the two abstraction levels, the more productive
+humans can be.
 
-In this context, data operations like "orders to ship" and "list of ingredients
-of orders to pack in NL" were a relatively simple data operations. But, in
-practice, extracting data from Kafka topics, process them, and then send them
-around to other services came with lots of details. The serialization format of
-the data, the schema (what if it changes?), the actual streaming application.
-Everything about it felt very low level and broke our ability to think about
-these problems at a very high abstraction level.
+Now that it's clearer I'm talking about developer experience, let me go back to
+the meeting where I first thought of this mismatch in the context of data
+pipelines.
 
-While I was realizing this mismatch we were looking at diagrams on a whiteboard
-and I couldn't help but think that most of our data pipelines were composable
-little functions. You would combine them by calling each function on the result
-of the previous one. Now a more mathematically inclined mind would explore this
-concept further but I'm a programmer so I saw a different, dare to say, more
-obvious metaphor at play. These little functions you can call one after the
-other looked a lot like UNIX pipelines. Each function type is a UNIX command
-that does one thing, calling them in sequence is just a command pipe.
+Here's the scenario: we streamed orders to Kafka with a rudimental (by todays
+standards) change data capture pipeline. Almost no consumer needed every order,
+most needed a subset of orders (things like "orders to ship", "orders to pack in
+NL") or parts of a subset (things like "customer's emails of orders to ship",
+"list of ingredients of orders to pack in NL").
+
+Conceptually, data operations like "orders to ship" and "list of ingredients of
+orders to pack in NL" were simple data operations. But, in practice, extracting
+data from Kafka topics, process them, and then send them around to other
+services required us to discuss lots of details. The serialization format of the
+data, the schema (what if it changes?), the actual streaming application (what
+language we write this in?). Everything about it felt very low level and broke
+our ability to think about these problems at a high enough abstraction level.
+
+Looking at diagrams on a whiteboard I couldn't help but think that most of our
+data pipelines were composable little functions. We could combine them by
+calling each function on the result of the previous one. Now a more
+mathematically inclined person would explore this concept further but I'm a
+programmer so I saw a different, I dare to say, more obvious metaphor at play.
+These little functions you can call one after the other looked a lot like UNIX
+pipelines. Each function type is a UNIX command that does one thing, calling
+them in sequence is just a command pipe.
+
+This intuition about abstraction level mismatch between tooling and data
+operations lead me to ask myself what if we could express data pipelines like
+UNIX pipelines? TypeStream is my answer to that question.
 
 ## Data pipelines are UNIX pipelines
 
@@ -101,13 +111,12 @@ Getting emails something like this:
 cat $orders_to_ship | cut .email
 ```
 
-It felt right to me but I also felt confused because, for the first time in my
-career, I wanted to build something that I found both really obvious to
-conceptualize and pretty hard to build. A strange (in a good way) combination.
-In fact, I didn't even try building a prototype back then. I had no idea of how
-to write my own programming language, Kafka Streams (which is TypeStream only
-runtime right now, more on this later) was very young and I knew nothing about
-it.
+It felt right to me but it also confused me because, for the first time in my
+career, I wanted to build something that I found both really obvious and pretty
+hard to build. A strange (in a good way) combination. In fact, I didn't even try
+building a prototype back then. I had no idea how to write my own programming
+language and Kafka Streams (which is TypeStream only runtime right now, more on
+this later) was very young, Also, in spring 2016, I knew nothing about it.
 
 Nowadays, the experience got much better. Thanks to amazing progress of
 technology like [Kafka
@@ -123,21 +132,21 @@ I find discussing these ideas in public quite overwhelming. There's a part of me
 that constantly nudges me with doubts like:
 
 - This gotta be a bad idea if no one else sees it _your_ way.
-- It's probably too hard to get these idea into practice _for you_.
+- TypeStream is probably too hard to build _for you_.
 
 Maybe you'll call it impostor syndrome, maybe not. It doesn't matter. I'm not
 sharing this so we can fight my doubts together. I'm doing so because I need to
 clarify that, while my arguments may not come across as strong as they could
-because of the above self-doubts, I _genuinely_ don't understand why approaching
-data pipelines the way I'm thinking about them (aka the UNIX way) isn't more
-common. Hell, I'd go as far as saying this should be the _default_ way. After
-all, there's the word "pipe" in "data pipelines", isn't there? This abstraction
-fits so well the problem space I feel weird "stealing" it for TypeStream.
+because of self-doubts, I _genuinely_ don't understand why approaching data
+pipelines the way I'm thinking about them (aka the UNIX way) isn't more common.
+I'd go as far as saying this should be the _default_ way. After all, there's the
+word "pipe" in "data pipelines", isn't there? This abstraction fits so well the
+problem space I feel weird "stealing" it for TypeStream.
 
 All right, done with that. Where were we? Yes, I was saying that the Kafka
-community made great progress. We made big abstraction jumps, so to speak, from
-"here is the consumer group api javadoc, go" to Kafka Streams, ksqlDB, flink (to
-name a few). And, yes, I was also saying that it's not high level enough :)
+community made great progress. We made big abstraction jumps from "here is the
+consumer group api javadoc" to Kafka Streams, ksqlDB, flink (to name a few).
+And, yes, I was also saying that it's not high level enough :)
 
 What is high level enough then? Well, UNIX pipelines are almost English. That is
 high level enough for me. This is the first foundational idea behind TypeStream:
@@ -149,31 +158,25 @@ kind of project I needed to learn Kotlin. There's no direct connection between
 Kotlin and TypeStream but I can't learn a new programming language through
 fictional exercises. I need something complex enough I can go at it for a few
 weeks in a row. So here I was, finally trying to go one more level up the ladder
-of abstraction I felt I needed all the way back in spring of 2016.
+of abstraction I already wanted all the way back in spring of 2016.
 
 The first few weeks were really fun. I got to put in practice a big chunk of the
 "Crafting interpreters", a magnificent book that gets you started on writing a
 programming language and not on talking about writing one. By the time I could
-compile simple pipelines with a handful of "data operators"/commands I had spent
-quite some time thinking about TypeStream. That's why you may hear me say "I
-stumbled upon TypeStream".
+compile trivial pipelines I had spent quite some time thinking about TypeStream
+and discovered two more ideas that, together with "data pipelines are UNIX
+pipelines", make the foundation of what TypeStream is today.
 
-I didn't sit down one day and said "I'm going to improve developer experience
-for data pipelines". I had one intuition, the abstraction level mismatch, which
-lead to me to "data pipelines are UNIX pipelines", one out of three foundational
-ideas behind TypeStream. The other two were part of the discovery process I went
-through while building a first prototype.
-
-## A virtual filesystem
+## Everything is a stream
 
 Because I'm a pretty sceptical person that likes to sabotage their own plans
 (I'm fun like that), while prototyping TypeStream I found myself in a strange
 two-step self-feeding feedback loop:
 
-1. I ask myself something along the lines of "well if TypeStream were a good
+1. I asked myself something along the lines of "well if TypeStream were a good
 idea, then you could do X but sure you can't, right?"
-2. I constantly find solid answers via the "UNIX metaphor". Happy for a minute
-   then immediately go back to 1.
+2. I immediately found solid answers via the "UNIX metaphor". I was happy for a
+   minute and then back to 1.
 
 This is where the second foundational idea behind TypeStream comes in place.
 See, when I had the intuition of expressing a pipeline like, say, "filter book
@@ -184,10 +187,13 @@ this:
 cat /dev/kafka/cluster1/topics/books | grep [.word_count > 20_000]
 ```
 
-By the time I had a working compiler and was ready to run my pipelines, I
-realized there's a second powerful idea hiding in plain sight here: a virtual
-filesystem. In UNIX, everything is a file. In TypeStream, everything is a
-stream. It's obvious: the core metaphor doesn't work without a filesystem!
+By the time I had a working compiler and was running my first TypeStream
+pipelines, I realized there's a second powerful idea hiding in plain sight here:
+the virtual filesystem.
+
+> In UNIX, everything is a file. In TypeStream, everything is a stream.
+
+It's obvious: the core metaphor doesn't work without a filesystem!
 
 Addressing data sources as filesystem paths felt so natural that I didn't
 immediately realize its profound implications.
@@ -212,9 +218,9 @@ It looks so natural.
 
 Now let me put these two foundational ideas together and imagine how TypeStream
 would deal with some common scenario. For example: stream data out of a
-relational database, apply some business filtering to it, send the data to
-around to a number of places. A concrete trivial, real-world application of this
-scenario is sign-up flow processes.
+relational database, apply some business filtering to it, send the filtered data
+to around. A concrete trivial, real-world application of this scenario is
+sign-up flow processes.
 
 Here's how I imagine TypeStream taking care of capturing new users out of a
 postgres database, publish them to some Kafka topic for later consumption, and
@@ -227,15 +233,16 @@ cat $new_users > /dev/kafka/topics/users.new
 cat $new_users | cut .id .email > /media/email/welcome
 ```
 
-It's surprisingly succinct. But brevity isn't the focus, that's accidental. The
-real deal is that TypeStream abstraction is high level enough. It's a win
-because it's clarity over brevity. This example is very succinct but lost almost
-none of the clarity of the natural language description.
+It's surprisingly succinct. But brevity isn't the focus, that's the accidental
+benefit of a good abstraction. The win is that TypeStream abstraction gives you
+clarity over brevity. This example is very succinct but lost almost none of the
+clarity of the natural language description.
 
-The abstraction levels are now close enough that some tech out there already
-covers the gap between TypeStream and English. GitHub Copilot, for example,
+The abstraction levels are now close enough that some tech already covers the
+gap between TypeStream and natural language. GitHub Copilot, for example,
 produces valid TypeStream pipelines from plain English comments very often! A
 testament to the simplicity and validity of the core ideas behind TypeStream.
+
 After all, I invented nothing and I take no credit: UNIX pipes were there long
 before I was born.
 
@@ -243,41 +250,42 @@ before I was born.
 
 At this point, if you may be wondering how does TypeStream take care of things
 like `cat $new_users | cut .id .email`? What's the secret ingredient that makes
-it look so easy?
+it so simple and succinct?
 
 This is where the third foundational idea comes in. It may seem less relevant to
-the conversation because it's the only idea in TypeStream that doesn't directly
-borrow (I mean steal) from UNIX. On the other hand though, it's so important to
-the developer experience it gave TypeStream its name.
+the conversation because it doesn't directly borrow (I mean steal) from UNIX.
+On the other hand though, it's so important to the developer experience it gave
+TypeStream its name.
 
 TypeStream can type-check pipelines before you run them. It has a key-value
-store where keys are filesystem paths (say `/dev/kafka/cluster1/topics/books`)
-and values are serialization format independent schema types (say `Struct[title:
-String, wordCount: Int]`).
+store where keys are filesystem paths and values are serialization format
+independent schema types. A key value pair looks like this:
 
-So if you're trying to run the following pipeline:
+```properties
+/dev/kafka/cluster1/topics/books=Struct[title: String, wordCount: Int]
+```
+
+So when you're trying to run the following pipeline:
 
 ```sh
 cat /dev/kafka/cluster1/topics/books | grep [.name ~= "the"]
 ```
 
-the compiler gives you an error like "hey there's no name field on books" and
-spare you the pain of finding out later.
+the compiler tells you "hey there's no name field on books" and spare you the
+pain of finding out later in the process.
 
-There's a notable omission in TypeStream pipelines. There's no mention of
-serialization formats anywhere. Is this books topic avro, protobuf, json schema?
-The question feels like irrelevant to designing a data pipeline. If you know the
-shape of the data you're working with, its serialization format is indeed
-irrelevant for you. That's one of the main reasons why I say that other
-available solutions aren't high level enough.
+The types metadata also help TypeStream by allowing its user a notable omission
+in their TypeStream pipelines: there's no mention of serialization formats
+anywhere. Is this topic avro, protobuf, json schema? The question is irrelevant
+to designing a data pipeline. If you know the shape of the data you're working
+with, its serialization format _is_ irrelevant for you.
 
-There's a little more to types. One day, while working on the first version of
-the type checker, I realized I had enough metadata information to make
-TypeStream a little clever and do some type inference on data pipelines.
+One day, while prototyping the type checker, I realized TypeStream had enough
+metadata information to do some type inference on data pipelines.
 
 Since the compiler knows the schema type of each "path" and knows the effect of
 each data operator on a schema type, it can infer the resulting schema types of
-each pipeline. Let me make this more concrete with some examples.
+each pipeline. Consider these examples:
 
 ```sh
 cat /dev/kafka/cluster1/topics/books | cut .id .title > /media/http/server1/endpoint
@@ -285,9 +293,9 @@ cat /dev/kafka/cluster1/topics/books | cut .id .title > /media/http/server1/endp
 
 TypeStream can infer that the resulting schema type is something like
 `Struct[id: String, title: String]` and produce reasonable JSON for the "HTTP
-media". You don't need to specify the shape of the resulting data set,
-TypeStream can figure it out on its own. It also works with more complex
-pipelines. Take a "typical" enrichment pipeline like:
+media". Again, it's about developer experience: you don't need to specify the
+shape of the resulting data set, TypeStream can figure it out. It also works
+with more complex pipelines. Consider a "typical" enrichment pipeline:
 
 ```js
 cat /dev/kafka/cluster1/topics/page_views                  |
@@ -295,26 +303,22 @@ enrich {p -> http "https://api.country.is" | cut .country} |
 wc --by .country
 ```
 
-Here, the compiler calculates the resulting type by "merging" the same of page
-views with "something with a country field" that the enrichment block produces
-which can then use for typechecking `--by .country`. If we'd be redirecting this
-pipeline to, say, a redis store, TypeStream would use the resulting schema type
-to make an informed decision on which which data structure to create inside the
-redis store. It's all about developer experience: TypeStream abstracts so many
-irrelevant details away by leveraging "ancient" programming ideas like UNIX
-pipelines and filesystem paths.
+Here, the compiler calculates the resulting type by "merging" page views with
+the shape of "something with a string country field" that the enrichment block
+produces. And then use that resulting type to type-check `--by .country`. If
+you'd be redirecting this pipeline to, say, a redis store, TypeStream would use
+the resulting schema type to make an informed decision on which which data
+structure to create inside the redis store. One more time, it's about developer
+experience: TypeStream abstracts so many irrelevant details away by leveraging
+"ancient" programming concepts like UNIX pipelines and filesystem paths.
 
 ## The power of abstraction
 
-When I started outlining this article, the draft title was "the power of
-abstraction". I thought I'd approach TypeStreams background by the perspective
-of how abstraction is the most powerful tool in the hands of programmers. I did
-start from there because that's where the story started but writing took me
-through a different path.
-
-I realised it would be easier to conclude the article spending a few words on
-some powerful abstractions TypeStream enables that are not obvious in the
-context of the previous discussion.
+I want to conclude this discussion about TypeStream like I started it:
+abstractions. While pitching TypeStream to developers and data engineers I
+learned that some powerful abstractions TypeStream enables are not obvious in
+the context of the "UNIX metaphor". But they're equally important to the
+developer experience so let me get to them.
 
 ### Abstractions outlive implementations
 
@@ -327,49 +331,93 @@ A [tweet](https://twitter.com/gunnarmorling/status/1716878504044998914) by
 > many to list even).
 
 applies perfectly well to TypeStream but it's not obvious unless we consider the
-implications of its technical implementation. At its very core, TypeStream is a
-"remote compiler": you give it some bash-like code and the compiler will
-transform it into a Kafka Streams application and run it for you.
+implications of its technical implementation.
 
-The key is that TypeStream could compile pipelines into flink jobs, pulsar
-applications, google pub/sub pipelines, whatever. TypeStream can outlive its
-runtime because it's thought and built as a programming language. Kafka Streams
-is _just_ a runtime. Right now it's also the only runtime but adding more is
-feasible (interested? Reach out to me! I have some private notes for google
-pub/sub already).
+At its very core, TypeStream is a "remote compiler": you give it some bash-like
+code and TypeStream compiles it into a Kafka Streams application and run the
+application for you.
+
+The key point is that, exactly because it's a compiler, Kafka Streams is "just"
+a runtime. A powerful and easy to use runtime which is why I started with it.
+But that doesn't mean it's the only possible runtime. TypeStream could compile
+pipelines into flink jobs, pulsar applications, google pub/sub pipelines,
+whatever. TypeStream can outlive its runtime because it's built like a small
+programming so it can abstract away the runtime for you. In fact, it already
+does: there's no mention of Kafka Streams in a TypeStream pipeline.
 
 ### I don't want to bash SQL but
 
 As Sarah Catanzaro once said: [abstractions
-matter](https://twitter.com/sarahcat21/status/1719025058734379196). The way I
-read her tweet is abstractions they greatly contribute to the building
-experience. It's how I got here.
+matter](https://twitter.com/sarahcat21/status/1719025058734379196).
 
-This is why, despite not being a fan of the bash-like programming languages, I
-still went for it with TypeStream. You know UNIX pipelines, you know most of
-TypeStream. There's no new abstraction for you meaning the developer experience
-isn't a taxing learning experience. Pipes and redirections apply to data
-naturally. Files are data. Streams are data.
+The way I read her tweet is that abstractions they greatly contribute to the
+building experience. It's how I got here.
 
-There's also a bolder claim hidden in this which I think may be not obvious. I'm
-also saying that UNIX pipelines are a _better_ abstraction for data pipelines
-than SQL like languages are. It's worth noticing that TypeStream and SQL-like
-languages are more or less at the same abstraction level. I think TypeStream
-fits the problem space better because of the three foundation ideas I shared:
+This is why, despite not being a huge fan of the bash-like programming
+languages, I still went for it with TypeStream. You know UNIX pipelines, you
+know most of TypeStream. There's no new abstraction for you so the developer
+experience isn't a taxing learning experience. Pipes and redirections apply to
+data naturally. Files are data. Streams are data. The _right_ abstraction wins
+over "better" syntax.
+
+There's also a bolder claim hidden here which I think may be not obvious. I'm also
+saying that UNIX pipelines are a _better_ abstraction for data pipelines than
+SQL like languages are.
+
+TypeStream and SQL-like languages are more or less at the same abstraction level
+but I think TypeStream fits the problem space better because of the three
+foundation ideas I shared:
 
 - data pipelines are unix pipelines. Most UNIX commands have natural
   streaming/data operations counterpart (did you know there's a `join` command
-  in UNIX? That's what I mean)
-- A virtual filesystem hides lots of details away. You don't need any special
-  syntax to configure/interact with external sources ("media mounting").
+  in UNIX? That's what I mean!)
+- A virtual filesystem hides lots of details. You don't need any special syntax
+  to configure/interact with external sources ("media mounting").
 - TypeStream treats types like a strongly programming language would. It already
-  has basic type checking and inference. In the future, it'll allow you, for
-  example, to refactor data pipelines across a whole organization automatically.
-  Just like your favourite strongly typed language does.
+  has basic type checking and basic inference. In the future, it'll allow you,
+  for example, to refactor data pipelines across a whole organization
+  automatically. Just like your favourite strongly typed language does.
 
 To be clear, I **love** SQL. There's nothing better in the scenario "I got this
 data question, give me the answer?". I apply this principle to code too.
-Meaning, no-orm for me please. So I'm not trying to bash SQL here, as I said
-pretty early in this article, I'm _genuinely_ convinced data pipelines are
-_just_ a generalisation of UNIX pipelines. That's the "humble" long-term vision
-behind TypeStream.
+Meaning, no-orm for me please. So I'm not trying to bash SQL here, there's
+nothing wrong with it. I'm saying they're called data _pipe_-lines so a language
+with pipes fits the problem better.
+
+### Naming is hard
+
+The most challenging aspect of talking about TypeStream is to tell people what
+it is in a few words. I'm not familiar with any good cultural equivalent,
+meaning I can't say something like "TypeStream is X for streaming data
+pipelines". The unknown variable here is unclear because TypeStream is a small
+programming language but also a platform? So I settled for this:
+
+> TypeStream is an open-source streaming platform that allows you to write and
+> run typed data pipelines with a minimal, familiar syntax.
+
+This is a good first attempt at describing something that uses lots of
+well-known abstraction in a novel way. I say "naming is hard" because I'm not
+convinced "platform" conveys well enough the abstraction TypeStream puts in
+place here. TypeStream isn't _just_ a compiler. It is also an orchestrator for
+data pipelines. The official TypeStream CLI has a run command that looks like
+this:
+
+```sh
+typestream run <source-code>
+```
+
+When you invoke this command, TypeStream compiles your code and, given there are
+no errors (type-checking is nice!), it launches your pipeline inside a
+Kubernetes job. The interesting bit here is that TypeStream abstracts the
+runtime of your pipelines away. There's no mention anywhere in your source code
+that it will run in production as a Kafka Streams application. That's because
+Kafka Streams is _just_ a runtime and if your pipeline should run as, say, a
+pulsar application, TypeStream will be happily compile your source code to it
+and run it for you.
+
+Note that here I'm talking about a different idea than "just outliving" a
+runtime. As a platform, "TypeStream" abstracts both _where_ and _how_ your data
+pipelines runs. In theory, knowing the shape (the schema) of your data sources
+and what to do with them is all you need to write and run a data pipeline. In
+practice, it's not that easy. That's TypeStream core argument: it could so it
+should be that easy.
