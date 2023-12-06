@@ -2,7 +2,6 @@
 title: "They are called streaming data \"pipe\"lines... right?"
 description: A brief history of TypeStream
 date: 2023-11-27T14:32:28+01:00
-draft: true
 ---
 
 The (long but what's new) article you're reading is the background story of
