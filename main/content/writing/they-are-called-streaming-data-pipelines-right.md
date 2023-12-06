@@ -60,9 +60,9 @@ programming languages" exactly because they're several levels of abstraction
 away from the machine needs.
 
 Of course a mismatch between the abstraction level at which humans discuss some
-data operations and the one the machines need is to be expected. The point is
-that the closer the gap between the two abstraction levels, the more productive
-humans can be.
+data operations and the one their tooling provides is to be expected. The point
+is that the closer the two abstraction levels are, the more productive humans
+can be.
 
 Now that it's clearer I'm talking about developer experience, let me go back to
 the meeting where I first thought of this mismatch in the context of data
