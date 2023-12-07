@@ -48,7 +48,7 @@ that change data capture is widely known. Back then, it was a bit more novel so
 my team was a little hesitant.
 
 The consuming side of this architecture intrigued me: there were too many
-abstraction levels between our conversation and our tooling, it felt clumsy and
+abstraction levels between our conversation and our tooling. It felt clumsy and
 inefficient to me.
 
 Now before I explain what I mean with "abstraction levels" in the context of
@@ -204,8 +204,8 @@ obvious for them. There are no questions about the general idea of how a "data
 mesh filesystem" should look like.
 
 While it's natural to think of data sources as filesystem paths, it may be a
-little harder to see is how well this idea fits with typical data operations.
-For example, you may want to expose data via a websocket this way:
+little harder to see how well this idea fits with typical data operations. For
+example, you may want to expose data via a websocket this way:
 
 ```sh
 cat /dev/kafka/cluster1/topics/books | grep The | cut .id .title > /media/websocket/server1/books_notifications
@@ -218,8 +218,8 @@ It looks so natural.
 Now let me put these two foundational ideas together and imagine how TypeStream
 would deal with some common scenario. For example: stream data out of a
 relational database, apply some business filtering to it, send the filtered data
-to around. A concrete trivial, real-world application of this scenario is
-sign-up flow processes.
+around. A concrete trivial, real-world application of this scenario is sign-up
+flow processes.
 
 Here's how I imagine TypeStream taking care of capturing new users out of a
 postgres database, publish them to some Kafka topic for later consumption, and
@@ -341,16 +341,16 @@ a runtime. A powerful and easy to use runtime which is why I started with it.
 But that doesn't mean it's the only possible runtime. TypeStream could compile
 pipelines into flink jobs, pulsar applications, google pub/sub pipelines,
 whatever. TypeStream can outlive its runtime because it's built like a small
-programming so it can abstract away the runtime for you. In fact, it already
-does: there's no mention of Kafka Streams in a TypeStream pipeline.
+programming language so it can abstract away the runtime for you. In fact, it
+already does: there's no mention of Kafka Streams in a TypeStream pipeline.
 
 ### I don't want to bash SQL but
 
 As Sarah Catanzaro once said: [abstractions
 matter](https://twitter.com/sarahcat21/status/1719025058734379196).
 
-The way I read her tweet is that abstractions they greatly contribute to the
-building experience. It's how I got here.
+The way I read her tweet is that abstractions greatly contribute to the building
+experience. It's how I got here.
 
 This is why, despite not being a huge fan of the bash-like programming
 languages, I still went for it with TypeStream. You know UNIX pipelines, you
@@ -372,9 +372,9 @@ foundation ideas I shared:
   in UNIX? That's what I mean!)
 - A virtual filesystem hides lots of details. You don't need any special syntax
   to configure/interact with external sources ("media mounting").
-- TypeStream treats types like a strongly programming language would. It already
-  has basic type checking and basic inference. In the future, it'll allow you,
-  for example, to refactor data pipelines across a whole organization
+- TypeStream treats types like a strongly typed programming language would. It
+  already has basic type checking and basic inference. In the future, it'll
+  allow you, for example, to refactor data pipelines across a whole organization
   automatically. Just like your favourite strongly typed language does.
 
 To be clear, I **love** SQL. There's nothing better in the scenario "I got this
@@ -411,8 +411,8 @@ Kubernetes job. The interesting bit here is that TypeStream abstracts the
 runtime of your pipelines away. There's no mention anywhere in your source code
 that it will run in production as a Kafka Streams application. That's because
 Kafka Streams is _just_ a runtime and if your pipeline should run as, say, a
-pulsar application, TypeStream will be happily compile your source code to it
-and run it for you.
+pulsar application, TypeStream will happily compile your source code to it and
+run it for you.
 
 Note that here I'm talking about a different idea than "just outliving" a
 runtime. As a platform, "TypeStream" abstracts both _where_ and _how_ your data
