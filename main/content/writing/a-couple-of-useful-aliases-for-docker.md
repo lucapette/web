@@ -46,15 +46,15 @@ docker() {
 
 The function is using its first argument to check if there is a command on the
 system that matches the argument itself using a convention that I have already
-seen in git (there is a nice stackoverflow dicussion about how to check if a
+seen in git (there is a nice stackoverflow discussion about how to check if a
 command exists
 [here](http://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script)).
 Basically, if you want to add a `docker clean` command, you need to make an
-executable named `docker-clean` available in your path. If this command
-exists, it gets executed. Otherwise the function delegates the execution of
-the given command to docker. Pretty simple and pretty neat. So far I added
-two aliases for commands I'm executing all the time. I have a `docker clean`
-that looks like this:
+executable named `docker-clean` available in your path. If this command exists,
+it gets executed. Otherwise the function delegates the execution of the given
+command to docker. Pretty simple and pretty neat. So far I added two aliases for
+commands I'm executing all the time. I have a `docker clean` that looks like
+this:
 
 {{< highlight sh >}}
 #/bin/bash

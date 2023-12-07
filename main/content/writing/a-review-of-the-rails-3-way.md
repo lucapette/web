@@ -25,7 +25,7 @@ Well, as usual, my considerations grouped by chapter:
 ### Rails Environments and configuration
 
 The book starts where a Rails application bootstraps. Nice thing. The author
-will guide you trough all the configurations of Rails. Starting with bundler
+will guide you through all the configurations of Rails. Starting with bundler
 and finishing with logging, all the aspects of configuring a Rails app are
 well-explained and perfectly detailed.
 

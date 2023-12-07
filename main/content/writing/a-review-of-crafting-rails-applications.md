@@ -25,31 +25,31 @@ it for creating an engine to add pdf rendering capabilities to Rails.
 
 The topic is nice. José is nice too. He covers the ActiveModel APIs in a very
 clear and deep way. Following the rule “Test first”, the author wrote a
-compliance test for ActiveModel, reading the evolving of the test you’ll be
-able to understand what an ActiveModel really is. The example of the chaper is
+compliance test for ActiveModel, reading the evolving of the test you’ll be able
+to understand what an ActiveModel really is. The example of the chapter is
 building a flexible mail form using the Rails APIs. Very, very enjoyable
 chapter.
 
 ### Retrieving View Templates From Custom Stored
 
-Once again nice topic. The author guides you though a complete understanding
-of how rails magically retrieves view template and gives view a wonderful
+Once again nice topic. The author guides you though a complete understanding of
+how rails magically retrieves view template and gives view a wonderful
 explanation of what is the view_context object and how it works. Then, he
-introduces you to the resolver API and will show you how you can use that API
-to write an sqlresolver. The latest part of the chapter describes how to run
-your resolver in production. This part contains an enjoyable and detailed
-explanation of ruby hashes. A [nice guy](http://andreapavoni.com/) created a
+introduces you to the resolver API and will show you how you can use that API to
+write a sqlresolver. The last part of the chapter describes how to run your
+resolver in production. This part contains an enjoyable and detailed explanation
+of ruby hashes. A [nice guy](http://andreapavoni.com/) created a
 [gem](https://github.com/apeacox/panoramic) after reading this chapter.
 
 ### Sending Multipart Emails Using Template Handlers
 
-The chapter concludes the trip trough the rendering stack presenting the
+The chapter concludes the trip through the rendering stack presenting the
 Template Resolver API. The example used is very nice, the chapter is build
-around the writing of a markdown erb template handler for emails. First of
-all, the author gives you a couple on nice handlers, just to clarify how they
-really work. Then he pass to write the handler that gave the name to the
-chapter. At the end, the author explains how to use rails 3 generators to turn
-his example into a gem.
+around the writing of a markdown erb template handler for emails. First of all,
+the author gives you a couple on nice handlers, just to clarify how they really
+work. Then he pass to write the handler that gave the name to the chapter. At
+the end, the author explains how to use rails 3 generators to turn his example
+into a gem.
 
 ### Managing Application Events with Rails Engines
 

@@ -185,24 +185,23 @@ gnome-terminal.
 
 All the other issues I run into are Vim related. First of all, I miss how
 beautiful look the GUI versions of some Vim features. Just things like
-underlined chars, bad-spelled words. The other issue is about mappings. Some
-of my mappings aren't working in the terminal. Actually, the problem should be
+underlined chars, bad-spelled words. The other issue is about mappings. Some of
+my mappings aren't working in the terminal. Actually, the problem should be
 related to gnome-terminal but I didn't investigated it yet. You'll have some
-problem if you're using MacVim and apple key mappings. They won't work either
-in the terminal. I read a lot of people just remapped some stuff using the
-leader key. Actually, I have the feeling that sometimes is a good thing to
-[embrace the
+problem if you're using MacVim and apple key mappings. They won't work either in
+the terminal. I read a lot of people just remapped some stuff using the leader
+key. Actually, I have the feeling that sometimes is a good thing to [embrace the
 uncomfortable](http://matt.might.net/articles/programmers-resolutions/). And,
-fot that very reason, I'm trying to do some od the stuff I was doing with that
+for that very reason, I'm trying to do some od the stuff I was doing with that
 mappings in another way and I'm learning a lot of new stuff!
 
 ## Where the Rails stuff?
 
 Yes, re-reading the post I had the feeling I ended up talking about Rails
 specific stuff less than I thought while I was going to write it. But, I can
-understand why: tmux isn't specific to Rails, of course. It just fits very
-well with my personal habits. Furthermore, one of the most important thing I'm
-(still) learning living our profession is giving new stuff a try when I have
-the chance. Especially, when a lot of people are already trying or using the
-same stuff. So, give tmux a try if you're using the console all the time. I
-bet most of you will really like it.
+understand why: tmux isn't specific to Rails, of course. It just fits very well
+with my personal habits. Furthermore, one of the most important thing I'm
+(still) learning living our profession is giving new stuff a try when I have the
+chance. Especially, when a lot of people are already trying or using the same
+stuff. So, give tmux a try if you're using the console all the time. I bet most
+of you will really like it.

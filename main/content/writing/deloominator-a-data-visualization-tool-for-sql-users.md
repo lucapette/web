@@ -85,7 +85,7 @@ negative) I should be aware of. Now, let's try to visualize this small (and
 purposely trivial) data set with graphs. Let's start with aggregating the
 acquisitions by country:
 
-![grouped by contry](img/grouped-by-country.png)
+![grouped by country](img/grouped-by-country.png)
 
 The insight is obvious: Germany is the country where we acquired more customers,
 Netherlands is doing good and Italy is not quite there yet. An interesting side

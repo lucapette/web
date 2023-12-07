@@ -66,11 +66,11 @@ in which I was actually highlighting sentences.
 ## Feels like Ruby
 
 The techniques she presents throughout the book will always feel like Ruby code
-and not something ported from a different language. I wont't show you any
-example because it would probably be out of context and won't make any
-difference. What I can tell you is the feeling I had while reading the code in
-the book. Generally, the code presented is simple and readable. It's exactly the
-Ruby code that made me fell in love with the language a few years ago.
+and not something ported from a different language. I won't show you any example
+because it would probably be out of context and won't make any difference. What
+I can tell you is the feeling I had while reading the code in the book.
+Generally, the code presented is simple and readable. It's exactly the Ruby code
+that made me fell in love with the language a few years ago.
 
 This is great for two reasons:
 

@@ -115,12 +115,12 @@ strategy and its execution.
 
 ## Say no with reason
 
-[Saying no](https://duckduckgo.com/?q=saying+no+product+managment&ia=web)
-seems to be a required feature for good product management. I can agree to
-that sentiment but I think it's an incomplete statement. When I started
-running my first product team, we did not have enough people and experience to
-say no. I struggled with it as I felt we were not saying no often enough. It
-had bad consequences:
+[Saying no](https://duckduckgo.com/?q=saying+no+product+management&ia=web) seems
+to be a required feature for good product management. I can agree to that
+sentiment but I think it's an incomplete statement. When I started running my
+first product team, we did not have enough people and experience to say no. I
+struggled with it as I felt we were not saying no often enough. It had bad
+consequences:
 
 - Irrelevant features were creeping into our building cycle
 - We would often build the wrong thing and only realise after the roll-out

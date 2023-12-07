@@ -75,11 +75,11 @@ mount_uploader :file, FileUploader
 end
 {{< / highlight >}}
 
-Pratically, a carrierwave uploader is a class that handles a certain type of
-uploading in your model. You just need to _mount_ the uploader of a string
-field of your model. This is a very good design decision because it gives you
-a lot of flexibility, for example, when you want to share the same uploading
-features between two models.
+Practically, a carrierwave uploader is a class that handles a certain type of
+uploading in your model. You just need to _mount_ the uploader of a string field
+of your model. This is a very good design decision because it gives you a lot of
+flexibility, for example, when you want to share the same uploading features
+between two models.
 
 Now, we are ready to add the nested feature to the article form. So let's
 proceed in the following order:

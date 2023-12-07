@@ -50,7 +50,7 @@ right.
 Done? Good.
 
 I have spent a great deal of time thinking about this and I found that
-predicable features show the following characteristics:
+predictable features show the following characteristics:
 
 - The effort is the smallest possible in the given context.
 - During the development phase, there was no back and forth between whoever
