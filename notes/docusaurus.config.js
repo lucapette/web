@@ -1,13 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
-const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Notes",
-  tagline: "A public collection of notes by Luca",
+  tagline: "A public collection of notes by Luca Pette",
   url: "https://notes.lucapette.me",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -67,11 +64,6 @@ const config = {
             href: "https://twitter.com/lucapette",
           },
         ],
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["kotlin"],
       },
     }),
   scripts: [
