@@ -69,6 +69,20 @@ val thing = if (maybeBlankThing.isBlank()) args.first() else maybeBlankThing
 val thing = maybeBlankThing.ifBlank { args.first() }
 ```
 
+### Singleton pattern
+
+It's really nice when you don't have constructor parameters:
+
+```kotlin
+object ThingContainer {
+  private thing = Thing()
+  init {
+    // do something with thing
+  }
+  fun get(): Thing = thing
+}
+```
+
 ## gRPC
 
 I knew this was going to be a little painful. But in the end I got the thing up
