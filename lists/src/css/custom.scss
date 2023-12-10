@@ -1,0 +1,74 @@
+@use "sass:meta";
+@import "../../../lib/css/docusaurus.scss";
+
+$orange: #783c26;
+$yellow: $nord13;
+$green: $nord14;
+$turquoise: $nord8;
+$cyan: $nord9;
+$blue: $nord10;
+$purple: $nord15;
+$red: $nord11;
+
+$black: $nord0;
+$black-bis: $nord1;
+$black-ter: $nord2;
+
+$white: $nord6;
+$white-bis: $nord5;
+$white-ter: $nord4;
+
+$link: #466695;
+
+$grey-darker: darken($nord3, 5%);
+$grey-dark: $nord3;
+$grey: lighten($nord3, 25%);
+$grey-light: lighten($nord3, 35%);
+$grey-lighter: lighten($nord3, 48%);
+
+$family-serif: "Raleway", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
+  Geneva, Arial, sans-serif;
+$family-monospace: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
+  "Lucida Sans", Geneva, Arial, sans-serif;
+$body-family: "Raleway", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
+  Geneva, Arial, sans-serif;
+
+:root {
+  --ifm-background-color: #{$nord6};
+  --ifm-color-primary: #{$orange};
+  --ifm-color-primary-dark: #{$nord5};
+  --ifm-color-primary-darker: #{$nord4};
+  --ifm-color-primary-darkest: #{$nord3};
+  --ifm-menu-color-active: #{$orange};
+  --ifm-link-color: #{$link};
+  --ifm-link-hover-color: #{$orange};
+  --ifm-navbar-background-color: #{$white-bis};
+  --ifm-footer-background-color: #{$white-bis};
+  --ifm-breadcrumb-item-background-active: #{$white-bis};
+  --ifm-breadcrumb-color-active: #{$orange};
+
+  --ifm-font-family-base: #{meta.inspect($family-serif)};
+  --ifm-font-family-monospace: #{meta.inspect($family-monospace)};
+  --ifm-font-size-base: 1em;
+  --ifm-link-decoration: underline;
+  --ifm-transition-fast: 100ms;
+}
+
+[data-theme="dark"] {
+  --ifm-background-color: #{$nord0};
+  --ifm-color-primary: #{$nord6};
+  --ifm-color-primary-dark: #{$nord5};
+  --ifm-color-primary-darker: #{$nord4};
+  --ifm-color-primary-darkest: #{$nord3};
+  --ifm-menu-color-active: #{$nord6};
+  --ifm-link-color: #{$nord4};
+  --ifm-link-hover-color: #{$nord6};
+  --ifm-navbar-background-color: #{$nord3};
+  --ifm-footer-background-color: #{$nord3};
+  --ifm-breadcrumb-item-background-active: #{$nord0};
+  --ifm-breadcrumb-color-active: #{$nord6};
+
+  .navbar__logo img {
+    transform: scaleX(-1);
+  }
+}
