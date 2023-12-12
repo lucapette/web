@@ -61,9 +61,9 @@ Now before I explain what I mean with "abstraction levels" in the context of
 that meeting, let me clarify that I'm specifically talking about abstraction in
 the context of developer experience. The obvious point being that we didn't
 create programming languages because they were better than assembly for the
-machine. We did created new abstractions to improve developer experience.
-They're called "high level programming languages" exactly because they're
-several levels of abstraction away from the machine needs.
+machine. We did new abstractions to improve developer experience. They're
+called "high level programming languages" exactly because they're several levels
+of abstraction away from the machine needs.
 
 Of course a mismatch between the abstraction level at which humans discuss some
 technical problem and the one their tooling provides is to be expected. The
