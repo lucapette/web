@@ -330,24 +330,24 @@ of Kafka Streams in a TypeStream pipeline.
 
 ### I don't want to bash SQL but
 
-As Sarah Catanzaro once said: [abstractions
+As [Sarah Catanzaro](https://twitter.com/sarahcat21) once said: [abstractions
 matter](https://twitter.com/sarahcat21/status/1719025058734379196).
 
 The way I read her remark is that abstractions greatly contribute to the
-developer experience. The less new concepts you have to learn, the quicker
+developer experience. The fewer new concepts you have to learn, the quicker
 you'll get things done.
 
-The argument here is that if you know UNIX pipelines, you know most of
-TypeStream already. There are no new abstractions. Pipes and redirections apply
-to data naturally. Files are data. Streams are data. Almost nothing to learn.
+The argument here is: if you know UNIX pipelines, you know TypeStream. There are
+no new abstractions. Pipes and redirections apply to data naturally. Files are
+data. Streams are data. Almost nothing to learn.
 
-There's also a bolder hidden claim here: I'm also saying that UNIX pipelines are
-a _better_ abstraction for data pipelines than SQL like languages are. The
-_right_ abstraction wins over "better" syntax.
+There's also a bolder hidden claim here: UNIX pipelines are a _better_
+abstraction for data pipelines than SQL-like languages are. The _right_
+abstraction wins over "better" syntax.
 
 TypeStream and SQL-like languages are more or less at the same abstraction level
 but I think TypeStream fits the problem space better because of the three
-foundation ideas I discussed already:
+foundation ideas I discussed:
 
 - data pipelines are unix pipelines. Most UNIX commands have natural
   streaming/data operations counterpart (did you know there's a `join` command
@@ -361,9 +361,9 @@ foundation ideas I discussed already:
 
 To be clear, I **love** SQL. There's nothing better in the scenario "I got this
 data question, give me the answer?". I apply this principle to code too.
-Meaning, no-orm for me. So I'm not trying to bash SQL here, there's nothing
-wrong with it. I'm saying they're called data _pipe_-lines so a "pipe-oriented"
-(my term) language fits the problem better.
+Meaning, no-orm for me. So I'm really not trying to bash SQL here, there's
+nothing wrong with it. I'm saying they're called data _pipe_-lines so a
+"pipe-oriented" (my term) language fits the problem better.
 
 ### Naming is hard
 
