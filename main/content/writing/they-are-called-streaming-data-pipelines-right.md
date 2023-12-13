@@ -2,6 +2,11 @@
 title: "They are called streaming data \"pipe\"lines... right?"
 description: A brief history of TypeStream
 date: 2023-12-12T10:32:28+01:00
+tags:
+  - kafka
+  - kafka streams
+  - typestream
+keywords: kafka, kafka streams, typestream
 ---
 
 The (long but what's new) article you're reading is the background story of
