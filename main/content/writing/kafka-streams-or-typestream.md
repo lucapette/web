@@ -14,6 +14,9 @@ keywords: kafka, kafka streams, typestream
 - [Event-driven microservices](#event-driven-microservices)
 - [Kafka Streams](#kafka-streams)
 - [TypeStream](#typestream)
+- [The developer experience](#the-developer-experience)
+- [The deployment model](#the-deployment-model)
+- [When to use what](#when-to-use-what)
 
 
 This article answers a question that comes up a lot when I'm talking about
@@ -81,19 +84,23 @@ For the sake of the discussion, let's assume we have a `application.books` topic
 where records look like this:
 
 ```json
-{"id":"392ff175-6f93-4228-8620-fba20b6a4f73","title":"Station Eleven","word_count":45000,"author_id":"743626be-8380-40e9-ab1b-44dfc398cde0"}
-{"id":"9ba6893e-2980-4316-b9c3-605799a08bde","title":"Sea of Tranquility","word_count":40000,"author_id":"743626be-8380-40e9-ab1b-44dfc398cde0"}
-{"id":"a8c6a266-2827-4b87-873a-f1fcf3f9b138","title":"Purple Hibiscus","word_count":35000,"author_id":"da68bea8-4a8e-4f96-bc39-25b0b697d94b"}
+{"id":1,"title":"Station Eleven","word_count":45000,"author_id":"743626be-8380-40e9-ab1b-44dfc398cde0"}
+{"id":2,"title":"Sea of Tranquility","word_count":40000,"author_id":"743626be-8380-40e9-ab1b-44dfc398cde0"}
+{"id":3,"title":"Purple Hibiscus","word_count":35000,"author_id":"da68bea8-4a8e-4f96-bc39-25b0b697d94b"}
 ```
 
 Note that I'm using JSON for readability but, in a production system, I'd expect
-Avro (or Protocol Buffers) to be the serialization format of choice.
+Avro (or Protocol Buffers) to be the serialization format of choice (and would
+also use UUID from ids).
 
-Now imagine we only need novels into a different topic. Right now, the way we
-define novel is trivial (more than 40K words) but we expect this to change over
-time. So we'll build a small event-driven microservice that is responsible to
-extract novels from the `application.books` topic into a `application.novels`
-topic. Here's a Java program that solves this problem:
+Let's also imagine we need novels into a different topic that will be consumed
+by other microservices.
+
+Initially, the way we define novel is trivial (more than 40K words) but we
+expect this to change over time so an event-driven microservice that is
+responsible to extract novels from the `application.books` topic into a
+`application.novels` topic is a perfect fit. Here's a Java program that solves
+this problem:
 
 ```java
 final StreamsBuilder builder = new StreamsBuilder();
@@ -114,8 +121,11 @@ streams.cleanUp();
 streams.start();
 ```
 
-Apart from the imports and the main definition, this is pretty much all the code
-we need for this microservice. Pretty marvelous.
+Apart from the imports and some function definitions, this is pretty much all
+the code we need for a production grade microservice that extracts novels from a
+stream of books. Sweet.
+
+Now let's define TypeStream so we can finally compare the two.
 
 ## TypeStream
 
@@ -123,14 +133,39 @@ TypeStream is an open-source streaming platform that allows you to write and
 run *typed* data pipelines with a minimal, familiar UNIX-like syntax. I wrote
 about the fundamental ideas that drive the project forward in [they're called
 streaming data "pipe"lines... right?]({{< ref
-"/writing/they-are-called-streaming-data-pipelines-right" >}})
+"/writing/they-are-called-streaming-data-pipelines-right" >}}).
 
-Both technologies can be leveraged in the context of an event-driven
-microservice architecture but they have different strengths and trade-offs.
+TypeStream is a remote compiler: you send it some code and TypeStream will take
+care of compiling it into a Kafka Streams application and then runs that
+application for you.
 
-How do TypeStream's intuitive UNIX-like approach and the power of Kafka Streams
-compare?
+Here's how filtering novels looks like in TypeStream:
 
-analyzing when and why to favor one over the other. We explore key differences
-in usability and deployment model. The goal is to provide you with actionable
-insights on choosing the right tool for the job
+```sh
+let books = "/dev/kafka/cluster/topics/application.books"
+let novels = "/dev/kafka/cluster/topics/application.novels"
+cat $books | grep [ .wordCount > 40000] > $novels
+```
+
+I added the variables for clarity but in reality TypeStream can solve this
+problem with a one-liner.
+
+This looks very different of course and I think we're read to dive into a
+comparison even with such a trivial example.
+
+## The developer experience
+
+The first and most obvious thing to say is that we're talking about two
+different programming languages here. Kafka Streams is a Java library so
+anything jvm really works for you. That's not a limiting choice if you like at
+least one jvm language, I've done Kafka Streams with Java and Kotlin and the
+experience is very pleasant. Of course, if you're not familiar or willing to
+work with any of the jvm languages then, unfortunately, you're out of luck.
+
+TypeStream, on the other hand, is "almost" bash. If you're familiar with UNIX
+systems, you're kind of already familiar with TypeStream. Now I think that's a
+great selling point (it would be pretty weird otherwise) but
+
+## The deployment model
+
+## When to use what
