@@ -73,7 +73,7 @@ Top book.
 name="books/2023/the-glass-hotel.jpg" width="200" >}}
 
 I impulse-bought this book because of Station eleven (☝️). I loved the first 200
-pages but got a little bored with how the plot developed toward the end.  I felt
+pages but got a little bored with how the plot developed toward the end. I felt
 like Mandel spent too much time on an aspect of the story I had only considered
 tangential. Basically, the rest of plot was much more interesting.
 
@@ -86,7 +86,7 @@ not in your face. Mandel's writing is delicate and elegant.
 
 {{< book id="18619684" title="The Time Traveler's Wife" name="books/2023/the-time-travelers-wife.jpg" width="200" >}}
 
-This was a strange read. I enjoyed the writing very much.  I also liked a lot I
+This was a strange read. I enjoyed the writing very much. I also liked a lot I
 got to read two perspectives over the same things.
 
 So it had everything to be a perfect book. But I found myself not reaching for
@@ -128,7 +128,7 @@ short stories. I read this one because it was really short (I read it in two
 sittings in the same day). As expected, it disappointed me.
 
 There may be the wrong expectations at play here. I blame Dino Buzzati and his
-magnificent  [Sessanta racconti](https://www.goodreads.com/book/show/216019.Sessanta_racconti). Ever
+magnificent [Sessanta racconti](https://www.goodreads.com/book/show/216019.Sessanta_racconti). Ever
 since I read that, I expect short stories to be memorable. This collection has
 none of that. To be fair, I have only read one collection that is as good: [To
 Hold Up the Sky](https://www.goodreads.com/book/show/57882885-to-hold-up-the-sky)
@@ -165,33 +165,55 @@ universe. The alien character is exquisitely.. alien.
 
 ## All systems red
 
+{{< book id="32758901" title="All Systems Red" name="books/2023/all-systems-red.jpg" width="200" >}}
+
 I've been meaning to read this series for a while. So maybe I had the wrong
 expectations about this book going in. It's fun but there's not enough context
 around the story to keep me completely engaged. Easy read anyway because it's
 pretty short.
 
+{{</ book >}}
+
 ## Artificial condition
+
+{{< book id="36223860" title="Artificial Condition" name="books/2023/artificial-condition.jpg" width="200" >}}
 
 I loved the pace of this one. The plot also felt much more interesting than the
 previous one. It convinced me to read more in the series
 
+{{</ book >}}
+
 ## Rogue protocol
+
+{{< book id="35519101" title="Rogue Protocol" name="books/2023/rogue-protocol.jpg" width="200" >}}
 
 This one confused me. The plot wasn't clear to me. I did grew to like the
 murderbot very much though
 
+{{</ book >}}
+
 ## exit strategy
+
+{{< book id="35519109" title="Exit Strategy" name="books/2023/exit-strategy.jpg" width="200" >}}
 
 I got tired of the series
 
+{{</ book >}}
+
 ## The Martian
+
+{{< book id="18007564" title="The Martian" name="books/2023/the-martian.jpg" width="200" >}}
 
 I've been meaning to reading for a while because I liked the movie. So it kind
 of just happened. As always, the book is better. Andy Weir invents good stories
 and his writing is engaging and entertaining. Too bad this book is littered with
 bro jokes. It didn't ruin it for me but got somewhere close to it
 
+{{</ book >}}
+
 ## Kindred
+
+{{< book id="38190066" title="Kindred" name="books/2023/kindred.jpg" width="200" >}}
 
 I will think about this book for a very long time. I thought I'd know how though
 a read would be going in but it still caught me off guard. An absolute
@@ -199,20 +221,32 @@ masterpiece.
 
 Top book.
 
+{{</ book >}}
+
 ## Termination shock
+
+{{< book id="59663279" title="Termination Shock" name="books/2023/termination-shock.jpg" width="200" >}}
 
 Mixed feelings. On one side, I got through 400 pages in a short time, on the
 other the remaining 300 felt slow. I don't mind long books as long as there's
 enough meat to the plot. This one is a little hit and miss. Having said that, a
 must-read for cli-fi aficionado.
 
+{{</ book >}}
+
 ## The power
 
+{{< book id="29751398" title="The Power" name="books/2023/the-power.jpg" width="200" >}}
+
 Strange book. I liked the first third, found the second third slow and "stitched
-together” and loved most of the last third. The core idea is very intriguing but
+together" and loved most of the last third. The core idea is very intriguing but
 the writing style didn't work for me.
 
+{{</ book >}}
+
 ## Blood child
+
+{{< book id="60930" title="Bloodchild and Other Stories" name="books/2023/bloodchild-and-other-stories.jpg" width="200" >}}
 
 Another masterpiece by Butler. The stories are so interesting, the writing is
 perfect. I love the edition I got as it has a short afterword for each story.
@@ -220,13 +254,21 @@ Plus there are two fantastic writing essays.
 
 Top book.
 
+{{</ book >}}
+
 ## Provenance
+
+{{< book id="25353286" title="Provenance " name="books/2023/provenance.jpg" width="200" >}}
 
 Intricate, beautifully developed plot. Ann Leckie is way too good at making
 aliens speak. I couldn't be more excited there's a whole book about aliens
 coming later this year.
 
+{{</ book >}}
+
 ## Donguri shimai
+
+{{< book id="40668314" title="Le sorelle Donguri" name="books/2023/le-sorelle-donguri.jpg" width="200" >}}
 
 (Read in Italian)
 
@@ -235,14 +277,22 @@ character is talking to you but it's not obvious. This short book (almost a
 tale) doesn't develop much plot. In general, that's not my thing but Yoshimoto
 always makes it interesting for me.
 
+{{</ book >}}
+
 ## Americanah
+
+{{< book id="58522291" title="Americanah" name="books/2023/americanah.jpg" width="200" >}}
 
 I loved everything about this book. Ifemelu. The slow but always moving plot.
 The deliberate and non-linear story telling. What a writer.
 
 Top book.
 
+{{</ book >}}
+
 ## China in ten words
+
+{{< book id="12884314" title="China in Ten Words" name="books/2023/china-in-ten-words.jpg" width="200" >}}
 
 (Read it in Italian)
 
@@ -250,40 +300,66 @@ I love the way You Hua writes anything, really. So it's not surprising I loved
 this book as well. My favourite word, also unsurprising, is "writing". Among the
 most beautiful "writing about writing" I have ever read.
 
+{{</ book >}}
+
 ## 10000 light-years from home
+
+{{< book id="52692608" title="Ten Thousand Light" name="books/2023/ten-thousand-light.jpg" width="200" >}}
 
 I tried really hard to go through it but really couldn't. I couldn't connect
 with the writing style. It's like I read the words but they had no meaning for
 me
 
+{{</ book >}}
+
 ## The vanishing half
+
+{{< book id="55298625" title="The Vanishing Half" name="books/2023/the-vanishing-half.jpg" width="200" >}}
 
 It was a bit of a slow start but it got better and better. An amazing plot,
 intricate and delicate.
 
+{{</ book >}}
+
 ## The long way to a small angry planet
+
+{{< book id="25786523" title="The Long Way to a Small, Angry Planet " name="books/2023/the-long-way-to-a-small-angry-planet.jpg" width="200" >}}
 
 Easy and entertaining read. I grew quite fond of Ohan. One of the aliens.
 
+{{</ book >}}
+
 ## A closed and common orbit
+
+{{< book id="29475447" title="A Closed and Common Orbit " name="books/2023/a-closed-and-common-orbit.jpg" width="200" >}}
 
 Again a very fun read. But I liked even more than the first book in the series.
 Same universe, very little overlap. Loved how the author developed two
 storylines.
 
+{{</ book >}}
+
 ## Record of a spaceborn few
 
+{{< book id="32802595" title="Record of a Spaceborn Few" name="books/2023/record-of-a-spaceborn-few.jpg" width="200" >}}
+
 This is the weakest of the series so far. I liked the structure of the book.
-Lots of characters, not much overlap. But the stories didn't pull me in,  they
+Lots of characters, not much overlap. But the stories didn't pull me in, they
 were just not interesting enough for me.
 
+{{</ book >}}
+
 ## Sea of tranquility
+
+{{< book id="123639782" title="Sea of Tranquility" name="books/2023/sea-of-tranquility.jpg" width="200" >}}
 
 An incredibly well-crafted time travel story. Mandel's writing style is superb.
 She's the writer I wish I was. I read the book in two sittings only over the
 span of a single day.
 
 Top book.
+
+{{</ book >}}
 
 ## Half of a yellow sun
 
@@ -382,7 +458,7 @@ weird (because a great gook about aliens must be weird!)
 ## The thing around your neck
 
 Chimamanda Ngoni Adichie is a master of the craft. As a fan, I was a little
-worried about a a collection of short stories. I very rarely like those.  But
+worried about a a collection of short stories. I very rarely like those. But
 Adichie isn't your average writer. Each story has a unique voice. All of them
 are intriguing. I loved all of it and will re-read in a few months.
 
@@ -552,11 +628,11 @@ intriguing approach.
 
 (Read in Italian)
 
-I can't wrap my head around how good Jhumpa  Lahiri is. I absolutely love her
+I can't wrap my head around how good Jhumpa Lahiri is. I absolutely love her
 writing style. Her Italian is fantastic.
 
 This book is her personal, delicate but intense journey with Italian. Since I
-can read at "native” level both in Italian and in English  this book was a
+can read at "native” level both in Italian and in English this book was a
 wonderful trip into the experience of an incredible writer. I also identify some
 of her experience very deeply as I mostly write in English these days and it's
 both liberating and frustrating.
@@ -649,44 +725,6 @@ any hint of elitism. Now that I think about it, last I had this exact feeling
 was also a "non-pro” writer. "When breathe becomes air”, unrelated but
 magnificent read (triggering topic though).
 
-{{< book id="32758901" title="All Systems Red" name="books/2023/all-systems-red.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="36223860" title="Artificial Condition" name="books/2023/artificial-condition.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="35519101" title="Rogue Protocol" name="books/2023/rogue-protocol.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="35519109" title="Exit Strategy" name="books/2023/exit-strategy.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="18007564" title="The Martian" name="books/2023/the-martian.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="38190066" title="Kindred" name="books/2023/kindred.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="59663279" title="Termination Shock" name="books/2023/termination-shock.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="29751398" title="The Power" name="books/2023/the-power.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="60930" title="Bloodchild and Other Stories" name="books/2023/bloodchild-and-other-stories.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="25353286" title="Provenance " name="books/2023/provenance.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="40668314" title="Le sorelle Donguri" name="books/2023/le-sorelle-donguri.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="58522291" title="Americanah" name="books/2023/americanah.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="12884314" title="China in Ten Words" name="books/2023/china-in-ten-words.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="52692608" title="Ten Thousand Light" name="books/2023/ten-thousand-light.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="55298625" title="The Vanishing Half" name="books/2023/the-vanishing-half.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="25786523" title="The Long Way to a Small, Angry Planet " name="books/2023/the-long-way-to-a-small-angry-planet.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="29475447" title="A Closed and Common Orbit " name="books/2023/a-closed-and-common-orbit.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="123639782" title="Sea of Tranquility" name="books/2023/sea-of-tranquility.jpg" width="200" >}}
-{{</ book >}}
-{{< book id="32802595" title="Record of a Spaceborn Few " name="books/2023/record-of-a-spaceborn-few.jpg" width="200" >}}
-{{</ book >}}
 {{< book id="35451559" title="Half of a Yellow Sun" name="books/2023/half-of-a-yellow-sun.jpg" width="200" >}}
 {{</ book >}}
 {{< book id="48657666" title="To Be Taught, If Fortunate" name="books/2023/to-be-taught-if-fortunate.jpg" width="200" >}}
