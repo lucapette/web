@@ -276,8 +276,11 @@ I enjoyed the TV adaptation.
 {{< book id="60930" title="Bloodchild and Other Stories" name="books/2023/bloodchild-and-other-stories.jpg" width="200" >}}
 
 Another masterpiece by Butler. The stories are so interesting, the writing is
-perfect. I love the edition I got as it has a short afterword for each story.
-Plus there are two fantastic writing essays.
+perfect. I love the edition I got as it has a short afterword for each story by
+the author herself and, on top of that, this edition has two fantastic writing
+essays at the end. The book doesn't feel like a collection of short stories.
+They're like "mini-novel". What I'm trying to say is that these short tales are
+so rich of ideas they don't feel short.
 
 Top book.
 
@@ -285,11 +288,12 @@ Top book.
 
 ## Provenance
 
-{{< book id="25353286" title="Provenance " name="books/2023/provenance.jpg" width="200" >}}
+{{< book id="25353286" title="Provenance" name="books/2023/provenance.jpg" width="200" >}}
 
-Intricate, beautifully developed plot. Ann Leckie is way too good at making
-aliens speak. I couldn't be more excited there's a whole book about aliens
-coming later this year.
+Intricate, beautifully developed plot in the same universe as the ancillary
+series (often referred as Imperial Radch series).
+
+Ann Leckie is way too good at making aliens speak to humans.
 
 {{</ book >}}
 
@@ -300,9 +304,9 @@ coming later this year.
 (Read in Italian)
 
 There's something about the way Banana Yoshimoto writes I can't resist. The main
-character is talking to you but it's not obvious. This short book (almost a
-tale) doesn't develop much plot. In general, that's not my thing but Yoshimoto
-always makes it interesting for me.
+character in this book is talking to the reader but it's not so obvious. It's a
+delicate, slow conversation. Love this style despite there's not much plot
+development.
 
 {{</ book >}}
 
@@ -310,8 +314,12 @@ always makes it interesting for me.
 
 {{< book id="58522291" title="Americanah" name="books/2023/americanah.jpg" width="200" >}}
 
-I loved everything about this book. Ifemelu. The slow but always moving plot.
-The deliberate and non-linear story telling. What a writer.
+This book is in a genre I call "about love but not really. But yes, love". And
+speaking of love, I loved everything about it: Ifemelu... what a character, the
+slow but always moving plot, the deliberate non-linear story telling.
+
+Adichie is an incredible writer and I'm grateful I insta-bought this book when I
+came across it.
 
 Top book.
 
@@ -323,9 +331,9 @@ Top book.
 
 (Read it in Italian)
 
-I love the way You Hua writes anything, really. So it's not surprising I loved
-this book as well. My favourite word, also unsurprising, is "writing". Among the
-most beautiful "writing about writing" I have ever read.
+I love the way You Hua writes. No matter the subject I enjoy his way. So it's
+not surprising I loved this book as well. My favourite word, also unsurprising,
+is "writing". Among the most beautiful "writing about writing" I have ever read.
 
 {{</ book >}}
 
@@ -335,7 +343,7 @@ most beautiful "writing about writing" I have ever read.
 
 I tried really hard to go through it but really couldn't. I couldn't connect
 with the writing style. It's like I read the words but they had no meaning for
-me
+me.
 
 {{</ book >}}
 
@@ -350,7 +358,7 @@ intricate and delicate.
 
 ## The long way to a small angry planet
 
-{{< book id="25786523" title="The Long Way to a Small, Angry Planet " name="books/2023/the-long-way-to-a-small-angry-planet.jpg" width="200" >}}
+{{< book id="25786523" title="The Long Way to a Small, Angry Planet" name="books/2023/the-long-way-to-a-small-angry-planet.jpg" width="200" >}}
 
 Easy and entertaining read. I grew quite fond of Ohan. One of the aliens.
 
@@ -358,10 +366,10 @@ Easy and entertaining read. I grew quite fond of Ohan. One of the aliens.
 
 ## A closed and common orbit
 
-{{< book id="29475447" title="A Closed and Common Orbit " name="books/2023/a-closed-and-common-orbit.jpg" width="200" >}}
+{{< book id="29475447" title="A Closed and Common Orbit" name="books/2023/a-closed-and-common-orbit.jpg" width="200" >}}
 
-Again a very fun read. But I liked even more than the first book in the series.
-Same universe, very little overlap. Loved how the author developed two
+Again a very fun read. I liked it even more than the first book in the series.
+Same universe, very little overlap. Loved how the author here developed two
 storylines.
 
 {{</ book >}}
@@ -392,7 +400,7 @@ Top book.
 
 {{< book id="35451559" title="Half of a Yellow Sun" name="books/2023/half-of-a-yellow-sun.jpg" width="200" >}}
 
-"War is very ugly”.
+"War is very ugly".
 
 What an incredible journey, what a writer. The characters are so incredible.
 They're real people to me.
@@ -405,7 +413,7 @@ Top book.
 
 {{< book id="48657666" title="To Be Taught, If Fortunate" name="books/2023/to-be-taught-if-fortunate.jpg" width="200" >}}
 
-Short but very rich of ideas. Entertaining writing as always.
+Short but very rich of ideas. Chambers writing is entertaining as always.
 
 {{</ book >}}
 
@@ -421,9 +429,10 @@ Very well written. It's an infuriating read, obviously. Highly recommended.
 
 {{< book id="39710105" title="The City & The City" name="books/2023/the-city--the-city.jpg" width="200" >}}
 
-Very original, intriguing story. But the writing didn't pull me in. It happens a
-lot with "detective stories” that I don't feel engaged. I think it's a matter of
-pace and can't tell if it's the writers fault. Probably not.
+Very original and intriguing story. The writing didn't pull me in though.
+
+I often find myself lacking engagement with "detective stories". I think it's a
+matter of pace and can't tell if it's the writers fault. Probably not.
 
 {{</ book >}}
 
@@ -432,7 +441,8 @@ pace and can't tell if it's the writers fault. Probably not.
 {{< book id="8045416" title="To Kill a Mockingbird " name="books/2023/to-kill-a-mockingbird.jpg" width="200" >}}
 
 It really didn't do it for me. Maybe it's the perspective from which the story
-is told. I can't really tell.
+is told. I can't really tell. Maybe it's that I had very high expectations.
+Unsure.
 
 {{</ book >}}
 
@@ -441,8 +451,9 @@ is told. I can't really tell.
 {{< book id="58677491" title="The Memory Librarian" name="books/2023/the-memory-librarian.jpg" width="200" >}}
 
 I liked two stories out of five. There's nothing wrong with the rest but the
-style doesn't do it for me. It's like a great picture that is out of focus. You
-can tell it's great but you're also disappointed you can't see the details.
+writing style doesn't do it for me. It felt like a great picture slightly out of
+focus. You can tell it's great but you're also disappointed it could have been
+much better.
 
 {{</ book >}}
 
@@ -451,8 +462,15 @@ can tell it's great but you're also disappointed you can't see the details.
 {{< book id="35018907" title="Semiosis" name="books/2023/semiosis.jpg" width="200" >}}
 
 A very intriguing take on "first contact" and alien life forms. I also enjoyed
-the way the book is structured: every chapter a different narrator, every time a
-time jump.
+the way the book is structured: every chapter has a different narrator and
+there's always a time jump between chapters. I had to adjust to this approach
+but, after a couple of chapters, I really liked the idea I had small things to
+put together myself.
+
+I've had a similar experience with a different plot device while reading [World
+war Z](https://www.goodreads.com/book/show/8908.World_War_Z). It feels nice to
+have to put together things on your own. I guess there's a risk you can overdo
+it and tire the reader though.
 
 {{</ book >}}
 
@@ -462,6 +480,7 @@ time jump.
 
 The follow up book. I liked it even more than the first one. The flow of this
 one is smoother. Maybe it's just that the time jumps are shorter, I can't tell.
+It felt even more enjoyable.
 
 {{</ book >}}
 
@@ -480,9 +499,10 @@ developed as the plot but all in all a very enjoyable book.
 
 Chimamanda Ngozi Adichie is an incredible writer so it makes sense her debut is
 magnificent. The writing is not as potent as her later work but you can tell
-she's going to get there. The plot of this book develops so softly that I must
-believe it's an intentional opposition to the trauma and violence you experience
-reading it.
+she's going to get there.
+
+The plot of this book develops so softly that I must believe it's an intentional
+opposition to the trauma and violence you experience reading it.
 
 {{</ book >}}
 
@@ -495,8 +515,7 @@ detachment makes the book you're reading somewhat entertaining. This book
 doesn't work like that. Two reasons:
 
 - Octavia E. Butler is in a league of her own. Her writing is so potent, crude,
-  real. It's sharper than the shaper knife and then more delicate that falling
-  snow.
+  real. It's sharper than the shaper knife and more delicate that falling snow.
 - The world in this book feels close. It feels really close. It's fucking scary
   how much of a hell it is and how close it feels to where we are now.
 
@@ -509,9 +528,11 @@ Top book.
 {{< book id="46159606" title="Parable of the Talents" name="books/2023/parable-of-the-talents.jpg" width="200" >}}
 
 If possible, this is even better than the first book. The most difficult read in
-a long time. Same idea as the first book: it's really really scary how close
-this hell feels to our day to day reality. And thinking this book was written in
-the early nineties just adds volume to how incredible Butler is.
+a long time.
+
+Same reasons as the first book: it's really really scary how close this hell
+feels to our day to day reality. We're one step away from hell and she knew it
+30 years ago.
 
 Top book.
 
@@ -523,7 +544,7 @@ Top book.
 
 Every now and then I come across a book that I don't understand at all. I can't
 connect to it in any way. This was one such book. I managed to read it in one
-day because it's very short but I found it painless nonetheless
+day because it's very short but I found it painful nonetheless.
 
 {{</ book >}}
 
@@ -531,10 +552,11 @@ day because it's very short but I found it painless nonetheless
 
 {{< book id="62873911" title="Translation State" name="books/2023/translation-state.jpg" width="200" >}}
 
-Ann Leckie doesn't know how to write bad books. She's a 5-star only author.
-Translation state has three main characters, each chapter follows a different
+Ann Leckie doesn't know how to write bad books.
+
+Translation state has three main characters. Each chapter follows a different
 character and uses a different POV. I loved every page. It's entertaining and
-weird (because a great gook about aliens must be weird!)
+weird. That's a compliment: a great gook about aliens must be weird!
 
 {{</ book >}}
 
@@ -542,10 +564,12 @@ weird (because a great gook about aliens must be weird!)
 
 {{< book id="34397251" title="The Thing Around Your Neck" name="books/2023/the-thing-around-your-neck.jpg" width="200" >}}
 
-Chimamanda Ngoci Adichie is a master of the craft. As a fan, I was a little
-worried about a a collection of short stories. I very rarely like those. But
-Adichie isn't your average writer. Each story has a unique voice. All of them
-are intriguing. I loved all of it and will re-read.
+Chimamanda Ngoci Adichie is a master of the craft.
+
+As a fan, I was a little worried about a a collection of short stories. I very
+rarely like those. But Adichie isn't your average writer. Each story has a
+unique voice. All of them are intriguing. I loved each story and will re-read
+for sure.
 
 {{</ book >}}
 
@@ -553,8 +577,12 @@ are intriguing. I loved all of it and will re-read.
 
 {{< book id="59357120" title="Yellowface" name="books/2023/yellowface.jpg" width="200" >}}
 
-Great pace. A real page-turner. Kuang makes it all look easy to deal with. The
-book flows at incredible speed and I just wanted to know where it was going.
+Great pace. A real page-turner. Kuang makes it all look easy to deal with.
+
+The book flows at incredible speed and I just wanted to know where it was going
+page after page.
+
+The author is so good you're going to sympathise with the villain of the story.
 
 {{</ book >}}
 
@@ -563,7 +591,8 @@ book flows at incredible speed and I just wanted to know where it was going.
 {{< book id="43726511" title="The Shadow King" name="books/2023/the-shadow-king.jpg" width="200" >}}
 
 I could not connect with the writing style at all. I had trouble finishing it to
-be honest.
+be honest. A real bummer as the first pages were so captivating (which is why I
+bought it in the first place).
 
 {{</ book >}}
 
@@ -572,10 +601,11 @@ be honest.
 {{< book id="59350163" title="Tomorrow, and Tomorrow, and Tomorrow" name="books/2023/tomorrow-and-tomorrow-and-tomorrow.jpg" width="200" >}}
 
 What an incredible journey. The first few pages felt a little strange. Too many
-big words, I was afraid I'd hate the writing style. But it was the wrong
-impression. The quality of the writing quickly improved to the highest standard.
-I loved the plot. I loved the main characters. I loved the nostalgia for the
-early days of gaming.
+big words, I was afraid I was going to hate the writing style. But it was just
+an impression. The quality of the writing quickly improved to the highest
+standard. I loved the plot development. The author is a master at that. I also
+loved the main characters, the way they're so different from each other but
+obviously connected. I loved the nostalgia for the early days of gaming.
 
 {{</ book >}}
 
@@ -584,8 +614,8 @@ early days of gaming.
 {{< book id="69706993" title="How High We Go in the Dark" name="books/2023/how-high-we-go-in-the-dark.jpg" width="200" >}}
 
 I enjoyed the first third of the book very much (despite the very triggering
-content) but then it kept getting less interesting. The last third I was totally
-disengaged with the story.
+content) but then it kept getting less interesting. By the last third, I was
+totally disengaged with the story.
 
 {{</ book >}}
 
@@ -593,18 +623,17 @@ disengaged with the story.
 
 {{< book id="70897" title="The Secret History" name="books/2023/the-secret-history.jpg" width="200" >}}
 
+This book found me. I was in a bookshop with a close friend (👋 Sam!), he picked it up and
+said "I read this some 20 years ago and I still remember it". This intrigued me
+because he's an avid reader. Two days after that, I was listening to Emily St.
+John Mandel talking about her writing process and she mentioned Donna Tartt. I
+love these little signs. I had to read it.
 
-This book found its way to me. I was in a bookshop with a close friend , he
-picked it up and said "I read this some 20 years ago but I still remember it”.
-This intrigued me because he's an avid reader. Two days after that, I was
-listening to Emily St. John Mandel talking about her writing process and she
-mentioned Donna Tartt. I love these little signs.
-
-I appreciate them even more when the book turns out to be an absolute
-masterpiece like the secret history is. Donna Tartt has this magical ability to
-keep you busy reading while describing incredibly detailed stories. The story of
-this book is very very intense. I **loved** every page. That's quite something
-given the page count.
+I appreciate these signs even more when the book turns out to be an absolute
+masterpiece like in this case. Donna Tartt has this magical ability to keep you
+busy reading while describing incredibly detailed scenes. The plot of this book
+is very very intense and the writing sustains that intensity with its quality. I
+**loved** every page. That's quite something given the page count.
 
 Top book.
 
@@ -624,7 +653,7 @@ me this time though.
 {{< book id="56817598" title="A Bigger Picture" name="books/2023/a-bigger-picture.jpg" width="200" >}}
 
 Interesting and depressing (not the author's fault of course). I did not find
-the writing very engaging but I enjoyed it nonetheless
+the writing very engaging but I enjoyed it nonetheless. It's a quick read.
 
 {{</ book >}}
 
@@ -633,7 +662,9 @@ the writing very engaging but I enjoyed it nonetheless
 {{< book id="34051011" title="Pachinko" name="books/2023/pachinko.jpg" width="200" >}}
 
 This was quite an incredible journey spanning almost a 100 years. I loved this
-story. It surprised me, it pained me, it had me interested every single page.
+story. It surprised me, it pained me, it had me interested every single page. It
+also thought me a piece of history I was completely unaware of. What can you ask
+more of a book?
 
 Top book.
 
@@ -643,7 +674,7 @@ Top book.
 
 {{< book id="21418013" title="Lock In" name="books/2023/lock-in.jpg" width="200" >}}
 
-The usual Scalzi
+Average John Scalzi book: extremely entertaining, highly recommended.
 
 {{</ book >}}
 
@@ -651,7 +682,7 @@ The usual Scalzi
 
 {{< book id="35018901" title="Head On" name="books/2023/head-on.jpg" width="200" >}}
 
-The usual Scalzi
+Average John Scalzi book: extremely entertaining, highly recommended.
 
 {{</ book >}}
 
@@ -876,10 +907,10 @@ more from there.
 {{< book id="34695800" title="A Common" name="books/2023/the-goldfinch.jpg" width="200" >}}
 
 What can I say about Donna Tartt that will actually convey how good she is? The
-thing is that "the secret history” is so good I didn't think she could match it.
+thing is that "the secret history" is so good I didn't think she could match it.
 In way, I think that's true but not for the reasons you'd expect. The way I
-think about "the secret history” is that it's a perfect book. Every page is
-10/10. For real.
+think about "the secret history" is that it's a perfect book. Every page is
+10/10.
 
 The goldfinch is different. There's lots of 11/10 pages. Especially in the first
 400 pages. But there are also some 9/10 pages: less power, less detail, slower
@@ -887,7 +918,8 @@ flow.
 
 With that out of the way, another absolute masterpiece. Theo, the main
 character, isn't a character. It's a person you know, someone you end up caring
-for. His life is difficult and get worse over time in painful ways.
+for, someone you'll find youself asking how they're doing in the middle of your
+day.
 
 Top book.
 
@@ -907,7 +939,9 @@ some parts but nothing major.
 
 {{< book id="61885029" title="Starter Villain" name="books/2023/starter-villain.jpg" width="200" >}}
 
-The usual Scalzi
+Average John Scalzi book: extremely entertaining, highly recommended.
+
+Honestly, I don't get how he does this with every single book? What a pro!
 
 {{</ book >}}
 
@@ -937,14 +971,13 @@ that magic is real but it's also not central.
 
 {{< book id="144405196" title="The Worlds I See" name="books/2023/the-worlds-i-see.jpg" width="200" >}}
 
-This pulled me in immediately. The pitch of the book was great for someone like
-me. Chinese immigrant coming of age story mixed with forefront of AI scientist.
-Count me in.
+The pitch of the book was great for me. Chinese immigrant coming of
+age story mixed with forefront of AI scientist life. Count me in.
 
 But there's more than that to this book. The writing has that strength and
 clarity you come across very rarely. It's well-educated, rich language without
 any hint of elitism. Now that I think about it, last I had this exact feeling
-was also a "non-pro” writer. "When breathe becomes air”, unrelated but
-magnificent read (triggering topic though).
+was also a "non-pro" writer. "When breathe becomes air”, unrelated but
+magnificent read (Thank you Anjali for landing me this book. Miss talking to you!).
 
 {{</ book >}}
