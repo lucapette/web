@@ -1,6 +1,6 @@
 <div class="book">
   {{ $width  := .Get "width" }}
-  {{ $image  := resources.Get (.Get "name") }}
+  {{ $image  := .Page.Resources.Get (.Get "name") }}
   {{ $small  := $image.Resize "200x webp q90" }}
   {{ $medium  := $image.Resize "400x webp q90" }}
   <a

@@ -6,7 +6,7 @@ tags:
   - books
 keywords: lucapette, books
 images:
-  - books/2022/cover.jpg
+  - cover.jpg
 ---
 
 I love reading _and_ I love writing so this kind of article should come natural
@@ -34,7 +34,7 @@ bookshops are my happy place. OK, all set. Let's go.
 
 ### How to stop time
 
-{{< book id="45152372" title="How to Stop Time" name="books/2022/how-to-stop-time.jpg" width="200" >}}
+{{< book id="45152372" title="How to Stop Time" name="how-to-stop-time.jpg" width="200" >}}
 
 I had high expectations for this. I loved [the midnight
 library](https://www.goodreads.com/book/show/52578297-the-midnight-library) and
@@ -50,7 +50,7 @@ seems stuck. I hoped for a great ending but that also didn't happen.
 
 ### The world without us
 
-{{< book id="248787" title="The World Without Us" name="books/2022/the-world-without-us.jpg" width="200" >}}
+{{< book id="248787" title="The World Without Us" name="the-world-without-us.jpg" width="200" >}}
 
 I read this book as research for a writing project (now stalled by another
 writing project 🙃).
@@ -62,7 +62,7 @@ very interesting though.
 
 ### Zoe's tale
 
-{{< book id="2102600" title="Zoe's Tale" name="books/2022/zoes-tale.jpg" width="200" >}}
+{{< book id="2102600" title="Zoe's Tale" name="zoes-tale.jpg" width="200" >}}
 
 The fourth book (out of six) in the [Old man's
 war](https://www.goodreads.com/series/40789-old-man-s-war) saga. One of my
@@ -84,7 +84,7 @@ recommended.
 
 ### The Human Division
 
-{{< book id="15698479" title="The Human Division" name="books/2022/the-human-division.jpg" width="200" >}}
+{{< book id="15698479" title="The Human Division" name="the-human-division.jpg" width="200" >}}
 
 Average John Scalzi book: extremely entertaining, highly recommended.
 
@@ -92,7 +92,7 @@ Average John Scalzi book: extremely entertaining, highly recommended.
 
 ### The End of All Things
 
-{{< book id="23168809" title="The End of All Things" name="books/2022/the-end-of-all-things.jpg" width="200" >}}
+{{< book id="23168809" title="The End of All Things" name="the-end-of-all-things.jpg" width="200" >}}
 
 Average John Scalzi book: extremely entertaining, highly recommended.
 
@@ -102,7 +102,7 @@ Read the whole saga!
 
 ### The ministry for the future
 
-{{< book id="50998056" title="The Ministry for the Future" name="books/2022/the-ministry-for-the-future.jpg" width="200" >}}
+{{< book id="50998056" title="The Ministry for the Future" name="the-ministry-for-the-future.jpg" width="200" >}}
 
 One of the strangest book I have ever read.
 
@@ -116,7 +116,7 @@ me for months. So, mixed feelings... I guess?
 
 ### Speed & Scale
 
-{{< book id="58796563" title="Speed & Scale" name="books/2022/speed--scale.jpg" width="200" >}}
+{{< book id="58796563" title="Speed & Scale" name="speed--scale.jpg" width="200" >}}
 
 The most important book I read in 2022, hands down. As soon as I finished, I
 started to recommend it to everyone I know.
@@ -131,7 +131,7 @@ read it though. Also, get a physical copy of this book. It's really beautiful.
 
 ### Kafka in Action
 
-{{< book id="43633741" title="Kafka in Action" name="books/2022/kafka-in-action.jpg" width="200" >}}
+{{< book id="43633741" title="Kafka in Action" name="kafka-in-action.jpg" width="200" >}}
 
 I'm very interested in [Kafka](https://kafka.apache.org) so it's only natural I
 read "all the Kafka books".
@@ -150,7 +150,7 @@ definitive guide".
 
 ### Atomic Kotlin
 
-{{< book id="55662833" title="Atomic Kotlin" name="books/2022/atomic-kotlin.jpg" width="200" >}}
+{{< book id="55662833" title="Atomic Kotlin" name="atomic-kotlin.jpg" width="200" >}}
 
 When I'm learning a new language, the first thing I do is reading a book about
 it. So when I started researching Kotlin I was very pleased to find this book. I
@@ -163,7 +163,7 @@ Recommended.
 
 ### The Manager's Path
 
-{{< book id="33369254" title="The Manager's Path" name="books/2022/the-managers-path.jpg" width="200" >}}
+{{< book id="33369254" title="The Manager's Path" name="the-managers-path.jpg" width="200" >}}
 
 It is a little painful to say I didn't love this book. I look up to [Camille
 Fourier](https://www.camilletalk.com/). I read many of her blog posts while
@@ -179,7 +179,7 @@ engineering management. It's well written. It's a solid book.
 
 ### Become an Effective Software Engineering Manager
 
-{{< book id="50363684" title="Become an Effective Software Engineering Manager" name="books/2022/become-an-effective-software-engineering-manager.jpg" width="200" >}}
+{{< book id="50363684" title="Become an Effective Software Engineering Manager" name="become-an-effective-software-engineering-manager.jpg" width="200" >}}
 
 I confess I went into this book very sceptical about it. Pragmatic programmers
 books give a tech bro vibe I'm not really fond of anymore. The title of this
@@ -193,7 +193,7 @@ perfect for people that have no experience with the job.
 
 ### The Making of a Manager
 
-{{< book id="38821039" title="The Making of a Manager" name="books/2022/the-making-of-a-manager.jpg" width="200" >}}
+{{< book id="38821039" title="The Making of a Manager" name="the-making-of-a-manager.jpg" width="200" >}}
 
 [Julie Zhuo](https://juliezhuo.com/) is an incredible writer. If you're not
 subscribed to her newsletter, you're missing out on great content.
@@ -212,7 +212,7 @@ Highly recommended.
 
 ### Building Event-driven microservices
 
-{{< book id="51163447" title="Building Event-driven microservices" name="books/2022/building-event.jpg" width="200" >}}
+{{< book id="51163447" title="Building Event-driven microservices" name="building-event.jpg" width="200" >}}
 
 If I hadn't known upfront what this book was about, I'm sure I'd never read it.
 What I'm trying to say is that the title is a little off.
@@ -226,7 +226,7 @@ To me, it's a "read if you care about the subject" kind of book.
 
 ### The calculating Stars
 
-{{< book id="33080122" title="The Calculating Stars" name="books/2022/the-calculating-stars.jpg" width="200" >}}
+{{< book id="33080122" title="The Calculating Stars" name="the-calculating-stars.jpg" width="200" >}}
 
 I've always found alternate history sci-fi to be an intriguing sub-genre but,
 for no reason in particular, I read very little of it. Not sure why. Anyway.
@@ -245,7 +245,7 @@ I genuinely can't wait for the next book in the series.
 
 ### The Fated Sky
 
-{{< book id="33081262" title="The Fated Sky" name="books/2022/the-fated-sky.jpg" width="200" >}}
+{{< book id="33081262" title="The Fated Sky" name="the-fated-sky.jpg" width="200" >}}
 
 See previous review.
 
@@ -253,7 +253,7 @@ See previous review.
 
 ### The Relentless Moon
 
-{{< book id="52381417" title="The Relentless Moon" name="books/2022/the-relentless-moon.jpg" width="200" >}}
+{{< book id="52381417" title="The Relentless Moon" name="the-relentless-moon.jpg" width="200" >}}
 
 See previous review.
 
@@ -261,7 +261,7 @@ See previous review.
 
 ### Who Fears Death
 
-{{< book id="7767021" title="Who Fears Death" name="books/2022/who-fears-death.jpg" width="200" >}}
+{{< book id="7767021" title="Who Fears Death" name="who-fears-death.jpg" width="200" >}}
 
 Nnedi Okorafor is such a spectacular writer. This book doesn't read like a novel
 to me. It's poetry. The words don't just bring the story forward. There's a
@@ -276,7 +276,7 @@ Incredible read.
 
 ### Of Ants and Dinosaurs
 
-{{< book id="50734847" title="Of Ants and Dinosaurs" name="books/2022/of-ants-and-dinosaurs.jpg" width="200" >}}
+{{< book id="50734847" title="Of Ants and Dinosaurs" name="of-ants-and-dinosaurs.jpg" width="200" >}}
 
 Cixin Liu is my favourite sci-fi writer. His imagination is immense, he finds
 new ways to surprises me all time. The remembrance of earth's past is _by a
@@ -291,7 +291,7 @@ allegoric meaning of the plot. Incredible writing.
 
 ### The Girl with the louding voice
 
-{{< book id="50214741" title="The Girl with the Louding Voice" name="books/2022/the-girl-with-the-louding-voice.jpg" width="200" >}}
+{{< book id="50214741" title="The Girl with the Louding Voice" name="the-girl-with-the-louding-voice.jpg" width="200" >}}
 
 I loved this book. The journey Adunni goes through is as hard as it's
 unforgettable.
@@ -307,7 +307,7 @@ yesterday. A masterpiece.
 
 ### Pandora's Star
 
-{{< book id="45252" title="Pandora's Star" name="books/2022/pandoras-star.jpg" width="200" >}}
+{{< book id="45252" title="Pandora's Star" name="pandoras-star.jpg" width="200" >}}
 
 First book in the "Commonwealth saga".
 
@@ -331,7 +331,7 @@ Space opera at its best.
 
 ### A Philosophy of Software Design
 
-{{< book id="39996759" title="A Philosophy of Software Design" name="books/2022/a-philosophy-of-software-design.jpg" width="200" >}}
+{{< book id="39996759" title="A Philosophy of Software Design" name="a-philosophy-of-software-design.jpg" width="200" >}}
 
 Difficult subject so I appreciate the effort of trying to write about "how to
 design software".
@@ -342,7 +342,7 @@ The book is interesting and worth reading if you're a programmer.
 
 ### Judas Unchained
 
-{{< book id="45244" title="Judas Unchained" name="books/2022/judas-unchained.jpg" width="200" >}}
+{{< book id="45244" title="Judas Unchained" name="judas-unchained.jpg" width="200" >}}
 
 Second, and last, book of the "Commonwealth saga". It's as good as the first
 one. Incredible journey.
@@ -355,7 +355,7 @@ you ask me.
 
 ### The Forever War
 
-{{< book id="21611" title="The Forever War" name="books/2022/the-forever-war.jpg" width="200" >}}
+{{< book id="21611" title="The Forever War" name="the-forever-war.jpg" width="200" >}}
 
 It's a classic for a reason: the plot is great, the character development is
 deep, the ending is perfect. A must-read for any sci-fi aficionado.
@@ -364,7 +364,7 @@ deep, the ending is perfect. A must-read for any sci-fi aficionado.
 
 ### Forever Free
 
-{{< book id="21620" title="Forever Free" name="books/2022/forever-free.jpg" width="200" >}}
+{{< book id="21620" title="Forever Free" name="forever-free.jpg" width="200" >}}
 
 The sequel to "the forever war" took quite a turn from the themes of the first
 book. I found its ideas intriguing and liked the book. But I understand why some
@@ -374,7 +374,7 @@ hated it.
 
 ### Forever Peace
 
-{{< book id="21618" title="Forever Peace" name="books/2022/forever-peace.jpg"
+{{< book id="21618" title="Forever Peace" name="forever-peace.jpg"
 width="200" >}}
 
 I'm not entirely sure how much this book should be considered part of "the
@@ -386,7 +386,7 @@ It would be a perfect "action sci-fi" movie. But I'd have to do the casting :)
 
 ### Distributed Systems For Fun and Profit
 
-{{< book id="18652140" title="Distributed Systems For Fun and Profit" name="books/2022/distributed-systems-for-fun-and-profit.jpg" width="200" >}}
+{{< book id="18652140" title="Distributed Systems For Fun and Profit" name="distributed-systems-for-fun-and-profit.jpg" width="200" >}}
 
 Available for free at
 [http://book.mixu.net/distsys/](http://book.mixu.net/distsys/). A good
@@ -398,7 +398,7 @@ too much about it.
 
 ### Great North Road
 
-{{< book id="13573419" title="Great North Road" name="books/2022/great-north-road.jpg" width="200" >}}
+{{< book id="13573419" title="Great North Road" name="great-north-road.jpg" width="200" >}}
 
 Another 1k pages book by Peter Hamilton. Same incredible writing technique as
 the "commonwealth" saga and a few themes in common. I think some people may
@@ -411,7 +411,7 @@ Bonus point for me: it's a murder mystery and the plot is developed perfectly.
 
 ### Upgrade
 
-{{< book id="60280135" title="Upgrade" name="books/2022/upgrade.jpg" width="200" >}}
+{{< book id="60280135" title="Upgrade" name="upgrade.jpg" width="200" >}}
 
 [Blake Crouch](https://blakecrouch.com/) doesn't know how to write bad books. As
 his previous books (recursion and dark matter), this is an absolute page-turner.
@@ -425,7 +425,7 @@ finished it.
 
 ### Hourly Billing is Nuts
 
-{{< book id="32953140" title="Hourly Billing is Nuts" name="books/2022/hourly-billing-is-nuts.jpg" width="200" >}}
+{{< book id="32953140" title="Hourly Billing is Nuts" name="hourly-billing-is-nuts.jpg" width="200" >}}
 
 Worth it if you're a freelancer.
 
@@ -433,7 +433,7 @@ Worth it if you're a freelancer.
 
 ### Learn Your lines
 
-{{< book id="43386931" title="Learn Your Lines" name="books/2022/learn-your-lines.jpg" width="200" >}}
+{{< book id="43386931" title="Learn Your Lines" name="learn-your-lines.jpg" width="200" >}}
 
 Worth it if you're a freelancer.
 
@@ -441,7 +441,7 @@ Worth it if you're a freelancer.
 
 ### The city in the Middle of the Night
 
-{{< book id="49113465" title="The City in the Middle of the Night" name="books/2022/the-city-in-the-middle-of-the-night.jpg" width="200" >}}
+{{< book id="49113465" title="The City in the Middle of the Night" name="the-city-in-the-middle-of-the-night.jpg" width="200" >}}
 
 They say "don't judge a book by its cover" but I'm pretty sure I bought this one
 because I liked the cover (and the blue cloth covering!).
@@ -455,7 +455,7 @@ hard not to be fascinated by the world she created.
 
 ### The Kaiju Preservation Society
 
-{{< book id="57693406" title="The Kaiju Preservation Society" name="books/2022/the-kaiju-preservation-society.jpg" width="200" >}}
+{{< book id="57693406" title="The Kaiju Preservation Society" name="the-kaiju-preservation-society.jpg" width="200" >}}
 
 This book embarrassed me.
 
@@ -471,7 +471,7 @@ Scalzi never misses.
 
 ### To Sleep in a Sea of Stars
 
-{{< book id="48829708" title="To Sleep in a Sea of Stars" name="books/2022/to-sleep-in-a-sea-of-stars.jpg" width="200" >}}
+{{< book id="48829708" title="To Sleep in a Sea of Stars" name="to-sleep-in-a-sea-of-stars.jpg" width="200" >}}
 
 Engaging book but also felt a little long. I still consider it an amazing book
 because of its conclusion. It took me by surprise and made me smile. Lovely.
@@ -482,7 +482,7 @@ Also, it gave so much meaning to its title.
 
 ### How to Take Smart Notes
 
-{{< book id="34507927" title="How to Take Smart Notes" name="books/2022/how-to-take-smart-notes.jpg" width="200" >}}
+{{< book id="34507927" title="How to Take Smart Notes" name="how-to-take-smart-notes.jpg" width="200" >}}
 
 I had tried to read this book once already a couple of years ago but didn't
 finish it then. I decided to give it another try and I'm happy I read it.
@@ -498,7 +498,7 @@ I plan to buy a physical copy in a few months and use it as a playground for
 
 ### Terraform in Action
 
-{{< book id="50542114" title="Terraform in Action" name="books/2022/terraform-in-action.jpg" width="200" >}}
+{{< book id="50542114" title="Terraform in Action" name="terraform-in-action.jpg" width="200" >}}
 
 I was looking to refresh my memory on terraform. The book served the purpose but
 I found some examples a little out of place.
@@ -507,7 +507,7 @@ I found some examples a little out of place.
 
 ### Seven and a Half Lessons About the Brain
 
-{{< book id="48930266" title="Seven and a Half Lessons About the Brain" name="books/2022/seven-and-a-half-lessons-about-the-brain.jpg" width="200" >}}
+{{< book id="48930266" title="Seven and a Half Lessons About the Brain" name="seven-and-a-half-lessons-about-the-brain.jpg" width="200" >}}
 
 Engaging writing which is not a given for science related books.
 
@@ -518,7 +518,7 @@ soon-ish so I can take "smart notes" about it.
 
 ### Born A Crime
 
-{{< book id="29780253" title="Born a Crime" name="books/2022/born-a-crime.jpg" width="200" >}}
+{{< book id="29780253" title="Born a Crime" name="born-a-crime.jpg" width="200" >}}
 
 A few people recommended me this book over the past few years so it was only a
 matter of time before I found the right moment to read it.
@@ -531,7 +531,7 @@ surprised me.
 
 ### Distributed Services with Go
 
-{{< book id="53291342" title="Distributed Services with Go" name="books/2022/distributed-services-with-go.jpg" width="200" >}}
+{{< book id="53291342" title="Distributed Services with Go" name="distributed-services-with-go.jpg" width="200" >}}
 
 I'm not a big fun of books where you have to build something along with the
 author. Nothing intrinsically wrong with the approach though, just a personal
@@ -547,7 +547,7 @@ thoughtful.
 
 ### The Peripheral
 
-{{< book id="24611819" title="The Peripheral" name="books/2022/the-peripheral.jpg" width="200" >}}
+{{< book id="24611819" title="The Peripheral" name="the-peripheral.jpg" width="200" >}}
 
 Most painful read of 2022. I read it in anticipation of the TV series that came
 out in October.
@@ -563,7 +563,7 @@ is talking about. I really don't get this approach.
 
 ### A Memory Called Empire
 
-{{< book id="37794149" title="A Memory Called Empire" name="books/2022/a-memory-called-empire.jpg" width="200" >}}
+{{< book id="37794149" title="A Memory Called Empire" name="a-memory-called-empire.jpg" width="200" >}}
 
 First book of the "Teixcalaan duology".
 
@@ -576,7 +576,7 @@ Arkady Martine is an incredible writer and I can't wait to read more from her.
 
 ### Crafting Interpreters
 
-{{< book id="58661468" title="Crafting Interpreters" name="books/2022/crafting-interpreters.jpg" width="200" >}}
+{{< book id="58661468" title="Crafting Interpreters" name="crafting-interpreters.jpg" width="200" >}}
 
 If you're a programmer, chances are you toyed with the idea of building your own
 language. Even just to understand how they work. It turns out they're "just"
@@ -594,7 +594,7 @@ the best technical book I have ever read.
 
 ### A Desolation Called Peace
 
-{{< book id="45154547" title="A Desolation Called Peace" name="books/2022/a-desolation-called-peace.jpg" width="200" >}}
+{{< book id="45154547" title="A Desolation Called Peace" name="a-desolation-called-peace.jpg" width="200" >}}
 
 Second book in the "Teixcalaan duology".
 
@@ -607,7 +607,7 @@ I was wrong. Arkady Martine is way too good.
 
 ### Transition
 
-{{< book id="6436659" title="Transition" name="books/2022/transition.jpg" width="200" >}}
+{{< book id="6436659" title="Transition" name="transition.jpg" width="200" >}}
 
 My first Iain M. Banks book.
 
@@ -621,7 +621,7 @@ casting?
 
 ### On Writing
 
-{{< book id="10569" title="On Writing" name="books/2022/on-writing.jpg" width="200" >}}
+{{< book id="10569" title="On Writing" name="on-writing.jpg" width="200" >}}
 
 A few weeks ago, I updated one of my favourite writings also called [On
 writing]({{< ref "/writing/on-writing" >}} "On writing"). When I shared the
@@ -634,7 +634,7 @@ Very glad I did so. The best book on writing I have ever read. By far.
 
 ### Effective Kotlin
 
-{{< book id="52678845" title="Effective Kotlin" name="books/2022/effective-kotlin.jpg" width="200" >}}
+{{< book id="52678845" title="Effective Kotlin" name="effective-kotlin.jpg" width="200" >}}
 
 I was looking to deepen my understanding of Kotlin. I picked this one up because
 it's written in the spirit of "Effective Java". Not even remotely in the same
@@ -644,7 +644,7 @@ league but worth a read.
 
 ### Effective Software Testing
 
-{{< book id="59796908" title="Effective Software Testing" name="books/2022/effective-software-testing.jpg" width="200" >}}
+{{< book id="59796908" title="Effective Software Testing" name="effective-software-testing.jpg" width="200" >}}
 
 I'm just now realising I read two books in a row starting with the same word and
 I wonder if that ever happened before 🤔
@@ -659,7 +659,7 @@ course of my career. Definitely worth a read if you're a programmer.
 
 ### Engineering Management for the Rest of Us
 
-{{< book id="58502800" title="Engineering Management for the Rest of Us" name="books/2022/engineering-management-for-the-rest-of-us.jpg" width="200" >}}
+{{< book id="58502800" title="Engineering Management for the Rest of Us" name="engineering-management-for-the-rest-of-us.jpg" width="200" >}}
 
 A magnificent book on engineering management. In terms of quality of ideas, the
 best I read about the topic. The writing is good, a little fun too which doesn't
@@ -671,7 +671,7 @@ Highly recommended if you're an engineering manager or aspire to be one.
 
 ### The Spare man
 
-{{< book id="61943603" title="The Spare Man" name="books/2022/the-spare-man.jpg" width="200" >}}
+{{< book id="61943603" title="The Spare Man" name="the-spare-man.jpg" width="200" >}}
 
 I really want to say I loved this book but can't. I had very high expectations
 and that may have played a role. But c'mon, a sci-fi murder mystery written
@@ -698,7 +698,7 @@ A trivial problem which I had to hack through because goodreads doesn't provide
 a public API (🙄).
 
 Naturally, I wrote a "script" to export the data from my [year in
-book](https://www.goodreads.com/user/year_in_books/2022/41861912) page.
+book](https://www.goodreads.com/user/year_in_41861912) page.
 
 I quoted script because here's what I mean:
 
