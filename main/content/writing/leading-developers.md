@@ -71,8 +71,8 @@ couldn't get myself to start another book before shipping this one because:
 - I learned a lot about what it takes to go from the first draft to the finished
   book. I cover that in the next paragraph.
 - I built a little of infrastructure for self-publishing which I'm sure it'll
-  come handy in the near future (yes, I'm _already_ writing _another_ book
-  already). More about this in [publishing the book](#publishing-the-book).
+  come handy in the near future (yes, I'm _already_ writing _another_ book).
+  More about this in [publishing the book](#publishing-the-book).
 
 ## Reviewing the book
 
