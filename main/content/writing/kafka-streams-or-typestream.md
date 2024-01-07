@@ -167,9 +167,9 @@ one jvm language, I've done Kafka Streams with Java and Kotlin and the
 experience is very pleasant. Of course, if you're not familiar or willing to
 work with any of the jvm languages then, unfortunately, you're out of luck.
 
-TypeStream, on the other hand, is "almost" bash. If you're familiar with UNIX
-systems, you're kind of already familiar with TypeStream. Now I think that's a
-great selling point
+TypeStream, on the other hand, is almost bash. If you're familiar with UNIX
+systems, you're already familiar with TypeStream. Now I think that's a great
+selling point
 
 ## The deployment model
 

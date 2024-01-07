@@ -21,7 +21,7 @@ createIcons({
 
 const toggle = document.getElementById("toggle");
 
-toggle.addEventListener("click", (e) => {
+toggle.addEventListener("click", function () {
   e.preventDefault();
   document.documentElement.classList.toggle("dark");
   localStorage.setItem(

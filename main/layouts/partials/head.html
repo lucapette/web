@@ -11,14 +11,14 @@
 
   {{ $highlight := resources.Get "highlight.css" }}
   {{ $css := resources.Get "main.scss" | resources.ToCSS }}
-  {{ $js := resources.Get "main.js" | js.Build }}
+  {{ $js := resources.Get "main.js" | js.Build (dict "minify" hugo.IsProduction) }}
   {{ if hugo.IsProduction }}
     {{ $css = $css | resources.PostCSS }}
     {{ $css = $css | minify | fingerprint | resources.PostProcess }}
 
     {{ $highlight = $highlight | minify | fingerprint }}
 
-    {{ $js = $js | minify | fingerprint }}
+    {{ $js = $js | fingerprint }}
   {{ end }}
 
 

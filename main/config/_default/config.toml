@@ -2,7 +2,7 @@ baseURL = "https://lucapette.me"
 title = "Home"
 summaryLength = 30
 enableGitInfo = true
-paginate = 5
+paginate = 10
 [params]
   author = 'Luca Pette'
   description = "Luca Pette's website"
