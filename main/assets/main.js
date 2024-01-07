@@ -21,7 +21,7 @@ createIcons({
 
 const toggle = document.getElementById("toggle");
 
-toggle.addEventListener("click", function () {
+toggle.addEventListener("click", function (e) {
   e.preventDefault();
   document.documentElement.classList.toggle("dark");
   localStorage.setItem(
@@ -31,5 +31,5 @@ toggle.addEventListener("click", function () {
 });
 
 console.info(
-  "Hi 👋👋👋. Grab the code here: https://github.com/lucapette/website",
+  " 👋👋👋\n Grab the code here: https://github.com/lucapette/web/tree/main/main\n 👋👋👋",
 );
