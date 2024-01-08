@@ -1,12 +1,12 @@
 # Kotlin
 
-Starting in March 2022, I've been learning [Kotlin](https://kotlinlang.org).
+Since March 2022, I've been learning [Kotlin](https://kotlinlang.org).
 
 ## General observations
 
 There are too many testing libraries. I guess you could say it's a young language.
 
-The Inheritance syntax felt a little strange at first:
+The inheritance syntax felt a little strange at first:
 
 ```kotlin
 class Thing(words: List<String>)
@@ -98,8 +98,9 @@ and Spring (Java).
 
 ## Meta-programming
 
-I wrote a configuration library (source is not open yet). Here's how the API
-looks like:
+I wrote a [configuration library](see
+https://github.com/typestreamio/typestream/tree/main/libs/konfig). Here's how
+the API looks like:
 
 ```kotlin
 @KonfigSource(prefix = "server")
