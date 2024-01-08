@@ -10,8 +10,8 @@ ecosystem via Kafka connect.
 
 ## Debezium embedded
 
-Recently (nov 2023), I found out that you can embed Debezium in your database so
-I had to quickly try it out so I took some notes along the way:
+Recently (nov 2023), I found out that you can embed Debezium in your database
+and couldn't help by trying it out. I took some notes along the way:
 
 - The example in the [official
   docs](https://debezium.io/documentation/reference/stable/development/engine.html)
