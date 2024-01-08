@@ -13,11 +13,11 @@ date: 2022-09-28T07:09:51+02:00
 
 {{< message class="is-info">}}
 
-This article assumes you're _already_ convinced that the monorepo is how you
-want to organise your codebase.
+This article assumes you're _already_ convinced that a monorepo is how you want
+to organise your codebase.
 
-While I mention some benefits of the monorepo approach, they are part of a
-larger set of benefits I discussed in [The appeal of monorepo]({{< ref
+While I mention some benefits of the approach, they are part of a larger set of
+benefits I discussed in [The appeal of monorepo]({{< ref
 "/writing/the-appeal-of-monorepo" >}} "the appeal of monorepo").
 
 {{</ message >}}
@@ -28,7 +28,7 @@ felt to me that this wasn't a valuable approach.
 
 A coherent, useful monorepo structure requires too much contextual information.
 Instead of providing a template that may or may not make sense to you, I will
-share my thoughts on this problem.
+share my thoughts on this.
 
 While I have always appreciated the technical benefits of a monorepo, over the
 years I also came to appreciate monorepos as an engineering leadership
@@ -42,10 +42,9 @@ Both points are interesting, but the second one is relevant in the context of
 this conversation.
 
 The point is that the discoverability of your monorepo is only as good as your
-naming.
-
-And while I don't think discoverability is the most important technical benefit
-of adopting a monorepo, focusing on it can be an intriguing leadership tool.
+naming and, while I don't think discoverability is the most important technical
+benefit of adopting a monorepo, focusing on it can be an intriguing leadership
+tool.
 
 The idea is somewhat trivial: you can draw some parallels between the structure
 of your monorepo and the structure of your organisation. You can use these
@@ -75,9 +74,9 @@ It's just three projects and the docs.
 You've got your web application, your infrastructure-as-code project, and an API
 project.
 
-You already see some benefits of the monorepo. No need to jump over multiple
-repositories, you can already do atomic changes. Soon you'll need to share some
-assets and you'll just add one more directory.
+You can already see some benefits of the monorepo. No need to jump over multiple
+repositories, you can do atomic changes. Soon you'll need to share some assets
+and you'll just add one more directory.
 
 The structure of the monorepo right now is as flat as it gets, after all you're
 working alone on this. Your organisation is also completely flat.
@@ -108,12 +107,12 @@ and your subscription jobs. You're not super happy with the naming of the teams
 (therefore the folders in your monorepo), but you know things will change soon
 (they always do) and you'll get a chance to improve the naming a little.
 
-The structure is still flat but you're starting to see the first clusters:
-there's still overlap between the way you organise your teams and how the
+The structure is still flat but you're starting to see the first clusters.
+There's still overlap between the way you organise your teams and how the
 monorepo looks like.
 
 Fast-forward again, two years passed. You're a victim of your own success! You
-can barely keep up with the people joining, you have a number of teams.
+can barely keep up with the people joining, you now have a number of teams.
 
 Your monorepo looks very different now:
 

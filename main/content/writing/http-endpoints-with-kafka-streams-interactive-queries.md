@@ -9,9 +9,16 @@ tags:
 keywords: kafka, kafka streams, kotlin
 ---
 
-{{< message class="is-info">}} Interactive queries are a somewhat advanced topic
-in the context of Kafka Streams application, so this article assumes the reader
-knows the basics of Kafka Streams. {{</ message >}}
+{{< message class="is-info">}}
+
+Interactive queries are a somewhat advanced topic in the context of Kafka
+Streams application, so this article assumes the reader knows the basics of
+Kafka Streams.
+
+If you'd like to learn more about Kafka Streams, check out [Getting started with
+Kafka Streams]({{< ref "/writing/getting-started-with-kafka-streams" >}}).
+
+{{</ message >}}
 
 [Interactive
 queries](https://kafka.apache.org/documentation/streams/developer-guide/interactive-queries.html)
@@ -114,11 +121,15 @@ Created topic words.
 
 {{< message class="is-warning">}}
 
-**Warning:** neither the code nor the
-settings presented in this article are recommended for production use.
+**Warning:** neither the code nor the settings presented are recommended for
+production use.
+
 Production readiness code and configuration would add too much detail and reduce
-clarity. At the end of the article, I will provide a list of recommendations for
+clarity.
+
+At the end of the article, I provide a list of recommendations for
 production-ready Kafka Streams applications.
+
 {{< /message >}}
 
 Now let's add some words to the topic:
@@ -467,6 +478,5 @@ I'm using the [demo app](https://github.com/lucapette/interactive-queries) we
 built for this article as a Kotlin playground so I will probably work on some of
 this points myself. If you're interested, check the issues as I generally use
 them as a TODO list and maybe give it a star :)
-
 
 {{< typestream >}}
