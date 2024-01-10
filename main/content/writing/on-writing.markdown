@@ -42,17 +42,16 @@ feel it every single time I write.
 
 Writing doesn't feel clear and fluid, there's too much clutter.
 
-I'm clumsy but I've never felt that way about my writing.
-
-My experience as a student spoilt me. I was "the good writer" in any class. I
-put no effort and yet my writing was good.
+I'm clumsy but I had never felt that way about my writing. My experience as a
+student spoilt me. I was "the good writer" in any class. I put no effort and yet
+my writing was good.
 
 The experience gap between my Italian writing and the English one blocked me. I
 did not know how to fix it and a few years passed.
 
 That's how life works: if you do nothing, nothing happens. But I couldn't just
 give up on writing. I like it too much. I like the act itself, it calms me down.
-It gives me the silence that's so hard to find in this frenetic world.
+It gives me that silence that's so hard to find in this frenetic world.
 
 So I did what I always do when I want to know more about something: I read a few
 books.
@@ -103,7 +102,7 @@ write crap.
 Of course, this isn't true.
 
 Moreover, the goal isn't becoming the most important novelist of all times. The
-goal is to enjoying writing.
+goal is to enjoy writing.
 
 If you don't intend to write for money, you can ignore the audience. I suggest
 you do that anyway though. More on this later.
@@ -126,11 +125,10 @@ These books, in particular _on writing well_, teach you to love the rewriting
 process, they help you understand its value.
 
 I started rewriting my drafts. It was a fascinating learning process. My
-sentences got better, writing felt more fluid.
+sentences got better, the writing felt more fluid.
 
-Rewriting my drafts generated some ideas that made me love writing even more. It
-forced me to think of ways to get to the first draft as fast and as effortlessly
-as possible.
+Rewriting my drafts made me love writing even more. It forced me to think of
+ways to get to the first draft as fast and as effortlessly as possible.
 
 That changed everything and two new writing techniques quickly emerged:
 
@@ -138,7 +136,7 @@ That changed everything and two new writing techniques quickly emerged:
 - Outline expansion.
 
 I couldn't come up with a better naming for now, as a programmer I know how hard
-naming can be. I will explain what I mean in the coming paragraphs.
+naming can be. I explain what I mean in the coming paragraphs.
 
 As I kept rewriting my drafts before moving on to proof-reading, I realised I
 had never written a draft and rewritten it in one sitting. I had always put at
@@ -149,27 +147,26 @@ My explanation is that writing and rewriting require different mindsets.
 When I write a draft, my goal is to write everything I have in mind as _fast_ as
 possible so I can move on to the _real_ work: the rewriting sessions.
 
-When I rewrite something, my goal is to remove the clutter. I want to get rid
-of whatever is superfluous: unnecessary adverbs, adjectives, sentences, entire
+When I rewrite something, my goal is to remove clutter. I want to get rid of
+whatever is superfluous: unnecessary adverbs, adjectives, sentences, entire
 paragraphs.
 
 When I started to rewrite my drafts, the question "how much rewriting is
 enough?" worried me.
 
-It's a fair question, it comes up often when I talk about writing to people.
+It's a fair question, it comes up often in conversations about writing.
 
 I can't say if there's an answer that works for everyone. I don't believe
-answers to this kind of question work this way.
+answers to this kind of question work this way but I can share my current
+process.
 
-I can share my current process though.
-
-I have a two-step process:
+I have a three-step process:
 
 1. I do one or two sessions in my editor depending on how long the piece of
    writing is.
-2. Then I switch to reading the piece as it was published on my website. It
+2. I then switch to reading the piece as it was published on my website. It
    helps me to polish my tone. I took mental note of how the piece flows.
-3. I go back to the editor and quickly apply my notes to the writing.
+3. I go back to the editor and quickly apply my notes.
 
 Most times I quickly go back between step 2 and 3 a few times until reading
 feels right to me.
@@ -180,7 +177,7 @@ that something about the piece isn't working. The reason isn't important.
 What I think matters the most in my process is that I try hard to use a
 different perspective in each step.
 
-I'm a writer in in the first step so I use my editor.
+I'm a writer in the first step so I use my editor.
 
 I'm a reader in the second one so I do not use my editor. I just read and take
 notes.
@@ -193,7 +190,7 @@ It happened to me over time.
 
 In fact, I rewrote this last part of the paragraph in December 2022, a few weeks
 after I realised my process had refined itself. More than 5 years after I wrote
-this piece.
+this article.
 
 ### Note by note
 
@@ -204,10 +201,10 @@ A few weeks ago, I started looking into React (a JavaScript library for building
 user interfaces). I was completely new to the topic and the ecosystem around
 React can be overwhelming.
 
-I started taking notes to help me with the learning process. After a couple of
-coding sessions I was looking at my notes and I realised I could transform them
-into a draft with little effort. That was the first time I used the _note by
-note_ technique.
+I started taking notes to help myself learning React. After a couple of coding
+sessions, I was looking at my notes and I realised I could transform them into a
+draft with little effort. That was the first time I used the _note by note_
+technique.
 
 So now I take notes about everything I do. I don't care if what I'm writing down
 is worth sharing or not.
@@ -215,8 +212,8 @@ is worth sharing or not.
 This way I give myself the chance to take a bunch of notes and transform them
 into a draft at a later stage.
 
-Nowadays, I can get from notes to a first draft of over a thousand words in
-thirty minutes.
+Nowadays, I can get from notes to a first over a thousand words draft in thirty
+minutes.
 
 When I'm about to run out of items in my draft queue, I check my notes. I always
 find something I can expand into an article. I found a way to write every day.
@@ -228,8 +225,8 @@ It _only_ took me seven years.
 I use [outlining](<https://en.wikipedia.org/wiki/Outline_(list)>) every time I
 have no clue what I'm doing.
 
-As that's true for most of what I do (and yes, that's true for you too. Don't
-lie to yourself my friend), I organise lists this way every day.
+Since that's true for most of what I do (and yes, that's true for you too. Don't
+lie to yourself), I organise lists this way every day.
 
 When it comes to writing, it helps me to structure ideas that have been on my
 mind for a while. This article is a perfect example.
@@ -265,8 +262,8 @@ outline is a guideline for my thoughts. It works like this:
 As you can see from the example above, "make a habit out it" and "the absolute
 necessity of getting an editor" did not make it to the final article.
 
-I believe they are important topics but I couldn't find a way to make them flow
-with the rest of the content.
+They are important topics but I couldn't find a way to make them flow with the
+rest of the content.
 
 Furthermore, "get to the draft as fast as you can" ended up being three
 different paragraphs. While writing the article, I realised I cared too much
@@ -286,8 +283,9 @@ less than two hours and I couldn't be happier with the result. But it was almost
 ## Share everything you write
 
 We have the tendency to overestimate our forecasting capabilities. It's called
-[overconfidence effect](https://en.wikipedia.org/wiki/Overconfidence_effect). I
-feel the effect of this bias every time I publish something.
+the [overconfidence
+effect](https://en.wikipedia.org/wiki/Overconfidence_effect). I feel the effect
+of this bias every time I publish something.
 
 2017 is a perfect example: the only article I thought wasn't worth sharing got
 more attention than the rest of my articles put together. I couldn't believe it.
