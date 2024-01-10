@@ -42,8 +42,8 @@ const config = {
         },
         items: [
           {
-            href: "https://github.com/lucapette/",
-            label: "GitHub",
+            href: "https://lucapette.me",
+            label: "lucapette.me",
             position: "right",
           },
         ],
