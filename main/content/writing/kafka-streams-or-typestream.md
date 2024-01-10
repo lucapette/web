@@ -16,12 +16,11 @@ This article answers a question that comes up a lot when I'm talking about
 > How does it compare to Kafka Streams?
 
 It's more than a fair question; the functional overlap between the two
-technologies is large. After all, Kafka Streams is the default runtime available
-in TypeStream.
+technologies is large. After all, Kafka Streams is TypeStream's default runtime.
 
 To keep things as concrete as possible, I compare them in the context of an
-event-driven microservices architecture. I chose this approach because I think
-this is a context in which both technologies show their strength.
+event-driven microservices architecture because that's a common use case for
+both.
 
 - [Event-driven microservices](#event-driven-microservices)
 - [Kafka Streams](#kafka-streams)
@@ -38,26 +37,26 @@ conversations by a larger trend (read cult) about microservices.
 
 I prefer the term "streaming applications" because I like to call things what
 they are and what they do but I will stick with "event-driven microservice"
-since I know this naming reaches a wider audience and who wouldn't want that?
+because this naming has a wider reach and who doesn't want that?
 
 All right, you now know I'm reluctantly saying "event-driven microservice" but
 what do I mean anyway? What's an "event-driven microservice"?
 
 It's a ~~small streaming application~~ microservice that does its job by
 consuming and producing off an event broker. More often than not, the event
-broker of choice is a Kafka cluster. The core characteristic of an event-driven
-microservice architecture is that the events are durable and can be consumed
-many times by many different services. Kafka has that and is an obvious choice
-to unlock the full potential of this approach.
+broker of choice is a Kafka cluster because the main characteristic of an
+event-driven microservice architecture is that the events are durable and can be
+consumed many times by many different services (as opposed as messages passed
+around using a "traditional" queue). Kafka has that and is an obvious choice to
+unlock the full potential of this approach.
 
 Here's a trivial example diagram of this architecture:
 
 ![event-driven sample architecture diagram](/img/event-driven.svg)
 
 From this point on, when I say event-driven microservice, I'm always talking
-about a small application (see?) that consumes data via one or more Kafka
-topics, does its thing, and may send its result back to a Kafka Topic (more
-about this later).
+about a small application (see?) that consumes data from one or more Kafka
+topics, does its thing, and (often) sends its result back to a Kafka Topic.
 
 I'm ignoring how tricky it is to define what a "small" application is. I could
 probably write a whole article about it (people wrote books about slightly, ehm,
@@ -76,17 +75,17 @@ Note that I'm using JSON for readability but, in a production system, I'd expect
 Avro (or Protocol Buffers) to be the serialization format of choice (and would
 also use UUID for ids).
 
-Let's also imagine we need novels into a different topic that will be consumed
-by other microservices.
+Let's also imagine we need novels into a different topic so that other
+microservices can solve novel specific problems.
 
-Initially, the way we define novel is trivial (more than 40K words) but we
-expect this to change over time so an event-driven microservice that is
-responsible to extract novels from the `application.books` topic into a
-`application.novels` topic is a perfect fit.
+Initially, the way we define novel is trivial (> 40K words) but we expect this
+to change over time so an event-driven microservice that is responsible to
+extract novels from the `application.books` topic into a `application.novels`
+topic is a perfect fit.
 
 Now that (hopefully) the context is clearer and we also have a trivial example
-to work with, let's look at what Kafka Streams and TypeStream are and how you'd
-solve such a problem with them.
+to work with, let's look at what Kafka Streams and TypeStream are and how they
+can solve such a problem.
 
 ## Kafka Streams
 
@@ -102,7 +101,7 @@ case. It goes without saying that I agree with them.
 
 Kafka Streams is a fantastic library! It has a very usable API and covers a lot
 of ground with its features. I wrote about it in [Getting started with Kafka
-Streams]({{< ref "/writing/getting-started-with-kafka-streams" >}}) which, and
+Streams]({{< ref "/writing/getting-started-with-kafka-streams" >}}) which,
 believe me I feel weird saying this myself, is the best introduction to the
 library if you know nothing about it.
 
@@ -129,7 +128,9 @@ streams.start();
 
 Apart from the imports and some function definitions, this is pretty much all
 the code we need for a production grade microservice that extracts novels from a
-stream of books. Sweet.
+stream of books. Sweet. If you'd like to play around with this code, I have an
+example repo on GitHub:
+[lucapette/kafka-streams-example](https://github.com/lucapette/kafka-streams-vs-typestream).
 
 ## TypeStream
 
@@ -146,49 +147,48 @@ application for you.
 Here's how filtering novels looks like in TypeStream:
 
 ```sh
-let books = "/dev/kafka/cluster/topics/application.books"
-let novels = "/dev/kafka/cluster/topics/application.novels"
-cat $books | grep [ .wordCount > 40000] > $novels
+cat /dev/kafka/cluster/topics/application.books |
+grep [ .wordCount > 40000] > /dev/kafka/cluster/topics/application.novels
 ```
-
-I added the variables for clarity but in reality TypeStream can solve this
-problem with a one-liner.
 
 This looks very different of course and I think we're read to dive into a
 comparison even with such a trivial example.
 
 ## The developer experience
 
-The most obvious thing to say is that we're talking about two different
-programming languages here. Kafka Streams is a Java library so anything jvm
-works for you. That's not a limiting choice if you like at least one jvm
-language, I've done Kafka Streams with Java and Kotlin and the experience is
-very pleasant. JVM programming languages are always a solid choice: great
-communities, great tooling. Of course, if you're not familiar or willing to work
-with any of the jvm languages then, unfortunately, you're out of luck.
+The most obvious thing is that we're talking about two different programming
+languages here so the developer experience *is* different.
+
+Kafka Streams is a Java library so anything jvm works for you. That's not a
+limiting choice if you like at least one jvm language, I've done Kafka Streams
+with Java and Kotlin and the experience is very pleasant. JVM programming
+languages are always a solid choice: great communities, great tooling. Of
+course, if you're not familiar or willing to work with any of the jvm languages
+then you're out of luck.
 
 TypeStream, on the other hand, is almost bash. If you're familiar with UNIX
 systems, you're already familiar with TypeStream. Now I think that's a great
 selling point especially for beginners. You may know nothing about streaming and
-still write an event-driven microservice with TypeStream. Bash may not be the
-most solid language out there for large applications but:
+still be able write an event-driven microservice with TypeStream. Bash may not
+be the most solid language out there for large applications but:
 
-- Everyone knows enough about it.
+- Everyone knows enough to write a small data pipeline with it.
 - We're talking about microservices so we expect our applications to be small
   anyway.
 
-The workflow is also different. With Kafka Streams, you're in a traditional
-"backend workflow". You write your app, you write your tests, then you package
-it and ship it. Nothing wrong with it. In fact, since it's JVM, the tooling is
-pretty amazing (one of my fav examples: test containers).
+The developer workflow is also different. With Kafka Streams, you're in a
+traditional "backend workflow". You write your app, you write your tests, then
+you package it and ship it. Nothing wrong with it. In fact, since it's JVM, the
+tooling is pretty amazing (one of my fav examples: test containers).
 
 In TypeStream, you have a REPL you can use to quickly verify your code. Once
 you're ready, you run `typestream run <source-code>` and TypeStream will deploy
-the microservice for you. More about the deployment model later.
+the microservice for you. More about the deployment model later. In general,
+it's clear that TypeStream's workflow is more data oriented than application
+oriented.
 
-The workflows are different and there's a more profound difference that it's
-obvious. Let's look at the "core" code in both tech one more time. The Kafka
-Streams version:
+There's one more difference that it's not obvious but pretty profound. Let's
+look at the "core" code in both tech one more time. The Kafka Streams version:
 
 ```kotlin
 final KStream<String, Book> source = builder.stream("application.books");
@@ -203,19 +203,19 @@ cat /dev/kafka/cluster/topics/application.books | grep [ .word_count > 40000] > 
 ```
 
 Since these two pieces of code solve the same problem, they obviously look very
-similar. The difference here is that, in the Kafka Streams version, you're
+similar. The key difference is that, in the Kafka Streams version, you're
 responsible for the serialization yourself. That `KStream<String, Book>` looks
 innocent but I've seen lots of newcomers trip up on this specific point. You
 have to instruct Kafka Streams to do the correct serialization. While that's
 obviously fair from the API perspective, it gives a burden on developer
 experience that often feels unneeded. Avro and Protocol Buffer (to cite the most
 used ones) are fantastic at what they do but also involve lots of machinery with
-generated code and build setup. Furthermore you have to also tell Kafka Streams
-where your schema registry is so it often feels "unfair", you still have to do
-all the work "manually".
+generated code and build setup. Furthermore, you have to point Kafka Streams to
+your schema registry so it often feels "unfair" that you still have to do all
+the serialization work "manually".
 
-The TypeStream code has no mention of the serialization. You still have to tell
-your TypeStream server where your schema registry is but there's no step two.
+The TypeStream code has no mention of serialization. You still have to tell your
+TypeStream server where your schema registry is but there's no step two.
 TypeStream will associate the schema of a topic with its path and can use that
 metadata to "type check" your pipeline. That simplicity is reflected in the
 TypeStream code: less configuration, no explicit types.
@@ -223,10 +223,10 @@ TypeStream code: less configuration, no explicit types.
 ## The deployment model
 
 Since Kafka Streams is *just* a library (that "just" is meant as a huge
-compliment), the deployment model is whatever way you deploy your jvm
-applications. Since Kafka Streams applications can be stateful, you may need to
-pay attention to the local disks (a bit tricky in Kubernetes). All in all, it's
-a very flexible solution since Kafka Streams becomes part of your app.
+compliment), the deployment model is whatever way you deploy jvm applications.
+Since Kafka Streams applications can be stateful, you may need to pay attention
+to the local disks (a bit tricky in Kubernetes). All in all, it's a very
+flexible solution.
 
 Technically speaking, TypeStream is a "remote compiler" that uses a Kubernetes
 cluster for running jobs. That means two things:
@@ -238,7 +238,7 @@ cluster for running jobs. That means two things:
 If you have a lot of very small services, this approach may be more convenient
 because yes you give up on flexibility (there's one way to deploy TypeStream
 application and TypeStream will decide for you how to run them) but gain quite
-some velocity (once you have the code, you're already done).
+some velocity (once you wrote the pipeline, you're done).
 
 ## When to use what
 
@@ -251,7 +251,7 @@ Kafka Streams is a jvm library. It's a fully-featured streaming processing
 library and has lots of advanced features (like interactive queries. Check out
 my [HTTP endpoints with Kafka Streams Interactive Queries]({{< ref
 "/writing/http-endpoints-with-kafka-streams-interactive-queries" >}})) so you
-can solve a vast number of streaming problems with it.
+can solve a vast number of problems with it.
 
 TypeStream is a streaming platform that compiles your code into Kafka Streams
 applications. One of the non-goal of TypeStream is critical to this
@@ -266,5 +266,6 @@ article, event-driven microservices fits TypeStream well. Most microservices do
 one small thing (they should, no?) and can be expressed as a one-liner in
 TypeStream.
 
-What I'm saying is I would use TypeStream for most of the things and leave Kafka
-Streams for the more advanced problems.
+What I'm saying is that I would use TypeStream for trivial event-driven
+microservices (they often are) and leave Kafka Streams for the more advanced
+problems.
