@@ -74,7 +74,7 @@ where records look like this:
 
 Note that I'm using JSON for readability but, in a production system, I'd expect
 Avro (or Protocol Buffers) to be the serialization format of choice (and would
-also use UUID from ids).
+also use UUID for ids).
 
 Let's also imagine we need novels into a different topic that will be consumed
 by other microservices.
@@ -182,7 +182,7 @@ The workflow is also different. With Kafka Streams, you're in a traditional
 it and ship it. Nothing wrong with it. In fact, since it's JVM, the tooling is
 pretty amazing (one of my fav examples: test containers).
 
-In TypeStream, you have a REPL you can use to quick reach verify your code. Once
+In TypeStream, you have a REPL you can use to quickly verify your code. Once
 you're ready, you run `typestream run <source-code>` and TypeStream will deploy
 the microservice for you. More about the deployment model later.
 
