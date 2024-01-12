@@ -1,8 +1,8 @@
 ---
-title: "Kafka Streams or TypeStream?"
-description: "A comparative analysis in the context of event-driven architectures"
+title: "Event-Driven Microservices: A Comparative Analysis of Kafka Streams and TypeStream"
+description: "A brief look at how Kafka Streams and TypeStream compare in the context of event-driven microservices."
 tags:
-date: 2024-01-05T10:12:55+01:00
+date: 2024-01-12T06:12:55+01:00
 tags:
   - kafka
   - kafka streams
@@ -13,19 +13,15 @@ keywords: kafka, kafka streams, typestream
 When I'm talking about [TypeStream](https://github.com/typestreamio/typestream)
 to people, I often get asked:
 
-> How does it compare to Kafka Streams?
+> How does TypeStream compare to Kafka Streams when building microservices?
 
 It's more than a fair question; the functional overlap between the two
 technologies is large. After all, Kafka Streams is TypeStream's default runtime.
 
-To answer the question as concretely as possible, I compare them in the context
-of an event-driven microservices architecture since that's a common use case for
-both.
-
-I start with defining what I mean by "event-driven microservices", then, with
-the help of a purposely trivial problem, I look at how Kafka Streams and
-TypeStream. Finally, I compare the two technologies in terms of developer
-experience and deployment model.
+To answer the question as concretely as possible, I explain what I mean by
+"event-driven microservices", then, with the help of a purposely trivial
+problem, I look at how Kafka Streams and TypeStream. Finally, I compare the two
+technologies in terms of developer experience and deployment model.
 
 Here's the table of contents if you'd like to jump to a specific section:
 
@@ -137,7 +133,7 @@ streams.start();
 Apart from the imports and some function definitions, this is pretty much all
 the code we need that extracts novels from a stream of books. Sweet. If you'd
 like to play around with this code, I have an example repo on GitHub:
-[lucapette/kafka-streams-example](https://github.com/lucapette/kafka-streams-vs-typestream).
+[lucapette/kafka-streams-vs-typestream](https://github.com/lucapette/kafka-streams-vs-typestream).
 
 ## TypeStream
 
@@ -271,3 +267,5 @@ thing (they should, no?) and can be expressed as a one-liner in TypeStream.
 What I'm saying is that I would use TypeStream for trivial event-driven
 microservices and leave Kafka Streams for the more advanced problems. Yes, of
 course my answer is to use both 😁
+
+{{< typestream >}}
