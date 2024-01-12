@@ -269,5 +269,5 @@ event-driven microservices fits TypeStream well. Most microservices do one small
 thing (they should, no?) and can be expressed as a one-liner in TypeStream.
 
 What I'm saying is that I would use TypeStream for trivial event-driven
-microservices (they often are) and leave Kafka Streams for the more advanced
-problems. Yes, of course my answer is use both 😁
+microservices and leave Kafka Streams for the more advanced problems. Yes, of
+course my answer is to use both 😁
