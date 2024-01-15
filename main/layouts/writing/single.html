@@ -6,27 +6,23 @@
 
         <nav class="level">
           <div class="level-left">
-            <div class="level-item">
-              <p class="is-size-6">
-                Published in
-                {{ $n := sub (.Params.tags | len) 1 }}
-                {{ range $index, $tag := sort .Params.tags }}
-                  <a href="/tags/{{ urlize . }}">{{ $tag }}</a>
-                  {{- if lt $index $n }},{{ end }}
-                {{ end }}
-                on
-                {{ .Date | time.Format ":date_medium" }}
-              </p>
-            </div>
+            <p class="is-size-6">
+              Published in
+              {{ $n := sub (.Params.tags | len) 1 }}
+              {{ range $index, $tag := sort .Params.tags }}
+                <a href="/tags/{{ urlize . }}">#{{ $tag }}</a>
+                {{- if lt $index $n }},{{ end }}
+              {{ end }}
+              on
+              {{ .Date | time.Format ":date_medium" }}
+            </p>
           </div>
           {{ if ne .Date .Lastmod }}
             <div class="level-right">
-              <div class="level-item">
-                <p class="is-size-6">
-                  Last edited on
-                  {{ .Lastmod | time.Format ":date_medium" }}
-                </p>
-              </div>
+              <p class="is-size-6">
+                Last edited on
+                {{ .Lastmod | time.Format ":date_medium" }}
+              </p>
             </div>
           {{ end }}
         </nav>

@@ -19,7 +19,7 @@
           <div class="tags">
             {{ range .Params.tags }}
               {{ $url := . | urlize }}
-              <a class="tag is-link" href="/tags/{{ $url }}">{{ $url }}</a>
+              <a class="tag is-link" href="/tags/{{ $url }}">#{{ $url }}</a>
             {{ end }}
           </div>
         </div>
