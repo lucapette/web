@@ -88,17 +88,17 @@ thought really. Let me explain.
 
 I've always thought that my "leadership style" is nothing special:
 
-- **Trust** the people
-- Treat them with respect
-- Convince them to do something instead of telling them what to do
-- Let them make mistakes
+- **Trust** the people.
+- Treat them with respect.
+- Convince them to do something instead of telling them what to do.
+- Let them make mistakes.
 - Make sure they understand your no-go (I'll provide examples of this in [lead
   by example](#lead-by-example)).
 
 The average manager out there must be very bad if doing what I've just listed is
 enough to be a good one. Often "the best I had".
 
-The sad thought is that it felt very easy to be better than the average.
+The sad thought is that it felt easy to be better than the average.
 
 With that out of the way, let's dive in.
 
@@ -144,7 +144,8 @@ what good or bad looks like yet.
 If people want to talk about things that are not work related, I do not drive
 the conversation back to work.
 
-There is one thing I do plan carefully though: my action points after a one-to-one.
+There is one thing I do plan carefully though: my action points after a
+one-on-one.
 
 Creating a safe space for people to tell me what bothers them and what their
 aspirations are comes with great expectations. People trusted me so now I have
@@ -196,22 +197,22 @@ It made sense: my communication style was, by definition, non-inclusive. Either
 you were there or you weren't.
 
 I started writing things down for my teams and never looked back ever since.
-It's now my favourite communication style to broadcast information.
+It's now my favourite way to broadcast information.
 
-I treat written communication channels very differently from each other. Written
-words shouldn't always have the same weight. The context matters quite a bit.
-Let me break it down.
+I treat written communication "channels" very differently from each other.
+Written words can't always weight the same. The context ("the channel") matters
+quite a bit. Let me break it down.
 
 ### Chats
 
-I'm deliberately silly in chats. I make jokes. I police people out of slack
-threads if the conversation gets serious.
+I'm deliberately silly in chats. I make jokes. I police people out of a chat if
+the conversation gets serious.
 
-This attitude is designed to constantly send the message that chats aren't the
-place for any serious work.
+This is designed to constantly send the message that chats aren't the place for
+any serious work.
 
-I may use chats as a secondary broadcast channel. Meaning I link important
-writing living somewhere else (like a google doc or a github issue) in a chat
+I may use chats as a secondary broadcast channel. Meaning that I link important
+writing living somewhere else (like a google doc or a GitHub issue) in a chat
 and remind the team to discuss anything related to it in the relevant place.
 
 ### Design proposals
@@ -225,8 +226,8 @@ version) while making sure people have the time and place to contribute as much
 as possible to the design.
 
 I love the approach: it's more inclusive than a meeting because it doesn't
-require any attendance at a specific time while also requiring less maintenance
-from me as a moderator.
+require attendance at a specific time while also requiring less maintenance from
+me as a moderator.
 
 Discussions in written form tend to be more thoughtful than in-person ones
 because people have time to think things through.
@@ -242,21 +243,19 @@ are useful and correctly moderated.
 
 I write down meeting invitations in this form:
 
-- The point of the meeting
-- The topics we want to cover (order often relevant)
-- The expected outcome
+- The point of the meeting.
+- The topics we want to cover (their order is often relevant).
+- The expected outcome.
 
 This simplifies my job a little as I can quickly context-switch into "meeting
 mode" as soon as I read the agenda. This also helps me moderate the meeting.
 
 If the meeting is about some on-going topic, I most likely have a google doc
-attached to it so that we can take real-time notes.
+attached to it so that the attendees can take real-time notes.
 
-If this seems like a lot of work to set up a meeting, it's because that's the
-point.
-
-If I'm demanding people to take time out of their day, it means the topics are
-important. My effort should reflect that.
+You may be thinking that this is a lot of work to set up a meeting but that _is_
+my point: If I'm demanding people to take time out of their day, it means the
+topics are important. My effort must reflect that.
 
 I enforce a "no agenda no meeting" policy when it makes sense. While I
 personally like it very much, I found that meeting culture is too
@@ -265,17 +264,17 @@ company-specific for such a strict rule to always work.
 ### Developer book
 
 Early in my career I got very frustrated every time I joined a new team. Most of
-the day-by-day operations were just not documented.
+the day-by-day operations were not documented anywhere.
 
 So when it was my time to design an on-boarding experience, I realised I could
 make use of written communication by creating a "developer book".
 
 This document provides at least the following information:
 
-- How to on-board
-- How we work
-- How we operate
-- How to off-board
+- How to on-board.
+- How we work.
+- How we operate.
+- How to off-board.
 
 The idea is that if someone is unsure about how to approach a problem, they have
 some starting point in the developer book.
@@ -292,18 +291,18 @@ It achieves some things I value very much:
 - The rest of pull-requests (meaning code) stay free from tangential
   conversations about style, conventions and what not (those would be defined in
   the developer book as "how we work").
-- Your team will have a history of how operational decisions were made.
-- The developer book is always in sync. Can you believe I had teams with
-  up-to-date docs?
+- The team will have a history of how operational decisions were made.
+- The developer book is always in sync. Can you believe that I have run teams
+  with up-to-date docs?
 
 Of course, the list of topics I provided is only an example. Different companies
-have different needs, so the developer book should reflect that.
+have different needs and the developer book should reflect that.
 
 Good examples of topics you may want to cover in the document are:
 
-- Diagrams (sequences, architecture)
-- Incident management
-- Reference readings
+- Diagrams (sequences, architecture).
+- Incident management.
+- Reference readings.
 
 ### Internal blogging
 
@@ -311,8 +310,8 @@ I call this communication channel "internal blogging" for the lack of a better
 term. What I mean is that I always have a place where I can share long pieces of
 writing.
 
-I want to be able to refer to specific content over time. I found that
-repetition is very much needed when leading any group of people.
+I want to be able to refer to specific content over time. My experience is that
+repetition is very much needed when leading.
 
 Writing a "blog post" is also my favourite way to smooth difficult operational
 transitions that occur in the lifetime of a company.
@@ -322,15 +321,15 @@ mono-repository", "why we're going to use trunk based development", or "the next
 generation of our Kafka infrastructure".
 
 I share such blog posts long before the actual transition happens. This gives me
-time to collect feedback and minimise the situations in which a change occurs and
+time to collect feedback and minimise the scenario in which a change occurs and
 people don't know about it.
 
 As teams scale, sharing knowledge becomes more and more important to make sure
 that different teams don't solve the same problem multiple times. An internal
 blog is a simple way to share these learnings.
 
-That's the other main reason why I write these blog posts. It paves the way for
-other people to write.
+That's the other reason why I write these blog posts. It paves the way for other
+people to write.
 
 Fostering a culture of writing helps teams in many ways:
 
@@ -351,13 +350,9 @@ The delta between "something we wrote for ourselves" and "something we want to
 share with the world" is often small, so internal blogging facilitates public
 blogging.
 
-A public blog is a great marketing activity for your teams, it helps with hiring
-and improves the mood of your teams. It can feel great to share what you are
-doing with the rest of the world.
-
 ## Lead by example
 
-I believe leading by example is the best way to shape culture.
+I believe that leading by example is the best way to shape culture:
 
 > Instead of telling people how to behave, be the person you want your direct
 > reports to be.
@@ -368,7 +363,7 @@ tendency to emulate the behaviour of those they trust.
 If people trust me as a leader, I can shape the culture of my team _just_ by
 doing what I think is right.
 
-This applies to everything we do at work every day, so I often felt overwhelmed
+This applies to everything we do at work every day so I often felt overwhelmed
 by the idea that "people are observing my behaviour".
 
 The way I overcame this problem is by making sure I make a conscious effort to
@@ -379,7 +374,7 @@ about are. Let me provide some real-world examples from my teams:
 
 - I call out people when they use non-inclusive language.
 - I leave at 6pm every day unless the system is on fire.
-- I don't give up on a disruptive production issue unless it's solved.
+- I don't give up on a disruptive production issue until it's solved.
 - I don't have work chat apps on my phone.
 - I don't work outside of working hours.
 - You can't really reach me when I'm off.
@@ -388,11 +383,11 @@ These are just examples, the point is: I learned that you can't tell people to
 do "the right thing" and expect them to follow you. You have to be the person
 that does "the right thing".
 
-It's obviously harder to lead by example when the teams grow. Most of the people
-will not interact with me every day so I can't really provide daily examples.
+It's obviously harder to lead by example when teams grow. Most of the people
+don't interact with me every day so I can't really provide daily examples.
 
 Once again, written communication comes very handy. I write down "do and don't"
-documents for the team.
+documents.
 
 These documents look a little like the list I just shared but they use a
 different writing style. Items look like "Use inclusive language" or "it's
@@ -403,7 +398,7 @@ always OK to ask questions".
 Most startups hire fast and fire slow and that is considered somehow normal. I
 apply the reversed principle: hire slow and fire fast.
 
-This sounds great in theory but, to be fair, it is hard in practice because:
+This sounds great in theory but, to be honest, it is hard in practice because:
 
 - You could always do more with more people.
 - Hiring has no short-term positive performance effect on your teams.
@@ -411,15 +406,13 @@ This sounds great in theory but, to be fair, it is hard in practice because:
 So there's quite some incentive on hiring people really fast especially in a "VC
 backed startup".
 
-Unfortunately, hiring cannot fix _now_ problems. It is an investment for the
-future of your teams.
+Unfortunately, hiring cannot fix _now_ problems. It is an investment.
 
 I try to stay ahead of my own needs and hire just a little before I actually
 need more people.
 
-This also helps me to make sure I can actually hire slowly. While I'm
-interviewing people, I'm not trying to solve a now problem, so I can take my
-time with it.
+This also helps me to make sure I can indeed hire slowly. If I'm not trying to
+solve a now problem I can take my time with it.
 
 Hiring slow is how I minimise false positives. If I hire the wrong people, the
 best I can do is to fire them.
@@ -433,9 +426,9 @@ possible.
 I think of firing as the worst possible outcome of the on-boarding process which
 I organise in the following checkpoints:
 
-- First week
-- First month
-- First quarter
+- First week.
+- First month.
+- First quarter.
 
 There is more to on-boarding than just looking for hiring failure, but let me
 focus on that aspect here.
@@ -452,7 +445,7 @@ At the three-month checkpoint, I ask myself the question "do we to work together
 for the next X years?"
 
 If the answer is not "Of course, it's awesome!" I know there's a problem to fix
-and have to act fast.
+and I have to act fast.
 
 Sometimes though, people do not fit anymore. They have been working with you for
 a while and they realise they are not happy anymore.
@@ -486,16 +479,16 @@ of people.
 
 This approach creates a false sense of security but in fact it doesn't help you
 do better than any other company out there. Everyone has outages and breaks
-things like everybody else.
+things.
 
-In reality, such privileges create the worst dynamic: it frustrates newer team
-members because they cannot access some of the knowledge that would increase
-their seniority. It makes sure only senior people can make mistakes.
+In reality, such privileges create the worst dynamic: they frustrate newer team
+members that cannot access some of the knowledge which would increase their
+seniority. It also ensures that only senior people can make mistakes.
 
 So at some point in my career, I got rid of all privileges because I realised
 that:
 
-> Everyone can do everything, but this does not mean that everyone will.
+> Everyone can do everything does not mean that everyone will.
 
 On average, not much changed in terms of risk. I did not get more outages but I
 saw people grow faster.
