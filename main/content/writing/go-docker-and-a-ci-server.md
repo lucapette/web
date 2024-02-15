@@ -3,7 +3,7 @@ tags:
   - golang
 date: "2014-04-02T00:00:00Z"
 description: A short tale about my first steps with go and docker
-keywords: go, golang, docker, gitlab, gitlab-ci
+keywords: golang, docker, gitlab, gitlab-ci
 title: Go, docker and a CI server
 aliases:
   - /go/go-docker-and-a-ci-server/

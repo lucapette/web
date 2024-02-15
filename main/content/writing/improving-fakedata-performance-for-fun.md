@@ -2,7 +2,7 @@
 title: "Improving Fakedata Performance for Fun"
 date: 2022-10-17T08:53:37+02:00
 tags:
-  - go
+  - golang
   - fakedata
 description: A good excuse to play around with some interesting tools
 keywords: golang, fakedata, performance, strace, pprof, datasette
