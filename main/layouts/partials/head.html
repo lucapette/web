@@ -10,7 +10,7 @@
   {{ partial "fonts" . }}
 
   {{ $highlight := resources.Get "highlight.css" }}
-  {{ $css := resources.Get "main.scss" | resources.ToCSS }}
+  {{ $css := resources.Get "main.scss" | resources.ToCSS (dict "transpiler" "dartsass") }}
   {{ $js := resources.Get "main.js" | js.Build (dict "minify" hugo.IsProduction) }}
   {{ if hugo.IsProduction }}
     {{ $css = $css | resources.PostCSS }}

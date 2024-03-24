@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "bulma": "0.9.4",
-    "include-media": "^1.4.10",
+    "include-media": "2.0.0",
     "lucide": "^0.63.0",
     "nord": "^0.2.1"
   },
@@ -20,6 +20,7 @@
     "postcss": "^8.4.38",
     "postcss-cli": "11.0.0",
     "prettier": "3.2.5",
-    "prettier-plugin-go-template": "^0.0.15"
+    "prettier-plugin-go-template": "^0.0.15",
+    "sass": "^1.72.0"
   }
 }
