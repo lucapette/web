@@ -24,4 +24,5 @@ A few days ago, a friend asked me to share some of my favorite baroque music pie
     Scarlatti is to me. What a superb composition. And if this sounds impossible to play on the guitar, you'd be right if [Aniello Desiderio](https://www.youtube.com/watch?v=GRR7-lIAjPk) didn't exist.
   - [Sonata in D minor, k141](https://www.youtube.com/watch?v=Gh9WX7TKfkI)
     played by legend Martha Argerich is a must-listen. Sergio & Odair Assad,
-    obviously, have an [incredible version]( Martha Argerich) too.
+    obviously, have an [incredible
+    version](https://www.youtube.com/watch?v=1BLC-G1-ZI0) too.
