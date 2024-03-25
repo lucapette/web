@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-primary);
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.50rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+section {
+  padding: 2rem 1rem;
+}
+
+pre code {
+  font-family: var(--font-family-monospace);
+  font-size: var(--font-size-code);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+
+}
+
+em {
+  color: var(--accent-color);
+  font-weight: 700;
+}

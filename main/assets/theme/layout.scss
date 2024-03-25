@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  .navbar-brand {
+    flex-shrink: 0;
+  }
+  .navbar-menu {
+    display: flex;
+    align-items: stretch;
+
+    .navbar-start {
+      align-self: flex-start;
+      display: flex;
+      align-items: stretch;
+
+      .navbar-item {
+        display: flex;
+        align-items: center;
+        padding: 0 0.5em;
+      }
+    }
+
+    .navbar-end {
+      align-self: flex-end;
+    }
+  }
+}

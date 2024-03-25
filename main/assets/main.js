@@ -26,7 +26,7 @@ toggle.addEventListener("click", function (e) {
   document.documentElement.classList.toggle("dark");
   localStorage.setItem(
     "theme",
-    localStorage.getItem("theme") == "light" ? "dark" : "light",
+    localStorage.getItem("theme") === "light" ? "dark" : "light",
   );
 });
 

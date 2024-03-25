@@ -1,19 +1,4 @@
-@import "../node_modules/include-media/dist/include-media.scss";
-@import "_theme";
-
-:root {
-  --wrap-width: 1160px;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
+@import "theme";
 
 @mixin container {
   margin-left: auto;
@@ -26,10 +11,20 @@ body {
   @include container;
 }
 
-.footer {
+footer.footer {
   flex-shrink: 0;
   padding: 1rem;
   @include container;
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+    display: flex;
+    gap: 1em;
+  }
 }
 
 .highlight {
@@ -72,9 +67,13 @@ pre:hover .copy-code {
 .hello {
   display: grid;
   grid-template-columns: 20% 30% 30% 20%;
+
+
   .title {
     grid-column-start: 1;
     grid-column-end: 3;
+
+    font-size: 3rem;
   }
 
   .image {
@@ -92,9 +91,11 @@ pre:hover .copy-code {
 @include media(">=tablet", "<desktop") {
   .hello {
     grid-template-columns: 20% 20%;
+
     .image {
       justify-self: right;
     }
+
     .subtitle {
       grid-column-end: 4;
     }
@@ -117,17 +118,27 @@ pre:hover .copy-code {
   :root {
     --wrap-width: 350px;
   }
-}
 
-em {
-  color: $orange;
-  font-weight: 700;
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .left,
+    .right {
+      display: inline;
+    }
+
+    .right {
+      flex-direction: column;
+    }
+  }
 }
 
 .accent,
 .dropcap {
-  font-family: $body-family;
-  color: $orange;
+  font-family: var(--font-family-primary);
+  color: var(--accent-color);
   text-shadow: $nord1 0.05em 0.05em;
 }
 
@@ -138,20 +149,19 @@ em {
   margin: 0.1em 0.1em 0.2em 0;
   padding: 0.1em;
 }
+
 .dropcap:before,
 .dropcap:after {
   content: "";
   display: block;
 }
+
 .dropcap:before {
   margin-top: -0.2em;
 }
+
 .dropcap:after {
   margin-bottom: -0.15em;
-}
-
-a {
-  text-decoration: underline;
 }
 
 /* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
@@ -171,7 +181,7 @@ a {
 }
 
 #toggle {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 html.dark {
@@ -205,6 +215,7 @@ html.dark {
     table thead th {
       color: $nord6;
     }
+
     h1,
     h2,
     h3,
@@ -281,6 +292,11 @@ html.dark {
 
 .me:hover {
   transform: scaleX(-1);
+}
+
+figure.me {
+  width: 128px;
+  height: 128px;
 }
 
 .anchor a {
