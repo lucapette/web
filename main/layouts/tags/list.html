@@ -1,6 +1,6 @@
 {{ define "main" }}
-  <section class="section">
-    <h1 class="title is-1">{{ title .Title }}</h1>
+  <section>
+    <h1>{{ title .Title }}</h1>
     {{ if ne .Description "" }}
       <p class="subtitle">{{ .Description }}</p>
     {{ end }}
@@ -15,7 +15,7 @@
               <li>
                 <span
                   ><a href="{{ .Permalink }}">{{ .Title }}</a>
-                  <span class="is-size-7 is-italic"
+                  <span class="is-italic is-size-6"
                     >{{ .Date | time.Format ":date_long" }}</span
                   ></span
                 >

@@ -1,0 +1,41 @@
+@import "../node_modules/nord/src/sass/nord";
+
+$wrap-width: 1160px;
+
+$radius: 4px;
+
+$font-family-primary: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
+"Lucida Sans", Geneva, Arial, sans-serif;
+$font-size-primary: 1.2em;
+
+$font-family-monospace: "Monaco", "Lucida Grande", "Lucida Sans Unicode";
+$font-size-code: 1em;
+
+$font-weight-normal: 500;
+
+$text-color: $nord3;
+$background-color: $nord6;
+
+$accent-color: darken($nord12, 10%);
+
+$link-color: #466695;
+
+$yellow: $nord13;
+$green: $nord14;
+$turquoise: $nord8;
+$cyan: $nord9;
+$blue: $nord10;
+$purple: $nord15;
+$red: $nord11;
+
+$black: $nord0;
+$black-bis: $nord1;
+$black-ter: $nord2;
+
+$white: $nord6;
+$white-bis: $nord5;
+$white-ter: $nord4;
+
+:root {
+  --wrap-width: #{$wrap-width};
+}

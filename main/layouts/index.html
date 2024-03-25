@@ -9,13 +9,13 @@
       {{ partial "header" . }}
 
 
-      <section class="section">
+      <section>
         <div class="hello">
-          <h1 class="is-size-1 is-size-3-mobile title">
+          <h1 class="title">
             <span class="accent">Hi!</span>
             I'm Luca <span class="accent">:)</span>
           </h1>
-          <figure class="me image is-128x128">
+          <figure class="me image">
             {{ $image := resources.Get "me.png" }}
             {{ $small := $image.Resize "128x128 webp q90" }}
             {{ $medium := $image.Resize "256x256 webp q90" }}
@@ -32,14 +32,14 @@
             />
           </figure>
 
-          <p class="is-size-5-mobile subtitle">
+          <p class="subtitle">
             I'm a freelance software developer living in Berlin, Germany. I use
             this website to share my
             <a href="/writing">writing</a>.
           </p>
         </div>
       </section>
-      <section class="section">
+      <section>
         <div class="columns">
           <div class="column is-half">
             <div class="content">

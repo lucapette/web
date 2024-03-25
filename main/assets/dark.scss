@@ -1,0 +1,108 @@
+html.dark {
+  background-color: $nord1;
+  color: $nord6;
+
+  .moon {
+    visibility: hidden;
+    display: none;
+  }
+
+  .sun {
+    visibility: visible;
+    display: block;
+  }
+
+  img {
+    filter: brightness(0.8);
+  }
+
+  figure.me img {
+    transform: scaleX(-1);
+  }
+
+  .title,
+  .subtitle {
+    color: $nord6;
+  }
+
+  .content {
+    table thead th {
+      color: $nord6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $nord6;
+    }
+
+    blockquote {
+      background-color: $nord3;
+    }
+  }
+
+  body,
+  .navbar-menu,
+  .navbar-brand {
+    background-color: $nord1;
+    color: $nord6;
+  }
+
+  a,
+  .has-text-black,
+  .navbar-burger,
+  .has-text-grey-darker,
+  .pagination-link,
+  .pagination-next,
+  .pagination-previous {
+    color: $nord4;
+  }
+
+  .pagination-previous[disabled],
+  .pagination-next[disabled] {
+    background-color: $nord0;
+    color: $nord4;
+  }
+
+  .has-text-black,
+  .has-text-grey-darker {
+    color: $nord5 !important;
+  }
+
+  a.navbar-item.active {
+    color: $nord0 !important;
+  }
+
+  strong {
+    color: $nord6;
+  }
+
+  em {
+    color: $nord12;
+  }
+
+  a:hover {
+    color: $nord12;
+  }
+
+  .accent,
+  .dropcap {
+    color: $nord12;
+    text-shadow: $nord4 0.05em 0.05em;
+  }
+
+  footer.footer {
+    background-color: $nord1;
+  }
+
+  article.post {
+    background-color: $nord3;
+  }
+
+ .message-body a {
+    color: $black;
+  }
+}

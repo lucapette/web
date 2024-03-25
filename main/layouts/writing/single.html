@@ -1,11 +1,11 @@
 {{ define "main" }}
-  <section class="section">
+  <section>
     <div class="columns">
       <div class="column is-three-quarters">
-        <h1 class="title is-1">{{ .Title }}</h1>
+        <h1 class="title">{{ .Title }}</h1>
 
         <nav class="level">
-          <div class="level-left">
+          <div class="left">
             <p class="is-size-6">
               Published in
               {{ $n := sub (.Params.tags | len) 1 }}
@@ -18,7 +18,7 @@
             </p>
           </div>
           {{ if ne .Date .Lastmod }}
-            <div class="level-right">
+            <div class="right">
               <p class="is-size-6">
                 Last edited on
                 {{ .Lastmod | time.Format ":date_medium" }}
@@ -39,7 +39,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section>
     <div class="columns">
       <div class="column">
         <div class="content">

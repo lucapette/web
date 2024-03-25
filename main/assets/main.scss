@@ -1,36 +1,14 @@
-@import "../node_modules/include-media/dist/include-media.scss";
-@import "_theme";
+@charset "UTF-8";
 
-:root {
-  --wrap-width: 1160px;
-}
+@import "../node_modules/include-media/dist/include-media";
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin container {
-  margin-left: auto;
-  margin-right: auto;
-  width: var(--wrap-width);
-}
-
-.wrap {
-  flex: 1 0 auto;
-  @include container;
-}
-
-.footer {
-  flex-shrink: 0;
-  padding: 1rem;
-  @include container;
-}
+@import "reset";
+@import "variables";
+@import "elements";
+@import "components";
+@import "layout";
+@import "content";
+@import "dark";
 
 .highlight {
   margin-bottom: 1em;
@@ -72,9 +50,12 @@ pre:hover .copy-code {
 .hello {
   display: grid;
   grid-template-columns: 20% 30% 30% 20%;
+
   .title {
     grid-column-start: 1;
     grid-column-end: 3;
+
+    font-size: 3rem;
   }
 
   .image {
@@ -92,9 +73,11 @@ pre:hover .copy-code {
 @include media(">=tablet", "<desktop") {
   .hello {
     grid-template-columns: 20% 20%;
+
     .image {
       justify-self: right;
     }
+
     .subtitle {
       grid-column-end: 4;
     }
@@ -119,41 +102,6 @@ pre:hover .copy-code {
   }
 }
 
-em {
-  color: $orange;
-  font-weight: 700;
-}
-
-.accent,
-.dropcap {
-  font-family: $body-family;
-  color: $orange;
-  text-shadow: $nord1 0.05em 0.05em;
-}
-
-.dropcap {
-  float: left;
-  font-size: 6rem;
-  line-height: 1;
-  margin: 0.1em 0.1em 0.2em 0;
-  padding: 0.1em;
-}
-.dropcap:before,
-.dropcap:after {
-  content: "";
-  display: block;
-}
-.dropcap:before {
-  margin-top: -0.2em;
-}
-.dropcap:after {
-  margin-bottom: -0.15em;
-}
-
-a {
-  text-decoration: underline;
-}
-
 /* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
@@ -170,117 +118,13 @@ a {
   display: none;
 }
 
-#toggle {
-  background-color: transparent !important;
-}
-
-html.dark {
-  background-color: $nord1;
-  color: $nord6;
-
-  .moon {
-    visibility: hidden;
-    display: none;
-  }
-
-  .sun {
-    visibility: visible;
-    display: block;
-  }
-
-  img {
-    filter: brightness(0.8);
-  }
-
-  figure.me img {
-    transform: scaleX(-1);
-  }
-
-  .title,
-  .subtitle {
-    color: $nord6;
-  }
-
-  .content {
-    table thead th {
-      color: $nord6;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $nord6;
-    }
-
-    blockquote {
-      background-color: $nord3;
-    }
-  }
-
-  body,
-  .navbar-menu,
-  .navbar-brand {
-    background-color: $nord1;
-    color: $nord6;
-  }
-
-  a,
-  .has-text-black,
-  .navbar-burger,
-  .has-text-grey-darker,
-  .pagination-link,
-  .pagination-next,
-  .pagination-previous,
-  .box {
-    color: $nord4;
-  }
-
-  .pagination-previous[disabled],
-  .pagination-next[disabled] {
-    background-color: $nord0;
-    color: $nord4;
-  }
-
-  .has-text-black,
-  .has-text-grey-darker {
-    color: $nord5 !important;
-  }
-
-  a.navbar-item.active {
-    color: $nord0 !important;
-  }
-
-  strong {
-    color: $nord6;
-  }
-
-  em {
-    color: $nord12;
-  }
-
-  .box {
-    background-color: $nord3;
-  }
-
-  a:hover {
-    color: $nord12;
-  }
-
-  .accent,
-  .dropcap {
-    color: $nord12;
-    text-shadow: $nord4 0.05em 0.05em;
-  }
-
-  footer.footer {
-    background-color: $nord1;
-  }
-}
-
 .me:hover {
   transform: scaleX(-1);
+}
+
+figure.me {
+  width: 128px;
+  height: 128px;
 }
 
 .anchor a {

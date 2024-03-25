@@ -1,22 +1,8 @@
 <!-- Based on Hugo's internal pagination template -->
 {{- $pag := $.Paginator }}
 {{- if gt $pag.TotalPages 1 }}
-  <nav class="pagination" aria-label="pagination">
-    <a
-      href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}"
-      class="pagination-previous"
-      aria-label="Previous page"
-      {{ if not $pag.HasPrev }}disabled aria-hidden="true"{{ end }}
-      >Previous</a
-    >
-    <a
-      href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}"
-      class="pagination-next"
-      aria-label="Next page"
-      {{ if not $pag.HasNext }}disabled aria-hidden="true"{{ end }}
-      >Next</a
-    >
-    <ul class="pagination-list">
+  <nav class="level pagination" aria-label="pagination">
+    <ul class="pagination-list left">
       {{- $.Scratch.Set "__paginator.ellipsed" false }}
       {{- range $pag.Pagers }}
         {{- $right := sub .TotalPages .PageNumber }}
@@ -45,5 +31,21 @@
         {{ end }}
       {{ end }}
     </ul>
+    <div class="righ">
+    <a
+      href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}"
+      class="pagination-previous"
+      aria-label="Previous page"
+      {{ if not $pag.HasPrev }}disabled aria-hidden="true"{{ end }}
+    >Previous</a
+    >
+    <a
+      href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}"
+      class="pagination-next"
+      aria-label="Next page"
+      {{ if not $pag.HasNext }}disabled aria-hidden="true"{{ end }}
+    >Next</a
+    >
+    </div>
   </nav>
 {{ end }}

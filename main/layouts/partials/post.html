@@ -1,35 +1,29 @@
-<article class="media">
-  <div class="media-content">
-    <div class="content">
-      <h3 class="title">
-        <a class="has-text-grey-darker" href="{{ .Permalink }}">{{ .Title }}</a>
-      </h3>
-      <h4 class="subtitle is-small is-italic">
-        {{ .Date | time.Format ":date_long" }}
-      </h4>
-    </div>
-
-    <div class="content">
-      <p>{{ .Description }}</p>
-    </div>
-
-    <nav class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <div class="tags">
-            {{ range .Params.tags }}
-              {{ $url := . | urlize }}
-              <a class="tag is-link" href="/tags/{{ $url }}">#{{ $url }}</a>
-            {{ end }}
-          </div>
-        </div>
-      </div>
-
-      <div class="level-right">
-        <div class="level-item">
-          <a href="{{ .Permalink }}">Read more...</a>
-        </div>
-      </div>
-    </nav>
+<article class="post">
+  <div class="header">
+    <h3 class="title">
+      <a class="has-text-grey-darker" href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+    <h4 class="subtitle is-italic">
+      {{ .Date | time.Format ":date_long" }}
+    </h4>
   </div>
+
+  <div class="content">
+    <p>{{ .Description }}</p>
+  </div>
+
+  <nav class="level">
+    <div class="left">
+      <div class="tags">
+        {{ range .Params.tags }}
+          {{ $url := . | urlize }}
+          <a class="tag" href="/tags/{{ $url }}">#{{ $url }}</a>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="right">
+      <a href="{{ .Permalink }}">Read more...</a>
+    </div>
+  </nav>
 </article>

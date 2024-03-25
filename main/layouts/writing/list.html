@@ -1,26 +1,26 @@
 {{ define "main" }}
-  <section class="section">
-    <h1 class="title is-1">{{ .Title }}</h1>
+  <section>
+    <h1>{{ .Title }}</h1>
     <h2 class="subtitle">{{ .Description }}</h2>
   </section>
-  <section class="section">
+  <section>
     <div class="columns">
       <div class="column is-8">
         {{ $paginator := .Paginate .Pages }}
         {{ range $paginator.Pages }}
-          <div class="box">{{ partial "post" . }}</div>
+          {{ partial "post" . }}
         {{ end }}
         {{ template "partials/pagination.html" . }}
       </div>
 
       <div class="column">
         {{ $tags := $.Site.Taxonomies.tags.ByCount }}
-        <div class="tags are-medium">
+        <div class="tags">
           {{ range $tags }}
             {{ if .Term }}
-              {{ $tagURL := printf "tags/%s" .Term | relURL }}
-              <a href="{{ $tagURL }}" class="tag is-link"
-                >{{ .Term }} <span class="badge">({{ .Count }})</span></a
+              {{ $tagURL := printf "tags/%s" .Term | relURL |urlize }}
+              <a href="{{ $tagURL }}" class="tag"
+                >#{{ .Term }} <span class="badge">&nbsp;({{ .Count }})</span></a
               >
             {{ end }}
           {{ end }}
