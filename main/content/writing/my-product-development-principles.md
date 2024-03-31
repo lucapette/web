@@ -42,18 +42,16 @@ of a typical engineering organization that builds products. These ideas, in my
 view, live on the intersection of programming as a craft and engineering
 leadership.
 
-
-
-- [monorepo](#monorepo)
-- [trunk based development](#trunk-based-development)
-- [feature flags](#feature-flags)
+- [Monorepo](#monorepo)
+- [Trunk based development](#trunk-based-development)
+- [Feature flags](#feature-flags)
 - [Types, types, types](#types-types-types)
   - [Grpc](#grpc)
 - [No history chats](#no-history-chats)
 - [Written communication](#written-communication)
 - [Naming things](#naming-things)
 
-## monorepo
+## Monorepo
 
 I discuss these principles in no particular order but starting from monorepo
 feels right because the principle behind is very representative of the whole
@@ -80,8 +78,7 @@ I mention it, it's worth underlining a couple of points:
   many teams, I can sum up my job as "the guy that tells people to do _less_
   work to solve their problems". In the context of monorepo, especially when
   starting, it's literally just less work to have the code in one place. Yes,
-  the argument is that obvious. And yes there's lots of people that will
-  disagree with this. I don't care.
+  the argument is that trivial.
 - Most of the principles I discuss here are strongly interconnected. You can
   probably follow one without following the others but they work so well
   together, they may as well be one principle. But we'd have to call it Luca
@@ -89,10 +86,9 @@ I mention it, it's worth underlining a couple of points:
   that much into ego. Also, the acronym sounds like police (and you know, fuck
   the police).
 
+## Trunk based development
 
-## trunk based development
-
-## feature flags
+## Feature flags
 
 ## Types, types, types
 
