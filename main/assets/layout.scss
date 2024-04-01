@@ -1,4 +1,5 @@
 @use "../node_modules/include-media/dist/include-media";
+@use "variables" as v;
 
 @mixin container {
   margin-left: auto;
@@ -56,12 +57,12 @@
       padding: 0.5rem 0.75rem;
 
       &.is-active {
-        background-color: $white-ter;
-        color: $text-color;
+        background-color: v.$white-ter;
+        color: v.$text-color;
       }
       &:hover {
-        background-color: $white-ter;
-        color: $accent-color;
+        background-color: v.$white-ter;
+        color: v.$accent-color;
       }
     }
   }

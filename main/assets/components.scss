@@ -1,13 +1,14 @@
 @use "../node_modules/include-media/dist/include-media";
+@use "variables" as v;
 
 article.post {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  border: 1px solid $white-ter;
-  background-color: $white-bis;
-  border-radius: $radius;
-  box-shadow: 0 0 1px $black;
+  border: 1px solid v.$white-ter;
+  background-color: v.$white-bis;
+  border-radius: v.$radius;
+  box-shadow: 0 0 1px v.$black;
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -26,10 +27,10 @@ article.post {
   align-items: center;
   .tag {
     align-items: center;
-    background-color: $white-ter;
-    border-radius: $radius;
+    background-color: v.$white-ter;
+    border-radius: v.$radius;
     border: solid 1px;
-    color: $black;
+    color: v.$black;
     display: inline-flex;
     height: 2em;
     justify-content: center;
@@ -43,9 +44,9 @@ article.post {
 
 .accent,
 .dropcap {
-  font-family: $font-family-primary;
-  color: $accent-color;
-  text-shadow: $black-bis 0.05em 0.05em;
+  font-family: v.$font-family-primary;
+  color: v.$accent-color;
+  text-shadow: v.$black-bis 0.05em 0.05em;
 }
 
 .dropcap {
@@ -77,10 +78,10 @@ nav.pagination {
     gap: .5rem;
     .pagination-link {
       align-items: center;
-      background-color: $white-ter;
-      border-radius: $radius;
+      background-color: v.$white-ter;
+      border-radius: v.$radius;
       border: solid 1px;
-      color: $black;
+      color: v.$black;
       display: inline-flex;
       height: 2em;
       justify-content: center;
@@ -90,8 +91,8 @@ nav.pagination {
       white-space: nowrap;
       font-size: 0.75em;
         &.is-current {
-            background-color: $cyan;
-            color: $black;
+            background-color: v.$cyan;
+            color: v.$black;
         }
     }
   }

@@ -2,26 +2,16 @@
 
 @use "../node_modules/include-media/dist/include-media";
 
-@import "reset";
-@import "variables";
-@import "elements";
-@import "components";
-@import "layout";
-@import "content";
-@import "dark";
+@use "reset";
+@use "variables" as v;
+@use "elements";
+@use "components";
+@use "layout";
+@use "content";
+@use "dark";
 
 .highlight {
   margin-bottom: 1em;
-}
-
-.lucide {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
 }
 
 .copy-code {
@@ -29,21 +19,19 @@
   position: absolute;
   top: 4px;
   right: 4px;
-  border-radius: $radius;
+  border-radius: v.$radius;
   user-select: none;
 }
 
 .highlight pre {
-  border-radius: $radius;
+  border-radius: v.$radius;
 }
 
-.highlight,
-pre {
+.highlight, pre {
   position: relative;
 }
 
-div.highlight:hover .copy-code,
-pre:hover .copy-code {
+div.highlight:hover .copy-code, pre:hover .copy-code {
   display: block;
 }
 
@@ -100,6 +88,10 @@ pre:hover .copy-code {
   :root {
     --wrap-width: 350px;
   }
+}
+
+#toggle {
+  background: transparent;
 }
 
 /* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */

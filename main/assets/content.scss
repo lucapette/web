@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 .has-text-centered {
   text-align: center;
 }
@@ -11,7 +13,7 @@
 }
 
 .has-text-grey-darker {
-  color: $black-ter;
+  color: v.$black-ter;
 }
 
 h2.subtitle {
@@ -83,14 +85,14 @@ h4.subtitle {
   h4,
   h5,
   h6 {
-    color: $text-color;
+    color: v.$text-color;
     margin-bottom: 0.5rem;
   }
 
   blockquote {
-    background-color: $white-bis;
-    border-left: 5px solid $white-ter;
-    border-radius: $radius;
+    background-color: v.$white-bis;
+    border-left: 5px solid v.$white-ter;
+    border-radius: v.$radius;
     padding: 1.25em 1.5em;
   }
 
@@ -115,15 +117,15 @@ pre {
 }
 
 p code {
-  background-color: $white-ter;
-  color: $red;
+  background-color: v.$white-ter;
+  color: v.$red;
   font-size: 0.875em;
   font-weight: 700;
   padding: 0.25em 0.5em;
 }
 
 .message {
-  border-radius: $radius;
+  border-radius: v.$radius;
   margin-bottom: 1.5rem;
   font-size: 1rem;
 
@@ -132,24 +134,24 @@ p code {
     border-radius: 4px;
     border-style: solid;
     border-width: 0 0 0 4px;
-    border-color: $white-ter;
-    background-color: $white-bis;
-    color: $black-ter;
+    border-color: v.$white-ter;
+    background-color: v.$white-bis;
+    color: v.$black-ter;
   }
 }
 
 .is-info {
   .message-body {
-    border-color: $turquoise;
-    background-color: lighten($turquoise, 30%);
-    color: $black;
+    border-color: v.$turquoise;
+    background-color: lighten(v.$turquoise, 30%);
+    color: v.$black;
   }
 }
 
 .is-warning {
   .message-body {
-    border-color: $yellow;
-    background-color: lighten($yellow, 20%);
-    color: $black;
+    border-color: v.$yellow;
+    background-color: lighten(v.$yellow, 20%);
+    color: v.$black;
   }
 }

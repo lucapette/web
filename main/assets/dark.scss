@@ -1,6 +1,8 @@
+@use "variables" as v;
+
 html.dark {
-  background-color: $black-bis;
-  color: $white;
+  background-color: v.$black-bis;
+  color: v.$white;
 
   .moon {
     visibility: hidden;
@@ -22,12 +24,12 @@ html.dark {
 
   .title,
   .subtitle {
-    color: $white;
+    color: v.$white;
   }
 
   .content {
     table thead th {
-      color: $white;
+      color: v.$white;
     }
 
     h1,
@@ -36,19 +38,19 @@ html.dark {
     h4,
     h5,
     h6 {
-      color: $white;
+      color: v.$white;
     }
 
     blockquote {
-      background-color: $black-quad;
+      background-color: v.$black-quad;
     }
   }
 
   body,
   .navbar-menu,
   .navbar-brand {
-    background-color: $black-bis;
-    color: $white;
+    background-color: v.$black-bis;
+    color: v.$white;
   }
 
   a,
@@ -58,51 +60,51 @@ html.dark {
   .pagination-link,
   .pagination-next,
   .pagination-previous {
-    color: $white-ter;
+    color: v.$white-ter;
   }
 
   .pagination-previous[disabled],
   .pagination-next[disabled] {
-    background-color: $black;
-    color: $white-ter;
+    background-color: v.$black;
+    color: v.$white-ter;
   }
 
   .has-text-black,
   .has-text-grey-darker {
-    color: $white-bis !important;
+    color: v.$white-bis !important;
   }
 
   a.navbar-item.active {
-    color: $black !important;
+    color: v.$black !important;
   }
 
   strong {
-    color: $white;
+    color: v.$white;
   }
 
   em {
-    color: $orange;
+    color: v.$orange;
   }
 
   a:hover {
-    color: $orange;
+    color: v.$orange;
   }
 
   .accent,
   .dropcap {
-    color: $orange;
-    text-shadow: $white-ter 0.05em 0.05em;
+    color: v.$orange;
+    text-shadow: v.$white-ter 0.05em 0.05em;
   }
 
   footer.footer {
-    background-color: $black-bis;
+    background-color: v.$black-bis;
   }
 
   article.post {
-    background-color: $black-quad;
+    background-color: v.$black-quad;
   }
 
  .message-body a {
-    color: $black;
+    color: v.$black;
   }
 }
