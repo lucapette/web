@@ -1,4 +1,4 @@
-@import "../node_modules/nord/src/sass/nord";
+@use "../node_modules/nord/src/sass/nord";
 
 $wrap-width: 1160px;
 
@@ -13,28 +13,31 @@ $font-size-code: 1em;
 
 $font-weight-normal: 500;
 
-$text-color: $nord3;
-$background-color: $nord6;
+$text-color: nord.$nord3;
+$background-color: nord.$nord6;
 
-$accent-color: darken($nord12, 10%);
+$accent-color: darken(nord.$nord12, 10%);
 
 $link-color: #466695;
 
-$yellow: $nord13;
-$green: $nord14;
-$turquoise: $nord8;
-$cyan: $nord9;
-$blue: $nord10;
-$purple: $nord15;
-$red: $nord11;
+$orange: nord.$nord12;
+$yellow: nord.$nord13;
+$green: nord.$nord14;
+$turquoise: nord.$nord8;
+$cyan: nord.$nord9;
+$blue: nord.$nord10;
+$purple: nord.$nord15;
+$red: nord.$nord11;
 
-$black: $nord0;
-$black-bis: $nord1;
-$black-ter: $nord2;
 
-$white: $nord6;
-$white-bis: $nord5;
-$white-ter: $nord4;
+$black: nord.$nord0;
+$black-bis: nord.$nord1;
+$black-ter: nord.$nord2;
+$black-quad: nord.$nord3;
+
+$white: nord.$nord6;
+$white-bis: nord.$nord5;
+$white-ter: nord.$nord4;
 
 :root {
   --wrap-width: #{$wrap-width};

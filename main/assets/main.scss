@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "../node_modules/include-media/dist/include-media";
+@use "../node_modules/include-media/dist/include-media";
 
 @import "reset";
 @import "variables";
@@ -70,7 +70,7 @@ pre:hover .copy-code {
   }
 }
 
-@include media(">=tablet", "<desktop") {
+@include include-media.media(">=tablet", "<desktop") {
   .hello {
     grid-template-columns: 20% 20%;
 
@@ -88,7 +88,7 @@ pre:hover .copy-code {
   }
 }
 
-@include media("<tablet") {
+@include include-media.media("<tablet") {
   .hello {
     grid-template-columns: 30% 20%;
 
@@ -150,7 +150,7 @@ figure.me {
   width: 80%;
 }
 
-@include media("<=tablet") {
+@include include-media.media("<=tablet") {
   .book {
     flex-direction: column;
   }

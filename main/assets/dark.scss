@@ -1,6 +1,6 @@
 html.dark {
-  background-color: $nord1;
-  color: $nord6;
+  background-color: $black-bis;
+  color: $white;
 
   .moon {
     visibility: hidden;
@@ -22,12 +22,12 @@ html.dark {
 
   .title,
   .subtitle {
-    color: $nord6;
+    color: $white;
   }
 
   .content {
     table thead th {
-      color: $nord6;
+      color: $white;
     }
 
     h1,
@@ -36,19 +36,19 @@ html.dark {
     h4,
     h5,
     h6 {
-      color: $nord6;
+      color: $white;
     }
 
     blockquote {
-      background-color: $nord3;
+      background-color: $black-quad;
     }
   }
 
   body,
   .navbar-menu,
   .navbar-brand {
-    background-color: $nord1;
-    color: $nord6;
+    background-color: $black-bis;
+    color: $white;
   }
 
   a,
@@ -58,48 +58,48 @@ html.dark {
   .pagination-link,
   .pagination-next,
   .pagination-previous {
-    color: $nord4;
+    color: $white-ter;
   }
 
   .pagination-previous[disabled],
   .pagination-next[disabled] {
-    background-color: $nord0;
-    color: $nord4;
+    background-color: $black;
+    color: $white-ter;
   }
 
   .has-text-black,
   .has-text-grey-darker {
-    color: $nord5 !important;
+    color: $white-bis !important;
   }
 
   a.navbar-item.active {
-    color: $nord0 !important;
+    color: $black !important;
   }
 
   strong {
-    color: $nord6;
+    color: $white;
   }
 
   em {
-    color: $nord12;
+    color: $orange;
   }
 
   a:hover {
-    color: $nord12;
+    color: $orange;
   }
 
   .accent,
   .dropcap {
-    color: $nord12;
-    text-shadow: $nord4 0.05em 0.05em;
+    color: $orange;
+    text-shadow: $white-ter 0.05em 0.05em;
   }
 
   footer.footer {
-    background-color: $nord1;
+    background-color: $black-bis;
   }
 
   article.post {
-    background-color: $nord3;
+    background-color: $black-quad;
   }
 
  .message-body a {

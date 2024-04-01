@@ -1,3 +1,5 @@
+@use "../node_modules/include-media/dist/include-media";
+
 article.post {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,7 @@ article.post {
   margin-bottom: 1rem;
 }
 
-@include media("<tablet") {
+@include include-media.media("<tablet") {
   article.post {
     display: block;
   }
@@ -43,7 +45,7 @@ article.post {
 .dropcap {
   font-family: $font-family-primary;
   color: $accent-color;
-  text-shadow: $nord1 0.05em 0.05em;
+  text-shadow: $black-bis 0.05em 0.05em;
 }
 
 .dropcap {
