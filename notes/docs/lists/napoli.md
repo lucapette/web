@@ -27,13 +27,16 @@ A list of places I recommend to people that have never been to my hometown.
 - [Salita della
   pedamentina](http://www.napoliunplugged.com/salita-della-pedamentina-naples.html)
 
-  Very nice walk down the city centre. A nice way of starting it is getting off
-  at "piazza vanvitelli" metro station and go up to the "castel sant'elmo"
-  (which is a beautiful place and a very good spot for seeing the whole city
-  from above. Pictures from this vantage point are famous)
+  Very nice walk down the city centre. My favourite path: get off at "piazza
+  vanvitelli" metro station and go up to "castel sant'elmo" (which is a
+  beautiful place and a very good spot for seeing the whole city from above.
+  Pictures from this vantage point are famous). The path starts right down the
+  terrace in front of the castle.
 
-- [Museo San Severo](http://www.museosansevero.it/it/)
-- The most beautiful sculpture I have ever seen. Breathtaking, highly recommended.
+- [Museo San Severo](http://www.museosansevero.it/)
+
+  The most beautiful sculpture I have ever seen. Breathtaking, highly
+  recommended.
 
 - [Museo Capodimonte](http://www.museocapodimonte.beniculturali.it/)
 
