@@ -67,6 +67,10 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
   .hello {
     grid-template-columns: 20% 20%;
 
+    .title {
+      font-size: 2.5rem;
+    }
+
     .image {
       justify-self: right;
     }
@@ -84,6 +88,10 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
 @include include-media.media("<tablet") {
   .hello {
     grid-template-columns: 30% 20%;
+
+    .title {
+      font-size: 2rem;
+    }
 
     .subtitle {
       grid-column-end: 4;
