@@ -43,7 +43,10 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
     grid-column-start: 1;
     grid-column-end: 3;
 
-    font-size: 3rem;
+    font-size: 4rem;
+    background-image: linear-gradient(180deg, v.$black, v.$turquoise);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .image {

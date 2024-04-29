@@ -22,6 +22,14 @@ html.dark {
     transform: scaleX(-1);
   }
 
+  .hello {
+    .title {
+      background-image: linear-gradient(180deg, v.$purple, v.$turquoise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
   .title,
   .subtitle {
     color: v.$white;
