@@ -54,22 +54,24 @@ leadership.
 ## Monorepo
 
 I discuss these principles in no particular order but starting from monorepo
-feels right because the principle behind is very representative of the whole
-article. First off, I compromised on this (as the first CTO at Marley Spoon) and
-never regretted a technical/leadership decision more. On the bright side, it's
-with that experience that I refined my views on monorepo. Back then (spring of
-2014), the tooling was much worse than it now and that's how I justified the
+feels right because the principle behind is very representative of the driving
+force behind these principles.
+
+First of all, I compromised on this (as the first CTO at Marley Spoon) and never
+regretted a technical/leadership decision more. On the bright side, this
+experience refined and solidified my views on monorepo. Back then (spring of
+2014), the tooling was much worse than it is now and that's how I justified the
 compromise to myself. Now I know that tooling, while very relevant to developer
 experience, is a secondary argument for monorepo adoption.
 
-The core argument is simplicity. _Especially_ when starting a new project. One
-repo, one CI pipeline, all code flows through the same place, sharing a library
-has no friction.
+The core argument for adoption is simplicity. _Especially_ when starting a new
+project. One repo, one CI pipeline setup, all code changes flow through the same
+place, sharing a library has no friction. You get it.
 
 I know there are counterarguments to these points I'm making here. I intend to
 write about that soon (™). I will link the article back here when it's out. It
-goes without saying I don't think there are reasonable arguments for a polyrepo
-organization.
+goes without saying I think there are **no** reasonable arguments for polyrepo
+setups.
 
 As I was saying, the core argument is simplicity. Now, since it's the first time
 I mention it, it's worth underlining a couple of points:
@@ -77,7 +79,7 @@ I mention it, it's worth underlining a couple of points:
 - Simplicity will come up a lot in this article. After running I don't know how
   many teams, I can sum up my job as "the guy that tells people to do _less_
   work to solve their problems". In the context of monorepo, especially when
-  starting, it's literally just less work to have the code in one place. Yes,
+  starting, it's literally just less work to have all code in one place. Yes,
   the argument is that trivial.
 - Most of the principles I discuss here are strongly interconnected. You can
   probably follow one without following the others but they work so well
@@ -85,6 +87,23 @@ I mention it, it's worth underlining a couple of points:
   Driven Product Development. And while I do like how my name sounds, I'm not
   that much into ego. Also, the acronym sounds like police (and you know, fuck
   the police).
+
+While simplicity is the core argument for monorepo adoption, there's one more
+reason that may be less relevant right when you're starting but becomes
+increasingly relevant as you scale. It's thinking of the monorepo as part of
+your a communication infrastructure.
+
+The way you organise your directories, how you name them, what's at top level
+folders (and many other things) tell a story about your organization. Purposely
+trivial questions: do you have mobile apps? How are the teams organised? What
+are our code conventions? What about commits?
+
+In reality, there are many more reasons why I think monorepo is the way. Too
+many in fact to share here. If you'd like to dig more into this, I wrote two
+articles:
+
+- The appeal of monorepo TODO link
+- How to structure a monorepo TODO link
 
 ## Trunk based development
 
