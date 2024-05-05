@@ -104,7 +104,7 @@ h4.subtitle {
     list-style: disc outside;
     margin-left: 2em;
     margin-top: 1em;
-    margin-bottom: 1em;
+    // TODO margin-bottom: 1em; find a way to do this only for non nested ul
 
     li ul {
       list-style: circle outside;

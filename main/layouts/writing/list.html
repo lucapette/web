@@ -1,11 +1,13 @@
 {{ define "main" }}
   <section>
     <h1>{{ .Title }}</h1>
-    <h2 class="subtitle">{{ .Description }}</h2>
-  </section>
-  <section>
     <div class="columns">
-      <div class="column is-8">
+      <div class="column">
+        <h2 class="subtitle">{{ .Description }}</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-three-quarters">
         {{ $paginator := .Paginate .Pages }}
         {{ range $paginator.Pages }}
           {{ partial "post" . }}

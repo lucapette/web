@@ -1,7 +1,7 @@
 {{ define "main" }}
   <section>
     <div class="columns">
-      <div class="column is-three-quarters">
+      <div class="column">
         <h1 class="title">{{ .Title }}</h1>
 
         <nav class="level">
@@ -20,7 +20,7 @@
           {{ if ne .Date .Lastmod }}
             <div class="right">
               <p class="is-size-6">
-                Last edited on
+                Updated on
                 {{ .Lastmod | time.Format ":date_medium" }}
               </p>
             </div>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="columns">
-      <div class="column is-three-quarters">
+      <div class="column">
         <div class="content">
           {{ .Content }}
         </div>

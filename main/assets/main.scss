@@ -3,6 +3,7 @@
 @use "../node_modules/include-media/dist/include-media";
 
 @use "reset";
+@use "mixins" as m;
 @use "variables" as v;
 @use "elements";
 @use "components";
@@ -35,48 +36,36 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
   display: block;
 }
 
-.hello {
+.hero {
   display: grid;
-  grid-template-columns: 20% 30% 30% 20%;
+  grid-template-columns: 4fr 2fr;
 
-  .title {
-    grid-column-start: 1;
-    grid-column-end: 3;
-
-    font-size: 4rem;
-    background-image: linear-gradient(180deg, v.$black, v.$turquoise);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    h1 {
+      font-size: 3rem;
+      @include m.fancyTitle(v.$black, v.$turquoise);
+    }
   }
 
-  .image {
-    grid-column-start: 4;
+  .decoration {
     justify-self: right;
   }
-
-  .subtitle {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-  }
-
-  padding-left: 0.75rem;
 }
 
 @include include-media.media(">=tablet", "<desktop") {
-  .hello {
-    grid-template-columns: 20% 20%;
-
-    .title {
-      font-size: 2.5rem;
+  .hero {
+    .description {
+      order: 1;
+      h1 {
+        font-size: 2.5rem;
+      }
     }
 
-    .image {
-      justify-self: right;
-    }
-
-    .subtitle {
-      grid-column-end: 4;
+    .decoration {
+      order: 2;
     }
   }
 
@@ -86,25 +75,25 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
 }
 
 @include include-media.media("<tablet") {
-  .hello {
-    grid-template-columns: 30% 20%;
-
-    .title {
-      font-size: 2rem;
+  .hero {
+    grid-template-columns: none;
+    gap: 1rem;
+    .description {
+      order: 2;
+      h1 {
+        font-size: 2rem;
+      }
     }
 
-    .subtitle {
-      grid-column-end: 4;
+    .decoration {
+      justify-self: left;
+      order: 1;
     }
   }
 
   :root {
     --wrap-width: 350px;
   }
-}
-
-#toggle {
-  background: transparent;
 }
 
 /* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */

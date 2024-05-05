@@ -1,3 +1,4 @@
+@use "mixins" as m;
 @use "variables" as v;
 
 html.dark {
@@ -22,11 +23,11 @@ html.dark {
     transform: scaleX(-1);
   }
 
-  .hello {
-    .title {
-      background-image: linear-gradient(180deg, v.$purple, v.$turquoise);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+  .hero {
+    .description {
+      h1 {
+        @include m.fancyTitle(v.$purple, v.$turquoise);
+      }
     }
   }
 
@@ -79,16 +80,31 @@ html.dark {
 
   .has-text-black,
   .has-text-grey-darker {
-    color: v.$white-bis !important;
+    color: v.$white-bis;
   }
 
-  a.navbar-item {
-    &.is-active {
-      color: v.$black-quad !important;
-    }
+  .navbar {
+    .navbar-menu {
+      a.navbar-item {
+        &.is-active {
+          color: v.$black-quad;
+        }
 
-    &:hover {
-      color: v.$black-quad !important;
+        &:hover {
+          color: v.$black-quad;
+        }
+      }
+
+      button.navbar-item {
+        background-color: v.$text-color;
+        color: v.$white-bis;
+
+        &:hover {
+          background-color: v.$white-bis;
+          color: v.$link-color;
+        }
+      }
+
     }
   }
 
@@ -106,8 +122,7 @@ html.dark {
 
   .accent,
   .dropcap {
-    color: v.$orange;
-    text-shadow: v.$white-ter 0.05em 0.05em;
+    @include m.fancyTitle(v.$purple, v.$turquoise);
   }
 
   footer.footer {
@@ -118,7 +133,7 @@ html.dark {
     background-color: v.$black-quad;
   }
 
- .message-body a {
+  .message-body a {
     color: v.$black;
   }
 }

@@ -1,4 +1,5 @@
 @use "../node_modules/include-media/dist/include-media";
+@use "mixins" as m;
 @use "variables" as v;
 
 article.post {
@@ -13,7 +14,6 @@ article.post {
   margin-bottom: 1rem;
   .header {
     .title {
-      font-size: 1.5rem;
       font-weight: 700;
       color: v.$cyan;
       &:hover {
@@ -23,7 +23,6 @@ article.post {
     .subtitle {
       font-size: 0.75rem;
     }
-
   }
 }
 
@@ -62,14 +61,13 @@ article.post {
 
 .accent,
 .dropcap {
-  font-family: v.$font-family-primary;
-  color: v.$accent-color;
-  text-shadow: v.$black-bis 0.05em 0.05em;
+  @include m.fancyTitle(v.$black, v.$turquoise);
 }
 
 .dropcap {
   float: left;
   font-size: 6rem;
+  font-weight: 700;
   line-height: 1;
   margin: 0.1em 0.1em 0.2em 0;
   padding: 0.1em;

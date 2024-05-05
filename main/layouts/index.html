@@ -10,33 +10,33 @@
 
 
       <section>
-        <div class="hello">
-          <h1 class="title">
-            Hi!
-            I'm Luca :)
-          </h1>
-          <figure class="me image">
-            {{ $image := resources.Get "me.png" }}
-            {{ $small := $image.Resize "128x128 webp q90" }}
-            {{ $medium := $image.Resize "256x256 webp q90" }}
-            <img
-              src="{{ $small.RelPermalink }}"
-              srcset="
+        <div class="hero">
+          <div class="description">
+            <h1>
+              Hi, I'm Luca :)
+            </h1>
+            <p>
+              I'm an independent software developer. I use this website to share my <a href="/writing">writing</a>.
+            </p>
+          </div>
+          <div class="decoration">
+            <figure class="me image">
+              {{ $image := resources.Get "me.png" }}
+              {{ $small := $image.Resize "128x128 webp q90" }}
+              {{ $medium := $image.Resize "256x256 webp q90" }}
+              <img
+                src="{{ $small.RelPermalink }}"
+                srcset="
                 {{ $small.RelPermalink }} 128w,
                 {{ $medium.RelPermalink }} 256w
               "
-              sizes="(max-width: 600px) 128px, 800px"
-              alt="Luca Pette"
-              width="128"
-              height="128"
-            />
-          </figure>
-
-          <p class="subtitle">
-            I'm an independent software developer living in Berlin, Germany. I use
-            this website to share my
-            <a href="/writing">writing</a>.
-          </p>
+                sizes="(max-width: 600px) 128px, 800px"
+                alt="Luca Pette"
+                width="128"
+                height="128"
+              />
+            </figure>
+          </div>
         </div>
       </section>
       <section>

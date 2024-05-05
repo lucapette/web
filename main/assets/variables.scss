@@ -1,6 +1,6 @@
 @use "../node_modules/nord/src/sass/nord";
 
-$wrap-width: 1160px;
+$wrap-width: 780px;
 
 $radius: 4px;
 
@@ -32,7 +32,7 @@ $white-bis: nord.$nord5;
 $white-ter: nord.$nord4;
 
 $text-color: $black-quad;
-$background-color: nord.$nord6;
+$background-color: $white;
 
 $accent-color: darken($orange, 10%);
 
