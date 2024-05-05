@@ -1,3 +1,4 @@
+@use "mixins" as m;
 @use "variables" as v;
 
 .has-text-centered {
@@ -18,10 +19,6 @@
 
 .has-text-grey-darker {
   color: v.$black-ter;
-}
-
-h2.subtitle {
-  font-size: 1.5em;
 }
 
 h4.subtitle {
@@ -159,4 +156,32 @@ p code {
     background-color: lighten(v.$yellow, 20%);
     color: v.$black;
   }
+}
+
+.accent,
+.dropcap {
+  @include m.fancyTitle(v.$black, v.$turquoise);
+}
+
+.dropcap {
+  float: left;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0.1em 0.1em 0.2em 0;
+  padding: 0.1em;
+}
+
+.dropcap:before,
+.dropcap:after {
+  content: "";
+  display: block;
+}
+
+.dropcap:before {
+  margin-top: -0.2em;
+}
+
+.dropcap:after {
+  margin-bottom: -0.15em;
 }

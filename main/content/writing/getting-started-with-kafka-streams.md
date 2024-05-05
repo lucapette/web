@@ -39,7 +39,7 @@ about it by using it here. There's nothing special about it in the context of
 Kafka Streams applications.
 
 I chose Kotlin because its syntax is much terser than Java, so the few snippets
-of code I'll share almost look like pseudo-code; it'll keep the conversation
+of code I'll share almost look like pseudocode; it'll keep the conversation
 focused on the concepts.
 
 Then a note about the official documentation: I'm **not** trying to undermine
@@ -91,7 +91,7 @@ remarkable piece of technology and I've been its biggest fan for a long time.
 What I mean with _just_ is a very high praise.
 
 I value simplicity and Kafka Streams uses a simple programming model: you write
-your app and then you run it. Just like any other app.
+your app, and then you run it. Just like any other app.
 
 It's worth underlining because most of the tooling out there with similar
 capabilities has a very different programming model.
@@ -128,7 +128,7 @@ works.
 
 ## How does the Kafka Streams API look like?
 
-Before showing any sample code, let's dig a little into the why Kafka Streams
+Before showing any sample code, let's dig a little into why Kafka Streams
 exists in the first place.
 
 I feel like it's easier to make its core ideas "click" with a bit of a

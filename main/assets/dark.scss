@@ -112,6 +112,7 @@ html.dark {
     color: v.$white;
   }
 
+
   em {
     color: v.$orange;
   }
@@ -133,7 +134,18 @@ html.dark {
     background-color: v.$black-quad;
   }
 
-  .message-body a {
-    color: v.$black;
+  .message-body {
+    em, a {
+      color: v.$black;
+    }
+
+  }
+
+  .is-info {
+    .message-body {
+      border-color: v.$blue;
+      background-color: lighten(v.$blue, 30%);
+      color: v.$black;
+    }
   }
 }

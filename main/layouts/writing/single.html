@@ -1,8 +1,6 @@
 {{ define "main" }}
   <section>
-    <div class="columns">
-      <div class="column">
-        <h1 class="title">{{ .Title }}</h1>
+    <h1 class="title">{{ .Title }}</h1>
 
         <nav class="level">
           <div class="left">
@@ -27,16 +25,10 @@
           {{ end }}
         </nav>
         <hr />
-      </div>
-    </div>
 
-    <div class="columns">
-      <div class="column">
         <div class="content">
           {{ .Content }}
         </div>
-      </div>
-    </div>
   </section>
 
   <section>
