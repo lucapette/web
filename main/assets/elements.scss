@@ -1,6 +1,10 @@
 @use "../node_modules/include-media/dist/include-media";
 @use "variables" as v;
 
+:root {
+  --wrap-width: #{v.$wrap-width};
+}
+
 html,
 body {
   height: 100%;
@@ -55,6 +59,9 @@ pre code {
 a {
   color: v.$link-color;
   text-decoration: underline;
+  &:hover {
+    color: v.$accent-color;
+  }
 }
 
 em {

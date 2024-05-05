@@ -13,13 +13,6 @@ $font-size-code: 1em;
 
 $font-weight-normal: 500;
 
-$text-color: nord.$nord3;
-$background-color: nord.$nord6;
-
-$accent-color: darken(nord.$nord12, 10%);
-
-$link-color: #466695;
-
 $orange: nord.$nord12;
 $yellow: nord.$nord13;
 $green: nord.$nord14;
@@ -28,7 +21,6 @@ $cyan: nord.$nord9;
 $blue: nord.$nord10;
 $purple: nord.$nord15;
 $red: nord.$nord11;
-
 
 $black: nord.$nord0;
 $black-bis: nord.$nord1;
@@ -39,6 +31,9 @@ $white: nord.$nord6;
 $white-bis: nord.$nord5;
 $white-ter: nord.$nord4;
 
-:root {
-  --wrap-width: #{$wrap-width};
-}
+$text-color: $black-quad;
+$background-color: nord.$nord6;
+
+$accent-color: darken($orange, 10%);
+
+$link-color: darken($blue, 10%);

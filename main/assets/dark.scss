@@ -82,8 +82,14 @@ html.dark {
     color: v.$white-bis !important;
   }
 
-  a.navbar-item.active {
-    color: v.$black !important;
+  a.navbar-item {
+    &.is-active {
+      color: v.$black-quad !important;
+    }
+
+    &:hover {
+      color: v.$black-quad !important;
+    }
   }
 
   strong {

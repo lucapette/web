@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.has-text-weight-bold {
+  font-weight: 700;
+}
+
 .is-italic {
   font-style: italic;
 }
@@ -100,6 +104,7 @@ h4.subtitle {
     list-style: disc outside;
     margin-left: 2em;
     margin-top: 1em;
+    margin-bottom: 1em;
 
     li ul {
       list-style: circle outside;
