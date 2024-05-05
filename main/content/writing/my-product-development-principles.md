@@ -1,6 +1,6 @@
 ---
 title: "My product development principles"
-description: "Core, practical ideas about product development I have a strong opinion about. d"
+description: "Core, practical ideas about product development I have a strong opinion about."
 date: 2024-01-24T10:12:13+02:00
 tags:
   - programming

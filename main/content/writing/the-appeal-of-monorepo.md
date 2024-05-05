@@ -150,7 +150,7 @@ You may also run into the same problem within a monorepo. But the beauty of a
 monorepo approach is that you can put simple, strong constraints in place with a
 relatively low effort.
 
-In this case, you can "lift up" dependencies from projects and share them across
+In this case, you can lift dependencies from projects and share them across
 the whole code base. One version of a given dependency for all the dependent
 projects.
 
@@ -188,13 +188,13 @@ example is security upgrades of external dependencies.
 In a polyrepo, you'd have to do the same thing in every single project relying
 on a dependency.
 
-In a monorepo, you bump the version and you're good to go.
+In a monorepo, you bump the version, and you're good to go.
 
 ## Ch-ch-ch-ch-changes
 
 I don't really need an excuse to squeeze the genius of [David
 Bowie](https://www.youtube.com/watch?v=4BgF7Y3q-as) in a conversation about
-monorepo but I was genuinely thinking about him when I first drafted this
+monorepo, but I was genuinely thinking about him when I first drafted this
 paragraph. So here we are.
 
 Changing code is the most common operation any organisation executes on a daily
@@ -267,7 +267,7 @@ design big changes to the code base you wouldn't even begin to imagine in a
 polyrepo setup.
 
 The point is that constraints unlock creativity. I believe this is valid well
-outside of the boundaries of a monorepo, but that's a different story.
+outside the boundaries of a monorepo, but that's a different story.
 
 Small changes also benefit from a monorepo approach.
 
@@ -315,7 +315,7 @@ Maybe you wouldn't solve some of these problems at all.
 Let me provide an example from my career to illustrate the point.
 
 When I was working at [airy.co](https://airy.co/), we often ran into a trivial
-but annoying operations problem.
+but annoying operational problem.
 
 Our platform was heavily based on Kafka so, often enough, we shipped new Kafka
 Streams applications relying on topics that didn't exist in our production
@@ -346,7 +346,7 @@ translations (generating code-friendly `I18n` assets), documentation, and so on.
 When working in an organisation with multiple teams, it's only natural to lose
 some visibility over what other teams are doing.
 
-There's nothing intrinsically wrong with this and you could argue that it's
+There's nothing intrinsically wrong with this, and you could argue that it's
 often a welcomed limitation. It allows team members to stay focused on their own
 challenges.
 
@@ -390,7 +390,7 @@ Every CI solution I have seen was some variation of an orchestration tool for
 integration tests.
 
 These "test all the things from all other repos" tools are fun to write. I
-learned a lot building a couple of them. But they don't work very well because
+learned a lot by building a couple of them. But they don't work very well because
 of the very nature of the problem they're trying to solve.
 
 In a monorepo setup, continuous integration is significantly simpler.
@@ -501,7 +501,7 @@ environment is being able to provide a consistent developer experience
 regardless of the language.
 
 Since build tools have different degrees of support for different languages, the
-everyday experience will reflect that difference and it will be your job to
+everyday experience will reflect that difference, and it will be your job to
 cover that gap.
 
 But if even you can't use one build tool for all your languages, you can (and my

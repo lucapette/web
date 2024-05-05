@@ -4,13 +4,27 @@
 article.post {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
   border: 1px solid v.$white-ter;
   background-color: v.$white-bis;
   border-radius: v.$radius;
   box-shadow: 0 0 1px v.$black;
   padding: 1rem;
   margin-bottom: 1rem;
+  .header {
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: v.$cyan;
+      &:hover {
+        color: v.$cyan;
+      }
+    }
+    .subtitle {
+      font-size: 0.75rem;
+    }
+
+  }
 }
 
 @include include-media.media("<tablet") {
@@ -39,6 +53,10 @@ article.post {
     padding-right: .5em;
     white-space: nowrap;
     font-size: 0.75em;
+    &:hover {
+      background-color: v.$cyan;
+      color: v.$black;
+    }
   }
 }
 

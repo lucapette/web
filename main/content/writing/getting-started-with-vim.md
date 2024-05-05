@@ -2,7 +2,7 @@
 tags:
   - vim
 date: "2017-02-19T00:00:00Z"
-description: Trying to make Vim's learning curve more gradual
+description: Trying to make Vim's learning curve more gradual.
 keywords: vim, learning, editor, drew neil, practical vim, tpope
 title: Getting started with Vim
 aliases:
@@ -10,7 +10,7 @@ aliases:
 ---
 
 A few days ago a friend asked me: "How do I get started with Vim?"
-[She](https://twitter.com/lady_jcb) explained to me she tried Vim out for a
+[She](https://twitter.com/lady_jcb) explained to me, she tried Vim out for a
 few days and enjoyed the idea of working inside the terminal, as well as the
 consistency of the experience across different servers. Good reasons, no
 doubt. I collected some notes and some links for her which I decided to turn
@@ -118,7 +118,7 @@ commands that make installing, updating and removing plugins so simple that you
 do not need to remember anything. Simplicity is the key: you will play around
 with many plugins, so adding and removing them has to be as easy as it can get.
 
-People's workflow differs a lot so I'm not going to compile a list of the "100
+People's workflow differs a lot, so I'm not going to compile a list of the "100
 Vim plugins you can't miss". I will try, however, to provide you with the bare
 minimum to get you started.
 
@@ -157,8 +157,8 @@ Links:
 [Drew Neil](https://twitter.com/nelstrom) wrote [Practical
 Vim](https://pragprog.com/book/dnvim/practical-vim) and I recommend it every
 time I can. It's a perfect book for people that want to deepen their Vim
-knowledge. As soon as you get comfortable with using Vim on a daily basis, I
-suggest you read this book. It's a wonderful collection of tips and it will
+knowledge. As soon as you get comfortable using Vim on a daily basis, I
+suggest you read this book. It's a wonderful collection of tips, and it will
 speed up your learning path. I can't imagine a better resource for Vim, I think
 there's a _before_ and _after_ reading "Practical Vim".
 

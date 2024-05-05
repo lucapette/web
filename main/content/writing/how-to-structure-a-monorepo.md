@@ -107,7 +107,7 @@ and your subscription jobs. You're not super happy with the naming of the teams
 (therefore the folders in your monorepo), but you know things will change soon
 (they always do) and you'll get a chance to improve the naming a little.
 
-The structure is still flat but you're starting to see the first clusters.
+The structure is still flat, but you're starting to see the first clusters.
 There's still overlap between the way you organise your teams and how the
 monorepo looks like.
 
@@ -197,7 +197,7 @@ is _loosely_ based on how your teams are organised.
 The subtitle of this argument is also interesting: don't make technical choices
 too present in your structure. That's the other side of the coin.
 
-For example, I like the `lib/lang` approach a lot but I wouldn't advise to do
+For example, I like the `lib/lang` approach a lot, but I wouldn't advise to do
 that for the top-level folders.
 
 Grouping projects by the language they're written in is a bad idea. You would

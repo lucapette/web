@@ -87,7 +87,7 @@ to change over time so an event-driven microservice that is responsible to
 extract novels from the `application.books` topic into a `application.novels`
 topic is a perfect fit.
 
-Now that (hopefully) the context is clearer and we also have a trivial example
+Now that (hopefully) the context is clearer, and we also have a trivial example
 to work with, let's look at what Kafka Streams and TypeStream are and how they
 can solve such a problem.
 
@@ -169,7 +169,7 @@ then you're out of luck.
 TypeStream, on the other hand, is almost bash. If you're familiar with UNIX
 systems, you're already familiar with TypeStream. I think that's a great selling
 point especially for beginners. You may know nothing about streaming and still
-be able write an event-driven microservice with TypeStream. Bash may not be the
+be able to write an event-driven microservice with TypeStream. Bash may not be the
 most solid language out there for large applications but:
 
 - Everyone knows enough to write a small data pipeline with it.

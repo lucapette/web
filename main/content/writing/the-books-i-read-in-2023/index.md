@@ -1,6 +1,6 @@
 ---
 title: "The Books I Read in 2023"
-description: "A brief review of the books I read in 2023"
+description: "A brief review of the books I read in 2023."
 date: 2024-01-02T23:21:38+01:00
 tags:
   - books
