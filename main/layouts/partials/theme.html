@@ -1,10 +1,12 @@
 <script>
+  let preferredTheme;
+
   function setTheme(newTheme) {
     window.__theme = newTheme;
     preferredTheme = newTheme;
     document.documentElement.className = newTheme;
   }
-  var preferredTheme;
+
   try {
     preferredTheme = localStorage.getItem("theme");
   } catch (err) {}
@@ -14,8 +16,8 @@
       localStorage.setItem("theme", newTheme);
     } catch (err) {}
   };
-  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  darkQuery.addListener(function (e) {
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  darkQuery.addEventListener("change", function (e) {
     window.__setPreferredTheme(e.matches ? "dark" : "light");
   });
   setTheme(preferredTheme || (darkQuery.matches ? "dark" : "light"));
