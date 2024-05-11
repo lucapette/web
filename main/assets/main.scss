@@ -6,10 +6,45 @@
 @use "mixins" as m;
 @use "variables" as v;
 @use "elements";
-@use "components";
 @use "layout";
 @use "content";
 @use "dark";
+
+.year {
+  margin-bottom: 1rem;
+}
+
+ul.posts {
+  li {
+    margin-bottom: .5rem;
+    border-bottom: 1px solid v.$white-ter;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      text-decoration: none;
+      display: flex;
+      gap: .5rem;
+      padding: .4rem 0;
+      align-items: center;
+      justify-content: space-between;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .date {
+        color: v.$black;
+        font-family: v.$font-family-monospace;
+        font-size: .9rem;
+        font-weight: 500;
+        margin-left: auto;
+        white-space: nowrap;
+      }
+    }
+  }
+}
 
 .highlight {
   margin-bottom: 1em;
@@ -44,6 +79,7 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
     h1 {
       font-size: 3rem;
       @include m.fancyTitle(v.$black, v.$turquoise);
@@ -56,9 +92,14 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
 }
 
 @include include-media.media(">=tablet", "<desktop") {
+  :root {
+    --wrap-width: 740px;
+  }
+
   .hero {
     .description {
       order: 1;
+
       h1 {
         font-size: 2.5rem;
       }
@@ -69,17 +110,20 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
     }
   }
 
-  :root {
-    --wrap-width: 740px;
-  }
 }
 
 @include include-media.media("<tablet") {
+  :root {
+    --wrap-width: 350px;
+  }
+
   .hero {
     grid-template-columns: none;
     gap: 1rem;
+
     .description {
       order: 2;
+
       h1 {
         font-size: 2rem;
       }
@@ -91,8 +135,17 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
     }
   }
 
-  :root {
-    --wrap-width: 350px;
+  ul.posts {
+    li {
+      a {
+        white-space: preserve;
+
+        .date {
+          display: none;
+        }
+      }
+    }
+
   }
 }
 

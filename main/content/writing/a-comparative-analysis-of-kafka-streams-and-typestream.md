@@ -1,13 +1,14 @@
 ---
-title: "Event-Driven Microservices: A Comparative Analysis of Kafka Streams and TypeStream"
+title: "A Comparative Analysis of Kafka Streams and TypeStream"
 description: "A brief look at how Kafka Streams and TypeStream compare in the context of event-driven microservices."
-tags:
 date: 2024-01-12T06:12:55+01:00
 tags:
   - kafka
   - kafka streams
   - typestream
 keywords: kafka, kafka streams, typestream
+aliases:
+  - /writing/event-driven-microservices-a-comparative-analysis-of-kafka-streams-and-typestream
 ---
 
 When I'm talking about [TypeStream](https://github.com/typestreamio/typestream)
@@ -34,11 +35,11 @@ Here's the table of contents if you'd like to jump to a specific section:
 
 ## Event-driven microservices
 
-I think the naming "event-driven microservices" is off and it has been forced
+I think the naming "event-driven microservices" is off, and it has been forced
 into our conversations by a larger trend (read cult) about microservices.
 
 I prefer the naming "streaming applications" because I like to call things what
-they are and what they do but I stick with "event-driven microservice" because
+they are and what they do, but I stick with "event-driven microservice" because
 this naming has a wider reach and who doesn't want that?
 
 All right, now you know I'm reluctantly saying "event-driven microservice" but

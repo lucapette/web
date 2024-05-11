@@ -1,28 +1,20 @@
 {{ define "main" }}
-  <section>
-    <h1>{{ .Title }}</h1>
-    <div class="columns">
-      <div class="column is-three-quarters">
-        {{ $paginator := .Paginate .Pages }}
-        {{ range $paginator.Pages }}
-          {{ partial "post" . }}
+<section>
+  <h1>{{ .Title }}</h1>
+  <div class="columns">
+    <div class="column">
+      {{ range .Pages.GroupByDate "2006" }}
+      <h2 class="year">{{ .Key }}</h2>
+      <ul class="posts">
+        {{ range .Pages }}
+        <li class="post">
+          <a href="{{ .Permalink }}"><span>{{ .Title }}</span> <span class="date">{{ .Date | time.Format "Jan 02" }}</span></a>
+        </li>
         {{ end }}
-        {{ template "partials/pagination.html" . }}
-      </div>
+      </ul>
+      {{ end }}
 
-      <div class="column">
-        {{ $tags := $.Site.Taxonomies.tags.ByCount }}
-        <div class="tags">
-          {{ range $tags }}
-            {{ if .Term }}
-              {{ $tagURL := printf "tags/%s" .Term | relURL |urlize }}
-              <a href="{{ $tagURL }}" class="tag"
-                >#{{ .Term }} <span class="badge">&nbsp;({{ .Count }})</span></a
-              >
-            {{ end }}
-          {{ end }}
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 {{ end }}

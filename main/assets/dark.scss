@@ -31,6 +31,16 @@ html.dark {
     }
   }
 
+  ul.posts {
+    li {
+      a {
+        .date {
+          color: v.$white;
+        }
+      }
+    }
+  }
+
   .title,
   .subtitle {
     color: v.$white;
@@ -64,23 +74,8 @@ html.dark {
 
   a,
   .has-text-black,
-  .navbar-burger,
-  .has-text-grey-darker,
-  .pagination-link,
-  .pagination-next,
-  .pagination-previous {
+  .navbar-burger {
     color: v.$white-ter;
-  }
-
-  .pagination-previous[disabled],
-  .pagination-next[disabled] {
-    background-color: v.$black;
-    color: v.$white-ter;
-  }
-
-  .has-text-black,
-  .has-text-grey-darker {
-    color: v.$white-bis;
   }
 
   .navbar {
@@ -96,7 +91,7 @@ html.dark {
       }
 
       button.navbar-item {
-        background-color: v.$text-color;
+        background-color: v.$black-bis;
         color: v.$white-bis;
 
         &:hover {
@@ -132,6 +127,12 @@ html.dark {
 
   article.post {
     background-color: v.$black-quad;
+  }
+
+  .tags {
+    .tag {
+      color: v.$white;
+    }
   }
 
   .message-body {
