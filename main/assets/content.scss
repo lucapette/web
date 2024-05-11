@@ -17,9 +17,6 @@
   font-size: 1rem;
 }
 
-.has-text-grey-darker {
-  color: v.$black-ter;
-}
 
 h4.subtitle {
   font-size: 1em;
@@ -93,15 +90,14 @@ h4.subtitle {
   blockquote {
     background-color: v.$white-bis;
     border-left: 5px solid v.$white-ter;
-    border-radius: v.$radius;
-    padding: 1.25em 1.5em;
+    padding: 1rem 3rem;
+    font-size: 1.5em;
   }
 
   ul {
     list-style: disc outside;
     margin-left: 2em;
     margin-top: 1em;
-    // TODO margin-bottom: 1em; find a way to do this only for non nested ul
 
     li ul {
       list-style: circle outside;
