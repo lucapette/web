@@ -51,6 +51,17 @@ section {
   }
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  th {
+    text-align: left;
+  }
+    th, td {
+    border: 1px solid v.$white-ter;
+    padding: 0.5rem;
+    }
+}
 
 pre code {
   font-family: v.$font-family-monospace;

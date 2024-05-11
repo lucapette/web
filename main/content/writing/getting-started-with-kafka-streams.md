@@ -1,4 +1,5 @@
 ---
+favourite: true
 title: "Getting Started With Kafka Streams"
 description: "A primer to help you write your first Kafka Streams application."
 date: "2022-10-20T00:00:00Z"
@@ -305,19 +306,19 @@ For example, we could do something like this:
 // Ex3.kt
 
 val tweets = listOf(
-        "incoming tweet #example #kafka",
-        "another tweet with an #example hashtag",
-        "#kafka is amazing",
-    )
-    val extractor = Extractor()
+  "incoming tweet #example #kafka",
+  "another tweet with an #example hashtag",
+  "#kafka is amazing",
+)
+val extractor = Extractor()
+val countByHashtag = mutableMapOf<String, Long>()
+tweets.flatMap { tweet ->
+    extractor.extractHashtags(tweet)
+}.forEach { hashtag -> 
+    countByHashtag[hashtag] = countByHashtag.getOrDefault(hashtag, 0) + 1 
+}
 
-    val countByHashtag = mutableMapOf<String, Long>()
-
-    tweets.flatMap { tweet ->
-        extractor.extractHashtags(tweet)
-    }.forEach { hashtag -> countByHashtag[hashtag] = countByHashtag.getOrDefault(hashtag, 0) + 1 }
-
-    println(countByHashtag)
+println(countByHashtag)
 ```
 
 The core idea is that we maintain a map of the counts of the hashtags we have
@@ -326,7 +327,7 @@ increment its counter.
 
 Fairly easy, right?
 
-Well, not if we'd be doing this in the context of a streaming application.
+Well, not if we would be doing this in the context of a streaming application.
 
 The problem with this approach is that we would be maintaining state in memory
 and that isn't a viable solution for many reasons.
@@ -386,7 +387,7 @@ odd-sounding thought may cross your mind.
 The challenge here is that we need to maintain state using some database. But...
 Kafka is also a database, isn't it?
 
-It does things its way but it can _definitely_ store things. So what happens if
+It does things its way, but it can _definitely_ store things. So what happens if
 we use Kafka to keep track of things?
 
 Kafka Streams _is_ the answer to this question.
@@ -416,7 +417,7 @@ This application correctly and automatically resumes on restarts. It can scale
 horizontally by adding more instances of the same app (you'll find an "appId" in
 the code samples, more on this later).
 
-With the exception of `toStream` (more on this in the next paragraph), the API
+Except `toStream` (more on this in the next paragraph), the API
 still looks familiar and still has that plain-English feel to it.
 
 Kafka Streams is a remarkable library: you can focus on designing your
@@ -455,7 +456,7 @@ For the sake of this discussion, say we need to enhance our "Trendy hashtags"
 list with a description of each hashtag. Something like this:
 
 | Hashtag   | Description                  | Tweet count |
-| --------- | ---------------------------- | ----------- |
+|-----------|------------------------------|-------------|
 | Kafka     | The best database out there! | 2           |
 | Book      | Reading improves your life   | 2           |
 | Severance | Sci-fi at its best           | 1           |

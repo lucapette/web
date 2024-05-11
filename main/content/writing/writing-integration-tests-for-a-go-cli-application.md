@@ -1,5 +1,4 @@
 ---
-favourite: true
 tags:
   - golang
   - testing
@@ -17,7 +16,7 @@ wrote to generate test data on the command line.
 
 A few weeks after I released, a user reported an issue that had been introduced
 just a few hours before. The regression was obvious but, at the time, fakedata
-had no test covering the feature end-to-end so we didn't catch it.
+had no test covering the feature end-to-end, so we didn't catch it.
 
 This bug report got me thinking about how I could end-to-end test Go CLI
 applications. After working on it for a bit, I found a simple and effective way
@@ -230,7 +229,7 @@ I'm comfortable with.
 
 Now, as promised, a short note about coverage. Go
 [1.20](https://tip.golang.org/doc/go1.20#cover) added a `-cover` flag to its
-build command. You can now instruments binaries to emit coverage profile
+build command. You can now instrument binaries to emit coverage profile
 information. Before this release, the technique I use in this article wouldn't
 provide any coverage information.
 
