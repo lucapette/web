@@ -50,7 +50,7 @@ ORDER BY 1
 The result may look like this:
 
 | country | period  | acquisitions |
-| ------- | ------- | ------------ |
+|---------|---------|--------------|
 | DE      | 2016-06 | 195          |
 | DE      | 2016-07 | 181          |
 | DE      | 2016-08 | 173          |
@@ -85,7 +85,7 @@ negative) I should be aware of. Now, let's try to visualize this small (and
 purposely trivial) data set with graphs. Let's start with aggregating the
 acquisitions by country:
 
-![grouped by country](img/grouped-by-country.png)
+![grouped by country](/img/grouped-by-country.png)
 
 The insight is obvious: Germany is the country where we acquired more customers,
 Netherlands is doing good and Italy is not quite there yet. An interesting side
@@ -105,7 +105,7 @@ business:
 
 For this small data set I can use a multi line chart:
 
-![by time](img/by-time.png)
+![by time](/img/by-time.png)
 
 In this case, the insight is more subtle: Germany (the country in which we
 acquired more customers) is the only country with a negative trend over the
