@@ -5,24 +5,18 @@
       <p class="subtitle">{{ .Description }}</p>
     {{ end }}
     <div class="columns">
-      <div class="column is-two-thirds">
-        <div class="content">
+      <div class="column">
           {{ if .Content }}
             <p>{{ .Content }}</p>
           {{ end }}
-          <ul>
+          <ul class="posts">
             {{ range .Pages }}
               <li>
                 <span
-                  ><a href="{{ .Permalink }}">{{ .Title }}</a>
-                  <span class="is-italic is-size-6"
-                    >{{ .Date | time.Format ":date_long" }}</span
-                  ></span
-                >
+                  ><a href="{{ .Permalink }}">{{ .Title }}<span></span></a>
               </li>
             {{ end }}
           </ul>
-        </div>
       </div>
     </div>
   </section>

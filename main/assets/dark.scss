@@ -66,15 +66,12 @@ html.dark {
   }
 
   body,
-  .navbar-menu,
-  .navbar-brand {
+  .navbar-menu {
     background-color: v.$black-bis;
     color: v.$white;
   }
 
-  a,
-  .has-text-black,
-  .navbar-burger {
+  a, .has-text-black {
     color: v.$white-ter;
   }
 

@@ -27,10 +27,6 @@
   display: flex;
   justify-content: space-between;
 
-  .navbar-brand {
-    flex-shrink: 0;
-  }
-
   .navbar-menu {
     display: flex;
     flex-grow: 1;
@@ -110,17 +106,6 @@
     flex-basis: 0;
     flex-shrink: 1;
     padding: .75rem .75rem .75rem 0;
-
-
-    &.is-three-quarters {
-      flex: none;
-      width: 75%;
-    }
-
-    &.is-half {
-      flex: none;
-      width: 50%;
-    }
   }
 }
 
