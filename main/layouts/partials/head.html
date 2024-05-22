@@ -7,8 +7,6 @@
     <title>{{ title .Title }} - Luca Pette</title>
   {{ end }}
 
-  {{ partial "fonts" . }}
-
   {{ $highlight := resources.Get "highlight.css" }}
   {{ $css := resources.Get "main.scss" | resources.ToCSS (dict "transpiler" "dartsass") }}
   {{ $js := resources.Get "main.js" | js.Build (dict "minify" hugo.IsProduction) }}
