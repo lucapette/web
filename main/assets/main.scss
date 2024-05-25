@@ -82,7 +82,7 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
 
     h1 {
       font-size: 3rem;
-      @include m.fancyTitle(v.$black, v.$turquoise);
+      @include m.fancyTitle();
     }
   }
 

@@ -158,7 +158,7 @@ p code {
 
 .accent,
 .dropcap {
-  @include m.fancyTitle(v.$black, v.$turquoise);
+  @include m.fancyTitle();
 }
 
 .dropcap {
