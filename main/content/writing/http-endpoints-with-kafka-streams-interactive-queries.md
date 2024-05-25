@@ -28,14 +28,14 @@ The Kafka Streams API also provides a mechanics to query the state of remote
 application instances.
 
 The feature enables us to build HTTP endpoints with interesting properties.
-Since any architecture has its trade-offs, we'll discuss them once we've build a
+Since any architecture has its trade-offs, we'll discuss them once we've built a
 simple interactive query endpoint. It's easier to go over pros and cons of this
 approach with a concrete example in mind.
 
 So what are we building here?
 
 For the sake of the discussion, we'll imagine a _purposely_ trivial application:
-we collects words from a Kafka topic and then expose a `/search` endpoint that
+we collect words from a Kafka topic and then expose a `/search` endpoint that
 takes a word and returns its count.
 
 This requirement gives us enough to discuss the underlining architecture of this
@@ -76,7 +76,7 @@ Even though it's a simple topology, there are a few things to note:
 - The log statement on line 10 is helpful especially in the early phases of
   developing a new Kafka Streams application.
 - The highlighted line is where we're telling Kafka "hey I'm going to ask you
-  about this store later by calling it `words_count`. We cannot write the search
+  about this store later by calling it `words_count`". We cannot write the search
   method without it.
 
 Speaking of the search method, here's the code:
@@ -204,7 +204,7 @@ It works... right?
 Well... not quite 😒
 
 For this test, I run one application instance therefore the local store
-contained _all_ of the state.
+contained _all_ the state.
 
 Let's see what happens if we add one more instance.
 
@@ -215,7 +215,7 @@ determines the name of the state directory:
 SERVER_PORT=8081 INSTANCE_ID=1 java -jar build/libs/interactive-queries-0.0.1-SNAPSHOT.jar
 ```
 
-After a quick rebalancing process, both apps are in running state and we can
+After a quick rebalancing process, both apps are in running state, and we can
 test the endpoint again:
 
 ```sh
@@ -475,8 +475,8 @@ props.put(StreamsConfig.consumerPrefix(
   especially so in an interactive queries endpoint.
 
 I'm using the [demo app](https://github.com/lucapette/interactive-queries) we
-built for this article as a Kotlin playground so I will probably work on some of
-this points myself. If you're interested, check the issues as I generally use
+built for this article as a Kotlin playground, so I will probably work on some of
+these points myself. If you're interested, check the issues as I generally use
 them as a TODO list and maybe give it a star :)
 
 {{< typestream >}}
