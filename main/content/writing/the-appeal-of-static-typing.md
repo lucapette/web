@@ -56,12 +56,12 @@ The euphoria kept me going for a few years: meta-programming was cool, RSpec was
 cool, Sequel was cool. The Ruby community was fantastic: it was inclusive and
 engaging.
 
-While I loved the language and its ecosystem, I was always uncomfortable to put
+While I loved the language and its ecosystem, I was always uncomfortable shipping
 Ruby applications to production. I often trivialised the experience saying "No
 matter how many tests we write, we still ship typos to production".
 
 Around 2013, I started looking around for something more solid, possibly
-faster. I found Go. The language wasn't pretty but I loved how robust programs
+faster. I found Go. The language wasn't pretty, but I loved how robust programs
 felt as soon as they compiled. Even though it was early days for the Go
 community, the tooling around the language was already advanced compared to Ruby
 (with the obvious exception of dependency management).
@@ -101,7 +101,7 @@ Here's what stands out to me:
   programming, I developed opinions about programming languages 🙃
 
 With this circular journey in mind, let's dive into what makes me say "Yep, I'm
-not going to do dynamically typed languages anymore".
+not going to do dynamically typed languages any more".
 
 ## Focus on "actual" tests
 
@@ -176,15 +176,16 @@ with a statically typed language is.
 I remember spending countless hours getting Ruby autocompletion working. It was
 never good enough.
 
-The experience with Java or Kotlin is flawless but the best example of this
-difference is JavaScript vs. TypeScript. TypeScript autocompletion is so much
+The experience with Java or Kotlin is flawless, but the best example of this
+difference is JavaScript vs. TypeScript.
+TypeScript's autocompletion is so much
 better that I think it's enough of a good reason for adoption over JavaScript.
 
 The editing experience is also better for learning purposes. IntelliJ suggests
 more idiomatic code all the time. It provides warnings and suggests improvements
 based on best practice.
 
-It is a little thing but it has a significant impact on the way I can learn a
+It is a little thing, but it has a significant impact on the way I can learn a
 language. Let me provide an example:
 
 ```java
@@ -200,15 +201,14 @@ println(favouriteThings.joinToString(" & ") { it.lowercase() })
 ```
 
 That's how I learned that `joinToString` takes an optional `transform =  ((Byte)
--> CharSequence)` last parameter (Kotlin has a nice syntactic sugar for the so
-called trailing lambdas).
+-> CharSequence)` last parameter (Kotlin has a nice syntactic sugar for the so-called trailing lambdas).
 
-The key is that this happens multiple times a day so I end up learning a lot
+The key is that this happens multiple times a day, so I end up learning a lot
 just by using IntelliJ.
 
 ## Shipping code to production
 
-I wish I could attribute the quote I'm about to share but I really don't
+I wish I could attribute the quote I'm about to share, but I really don't
 remember where I read it:
 
 > Sometimes we forget the most important aspect of writing a program: it has to
@@ -216,23 +216,23 @@ remember where I read it:
 
 It's beautiful in its simplicity.
 
-How do I know if my code works? Well, of course I have to ship it to production.
+How do I know if my code works? Well, I have to ship it to production.
 
 Shipping code is where my experience with dynamically typed languages and
 statically typed has been the most different. The TL;DR is: dynamically typed
-languages make me doubtful about what I'm shipping while statically typed ones
+languages make me doubtful about what I'm shipping, while statically typed ones
 make me confident.
 
-There are a few reasons that contribute to this so let's dive into them.
+There are a few reasons that contribute to this, so let's dive into them.
 
 ### Types are docs
 
-This comes up a lot and I can't stress this enough – it's true.
+This comes up a lot, and I can't stress this enough – it's true.
 
 Types act as documentation because of how descriptive and verbose they are. Let
-me spell out the obvious: they're together with the rest of code.
+me spell out the obvious: they're together with the rest of the code.
 
-Too obvious, right? Well that's the point. The co-location makes types the best
+Too obvious, right? Well, that's the point. The co-location makes types the best
 possible kind of documentation:
 
 - They're _never_ out of date.
@@ -277,7 +277,7 @@ code to production.
 
 ### If it compiles, it probably works
 
-This also comes up a lot and I remember being very sceptical of hearing this when I
+This also comes up a lot, and I remember being very sceptical of hearing this when I
 was working only with dynamically typed languages. I was... wrong.
 
 This, too, is true. The _probably_ part is important because it's not a 100% hit of
@@ -321,7 +321,7 @@ is. Well, how long the todo list is :)
 
 While I tried my best to explain some basic benefits of statically typed
 languages, I'm somewhat sure that this article won't convince a single soul. It
-was a non-goal for me but it's still interesting to go over why I think my
+was a non-goal for me, but it's still interesting to go over why I think my
 experience won't convince anyone despite the fact that it did convince me.
 
 Back when I worked only with dynamic languages, I came across these talking
