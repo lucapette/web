@@ -112,9 +112,9 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
 
 }
 
-@include include-media.media("<tablet") {
+@include include-media.media("<=tablet") {
   :root {
-    --wrap-width: 350px;
+    --wrap-width: 95%;
   }
 
   .hero {

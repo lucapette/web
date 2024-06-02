@@ -129,14 +129,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1em;
 
     .left,
     .right {
-      display: inline;
+      display: flex;
     }
 
     .right {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 }
