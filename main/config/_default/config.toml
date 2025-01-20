@@ -2,7 +2,8 @@ baseURL = "https://lucapette.me"
 title = "Home"
 summaryLength = 30
 enableGitInfo = true
-paginate = 10
+[pagination]
+  pagerSize = 10
 [params]
   author = 'Luca Pette'
   description = "Luca Pette's website"
@@ -24,6 +25,9 @@ paginate = 10
 [markup]
   [markup.highlight]
     noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+        unsafe = true
 [menu]
   [[menu.main]]
     indentifier = "home"

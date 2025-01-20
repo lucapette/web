@@ -1,5 +1,6 @@
 @use "mixins" as m;
 @use "variables" as v;
+@use "sass:color";
 
 html.dark {
   background-color: v.$black-bis;
@@ -142,7 +143,7 @@ html.dark {
   .is-info {
     .message-body {
       border-color: v.$blue;
-      background-color: lighten(v.$blue, 30%);
+      background-color: color.adjust(v.$blue, $lightness: 30%);
       color: v.$black;
     }
   }

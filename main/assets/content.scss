@@ -1,5 +1,6 @@
 @use "mixins" as m;
 @use "variables" as v;
+@use "sass:color";
 
 .has-text-centered {
   text-align: center;
@@ -143,7 +144,7 @@ p code {
 .is-info {
   .message-body {
     border-color: v.$turquoise;
-    background-color: lighten(v.$turquoise, 30%);
+    background-color: color.adjust(v.$turquoise, $lightness: 30%);
     color: v.$black;
   }
 }
@@ -151,7 +152,7 @@ p code {
 .is-warning {
   .message-body {
     border-color: v.$yellow;
-    background-color: lighten(v.$yellow, 20%);
+    background-color: color.adjust(v.$yellow, $lightness: 20%);
     color: v.$black;
   }
 }
