@@ -5,7 +5,6 @@ date: 2025-02-01T23:21:38+01:00
 tags:
   - books
 keywords: lucapette, books
-draft: true
 images:
   - cover.jpg
 ---
