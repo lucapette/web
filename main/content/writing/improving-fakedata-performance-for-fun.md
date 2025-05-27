@@ -413,7 +413,7 @@ ORDER BY
   tick
 ```
 
-It a relatively simple query if you're familiar with the [lag
+It's a relatively simple query if you're familiar with the [lag
 function](https://www.sqlite.org/windowfunctions.html).
 
 I had never worked with datasette and its ecosystem before looking into fakedata
