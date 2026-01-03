@@ -23,7 +23,7 @@ The truth is I'm deciding _right now_ as I type these words on my laptop.
 
 2024 was a horrible year for the world. Among the darkest chapters of our short,
 dumb, violent  history on this planet. Watching a live-streamed genocide has
-changed many people for ever but I have no intention to centre anyone but
+changed many people forever but I have no intention to centre anyone but
 Palestinians. As horrible as it was watching it, I can't even begin to imagine
 what living it and surviving it means or feels. I can't imagine the pain
 Palestinians have gone through in 2024 or any other year before that since the
@@ -106,7 +106,7 @@ beautiful pages. I think I'll read more from Tana French at some point.
 {{< book id="163481412" title="Scattered All Over the Earth" name="scattered-all-over-the-earth.jpg" width="200" >}}
 
 A strange read. I mean it in a good way. It's well written with a number of
-characters. Each chapter a different character speaks. It's all in first person.
+characters. Each chapter a different character speaks. It's all in the first person.
 Intriguing cli-fi story.
 
 {{</ book >}}
@@ -115,7 +115,7 @@ Intriguing cli-fi story.
 
 {{< book id="58032440" title="Freedom Is A Constant Struggle" name="freedom-is-a-constant-struggle.jpg" width="200" >}}
 
-A must read collection of essays, interviews, and talks by Angela Y. Davis. It
+A must-read collection of essays, interviews, and talks by Angela Y. Davis. It
 thought me something new about politics: we have to be willing to complicate
 things that look simple on the surface to get to their unfair, racist, core
 meaning.
