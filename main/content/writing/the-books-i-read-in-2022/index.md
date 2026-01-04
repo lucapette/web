@@ -723,7 +723,7 @@ _wonderful_ sqlite-utils:
 
 ```sh
 sqlite-utils insert books.db images images.csv --csv
-sqlite-utils insert books.db books goodreads_library_export.csv --csv
+sqlite-utils insert books.db books export.csv --csv
 ```
 
 Wonderful tool (yes I know I just said that. But it's that good you know?).
@@ -732,8 +732,10 @@ I had a quick look at the data with datasette to make sure I had the data right.
 You can [see it in action](https://hachyderm.io/@lucapette/109489674426663946).
 
 Then I exported the subset of data I needed to stub this blog post and wrote a
-quick Ruby script to create the markdown file and download the cover images.
-Finally, I used imagemagick to create an image with all the covers:
+quick [Ruby
+script](https://gist.github.com/lucapette/10a43ef23d52a0e57f8583acd14c320c) to
+create the markdown file and download the cover images. Finally, I used
+imagemagick to create an image with all the covers:
 
 ```sh
 montage *.jpg -tile 8x -geometry '300x+1-1' cover.jpg
