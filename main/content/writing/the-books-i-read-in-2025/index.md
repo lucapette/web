@@ -18,7 +18,7 @@ doesn't make sense to get into it here. Writing about moving countries needs
 thousands of words and I assume you're here for the books. One relevant
 observation though: you can definitely tell I moved at some point as the books I
 read changed topic (and language) which is quite unusual for me. Nowadays, I'm
-struggling to find my usual reading page in my new routine but I'm sure I'll
+struggling to find my usual reading pace in my new routine but I'm sure I'll
 figure it out.
 
 So let's move on to the books now.
@@ -308,7 +308,8 @@ always great.
 
 Painfully necessary read. It's very short but will punch you in the gut many
 many times. War from the perspective of a person that only thought of helping
-those in needs. More of a christian Gino Strada that entire christian
-countries.
+those in needs.
+
+Gino Strada is more of a christian that entire christian countries.
 
 {{</ book >}}
