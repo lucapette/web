@@ -4,13 +4,13 @@
     <div class="navbar-menu">
       <div class="navbar-start">
         {{ range .Site.Menus.main }}
-        {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
-        {{ $active = or $active (eq .Name $current.Title) }}
-        <a
-          class="navbar-item {{ if  $active }}is-active{{ end }}"
-          href="{{ .URL }}"
-        >{{ .Name }}</a
-        >
+          {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+          {{ $active = or $active (eq .Name $current.Title) }}
+          <a
+            class="navbar-item {{ if  $active }}is-active{{ end }}"
+            href="{{ .URL }}"
+            >{{ .Name }}</a
+          >
         {{ end }}
       </div>
       <div class="navbar-end">

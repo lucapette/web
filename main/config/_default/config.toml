@@ -30,7 +30,7 @@ enableGitInfo = true
         unsafe = true
 [menu]
   [[menu.main]]
-    indentifier = "home"
+    identifier = "home"
     name = "Home"
     url = "/"
     weight = 10

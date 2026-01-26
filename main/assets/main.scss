@@ -10,13 +10,15 @@
 @use "content";
 @use "dark";
 
+@use "reading";
+
 .year {
   margin-bottom: 1rem;
 }
 
 ul.posts {
   li {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     border-bottom: 1px solid v.$white-ter;
 
     &:last-child {
@@ -26,8 +28,8 @@ ul.posts {
     a {
       text-decoration: none;
       display: flex;
-      gap: .5rem;
-      padding: .4rem 0;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
       align-items: center;
       justify-content: space-between;
       white-space: nowrap;
@@ -37,7 +39,7 @@ ul.posts {
       .date {
         color: v.$black;
         font-family: v.$font-family-monospace;
-        font-size: .9rem;
+        font-size: 0.9rem;
         font-weight: 500;
         margin-left: auto;
         white-space: nowrap;
@@ -63,11 +65,13 @@ ul.posts {
   border-radius: v.$radius;
 }
 
-.highlight, pre {
+.highlight,
+pre {
   position: relative;
 }
 
-div.highlight:hover .copy-code, pre:hover .copy-code {
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
   display: block;
 }
 
@@ -109,7 +113,6 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
       order: 2;
     }
   }
-
 }
 
 @include include-media.media("<=tablet") {
@@ -145,7 +148,6 @@ div.highlight:hover .copy-code, pre:hover .copy-code {
         }
       }
     }
-
   }
 }
 

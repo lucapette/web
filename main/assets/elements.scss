@@ -57,10 +57,11 @@ table {
   th {
     text-align: left;
   }
-    th, td {
+  th,
+  td {
     border: 1px solid v.$white-ter;
     padding: 0.5rem;
-    }
+  }
 }
 
 pre code {

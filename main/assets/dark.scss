@@ -72,7 +72,8 @@ html.dark {
     color: v.$white;
   }
 
-  a, .has-text-black {
+  a,
+  .has-text-black {
     color: v.$white-ter;
   }
 
@@ -97,14 +98,12 @@ html.dark {
           color: v.$link-color;
         }
       }
-
     }
   }
 
   strong {
     color: v.$white;
   }
-
 
   em {
     color: v.$orange;
@@ -134,10 +133,10 @@ html.dark {
   }
 
   .message-body {
-    em, a {
+    em,
+    a {
       color: v.$black;
     }
-
   }
 
   .is-info {
@@ -146,5 +145,9 @@ html.dark {
       background-color: color.adjust(v.$blue, $lightness: 30%);
       color: v.$black;
     }
+  }
+
+  .book-card-author {
+    color: v.$white;
   }
 }

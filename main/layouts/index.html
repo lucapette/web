@@ -12,11 +12,10 @@
       <section>
         <div class="hero">
           <div class="description">
-            <h1>
-              Hi, I'm Luca :)
-            </h1>
+            <h1>Hi, I'm Luca :)</h1>
             <p>
-              I'm an independent software developer. I use this website to share my <a href="/writing">writing</a>.
+              I'm an independent software developer. I use this website to share
+              my <a href="/writing">writing</a>.
             </p>
           </div>
           <div class="decoration">
@@ -27,9 +26,9 @@
               <img
                 src="{{ $small.RelPermalink }}"
                 srcset="
-                {{ $small.RelPermalink }} 128w,
-                {{ $medium.RelPermalink }} 256w
-              "
+                  {{ $small.RelPermalink }} 128w,
+                  {{ $medium.RelPermalink }} 256w
+                "
                 sizes="(max-width: 600px) 128px, 800px"
                 alt="Luca Pette"
                 width="128"
@@ -42,26 +41,36 @@
       <section>
         <div class="columns">
           <div class="column">
-              <h2 class="year">Latest writing</h2>
-              <ul class="posts">
-                {{ range first 5 (where site.RegularPages "Type" "in" "writing") }}
+            <h2 class="year">Latest writing</h2>
+            <ul class="posts">
+              {{ range first 5 (where site.RegularPages "Type" "in" "writing") }}
                 <li class="post">
-                  <a href="{{ .Permalink }}"><span>{{ .Title }}</span> <span class="date">{{ .Date | time.Format "Jan 2006" }}</span></a>
+                  <a href="{{ .Permalink }}"
+                    ><span>{{ .Title }}</span>
+                    <span class="date"
+                      >{{ .Date | time.Format "Jan 2006" }}</span
+                    ></a
+                  >
                 </li>
-                {{ end }}
-              </ul>
+              {{ end }}
+            </ul>
           </div>
         </div>
         <div class="columns">
           <div class="column">
-              <h2 class="year">Highlights</h2>
-              <ul class="posts">
-                {{ range (where .Site.Pages.ByLastmod.Reverse "Params.favourite" true ) }}
+            <h2 class="year">Highlights</h2>
+            <ul class="posts">
+              {{ range (where .Site.Pages.ByLastmod.Reverse "Params.favourite" true ) }}
                 <li class="post">
-                  <a href="{{ .Permalink }}"><span>{{ .Title }}</span> <span class="date">{{ .Date | time.Format "Jan 2006" }}</span></a>
+                  <a href="{{ .Permalink }}"
+                    ><span>{{ .Title }}</span>
+                    <span class="date"
+                      >{{ .Date | time.Format "Jan 2006" }}</span
+                    ></a
+                  >
                 </li>
-                {{ end }}
-              </ul>
+              {{ end }}
+            </ul>
           </div>
         </div>
       </section>
