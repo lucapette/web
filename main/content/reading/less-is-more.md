@@ -22,9 +22,14 @@ author: Jason Hickel
 > depend: these living systems are not 'out there', disconnected from humanity.
 > On the contrary: our fates are intertwined. They are, in a real sense, us.
 
+Since I read this book (and Gosh work as well), I've been thinking about this a
+lot and more than answers I have questions. One in particular: how can close
+this gap? We're so obviously *not* disconnected from the rest of the living
+creatures of this planet!
+
 ## p. 35
 
-> The point here is that the Industrial Revolution – and Europe’s industrial
+> The point here is that the Industrial Revolution – and Europe's industrial
 > growth – did not emerge ex nihilo. It hinged on commodities that were produced
 > by slaves, on lands stolen from colonised peoples, and processed in factories
 > staffed by European peasants who had been forcibly dispossessed by enclosure.
@@ -39,6 +44,8 @@ author: Jason Hickel
 > the same way. It might be tempting to downplay these moments of violence as
 > mere aberrations in the history of capitalism. But they are not. They are the
 > foundations of it. Growth has always relied on processes of colonisation.
+
+Concisely written, I often share this one with people.
 
 ## p. 90
 
@@ -57,6 +64,9 @@ author: Jason Hickel
 > the nation do not know or understand our banking and monetary system, for if
 > they did I believe there would be a revolution before tomorrow morning.'
 
+The obvious conclusion here is that no financial product that people can
+speculate on (or, how I like to say, "make money with money") should be legal.
+
 ## p. 159
 
 > What's so fascinating about this is that it shows widespread and intuitive
@@ -67,8 +77,13 @@ author: Jason Hickel
 > 1) Never extract more than ecosystems can regenerate.
 > 2) Never waste or pollute more than ecosystems can safely absorb.
 >
-> To get to a
-> steady-state economy, we need to have clear caps on resource use and waste.
-> For decades, economists have told us that such caps are impossible, because
-> people will see them as irrational. It turns out they're wrong. If given the
-> chance, this is exactly the kind of policy that people want.
+> To get to a steady-state economy, we need to have clear caps on resource use
+> and waste. For decades, economists have told us that such caps are impossible,
+> because people will see them as irrational. It turns out they're wrong. If
+> given the chance, this is exactly the kind of policy that people want.
+
+What I find incredible here is the simplicity of the proposal. I can imagine
+most people would go "this is impossible" and I think that's the biggest
+challenge. The ruling class has colonised people's imagination to the point that
+they can't imagine a world without capitalism. It's easier to imagine a world
+without humans than one without capitalism.
