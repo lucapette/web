@@ -2,18 +2,6 @@
 <html lang="en">
   {{ partial "head" . }}
 
-
-  <script>
-    window.plausible =
-      window.plausible ||
-      function () {
-        (window.plausible.q = window.plausible.q || []).push(arguments);
-      };
-  </script>
-  <script>
-    plausible("404", { props: { path: document.location.pathname } });
-  </script>
-
   <body>
     <div class="wrap">
       {{ partial "header" . }}
