@@ -9,29 +9,27 @@ keywords: standup, leading developers
 title: My experience with standups
 ---
 
-I have been running standups for many years and I've never liked them. I often
-state that they are a symptom of suboptimal communication within a team and that
-the best teams I worked with did not need a standup. After having an enjoyable
-[conversation](https://twitter.com/herval/status/843847319074168837) on twitter,
-I thought of expanding those statements. I'm never at ease with statements like
-those. They're bold but generally lack substance. Twitter's character limitation
-doesn't help either. I want to share what my experience with standups is and
-what I think about them from different perspectives. I have been leading
-developers for a long time, so most of my experience with them is about running
-standups. I attended a daily standup for a few months and I'm grateful for the
-experience. It made me realise how different the perspective can be depending on
-your role.
+I have never liked standups despite running them for years. They are a symptom
+of suboptimal communication within a team: the best teams I worked with did not
+need one.
 
-Before I dive into the topic, let me spend a few minutes on the mediator role
-and its relationship with meetings. I believe every meeting needs a mediator. I
-correlate the presence of this role and the quality of a meeting: good mediation
-facilitates good conversation and good conversations are good meetings. Things
-run smoother when someone keeps everyone focused on a common goal. I've been in
-many meetings without a mediator and it has always been a frustrating
-experience. No one knows what's the point of the conversation, who's doing what
-and what participants are supposed to get out of it. It makes me think that "I
-hate meetings" means "I hate badly run meetings". Standups are meetings so I
-think a standup needs a mediator, someone who runs it.
+After an enjoyable
+[conversation](https://twitter.com/herval/status/843847319074168837) on twitter,
+I thought of expanding those statements. I'm never at ease with such clear cut
+statements. They're bold but often lack substance. Twitter's character
+limitation doesn't help either so I'm here to share what my experience with
+standups has been especially considering that different roles (within a team
+that is) may have very different perspectives on the subject.
+
+Before I dive into it, let me spend a few minutes on the mediator role and its
+relationship with meetings. Every well-run meeting has a mediator, that's just
+common sense. Good mediation facilitates good conversation and good
+conversations are good meetings. We all have been in way too many meetings
+without a mediator, we all know it's not a good experience: no one knows what's
+the point of the conversation, who's doing what and what participants are
+supposed to get out of it. I think that the fashionable "I hate meetings" means
+"I hate badly run meetings". My point is: standups are meetings so someone must
+run it.
 
 As you can imagine, I disliked attending a standup without a mediator. People
 felt forced into a conversation every morning and it set the mood to be grumpy.
